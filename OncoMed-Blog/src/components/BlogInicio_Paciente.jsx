@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Header'
-import './BlogInicioPaciente.css'
+import './BlogInicio_Paciente.css'
 
 function BlogInicio() {
   return (
@@ -12,18 +12,20 @@ function BlogInicio() {
         {/* Titulo */}
         <div className="titulo">
           <h1>MANTENHA-SE INFORMADO</h1>
-          <div className="line"></div>
+          <div></div>
         </div>
         {/* Titulo */}
 
         {/* Artigos do blog */}
         <div className="artigos">
+
           <div className="medicina-alternativa-artigo">
             <img src="Doctor.svg" alt="Doutor" />
 
-            <button>Medicina alternativa ou medicina convencional? Junção dos dois.</button>
-            <p>por Doutor Mauricio Campos</p>
-
+            <div className="alinhamento-texto">
+              <button>Medicina alternativa ou medicina convencional? Junção dos dois.</button>
+              <p>por Doutor Mauricio Campos</p>
+            </div>
           </div>
 
           <div className="alimentacao-artigo">

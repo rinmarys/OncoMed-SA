@@ -13,11 +13,9 @@
     display: flex;
     justify-content: center;
 
-    position: absolute;
-
     width: 100vw;
 
-    margin-top: 1%;
+    margin-top: 2%;
     margin-bottom: 1%;
 }
 
