@@ -10,5 +10,61 @@
 
 .footer-container{
     background-color: var(--cor_cinco);
+    border: 1px solid var(--cor_cinco);
+    margin-top: 8%;
+    height: fit-content;
+    width: 99.9%;
 
+    display: flex;
+}
+
+/* ESTILOS */
+.estilo-titulos{
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor_tres);
+}
+
+.line{
+    width: 55px;
+    height: 8px;
+    background-color: var(--cor_dois);
+    border-radius: 5px;
+    margin-top: -15px;
+}
+
+.estilo-texto-branco{
+    color: var(--cor_tres);
+    font-family: 'Poppins', sans-serif;
+    font-size: 130%;
+}
+
+.estilo-texto-link{
+    color: var(--cor_tres);
+    font-family: 'Poppins', sans-serif;
+    font-size: 130%;
+}
+
+.estilo-texto-link :hover{
+    color: #BED2E2;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+/* ESTILOS */
+
+/* Container um (Contatos) */
+.container-um-alinhamento{
+    border: 1px solid yellow;
+    width: fit-content;
+}
+
+/* Container Dois (Menú) */
+.container-dois-alinhamento{
+    border: 1px solid green;
+    width: fit-content;
+}
+
+.container-tres-alinhamento{
+    border: 1px solid red;
+    width: fit-content;
 }

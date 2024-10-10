@@ -9,11 +9,11 @@
 }
 
 .alinhamento_navbar {
-
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    width: 100vw;
+    width: 99vw;
 
     margin-top: 2%;
     margin-bottom: 1%;
