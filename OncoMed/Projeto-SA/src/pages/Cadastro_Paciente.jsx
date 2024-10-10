@@ -72,9 +72,9 @@ function Cadastro_Paciente() {
 
         <div className="coluna_de_inputs_dois_paciente">
 
-          <div className="input_sobrenome_paciente">
-            <label>Sobrenome</label>
-            <input type="text" placeholder='Sobrenome aqui' value={valor_inpt_sobrenome} onChange={(e) => set_valor_inpt_sobrenome(e.target.value)}/>
+          <div className="input_cep_paciente">
+            <label>CEP</label>
+            <input type="text" placeholder='CEP aqui' value={valor_inpt_sobrenome} onChange={(e) => set_valor_inpt_sobrenome(e.target.value)}/>
           </div>
 
           <div className="input_email_paciente">

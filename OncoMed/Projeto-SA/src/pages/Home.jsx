@@ -1,15 +1,22 @@
 import Header from '../components/Header.jsx'
 import './Home.css'
-
+import Popup from '../components/Pop_up.jsx'
+import { useState } from 'react'
 function Home() {
+
+  const [pop_aberto, set_pop_aberto] = useState(false);
+
   return (
 
-  
+    
+
     <div>
 
     {/* NavBar */}
 
       <Header/>
+      
+          {pop_aberto && <Popup/>}
       
       <div className='carrossel_container'>
 
@@ -28,14 +35,16 @@ function Home() {
 
           <div className="carrossel_container_alinhamento_botoes">
 
-          <button className="carrossel_conteudo_cadastrar" onClick={() => window.location.href=`/cadastropaciente`}>CADASTRE-SE</button>
+          <button className="carrossel_conteudo_cadastrar" onClick={() => set_pop_aberto(true)}>CADASTRE-SE</button>
           <button className="carrossel_conteudo_entrar" onClick={() => window.location.href=`/login`}>ENTRAR</button>
 
           </div>
 
           </div>
 
+
         </div>    
+
 
         <div className="carrossel_container_imagem">
 
@@ -43,6 +52,7 @@ function Home() {
 
         </div>
 
+      
       </div>
 
       <div className="container_cta_comunidade">
