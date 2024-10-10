@@ -1,0 +1,14 @@
+:root {
+
+    --cor_um: #437118;
+    --cor_dois: #AFD06E;
+    --cor_tres: #F5F5F5;
+    --cor_quatro: #87AECE;
+    --cor_cinco: #1D2A62;
+    --cor_seis: #F1F1F1;
+}
+
+.footer-container{
+    background-color: var(--cor_cinco);
+
+}
