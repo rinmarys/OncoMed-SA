@@ -1,0 +1,538 @@
+:root{
+
+    --cor_um: #437118 ;
+    --cor_dois: #AFD06E ;
+    --cor_tres: #F5F5F5;
+    --cor_quatro: #87AECE;
+    --cor_cinco: #1D2A62;
+}
+
+body{
+
+    margin: 0px;
+}
+
+.dv_cadastro{
+    
+    display: flex;
+}
+
+/* Fundo Branco */
+
+.container_informacoes{
+
+    background-color: var(--cor_tres);
+    width: 60%;
+}
+
+/* Fundo imagem */
+
+.container_img{
+    
+    width: 40%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cor_quatro);
+}
+
+.container_img img{
+
+    width: 550px;
+    height: 550px;
+}
+
+.titulo{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Logo SA   */
+
+.titulo img{
+
+    width: 60px;
+    height: 60px;
+
+    margin-top: 4%;
+}
+
+/* Linha verde */
+
+.faixa_verde{
+    
+    position: absolute;
+    width: 4.2%;
+    height: 1%;
+    left: 47.2%;
+    top: 10%;
+    margin-top: 1%;
+    
+    background-color: #AFD06E;
+    border-radius: 50px;
+}
+
+/* CADASTRO - MÉDICO */
+
+.titulo h2{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+
+    margin-right: 12%;
+    margin-top: 5%;
+    
+    color: var(--cor_cinco);
+}
+
+.posicao_inputs{
+
+    display: flex;
+    margin-left: 12%;
+    margin-top: 5%;
+}
+
+.coluna_de_inputs_dois{
+
+    margin-left: 5%;
+}
+
+/* Nome Completo Input */
+
+.input_nome_completo {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_nome_completo input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding-left: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Nome Completo Label */
+
+.input_nome_completo label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* CPF Input*/
+
+.input_cpf {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_cpf input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* CPF Label */
+.input_cpf label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Gênero Input*/
+
+.input_genero {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_genero input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Gênero Label*/
+
+.input_genero label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Senha Input*/
+
+.input_senha {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_senha input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Senha Label */
+
+.input_senha label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* CRM Input*/
+
+.input_crm {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_crm input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Sobrenome Label */
+
+.input_crm label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Email Input*/
+
+.input_email {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_email input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_dois);
+}
+
+/* Email Label */
+
+.input_email label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Data de Nascimento Input*/
+
+.input_data_de_nascimento {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_data_de_nascimento input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Data de Nascimento Label */
+
+.input_data_de_nascimento label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Confirmar Senha Input*/
+
+.input_confirmar_senha {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_confirmar_senha input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Confirmar Senha Label */
+
+.input_confirmar_senha label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Mudar cor do Input após o clique */
+
+input:focus{
+
+    border: 1.5px solid var(--cor_quatro);
+    outline: none;
+}
+
+/* Caminho para Termos de Uso & Política de Privacidade */
+
+.caminho_para_termos_e_politica{
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    
+    margin-left: 11.7%;
+    margin-top: 2%;
+
+    color: var(--cor_quatro);
+}
+
+.caminho_para_termos_e_politica a{
+
+    text-decoration: none;
+
+    font-weight: 700;
+    color: var(--cor_cinco);
+}
+
+.caminho_para_termos_e_politica a:hover{
+
+    text-decoration: underline;
+}
+
+/* Botão */
+
+button {
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+
+    height: 6%;
+    width: 30%;
+    margin-left: 20%;
+    margin-top: 3%;
+
+    border: 1px solid var(--cor_cinco);
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    background-color: var(--cor_tres);
+    color: var(--cor_cinco);
+}
+
+button:hover{
+
+    transition: 0.2s;
+
+    background-color: var(--cor_cinco);
+    color: var(--cor_tres);
+}
+
+/* Já possui uma conta? Log-In */
+
+.possui_conta{
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+
+    margin-left: 12%;
+    margin-top: 4%;
+
+    color: var(--cor_um);
+}
+
+.possui_conta a{
+
+    text-decoration: none;
+    font-weight: bold;
+
+    color: var(--cor_cinco);
+}
+
+.possui_conta a:hover{
+
+    text-decoration: underline;
+}
