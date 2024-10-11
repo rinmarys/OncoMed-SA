@@ -1,25 +1,23 @@
-:root {
-
-    --cor_um: #437118;
-    --cor_dois: #AFD06E;
+:root{
+    
+    --cor_um: #437118 ;
+    --cor_dois: #AFD06E ;
     --cor_tres: #F5F5F5;
     --cor_quatro: #87AECE;
     --cor_cinco: #1D2A62;
     --cor_seis: #F1F1F1;
 }
 
-.alinhamento_navbar {
+.alinhamento_navbar{
+    
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    width: 99vw;
-
-    margin-top: 2%;
+    
+    margin-top: 1%;
     margin-bottom: 1%;
 }
 
-.nav_bar {
+.nav_bar{
 
     display: flex;
     text-align: center;
@@ -35,10 +33,10 @@
     font-family: "Nunito", sans-serif;
     background-color: var(--cor_seis);
 
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    box-shadow: -6px -6px 10px rgba(255,255,255,0.45), 6px 6px 10px rgba(94,104,121,0.3);
 }
 
-.nav_bar button {
+.nav_bar_link{
 
     font-family: "Nunito", sans-serif;
     text-decoration: none;
@@ -53,7 +51,7 @@
     color: #437118;
 }
 
-.nav_bar button:hover {
+.nav_bar_link:hover{
 
     font-weight: bold;
 
@@ -61,7 +59,7 @@
 }
 
 
-.nav_bar img {
+.nav_bar img{
 
     width: 50px;
     height: 50px;
