@@ -50,8 +50,17 @@ body{
 }
 
 .container_img_medico img{
+
     width: 550px;
     height: 550px;
+}
+
+.container_img_medico img:hover{
+
+    transition: 0.5s;
+
+    width: 600px;
+    height: 600px;
 }
 
 .titulo_medico{

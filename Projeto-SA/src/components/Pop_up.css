@@ -17,6 +17,8 @@
     --tipografia_secundaria: 'Poppins', sans-serif;
 }
 
+/* Container do Pop Up */
+
 .container_pop_up{
 
     position: absolute;
@@ -24,6 +26,8 @@
     left: 20%;
 
 }
+
+/* Ajuste de posição do Pop up na tela */
 
 .alinhamento_de_conteudo_pop_up{
 
@@ -34,6 +38,8 @@
     height: 650px;
 }
 
+/* Tamanho das Imagens do Pop Up */
+
 .container_pop_up button img{
 
     width: 400px;
@@ -42,6 +48,8 @@
     cursor: pointer;
 }
 
+/* Efeito quando passar o mouse no Pop Up */
+
 .container_pop_up img:hover{
 
     width: 450px;
@@ -49,6 +57,8 @@
 
     transition: 0.5s;
 }
+
+/* Tamanho dos botões no Pop Up */
 
 .container_pop_up button{
 
@@ -59,6 +69,8 @@
 
     background-color: transparent;
 }
+
+/* Lado Esquerdo do Pop Up */
 
 .coluna_paciente{
 
@@ -74,6 +86,8 @@
     color: var(--cor_cinco);
 }
 
+/* Efeito de Quando Passar o Mouse no Pop Up Lado Esquerdo */
+
 .coluna_paciente:hover{
 
     transition: 0.6s;
@@ -82,6 +96,8 @@
 
     color: var(--cor_tres);
 }
+
+/* Titulo do Pop Up Lado Esquerdo */
 
 .coluna_paciente h4{
 
@@ -98,6 +114,8 @@
 
 }
 
+/* Frase CTA do Pop Up Lado Esquerdo */
+
 .coluna_paciente p{
 
     width: 200px;
@@ -109,6 +127,8 @@
     text-align: center;
 
 }
+
+/* Lado Direito do Pop Up */
 
 .coluna_medico{
 
@@ -123,6 +143,8 @@
     color: var(--cor_cinco);
 }
 
+/* Efeito de Quando Passar o Mouse no Lado Direito do Pop Up */
+
 .coluna_medico:hover{
 
     transition: 0.6s;
@@ -130,6 +152,8 @@
     background-color: var(--cor_doze);
     color: var(--cor_tres);
 }
+
+/* Titulo Lado Direito do Pop Up */
 
 .coluna_medico h4{
 
@@ -145,6 +169,8 @@
     text-align: center;
 
 }
+
+/* Parágrafo da frase CTA do Pop Up Lado Direito */
 
 .coluna_medico p{
 

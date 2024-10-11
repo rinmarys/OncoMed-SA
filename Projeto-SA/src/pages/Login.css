@@ -41,6 +41,8 @@ body{
 
     display: flex;
     justify-content: space-around;
+
+    margin-top: 30px;
 }
 
 .titulo_login h2{
@@ -50,8 +52,8 @@ body{
     font-weight: 600;
     font-size: 30px;
 
-    margin-top: 5%;
-    margin-right: 33%;
+    margin-right: 330px;
+    margin-bottom: 2px;
     
     color: var(--cor_cinco);
 }
@@ -62,20 +64,17 @@ body{
 
     width: 60px;
     height: 60px;
-    margin-top: 15%;
 }
 
 /* Faixa verde LOGIN*/
 
 .faixa_verde_login{
 
-    position: absolute;
-    width: 3%;
-    height: 1%;
-    left: 47.2%;
-    top: 22%;
-    margin-top: 1%;
-    
+    width: 50px;
+    height: 8px;
+
+    margin-left: 113px;
+
     background: #AFD06E;
     border-radius: 50px;
 }
@@ -98,6 +97,14 @@ body{
 
     width: 750px;
     height: 450px;
+}
+
+.container_img_login img:hover{
+
+    transition: 0.5s;
+
+    width: 800px;
+    height: 500px;
 }
 
 .posicao_dos_inputs_login{
@@ -161,7 +168,7 @@ body{
     line-height: 33px;
     
     margin-bottom: 0%;
-    margin-top: 2%;
+    margin-top: 5%;
     
     color: var(--cor_um);
 }
@@ -254,7 +261,7 @@ input:focus{
 
     height: 40px;
     width: 200px;
-    margin-left: 24%;
+    margin-left: 260px;
     margin-top: 3%;
 
     border: 1px solid var(--cor_dois);
@@ -291,12 +298,15 @@ input:focus{
 
 .nao_possui_conta_link{
 
+    border: 0px;
+
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     text-decoration: none;
     font-weight: bold;
 
     color: var(--cor_cinco);
+    background-color: var(--cor_tres);
 }
 
 .nao_possui_conta_link:hover{
