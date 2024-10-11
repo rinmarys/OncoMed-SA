@@ -1,5 +1,4 @@
 import './App.css'
-import BlogInicio from './pages/BlogInicio_Paciente'
 
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
   return (
     <>
 
-      <BlogInicio />
+      
 
     </>
   )
