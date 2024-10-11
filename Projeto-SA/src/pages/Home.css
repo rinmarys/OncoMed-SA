@@ -28,7 +28,7 @@ body{
 
     justify-content: space-between;
 
-    height: 85vh;
+    height: 90vh;
 
 }
 
@@ -63,7 +63,7 @@ body{
     margin-bottom: 0%;
 
     font-family: var(--tipografia_primaria);
-    font-size: 40px;
+    font-size: 45px;
     font-weight: bold;
 
     color: var(--cor_cinco);
@@ -174,7 +174,7 @@ body{
     display: flex;
     align-items: center;
 
-    width: 400px;
+    width: 500px;
     height: 500px;
 
     margin-right: 15%;
@@ -196,101 +196,317 @@ body{
     height: 540px;
 }
 
-/* Container do CTA comunidade */
+.alinhamento_popup_na_home{
 
-.container_cta_comunidade{
+}
 
-    width: 100vw;
-    height: 500px;
+.cta_comunidade_container{
+
+    height: 300px;
 
     background-color: var(--cor_oito);
 }
 
-/* Container CTA alinhamento de conteudo */
+/* Container FAQ */
 
-.alinhamento_de_conteudo_cta{
+.container_faq{
 
-    display: flex;
 
+    height: 800px;
+
+    background-color: var(--cor_tres);
 }
 
-/* Comunidade CTA imagem */
+/* Tem dúvidas? */
 
-.conteudo_cta_comunidade_imagem{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width: 600px;
-    height: 460px;
-
-}
-
-.conteudo_cta_comunidade_imagem img{
-
-    width: 400px;
-    height: 400px;
-}
-
-.conteudo_cta_comunidade_imagem img:hover{
-
-    transition: 0.5s;
-
-    width: 450px;
-    height: 450px;
-}
-
-
-/* Alinhamento de Conteudo do CTA comunidade */
-
-.conteudo_cta_comunidade{
-
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    width: 500px;
-
-    margin-top: 5%;
-    margin-left: 10%;
-}
-
-/* Conteudo CTA comunidade tag H3 */
-
-.conteudo_cta_comunidade h3{
-
-    margin-bottom: 0%;
+.container_faq h2{
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
+
+    margin-bottom: 0px;
 
     color: var(--cor_cinco);
 }
 
-/* Conteudo de CTA comunidade faixa azul */
+.faixa_verde_titulo_faq{
 
-.conteudo_cta_comunidade_faixa_verde{
+    width: 40px;
+    height: 8px;
 
-    width: 50px;
-    height: 5px;
+    border-radius: 5px;
 
-    border-radius: 25px;
-    border: 1px solid var(--cor_quatro);
-
-    background-color: var(--cor_quatro);
+    background-color: var(--cor_dois);
 }
 
-/* Conteudo de CTA comunidade parágrafo */
+.faixa_verde_titulo_faq:hover{
 
-.conteudo_cta_comunidade p{
+    transition: 0.5s;
 
-    width: 400px;
+    width: 100px;
+}
+
+/* Coluna de divs */
+
+.container_faq_coluna_de_divs{
+
+    padding-left: 100px;
+}
+
+/* Alinhamento do titulo FAQ */
+
+.faq_titulo_alinhamento{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container_faq_coluna_de_divs h3{
 
     font-family: var(--tipografia_primaria);
-    font-weight: lighter;
-    font-size: 18px;
+    font-weight: bold;
+    font-size: 20px;
 
-    color: var(--cor_dez);
+    color: var(--cor_cinco);
+}
+
+.faq_aberto{
+
+    width: 25px;
+    height: 25px;
+}
+
+.faq_fechado{
+
+    width: 25px;
+    height: 25px;
+}
+
+.alinhamento_de_colunas_faq{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Botão FAQ A */
+
+.faq_a_botao{
+
+    height: fit-content;
+
+    cursor: pointer;
+
+    border: 0px;
+
+
+    background-color: transparent;
+}
+
+/* Faq A */
+
+.faq_a{
+
+
+    width: 450px;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    box-shadow: -6px -6px 10px rgba(255,255,255,0.45), 6px 6px 10px rgba(94,104,121,0.3);
+
+    background-color: var(--cor_seis);
+}
+
+/* Alinhamento de Titulo Faq A */
+
+.faq_a_alinhamento_de_titulo {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--tipografia_secundaria);
+}
+
+/* Pergunta FAQ A*/
+
+.faq_a_alinhamento_de_titulo h4{
+
+    color: var(--cor_sete);
+}
+
+/* Botão FAQ B */
+
+.faq_b_botao{
+
+    height: fit-content;
+
+    cursor: pointer;
+
+    border: 0px;
+
+
+    background-color: transparent;
+}
+
+/* Faq B */
+
+.faq_b{
+
+
+    width: 450px;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    box-shadow: 6px 6px 10px rgba(94,104,121,0.3);
+
+    background-color: var(--cor_seis);
+}
+
+/* Alinhamento de Titulo Faq B */
+
+.faq_b_alinhamento_de_titulo {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--tipografia_secundaria);
+}
+
+/* Pergunta FAQ B*/
+
+.faq_b_alinhamento_de_titulo h4{
+
+    color: var(--cor_sete);
+}
+
+/* FAQ C Botão */
+
+.faq_c_botao{
+
+    height: fit-content;
+
+    cursor: pointer;
+
+    border: 0px;
+
+
+    background-color: transparent;
+}
+
+/* Faq C */
+
+.faq_c{
+
+
+    width: 450px;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    box-shadow: 6px 6px 10px rgba(94,104,121,0.3);
+
+    background-color: var(--cor_seis);
+}
+
+/* Alinhamento de Titulo Faq C */
+
+.faq_c_alinhamento_de_titulo {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--tipografia_secundaria);
+}
+
+/* Pergunta FAQ C*/
+
+.faq_c_alinhamento_de_titulo h4{
+
+    color: var(--cor_sete);
+}
+
+/* FAQ D Botão */
+
+.faq_d_botao{
+
+    height: fit-content;
+
+    cursor: pointer;
+
+    border: 0px;
+
+
+    background-color: transparent;
+}
+
+/* Faq D */
+
+.faq_d{
+
+
+    width: 450px;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    box-shadow: 6px 6px 10px rgba(94,104,121,0.3);
+
+    background-color: var(--cor_seis);
+}
+
+/* Alinhamento de Titulo Faq D */
+
+.faq_d_alinhamento_de_titulo {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--tipografia_secundaria);
+}
+
+/* Pergunta FAQ D*/
+
+.faq_d_alinhamento_de_titulo h4{
+
+    color: var(--cor_sete);
+}
+
+/* Container CTA FAQ */
+
+.container_faq_cta{
+
+    margin-right: 150px;
+}
+
+.container_faq_cta img{
+
+    width: 300px;
+    height: 300px;
+
 }

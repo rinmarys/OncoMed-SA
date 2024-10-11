@@ -1,0 +1,52 @@
+:root{
+    
+    --cor_um: #437118 ;
+    --cor_dois: #AFD06E ;
+    --cor_tres: #F5F5F5;
+    --cor_quatro: #9fbacf;
+    --cor_cinco: #1D2A62;
+    --cor_seis: #F1F1F1;
+    --cor_sete: #335513;
+    --cor_oito: #87AECE;
+    --cor_nove: #819b4f;
+    --cor_dez: #303c70;
+
+    --tipografia_primaria: 'Nunito', sans-serif;
+    --tipografia_secundaria: 'Poppins', sans-serif;
+}
+
+.faq_a_r{
+
+    font-family: var(--tipografia_secundaria);
+
+    padding-bottom: 10px;
+
+    color: var(--cor_cinco);
+}
+
+.faq_b_r{
+
+    font-family: var(--tipografia_secundaria);
+
+    padding-bottom: 10px;
+
+    color: var(--cor_cinco);
+}
+
+.faq_c_r{
+
+    font-family: var(--tipografia_secundaria);
+
+    padding-bottom: 10px;
+
+    color: var(--cor_cinco);
+}
+
+.faq_d_r{
+
+    font-family: var(--tipografia_secundaria);
+
+    padding-bottom: 10px;
+
+    color: var(--cor_cinco);
+}
