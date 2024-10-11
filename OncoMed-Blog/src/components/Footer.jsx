@@ -7,14 +7,14 @@ function Footer() {
       <div className='footer-container'>
 
         <div className="container-um-alinhamento">
-          <img src="Logo_Footer.svg" alt="Logo Verde" />
+          <img src="Logo_Footer.svg" alt="Logo Verde" className='Logo' />
 
           <h1 className='estilo-titulos'>Contatos</h1>
           <div className="line"></div>
 
           <p className='estilo-texto-branco'>
             (31) 99876-5432
-            OncoMed@gmail.com
+            <br />  OncoMed@gmail.com
           </p>
 
           <h1 className='estilo-titulos'>WhatsApp</h1>
@@ -36,10 +36,11 @@ function Footer() {
             <li><link rel="stylesheet" href="./BlogInicio_Paciente" />Blog</li>
             <li><link rel="stylesheet" href="./Agendamentos" />Agendamentos</li>
             <li><link rel="stylesheet" href="./Convenios" />Convênios</li>
+            <li><link rel="stylesheet" href="./EquipeMedica" />Equipe médica</li>
           </ul>
 
-          <p className='estilo-texto-azul'><link rel="stylesheet" href="" />Termos de uso</p>
-          <p className='estilo-texto-azul'><link rel="stylesheet" href="" />Política de privacidade</p>
+          <p className='estilo-texto-azul-link'><link rel="stylesheet" href="" />Termos de uso</p>
+          <p className='estilo-texto-azul-link'><link rel="stylesheet" href="" />Política de privacidade</p>
         </div>
 
         <div className="container-tres-alinhamento">
@@ -51,7 +52,8 @@ function Footer() {
             <br /> Bairro Coqueiros
             <br /> Florianópolis, SC, 88060-123</p>
 
-            <p className='estilo-texto-azul'><strong>Aviso:</strong> As informações da clínica OncoMed são fictícias e para fins de exemplo.</p>
+          <p className='estilo-texto-azul'><strong>Aviso:</strong> As informações da clínica OncoMed <br />
+          são fictícias e para fins de exemplo.</p>
         </div>
       </div>
     </div>
