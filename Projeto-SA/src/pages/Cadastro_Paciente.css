@@ -50,8 +50,17 @@ body{
 }
 
 .container_img_paciente img{
+
     width: 550px;
     height: 550px;
+}
+
+.container_img_paciente img:hover{
+
+    transition: 0.5s;
+
+    width: 600px;
+    height: 600px;
 }
 
 .titulo_paciente{
