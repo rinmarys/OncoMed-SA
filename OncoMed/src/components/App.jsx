@@ -12,11 +12,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Calendário</h1>
+
+      <div>
+
       <Calendar
         onChange={handleDateChange}
         value={date}
-      />
+        />
+
+        </div>
+
       <div>
         <p>Data selecionada: {date.toDateString()}</p>
       </div>

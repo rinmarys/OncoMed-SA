@@ -4,7 +4,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import './Scheduler.css'; // Importando o CSS
+import './Scheduler.css';
 
 function Scheduler() {
   const [events, setEvents] = useState([

@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import './App.css'
-import MarcarConsulta from './assets/components/MarcarConsulta'
-
+import MarcarConsulta from './components/MarcarConsulta'
 
 function App() {
 
