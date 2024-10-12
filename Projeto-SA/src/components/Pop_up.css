@@ -24,6 +24,7 @@
     position: absolute;
     position: fixed;
     left: 20%;
+    top: 5%;
 
 }
 
@@ -95,6 +96,14 @@
     background-color: var(--cor_doze);
 
     color: var(--cor_tres);
+}
+
+.coluna_paciente:hover + .coluna_paciente img{
+
+    transition: 0.5s;
+
+    width: 450px;
+    height: 450px;
 }
 
 /* Titulo do Pop Up Lado Esquerdo */

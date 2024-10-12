@@ -11,7 +11,7 @@ function Pop_up() {
             <div className="coluna_paciente">
 
             <button onClick={() => window.location.href=`/cadastropaciente`}>
-                <img src="Paciente_Popup.svg" alt="Imagem Paciente" />
+                <img src="Paciente_Popup.svg" alt="Imagem Paciente" className='imagem_paciente'/>
             </button>
 
                 <h4>Priorize sua saúde!</h4>

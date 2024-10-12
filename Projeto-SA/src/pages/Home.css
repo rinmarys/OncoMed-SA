@@ -69,6 +69,20 @@ body{
     color: var(--cor_cinco);
 }
 
+.carrossel_container_conteudo h2:hover + .carrossel_container_conteudo_faixa_verde{
+
+    transition: 0.5s;
+
+    width: 140px;
+}
+
+.carrossel_container_conteudo h2:not(:hover) + .carrossel_container_conteudo_faixa_verde{
+
+    transition: 0.5s;
+
+    width: 55px;
+}
+
 /* Container Carrossel Faixa Verde */
 
 .carrossel_container_conteudo_faixa_verde{
@@ -196,15 +210,173 @@ body{
     height: 540px;
 }
 
-.alinhamento_popup_na_home{
+.carrossel_container_imagem img:not(:hover){
 
+    transition: 0.5s;
+
+    width: 500px;
+    height: 500px;
 }
 
 .cta_comunidade_container{
 
-    height: 300px;
+    width: 100vw;
+    height: 550px;
 
-    background-color: var(--cor_oito);
+    background-color: #87aece3b;
+}
+
+/* Container Comunidade */
+
+.container_comunidade{
+
+    display: flex;
+    align-items: center;
+}
+
+/* Container Comunidade Imagem */
+
+.container_comunidade_imagem{
+
+    height: 500px;
+    width: 500px;
+
+    margin-left: 50px;
+}
+
+.container_comunidade_imagem img{
+
+    height: 450px;
+    width: 450px;
+}
+
+.container_comunidade_imagem img:hover{
+
+    transition: 0.5s;
+
+    height: 500px;
+    width: 500px;
+}
+
+.container_comunidade_imagem img:not(:hover){
+
+    transition: 0.5s;
+
+    height: 450px;
+    width: 450px;
+}
+
+.o_que_dizem_nossos_pacientes{
+
+    display: flex;
+    justify-content: center;
+}
+
+.o_que_dizem_nossos_pacientes button{
+
+    border: 0px;
+
+    cursor: pointer;
+
+    background-color: transparent;
+}
+
+.o_que_dizem_nossos_pacientes img{
+
+    width: 45px;
+    height: 45px;
+}
+
+/* Div de Conteúdo */
+
+.container_comunidade_conteudo{
+
+    margin-left: 80px;
+}
+
+/* Container Comunidade Titulo */
+
+.container_comunidade_conteudo h3{
+    
+    margin-bottom: 0%;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+    font-size: 30px;
+
+    color: var(--cor_cinco);
+}
+
+.container_comunidade_conteudo h3:hover + .container_comunidade_conteudo_underline_titulo{
+
+    transition: 0.4s;
+
+    width: 120px;
+}
+
+.container_comunidade_conteudo h3:not(:hover) + .container_comunidade_conteudo_underline_titulo{
+
+    transition: 0.4s;
+
+    width: 40px;
+}
+
+/* Container Comunidade h3 underline */
+
+.container_comunidade_conteudo_underline_titulo{
+
+    width: 40px;
+    height: 6px;
+
+    border-radius: 5px;
+
+    background-color: var(--cor_dois);
+}
+
+/* Container Comunidade Parágrafo  */
+
+.container_comunidade_conteudo p{
+
+    width: 500px;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    font-family: var(--tipografia_secundaria);
+    font-weight: lighter;
+    font-size: 20px;
+
+    color: var(--cor_dez);
+}
+
+/* Botão Comunidade Container */
+
+.container_comunidade_conteudo button{
+
+    width: 150px;
+    height: 40px;
+
+    border: 1px solid var(--cor_dois);
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+    font-size: 13px;
+
+    color: var(--cor_cinco);
+    background-color: var(--cor_dois);
+}
+
+.container_comunidade_conteudo button:hover{
+
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_nove);
+
+    color: var(--cor_tres);
+    background-color: var(--cor_nove);
 }
 
 /* Container FAQ */
@@ -223,28 +395,33 @@ body{
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 32px;
 
     margin-bottom: 0px;
 
     color: var(--cor_cinco);
 }
 
+.container_faq h2:hover + .faixa_verde_titulo_faq{
+
+    transition: 0.4s;
+    width: 100px;
+}
+
+.container_faq h2:not(:hover) + .faixa_verde_titulo_faq{
+
+    transition: 0.4s;
+    width: 40px;
+}
+
 .faixa_verde_titulo_faq{
 
     width: 40px;
-    height: 8px;
+    height: 6px;
 
     border-radius: 5px;
 
     background-color: var(--cor_dois);
-}
-
-.faixa_verde_titulo_faq:hover{
-
-    transition: 0.5s;
-
-    width: 100px;
 }
 
 /* Coluna de divs */
@@ -497,16 +674,92 @@ body{
     color: var(--cor_sete);
 }
 
-/* Container CTA FAQ */
+/* Container FAQ CTA */
 
 .container_faq_cta{
 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
     margin-right: 150px;
+
 }
 
-.container_faq_cta img{
+/* Container CTA FAQ IMG*/
+
+.container_faq_cta_imagem{
+
+
+    width: 350px;
+    height: 350px;
+
+}
+
+/* Container CTA FAQ IMG */
+
+.container_faq_cta_imagem img{
 
     width: 300px;
     height: 300px;
 
+}
+
+.container_faq_cta_imagem img:hover{
+
+    transition: 0.5s;
+
+    width: 350px;
+    height: 350px;
+}
+
+.container_faq_cta_imagem img:not(:hover){
+
+    transition: 0.5s;
+
+    width: 300px;
+    height: 300px;
+}
+
+/* Container CTA FAQ p */
+
+.container_faq_cta p{
+
+    margin-top: 0%;
+
+    font-family: var(--tipografia_secundaria);
+    font-weight: bold;
+    font-size: 20px;
+
+    color: var(--cor_cinco);
+}
+
+.container_faq_cta button{
+
+    width: 200px;
+    height: 45px;
+
+    margin-top: 0%;
+    margin-left: 72px;
+
+    cursor: pointer;
+
+    border: 1px solid var(--cor_um);
+    border-radius: 10px;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+    font-size: 15px;
+
+    color: var(--cor_tres);
+    background-color: var(--cor_um);
+}
+
+.container_faq_cta button:hover{
+
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_sete);
+
+    background-color: var(--cor_sete);
 }

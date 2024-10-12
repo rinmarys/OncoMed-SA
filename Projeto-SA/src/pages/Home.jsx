@@ -15,6 +15,7 @@ function Home() {
   const [faq_c_aberto, set_faq_c_aberto] = useState(false);
   const [faq_d_aberto, set_faq_d_aberto] = useState(false);
 
+  let comentarios_de_pacientes;
   let faq_a_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_b_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_c_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
@@ -92,7 +93,44 @@ function Home() {
       
       </div>
 
-      <div className="cta_comunidade_container"></div>
+      <div className="cta_comunidade_container">
+
+        <div className="o_que_dizem_nossos_pacientes">
+
+          <button><img src="Seta_carrossel_esquerda.svg" alt="Seta esquerda.svg" /></button>
+
+          <div className="conteudo_do_carrossel">
+
+            <p>{comentarios_de_pacientes}</p>
+
+          </div>
+
+          <button><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
+
+        </div>
+
+        <div className="container_comunidade">
+
+          <div className="container_comunidade_imagem">
+            
+            <img src="Imagem_comunidade.svg" alt="Comunidade" />
+
+          </div>
+
+          <div className="container_comunidade_conteudo">
+
+            <h3>Junte-se à nossa comunidade!</h3>
+            <div className="container_comunidade_conteudo_underline_titulo"></div>
+
+            <p>Conecte-se com outros pacientes e cuidadores para compartilhar expêriencias de apoio.</p>
+
+            <button>ACESSAR</button>
+
+          </div>
+
+        </div>
+
+      </div>
 
       <div className="container_faq">
 
@@ -115,7 +153,7 @@ function Home() {
 
             <div className="faq_a_alinhamento_de_titulo">
               <h4>Como funciona o tratamento de câncer?</h4>
-              <button onClick={() => set_faq_a_aberto(true)} className='faq_a_botao'>{faq_a_botao}</button>
+              <button onClick={() => faq_a_aberto == false ? set_faq_a_aberto(true) : set_faq_a_aberto(false)} className='faq_a_botao'>{faq_a_botao}</button>
             </div>
 
             {faq_a_aberto && <Faq_a/>}
@@ -127,7 +165,7 @@ function Home() {
 
               <div className="faq_b_alinhamento_de_titulo">
                 <h4>Quais são os efeitos colaterais dos tratamentos?</h4>
-                <button onClick={() => set_faq_b_aberto(true)} className='faq_b_botao'>{faq_b_botao}</button>
+                <button onClick={() => faq_b_aberto == false ? set_faq_b_aberto(true) : set_faq_b_aberto(false)} className='faq_b_botao'>{faq_b_botao}</button>
               </div>
 
               {faq_b_aberto && <Faq_b/>}
@@ -139,7 +177,7 @@ function Home() {
 
               <div className="faq_c_alinhamento_de_titulo">
                 <h4>Quais são os sinais de alerta de câncer?</h4>
-                <button onClick={() => set_faq_c_aberto(true)} className='faq_c_botao'>{faq_c_botao}</button>
+                <button onClick={() => faq_c_aberto == false ? set_faq_c_aberto(true) : set_faq_c_aberto(false)} className='faq_c_botao'>{faq_c_botao}</button>
               </div>
 
               {faq_c_aberto && <Faq_c/>}
@@ -151,7 +189,7 @@ function Home() {
 
               <div className="faq_d_alinhamento_de_titulo">
                 <h4>Quais são os tipos mais comuns de câncer?</h4>
-                <button onClick={() => set_faq_d_aberto(true)} className='faq_d_botao'>{faq_d_botao}</button>
+                <button onClick={() => faq_d_aberto == false ? set_faq_d_aberto(true) : set_faq_d_aberto(false)} className='faq_d_botao'>{faq_d_botao}</button>
               </div>
 
               {faq_d_aberto && <Faq_d/>}
@@ -162,7 +200,9 @@ function Home() {
 
           <div className="container_faq_cta">
 
-            <img src="./faq_img.svg" alt="FAQ Images" />
+            <div className="container_faq_cta_imagem">
+              <img src="./faq_img.svg" alt="FAQ Images" />
+            </div>
 
             <p>Continua com dúvidas?</p>
 
