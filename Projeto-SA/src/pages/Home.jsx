@@ -61,7 +61,7 @@ function Home() {
         <div className='carrossel_container_conteudo'>
           
           <div className="carrossel_container_alinhamento_de_conteudo">
-
+ 
           <h2>Sua jornada no combate ao
           câncer começa aqui!</h2>
 
