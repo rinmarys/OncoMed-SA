@@ -221,7 +221,7 @@ body{
 .cta_comunidade_container{
 
     width: 100vw;
-    height: 550px;
+    height: 700px;
 
     background-color: #87aece3b;
 }
@@ -269,10 +269,57 @@ body{
 .o_que_dizem_nossos_pacientes{
 
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.o_que_dizem_nossos_pacientes_carrossel{
+
+    display: flex;
     justify-content: center;
 }
 
-.o_que_dizem_nossos_pacientes button{
+.o_que_dizem_nossos_pacientes h2{
+
+    padding-top: 50px;
+    margin-bottom: 2px;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+    font-size: 25px;
+
+    color: var(--cor_cinco);
+}
+
+.o_que_dizem_nossos_pacientes_underline{
+
+    width: 25px;
+    height: 5px;
+
+    margin-bottom: 25px;
+
+    border-radius: 5px;
+
+    background-color: var(--cor_dois);
+}
+
+.o_que_dizem_nossos_pacientes h2:hover + .o_que_dizem_nossos_pacientes_underline{
+
+    transition: 0.3s;
+
+    width: 150px;
+}
+
+.o_que_dizem_nossos_pacientes h2:not(:hover) + .o_que_dizem_nossos_pacientes_underline{
+
+    transition: 0.3s;
+
+    width: 25px;
+}
+
+/* Botão do Carrossel */
+
+.o_que_dizem_nossos_pacientes_carrossel button{
 
     border: 0px;
 
@@ -281,10 +328,25 @@ body{
     background-color: transparent;
 }
 
-.o_que_dizem_nossos_pacientes img{
+/* Botão do Carrossel */
+
+.o_que_dizem_nossos_pacientes_carrossel img{
 
     width: 45px;
     height: 45px;
+}
+
+/* Conteúdo Carrossel */
+
+.o_que_dizem_nossos_pacientes_conteudo_do_carrossel{
+
+    width: 510px;
+
+    font-family: var(--tipografia_secundaria);
+    font-weight: lighter;
+    font-size: 16px;
+
+    color: var(--cor_dez);
 }
 
 /* Div de Conteúdo */
