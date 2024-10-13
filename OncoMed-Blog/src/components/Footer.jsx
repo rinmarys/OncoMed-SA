@@ -28,7 +28,7 @@ function Footer() {
         </div>
 
         <div className="container-dois-alinhamento">
-          <h1 className='estilo-titulos'>Menú do site</h1>
+          <h1 className='estilo-titulos'>Menu do site</h1>
           <div className="line"></div>
 
           <ul className='estilo-texto-link'>
@@ -54,6 +54,11 @@ function Footer() {
 
           <p className='estilo-texto-azul'><strong>Aviso:</strong> As informações da clínica OncoMed <br />
           são fictícias e para fins de exemplo.</p>
+        </div>
+
+        <div className="mascote">
+          <h1></h1>
+        <img src="Mascote.svg" alt="Mascote OncoMed" />
         </div>
       </div>
     </div>

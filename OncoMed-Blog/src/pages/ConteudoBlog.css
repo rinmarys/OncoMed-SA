@@ -1,0 +1,55 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+body{
+    background-color: var(--cor-4);
+}
+
+/* Primeiro container - Titulos */
+.titulos{
+    border: 1px solid red;
+    display: flex;
+    width: 85%;
+    height: auto;
+    
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.titulos img{
+    width: 35%;
+}
+
+.titulos img:hover{
+    width: 37%;
+    transition: 0.5s;
+}
+
+.titulos h1{
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    font-size: 40px;
+}
+
+.publicado{
+    color: var(--cor-2);
+    opacity: 75%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-top: -3%;
+}
+/* Primeiro container - Titulos */
+
+/* Segundo container - Texto */
+
+
+
+/* Segundo container - Texto */

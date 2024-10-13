@@ -72,9 +72,9 @@
 
 /* Container um (Contatos) ALINHAMENTO*/
 .container-um-alinhamento{
-
+    border: 1px solid yellow;
     width: fit-content;
-    margin-left: 10%;
+    margin-left: 6%;
     padding-top: 3%;
     padding-bottom: 5%;
 }
@@ -91,10 +91,9 @@
 
 /* Container Dois (Menú) ALINHAMENTO*/
 .container-dois-alinhamento{
-
+    border: 1px solid green;
     width: fit-content;
     height: fit-content;
-    padding-bottom: 5%;
 
     margin-left: 3.5%;
     margin-top: 11%;
@@ -107,13 +106,12 @@
 
 /* Container Tres (Endereço) ALINHAMENTO*/
 .container-tres-alinhamento{
-
+    border: 1px solid black;
     width: fit-content;
     height: fit-content;
-    padding-bottom: 5%;
 
-    margin-left: 9%;
-    margin-right: 15%;
+    margin-left: 3.5%;
+    margin-right: 3%;
 
     margin-top: 11%;
 }
@@ -122,3 +120,25 @@
     margin-top: 13%;
 }
 /* Container Tres (Endereço) ALINHAMENTO*/
+
+/* Mascote alinhamento */
+.mascote{
+    border: 1px solid green;
+    width: fit-content;
+    height: fit-content;
+}
+
+.mascote img{
+    border: 1px solid red;
+    width: 370px;
+    height: fit-content;
+}
+
+.mascote p{
+    border: 1px solid yellow;
+    width: fit-content;
+    color: var(--cor_tres);
+    font-family: 'Poppins', sans-serif;
+    font-size: 120%;
+}
+  

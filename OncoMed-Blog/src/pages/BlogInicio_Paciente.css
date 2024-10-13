@@ -84,7 +84,7 @@ body {
     cursor: pointer;
 }
 
-.container-artigos p {
+.doutores-blog{
     width: fit-content;
     color: var(--cor-2);
     font-family: 'Poppins', sans-serif;
@@ -93,3 +93,8 @@ body {
     opacity: 0.7;
 }
 /* Artigos */
+
+/* Link decoration font */
+.link-decoration{
+    text-decoration: none;
+}

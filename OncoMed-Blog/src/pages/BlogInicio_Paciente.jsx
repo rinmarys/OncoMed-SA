@@ -20,25 +20,23 @@ function BlogInicio() {
 
         {/* Artigos do blog */}
         <div className="artigos-alinhamento">
-          
-          <Link to="/conteudoBlog">
+
+          <Link to="/conteudoBlog" className='link-decoration'>
             <div className="container-artigos">
               <img src="Doctor.svg" alt="Doutor" />
               <div className="alinhamento-texto">
                 <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
-                <p>por Doutor Mauricio Campos</p>
+                <p className='doutores-blog'>por Doutor Mauricio Campos</p>
               </div>
             </div>
           </Link>
-          
-          
 
           <div className="container-artigos">
             <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
 
             <div className='alinhamento-texto'>
               <p className='titulos-artigos'>Como a sua alimentação afeta no desenvolvimento contra o câncer?</p>
-              <p>por Nutricionista Mara Fernandez</p>
+              <p className='doutores-blog'>por Nutricionista Mara Fernandez</p>
             </div>
           </div>
 
@@ -48,7 +46,7 @@ function BlogInicio() {
             <div className='alinhamento-texto'>
               <p className='titulos-artigos'>Por que é tão importante manter-se informado? Direitos legais
                 para pacientes oncológicos.</p>
-              <p>por Porto, Severino e Cunha ADV</p>
+              <p className='doutores-blog'>por Porto, Severino e Cunha ADV</p>
             </div>
           </div>
 
@@ -58,14 +56,14 @@ function BlogInicio() {
             <div className="alinhamento-texto">
               <p className='titulos-artigos'>O psicologico é importante?
                 Veja aqui!</p>
-              <p>por Psicologa Vannessa Suarez</p>
+              <p className='doutores-blog'>por Psicologa Vannessa Suarez</p>
             </div>
           </div>
 
         </div>
         {/* Artigos do blog */}
 
-        <Footer/>
+        <Footer />
 
       </div>
     </div>
