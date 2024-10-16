@@ -38,13 +38,13 @@
     font-size: 130%;
 }
 
-.estilo-texto-link{
+.container-dois-alinhamento ul{
     color: var(--cor_tres);
     font-family: 'Poppins', sans-serif;
     font-size: 130%;
 }
 
-.estilo-texto-link :hover{
+.container-dois-alinhamento ul:hover{
     color: #BED2E2;
     cursor: pointer;
     transition: 0.5s;

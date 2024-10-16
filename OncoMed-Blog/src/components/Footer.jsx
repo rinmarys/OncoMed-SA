@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.css'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -31,12 +32,12 @@ function Footer() {
           <h1 className='estilo-titulos'>Menu do site</h1>
           <div className="line"></div>
 
-          <ul className='estilo-texto-link'>
-            <li><link rel="stylesheet" href="./Sobre_nós" />Sobre nós</li>
-            <li><link rel="stylesheet" href="./BlogInicio_Paciente" />Blog</li>
-            <li><link rel="stylesheet" href="./Agendamentos" />Agendamentos</li>
-            <li><link rel="stylesheet" href="./Convenios" />Convênios</li>
-            <li><link rel="stylesheet" href="./EquipeMedica" />Equipe médica</li>
+          <ul>
+            <li><Link>Sobre nós</Link></li>
+            <li><Link to='/'>Blog</Link></li>
+            <li><Link>Agendamentos</Link></li>
+            <li><Link>Convênios</Link></li>
+            <li><Link>Equipe médica</Link></li>
           </ul>
 
           <p className='estilo-texto-azul-link'><link rel="stylesheet" href="" />Termos de uso</p>
