@@ -69,6 +69,7 @@ body {
 .container-artigos img:hover{
     width: 40.9%;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .titulos-artigos{
