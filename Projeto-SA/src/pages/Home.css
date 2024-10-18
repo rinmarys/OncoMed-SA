@@ -10,6 +10,7 @@
     --cor_oito: #87AECE;
     --cor_nove: #819b4f;
     --cor_dez: #303c70;
+    --cor_onze: #87aece3b;
 
     --tipografia_primaria: 'Nunito', sans-serif;
     --tipografia_secundaria: 'Poppins', sans-serif;
@@ -71,14 +72,14 @@ body{
 
 .carrossel_container_conteudo h2:hover + .carrossel_container_conteudo_faixa_verde{
 
-    transition: 0.5s;
+    transition: 0.3s;
 
     width: 140px;
 }
 
 .carrossel_container_conteudo h2:not(:hover) + .carrossel_container_conteudo_faixa_verde{
 
-    transition: 0.5s;
+    transition: 0.3s;
 
     width: 55px;
 }
@@ -145,7 +146,7 @@ body{
 
 .carrossel_conteudo_cadastrar:hover{
 
-    transition: 0.2s;
+    transition: 0.3s;
 
     border: 1px solid var(--cor_sete);
 
@@ -204,15 +205,15 @@ body{
 
 .carrossel_container_imagem img:hover{
 
-    transition: 0.5s;
+    transition: 0.4s;
 
-    width: 540px;
-    height: 540px;
+    width: 580px;
+    height: 580px;
 }
 
 .carrossel_container_imagem img:not(:hover){
 
-    transition: 0.5s;
+    transition: 0.4s;
 
     width: 500px;
     height: 500px;
@@ -220,7 +221,6 @@ body{
 
 .cta_comunidade_container{
 
-    width: 100vw;
     height: 700px;
 
     background-color: #87aece3b;
@@ -305,7 +305,7 @@ body{
 
 .o_que_dizem_nossos_pacientes h2:hover + .o_que_dizem_nossos_pacientes_underline{
 
-    transition: 0.3s;
+    transition: 0.4s;
 
     width: 150px;
 }
@@ -439,6 +439,85 @@ body{
 
     color: var(--cor_tres);
     background-color: var(--cor_nove);
+}
+
+/* Container Artigos Recentes */
+
+.container_artigos_recentes{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+}
+
+.container_artigos_recentes_alinhamento_titulo{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.espacamento_dos_artigos{
+
+    width: 100px;
+}
+
+/* Container Artigos Recentes titulo */
+
+.container_artigos_recentes h2{
+
+    margin-bottom: 0%;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+    font-size: 32px;
+
+    color: var(--cor_cinco);
+}
+
+/* Container Artigos Recentes Under Line */
+
+.container_artigos_recentes_underline{
+
+    width: 50px;
+    height: 6px;
+
+    border: 1px solid var(--cor_dois);
+    border-radius: 10px;
+
+    background-color: var(--cor_dois);
+}
+
+.container_artigos_recentes h2:hover + .container_artigos_recentes_underline{
+
+    transition: 0.3s;
+
+    width: 250px;
+}
+
+.container_artigos_recentes h2:not(:hover) + .container_artigos_recentes_underline{
+
+    transition: 0.3s;
+
+    width: 50px;
+}
+
+.container_artigos_alinhamento{
+
+    display: flex;
+}
+
+/* Container Estamos aqui para ajudar */
+
+.container_estamos_aqui_para_ajudar{
+
+    height: 20px;
+
+    background-color: #87aece3b;
 }
 
 /* Container FAQ */
@@ -795,6 +874,8 @@ body{
 
     color: var(--cor_cinco);
 }
+
+/* Container FAQ Botão */
 
 .container_faq_cta button{
 

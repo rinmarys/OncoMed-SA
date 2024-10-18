@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.css'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -28,7 +29,17 @@ function Footer() {
                 <h1 className='estilo-titulos'>WhatsApp</h1>
                 <div className="line"></div>
 
+<<<<<<< HEAD
                 <p className='estilo-texto-branco'>(31) 99876-5432</p>
+=======
+          <ul>
+            <li><Link>Sobre nós</Link></li>
+            <li><Link to='/'>Blog</Link></li>
+            <li><Link>Agendamentos</Link></li>
+            <li><Link>Convênios</Link></li>
+            <li><Link>Equipe médica</Link></li>
+          </ul>
+>>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
 
                 <a href="https://web.whatsapp.com/" target='_blank'><img src="WhatsApp.svg" alt="Acessar WhatsApp" /></a>
                 <a href="https://www.google.com/intl/pt-BR/gmail/about/" target='_blank'><img src="Gmail Logo.svg" alt="Acessar Gmail" /></a>

@@ -1,7 +1,10 @@
 import React from 'react'
+<<<<<<< HEAD
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
+=======
+>>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
 
 function BlogInicio_Admin() {
     return (
@@ -12,7 +15,11 @@ function BlogInicio_Admin() {
 
                 {/* Titulo */}
                 <div className="titulo">
+<<<<<<< HEAD
                     <h1>GERENCIAR POSTAGENS DO BLOG</h1>
+=======
+                    <h1>MANTENHA-SE INFORMADO</h1>
+>>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
                     <div></div>
                 </div>
                 {/* Titulo */}
@@ -20,6 +27,7 @@ function BlogInicio_Admin() {
                 {/* Artigos do blog */}
                 <div className="artigos-alinhamento">
 
+<<<<<<< HEAD
 
                     <div className="container-artigos">
                         <img src="Doctor.svg" alt="Doutor" />
@@ -29,6 +37,18 @@ function BlogInicio_Admin() {
                         </div>
                     </div>
 
+=======
+                    <Link to="/conteudoBlog" className='link-decoration'>
+                        <div className="container-artigos">
+                            <img src="Doctor.svg" alt="Doutor" />
+                            
+                            <div className="alinhamento-texto">
+                                <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
+                                <p className='doutores-blog'>por Doutor Mauricio Campos</p>
+                            </div>
+                        </div>
+                    </Link>
+>>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
 
                     <div className="container-artigos">
                         <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
@@ -63,11 +83,18 @@ function BlogInicio_Admin() {
                 {/* Artigos do blog */}
 
                 <Footer />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
             </div>
         </div>
     )
 }
+<<<<<<< HEAD
 
 export default BlogInicio_Admin
 
+=======
+export default BlogInicio_Admin
+>>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
