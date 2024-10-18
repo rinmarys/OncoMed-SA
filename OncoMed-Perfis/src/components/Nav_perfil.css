@@ -1,0 +1,27 @@
+.nav_container img{
+ width: 70px;
+ height: 70px;
+ margin-left: 95%;
+ margin-top: 2%;
+}
+   
+.nav_container h1{
+ position: absolute;
+ width: 525px;
+ height: 76px;
+ left: 64px;
+ top: 20px;
+ font-family: "poppins", sans-serif;
+ color: #1D2A62
+}
+   
+.faixa_verde{
+ width: 70px;
+ height: 6px;
+ position: absolute;
+ left: 225px;
+ bottom: 870px;
+ background-color: #AFD06E;
+ border-radius: 5px;
+}
+
