@@ -6,6 +6,9 @@ import Faq_a from '../components/Faq_a.jsx'
 import Faq_b from '../components/Faq_b.jsx'
 import Faq_c from '../components/Faq_c.jsx'
 import Faq_d from '../components/Faq_d.jsx'
+import Carrossel_Comentario from '../components/Carrossel_Comentario.jsx'
+import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx'
+import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx'
 
 function Home() {
 
@@ -14,11 +17,6 @@ function Home() {
   const [faq_b_aberto, set_faq_b_aberto] = useState(false);
   const [faq_c_aberto, set_faq_c_aberto] = useState(false);
   const [faq_d_aberto, set_faq_d_aberto] = useState(false);
-  const [exibir_comentario_carrossel, set_exibir_comentario_carrossel] = useState();
-
-  let contador = 1;
-  
-  const [position_carrossel, set_position_carrosel] = useState(1);
 
   let faq_a_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_b_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
@@ -45,63 +43,11 @@ function Home() {
     faq_d_botao = <img src='FAQ_aberto.png' className='faq_fechado'></img>;
   };
 
-  useEffect(()=> {
-
-    if(position_carrossel == 1){
-
-      set_exibir_comentario_carrossel(`"O aplicativo mudou minha vida. Agora eu me sinto mais no controle." 
-        — Maria, 42 anos`);
-    };
-    
-    if(position_carrossel == 2){
-
-      set_exibir_comentario_carrossel(`aadasd`);
-    } 
-    
-    if(position_carrossel == 3) {
-
-      set_exibir_comentario_carrossel(`qbc`);
-    };
-
-}, [position_carrossel]);
-
-  function slide_a_frente(){
-
-    contador += 1;
-    
-    if(contador > 3){
-      
-      contador = 1;
-    } else {
-
-      set_position_carrosel(contador)
-    };
-
-    console.log(position_carrossel)
-  };
-
-  function slide_atras(){
-
-    
-    if(contador < 1){
-      
-      contador = 3;
-      set_position_carrosel(3);
-    } else{
-
-      contador--;
-      set_position_carrosel(contador)
-    };
-    
-  };
-
   return (
 
     
 
     <div>
-
-    {/* NavBar */}
 
       <Header/>
 
@@ -154,19 +100,7 @@ function Home() {
           <h2>O que dizem nossos pacientes?</h2>
           <div className="o_que_dizem_nossos_pacientes_underline"></div>
 
-          <div className="o_que_dizem_nossos_pacientes_carrossel">
-
-          <button onClick={slide_atras}><img src="Seta_carrossel_esquerda.svg" alt="Seta esquerda.svg" /></button>
-
-          <div className="o_que_dizem_nossos_pacientes_conteudo_do_carrossel">
-
-            <p>{exibir_comentario_carrossel}</p>
-
-          </div>
-
-          <button onClick={slide_a_frente}><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
-
-          </div>
+          {<Carrossel_Comentario/>}
 
         </div>
 
@@ -190,6 +124,30 @@ function Home() {
           </div>
 
         </div>
+
+      </div>
+
+      <div className="container_artigos_recentes">
+
+        <div className="container_artigos_recentes_alinhamento_titulo">
+
+          <h2>Artigos Recentes</h2>
+          <div className="container_artigos_recentes_underline"></div>
+
+        </div>
+        <div className="container_artigos_alinhamento">
+
+          <Aritgo_Um_Home/>
+
+          <div className="espacamento_dos_artigos"></div>
+
+          <Artigo_Dois_Home/>
+
+        </div>
+
+      </div>
+
+      <div className="container_estamos_aqui_para_ajudar">
 
       </div>
 
@@ -271,7 +229,7 @@ function Home() {
 
           </div>
 
-          </div>
+        </div>
 
       </div>
 
