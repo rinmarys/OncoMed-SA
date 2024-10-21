@@ -10,8 +10,8 @@
     --cor_oito: #87AECE;
     --cor_nove: #819b4f;
     --cor_dez: #303c70;
-    --cor_onze: #b9d287;
     --cor_doze: #93a76c;
+    --cor_treze: #b9d287;
 
     --tipografia_primaria: 'Nunito', sans-serif;
     --tipografia_secundaria: 'Poppins', sans-serif;
@@ -37,6 +37,7 @@
 
     width: 1000px;
     height: 650px;
+
 }
 
 /* Tamanho das Imagens do Pop Up */
@@ -82,7 +83,7 @@
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 
-    background-color: var(--cor_onze);
+    background-color: var(--cor_treze);
 
     color: var(--cor_cinco);
 }
@@ -148,7 +149,7 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 
-    background-color: var(--cor_onze);
+    background-color: var(--cor_treze);
     color: var(--cor_cinco);
 }
 

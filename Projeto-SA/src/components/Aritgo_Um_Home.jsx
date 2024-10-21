@@ -2,7 +2,7 @@ import React from 'react'
 import './Artigo_Um_Home.css'
 function Aritgo_Um_Home() {
   return (
-    <div>
+    <div className='tamanho_do_container_artigo_um_home'>
       
     <div className="container_artigo_um_home">
 

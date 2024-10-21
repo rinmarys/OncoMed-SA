@@ -10,7 +10,6 @@
     --cor_oito: #87AECE;
     --cor_nove: #819b4f;
     --cor_dez: #303c70;
-    --cor_onze: #87aece3b;
 
     --tipografia_primaria: 'Nunito', sans-serif;
     --tipografia_secundaria: 'Poppins', sans-serif;
@@ -221,7 +220,7 @@ body{
 
 .cta_comunidade_container{
 
-    height: 700px;
+    height: 780px;
 
     background-color: #87aece3b;
 }
@@ -459,6 +458,20 @@ body{
 
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+/* Tirar o sublinhado do Pop up um*/
+
+.pop_up_artigo_um{
+
+    text-decoration: none;
+
+}
+/* Tirar o sublinhado do Pop up dois*/
+
+.pop_up_artigo_dois{
+
+    text-decoration: none;
 }
 
 .espacamento_dos_artigos{

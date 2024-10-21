@@ -2,7 +2,7 @@ import React from 'react'
 import './Artigo_Dois_Home.css'
 function Artigo_Dois_Home() {
   return (
-    <div>
+    <div className='tamanho_do_container_artigo_um_home'>
       
       <div className="container_artigo_dois_home">
 

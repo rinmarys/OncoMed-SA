@@ -9,6 +9,7 @@ import Faq_d from '../components/Faq_d.jsx'
 import Carrossel_Comentario from '../components/Carrossel_Comentario.jsx'
 import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx'
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx'
+import { Link } from 'react-router-dom'
 
 function Home() {
 
@@ -137,11 +138,14 @@ function Home() {
         </div>
         <div className="container_artigos_alinhamento">
 
+          <Link to={`/blog`} className='pop_up_artigo_um'>
           <Aritgo_Um_Home/>
-
+          </Link>
           <div className="espacamento_dos_artigos"></div>
 
+          <Link to={`/blog`} className='pop_up_artigo_dois'>
           <Artigo_Dois_Home/>
+          </Link>
 
         </div>
 

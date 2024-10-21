@@ -16,6 +16,12 @@
     --tipografia_secundaria: 'Poppins', sans-serif;
 }
 
+.tamanho_do_container_artigo_um_home{
+
+    height: 330px;
+    width: 660px;
+}
+
 .container_artigo_um_home{
 
     height: 330px;
@@ -26,6 +32,22 @@
     box-shadow: -6px -6px 10px rgba(255,255,255,0.45), 6px 6px 10px rgba(94,104,121,0.3);
 
     background-color: var(--cor_seis);
+}
+
+.container_artigo_um_home:hover{
+
+    transition: 0.3s;
+
+    height: 340px;
+    width: 640px;
+}
+
+.container_artigo_um_home:not(:hover){
+
+    transition: 0.3s;
+
+    height: 330px;
+    width: 620px;
 }
 
 .container_artigo_um_home_alinhamento_conteudo{
@@ -77,7 +99,7 @@
 
     width: 550px;
 
-    margin-top: 0px;
+    margin-top: 20px;
     margin-left: 30px;
 
     font-family: var(--tipografia_primaria);

@@ -1,6 +1,6 @@
 :root{
     
-    --cor_um: #437118 ;
+    --cor_dois: #437118 ;
     --cor_dois: #AFD06E ;
     --cor_tres: #F5F5F5;
     --cor_quatro: #9fbacf;
@@ -16,6 +16,12 @@
     --tipografia_secundaria: 'Poppins', sans-serif;
 }
 
+.tamanho_do_container_artigo_dois_home{
+
+    height: 330px;
+    width: 660px;
+}
+
 .container_artigo_dois_home{
 
     height: 330px;
@@ -26,6 +32,22 @@
     box-shadow: -6px -6px 10px rgba(255,255,255,0.45), 6px 6px 10px rgba(94,104,121,0.3);
 
     background-color: var(--cor_seis);
+}
+
+.container_artigo_dois_home:hover{
+
+    transition: 0.3s;
+
+    height: 340px;
+    width: 640px;
+}
+
+.container_artigo_dois_home:not(:hover){
+
+    transition: 0.3s;
+
+    height: 330px;
+    width: 620px;
 }
 
 .container_artigo_dois_home_alinhamento_conteudo{
@@ -58,27 +80,26 @@
     font-family: var(--tipografia_primaria);
     font-weight: lighter;
 
-    color: var(--cor_sete);
+    color: var(--cor_um);
 }
 
 .imagem_artigo_dois{
 
-    margin-top: 40px;
+    margin-top: 20px;
     margin-right: 60px;
-    margin-bottom: 30px;
 }
 
 .imagem_artigo_dois img{
 
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
 }
 
 .paragrafo_do_artigo_dois p{
 
     width: 550px;
 
-    margin-top: 0px;
+    margin-top: 20px;
     margin-left: 30px;
 
     font-family: var(--tipografia_primaria);
