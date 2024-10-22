@@ -1,0 +1,79 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118; 
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118; 
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+body{
+    background-color: var(--cor-4);
+}
+
+.alinhamentos{
+    display: flex;
+    border: 1px solid green;
+
+}
+
+.alinhamento-div{
+    border: 1px solid red;
+    display: block;
+    width: fit-content;
+    height: fit-content;
+}
+
+.alinhamento-um-container{
+    display: flex;
+    border: 1px solid blue;
+}
+
+.tipo-consulta-div{
+    border: 1px solid black;
+    
+}
+
+.tipo-consulta-div h2{
+    color: var(--cor-2);
+    font-family: 'Nunito', sans-serif;
+}
+
+.tipo-consulta-div select{
+    border: 1px solid var(--cor-6);
+    width: 110%;
+    height: 40%;
+    border-radius: 10px;
+    padding: 2px;
+    color: var(--cor-6);
+    font-family: 'Poppins', sans-serif;
+}
+
+.opcao-horario-div{
+    border: 1px solid yellow;
+}
+
+.opcao-horario-div h2{
+    color: var(--cor-2);
+    font-family: 'Nunito', sans-serif;
+}
+
+.opcao-horario-div select{
+    border: 1px solid var(--cor-6);
+    width: 110%;
+    height: 40%;
+    border-radius: 10px;
+    padding: 2px;
+    color: var(--cor-6);
+    font-family: 'Poppins', sans-serif;
+}
+
