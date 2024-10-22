@@ -20,11 +20,8 @@ body {
 }
 
 /* Primeiro container - Titulos */
-<<<<<<< HEAD
-.titulos{
-=======
+
 .titulos {
->>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
     display: flex;
     width: 100%;
     height: auto;

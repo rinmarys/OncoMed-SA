@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import BlogInicio_Admin from "../pages/BlogInicio_Admin";
 import BlogInicio from "../pages/BlogInicio_Paciente";
 
-
 import ConteudoBlog from "../pages/ConteudoBlog";
 
 const router = createBrowserRouter(

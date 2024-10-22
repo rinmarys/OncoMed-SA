@@ -29,17 +29,7 @@ function Footer() {
                 <h1 className='estilo-titulos'>WhatsApp</h1>
                 <div className="line"></div>
 
-<<<<<<< HEAD
                 <p className='estilo-texto-branco'>(31) 99876-5432</p>
-=======
-          <ul>
-            <li><Link>Sobre nós</Link></li>
-            <li><Link to='/'>Blog</Link></li>
-            <li><Link>Agendamentos</Link></li>
-            <li><Link>Convênios</Link></li>
-            <li><Link>Equipe médica</Link></li>
-          </ul>
->>>>>>> 4f7f2e5ece2f5c8ad0cbb094d645bd9c100f5045
 
                 <a href="https://web.whatsapp.com/" target='_blank'><img src="WhatsApp.svg" alt="Acessar WhatsApp" /></a>
                 <a href="https://www.google.com/intl/pt-BR/gmail/about/" target='_blank'><img src="Gmail Logo.svg" alt="Acessar Gmail" /></a>
@@ -52,16 +42,16 @@ function Footer() {
                 <h1 className='estilo-titulos'>Menu do site</h1>
                 <div className="line"></div>
 
-                <ul className='estilo-texto-link'>
-                  <li><link rel="stylesheet" href="./Sobre_nós" />Sobre nós</li>
-                  <li><link rel="stylesheet" href="./BlogInicio_Paciente" />Blog</li>
-                  <li><link rel="stylesheet" href="./Agendamentos" />Agendamentos</li>
-                  <li><link rel="stylesheet" href="./Convenios" />Convênios</li>
-                  <li><link rel="stylesheet" href="./EquipeMedica" />Equipe médica</li>
+                <ul>
+                  <li><Link className='estilo-texto-link'>Sobre nós</Link></li>
+                  <li><Link to='/' className='estilo-texto-link'>Blog</Link></li>
+                  <li><Link className='estilo-texto-link'>Agendamentos</Link></li>
+                  <li><Link className='estilo-texto-link'>Convênios</Link></li>
+                  <li><Link className='estilo-texto-link'>Equipe médica</Link></li>
                 </ul>
 
-                <p className='estilo-texto-azul-link'><link rel="stylesheet" href="" />Termos de uso</p>
-                <p className='estilo-texto-azul-link'><link rel="stylesheet" href="" />Política de privacidade</p>
+                <p><Link to='' className='estilo-texto-azul-link'>Termos de uso</Link></p>
+                <p><Link to='' className='estilo-texto-azul-link'>Politica de privacidade</Link></p>
 
               </div>
 
