@@ -3,6 +3,8 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 
+import './BlogInicio_Admin.css'
+
 function BlogInicio_Admin() {
     return (
         <div>
@@ -11,26 +13,35 @@ function BlogInicio_Admin() {
             <div className="blog-alinhamento">
 
                 {/* Titulo */}
-                <div className="titulo">
-
-                    <h1>GERENCIAR POSTAGENS DO BLOG</h1>
-                    <div></div>
-
-                    <Link to='' className='link-addNew'> <img src="Add New.svg" alt="Adicionar artigo"/> </Link>
+                <div className="titulo-admin">
+                    <div>
+                        <h1>GERENCIAR POSTAGENS DO BLOG</h1>
+                        <div className='line-admin'></div>
+                    </div>
+                    <Link to='' className='link-addNew'> <img src="Add New.svg" alt="Adicionar artigo" /> </Link>
                 </div>
+
                 {/* Titulo */}
 
                 {/* Artigos do blog */}
                 <div className="artigos-alinhamento">
 
-                    <div className="container-artigos">
-                        <img src="Doctor.svg" alt="Doutor" />
-                        <div className="alinhamento-texto">
-                        {/* <button><img src="" alt="" /></button> trabajar con esto despues */}
-                            <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
-                            <p className='doutores-blog'>por Doutor Mauricio Campos</p>
+                    <Link to='/conteudoBlog' className='link-decoration'>
+                        <div className="container-artigos">
+                            <img src="Doctor.svg" alt="Doutor" />
+                            <div className="alinhamento-texto">
+                                <div className="button">
+                                    <button className='button-deletar'><img src="Trash.svg" alt="Deletar artigo" /></button>
+                                </div>
+                                
+                                <div>
+                                    <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
+                                    <p className='doutores-blog'>por Doutor Mauricio Campos</p>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
+                    </Link>
 
                     <div className="container-artigos">
                         <img src="Alimentacao.svg" alt="Evento especial Nutrição" />

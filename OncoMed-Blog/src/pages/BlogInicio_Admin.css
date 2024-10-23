@@ -1,0 +1,50 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+.titulo-admin{
+    display: flex;
+    justify-content: space-between;
+    width: 80.5%;
+
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.line-admin{
+    width: 10%;
+    width: 25%;
+    height: 5px;
+    border-radius: 7px;
+    background-color: var(--cor-3);
+    margin-top: -15px;
+}
+
+.button-deletar{
+    width: 200px;
+    background-color: transparent;
+    border: none;
+    height: fit-content;
+    border: 1px solid black;
+    margin-left: 82%;
+    margin-top: -90%; /* Coloca el botón en la parte superior */
+    
+}
+
+.button{
+    border: 1px solid red;
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.alinhamento-texto{
+    border: 1px solid red;
+}
