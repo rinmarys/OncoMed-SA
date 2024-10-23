@@ -1,0 +1,106 @@
+/* body{
+    border: 1px solid red;
+}
+
+.titulo-sol {
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: block;
+    font-family: "Nunito", sans-serif;
+}
+
+
+.logo-sol {
+    margin-left: 233.5%;
+    top: 0px;
+    right: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.linha-sol {
+    background-color: var(--cor-3);
+    width: 250px;
+    height: 6px;
+    margin-left: 24%;
+    border-radius: 15px;
+}
+
+.subtitulo-sol{
+    border: 1px solid red;
+} */
+
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+    --cor-7: #D9E3EB;
+}
+
+.logo-solicitacao {
+    margin-left: 95%;
+}
+
+.titulo-solicitacao {
+    text-align: center;
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    font-size: larger;
+}
+
+.linha-solicitacao {
+    background-color: var(--cor-3);
+    width: 250px;
+    height: 6px;
+    margin-left: 44%;
+    border-radius: 15px;
+}
+
+.subtitulo-solicitacao{
+    margin-left: 4%;
+    font-family: 'Nunito', sans-serif;
+    font-size: xx-large;
+    font-weight: 550;
+    font-style: normal;
+    margin-left: 100px;
+    color: #1D2A62;
+}
+
+.consulta-solicitada{
+    border: 1px solid black;
+    padding: 2%;
+    width: 1100px;     /* depois mudarpara fit content, qndo finalizar */
+    border-radius: 15px;
+    margin-left: 40px;
+}
+
+.tipo-horario-solicitacao{
+
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nome-data-solicitacao{
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botoes-solicitacao{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
