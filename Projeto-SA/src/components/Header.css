@@ -48,14 +48,25 @@
 
     background-color: transparent;
 
-    color: #437118;
+    color: var(--cor_um);
 }
 
 .nav_bar_link:hover{
 
+    transition: 0.3s;
+
     font-weight: bold;
 
     color: var(--cor_cinco);
+}
+
+.nav_bar_link:not(:hover){
+
+    transition: 0.3s;
+
+    font-weight: bold;
+
+    color: var(--cor_um);
 }
 
 

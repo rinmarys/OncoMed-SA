@@ -4,6 +4,7 @@ import './Cadastro_Paciente.css'
 function Cadastro_Paciente() {
 
   const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
+
   const [valor_inpt_nome, set_valor_inpt_nome] = useState(``);
   const [valor_inpt_cep, set_valor_inpt_cep] = useState(``);
   const [valor_inpt_cpf, set_valor_inpt_cpf] = useState(``);
@@ -12,11 +13,18 @@ function Cadastro_Paciente() {
   const [valor_inpt_data_de_nascimento, set_valor_inpt_data_de_nascimento] = useState(``);
   const [valor_inpt_senha, set_valor_inpt_senha] = useState(``);
   const [valor_inpt_confirmar_senha, set_valor_inpt_confirmar_senha] = useState(``);
+
   const [valor_checkbox, set_valor_checkbox] = useState(``);
+
+  const [email_disponivel , set_email_disponivel] = useState(false);
+  let cpf_disponivel = false;
+  let pode_cadastrar = false;
+
   let senhas_sao_iguais = false;
-  let email_disponivel;
-  let cpf_disponivel;
+  let termos_de_uso_paciente_aceito = false;
+
   let array_de_usuarios_de_pacientes = [];
+  let array_de_usuarios_de_medicos = JSON.parse(localStorage.getItem(`Médicos Cadastrados`));
   
   function cadastrar(){
     
@@ -25,42 +33,49 @@ function Cadastro_Paciente() {
       nome: valor_inpt_nome,
       cpf: valor_inpt_cpf,
       email: valor_inpt_email,
+      data_de_nascimento: valor_inpt_data_de_nascimento,
       cep: valor_inpt_cep,
       genero: valor_inpt_genero,
       senha: valor_inpt_senha
-    }
+    };
 
     for(let i = 0; i != array_de_usuarios_de_pacientes.length; i++){
 
-      if(array_de_usuarios_de_pacientes[i].email == valor_inpt_email){
+      if(array_de_usuarios_de_pacientes[i].email != valor_inpt_email && array_de_usuarios_de_medicos[i].email != valor_inpt_email && email_disponivel == false){
 
-        set_mensagem_de_erro(`Email já cadastrado!`);
-
+        set_email_disponivel(true);
+        
       } else {
-
-        email_disponivel = true;
+        
+        set_mensagem_de_erro(`Email já cadastrado!`);
       };
 
-      if(array_de_usuarios_de_pacientes[i].cpf == valor_inpt_cpf){
-
-        set_mensagem_de_erro(`CPF já cadastrado!`);
-
-      } else{
+      if(array_de_usuarios_de_pacientes[i].cpf != valor_inpt_cpf || array_de_usuarios_de_medicos[i].cpf != valor_inpt_cpf && cpf_disponivel == false){
 
         cpf_disponivel = true;
+        
+      } else{
+        
+        set_mensagem_de_erro(`CPF já cadastrado!`);
       };
+      
     };
 
-    if(valor_checkbox == true){
+    valor_checkbox == true ? termos_de_uso_paciente_aceito = true : set_mensagem_de_erro(`Favor aceitar os Termos de Uso!`);
 
-        array_de_usuarios_de_pacientes.push(paciente);
-        localStorage.setItem(`Pacientes`, JSON.stringify(array_de_usuarios_de_pacientes));
+    valor_inpt_senha != valor_inpt_confirmar_senha ? set_mensagem_de_erro(`As senhas não são iguais!`) : senhas_sao_iguais = true;
 
-    } else {
+    if(email_disponivel == true && cpf_disponivel == true && senhas_sao_iguais == true){
 
-      set_mensagem_de_erro(`Favor aceitar os Termos de Uso!`);
+      pode_cadastrar = true;
     };
 
+    
+    array_de_usuarios_de_pacientes.push(paciente);
+    localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(array_de_usuarios_de_pacientes));
+  
+    console.log(email_disponivel)
+    console.log(cpf_disponivel)
   };
 
   return (
@@ -107,7 +122,7 @@ function Cadastro_Paciente() {
 
           <div className="input_cep_paciente">
             <label>CEP</label>
-            <input type="text" placeholder='CEP aqui' value={valor_inpt_cep} onChange={(e) => set_valor_inpt_cep(e.target.value)}/>
+            <input type="text" maxLength={9} placeholder='CEP aqui' value={valor_inpt_cep} onChange={(e) => set_valor_inpt_cep(e.target.value)}/>
           </div>
 
           <div className="input_email_paciente">
@@ -122,7 +137,7 @@ function Cadastro_Paciente() {
 
           <div className="input_confirmar_senha_paciente">
             <label>Confirmar Senha</label>
-            <input type="password" minLength={7} maxLength={12} placeholder='Confirmar senha aqui' value={valor_inpt_confirmar_senha} onChange={(e) => set_valor_inpt_confirmar_senha(e.target.value)}/>
+            <input type="password" minLength={7} maxLength={12} placeholder='Confirme sua senha' value={valor_inpt_confirmar_senha} onChange={(e) => set_valor_inpt_confirmar_senha(e.target.value)}/>
           </div>
 
         </div>

@@ -256,7 +256,7 @@ input:focus{
 .botao_login {
 
     font-family: var(--tipografia_primaria);
-    font-weight: 800;
+    font-weight: bold;
     font-size: 16px;
 
     height: 40px;
@@ -264,23 +264,31 @@ input:focus{
     margin-left: 260px;
     margin-top: 3%;
 
-    border: 1px solid var(--cor_dois);
+    border: 1px solid var(--cor_cinco);
     border-radius: 10px;
 
     cursor: pointer;
 
-    background-color: var(--cor_dois);
-    color: var(--cor_cinco);
+    background-color: var(--cor_cinco);
+    color: var(--cor_tres);
 }
 
 .botao_login:hover{
 
     transition: 0.2s;
 
-    border: 1px solid var(--cor_nove);
+    border: 1px solid var(--cor_quatro);
 
-    background-color: var(--cor_nove);
+    background-color: var(--cor_quatro);
     color: var(--cor_cinco);
+}
+
+.botao_login:not(:hover){
+
+    transition: 0.3s;
+
+    background-color: var(--cor_cinco);
+    color: var(--cor_tres);
 }
 
 /* Não possui conta texto */

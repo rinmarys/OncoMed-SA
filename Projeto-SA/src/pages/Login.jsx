@@ -5,10 +5,73 @@ import Pop_up from "../components/Pop_up.jsx";
 
 function Login() {
 
-  const [valor_inpt_nome, set_valor_inpt_nome] = useState();
-  const [valor_inpt_email, set_valor_inpt_email] = useState();
-  const [valor_inpt_senha, set_valor_inpt_senha] = useState();
+  const [valor_inpt_nome, set_valor_inpt_nome] = useState(``);
+  const [valor_inpt_email, set_valor_inpt_email] = useState(``);
+  const [valor_inpt_senha, set_valor_inpt_senha] = useState(``);
   const [pop_up_aberto, set_pop_aberto] = useState(false);
+
+  let mensagem_de_erro;
+
+  let pegar_local_storage_paciente = JSON.parse(localStorage.getItem(`Pacientes`));
+  let pegar_local_storage_medico = JSON.parse(localStorage.getItem(`Médicos`));
+
+  let pegar_posicao_nome_paciente = null;
+  let pegar_posicao_email_paciente = null;
+  let pegar_posicao_senha_paciente = null;
+
+  let posicao_do_objeto;
+
+  let pegar_posicao_nome_medico = null;
+  let pegar_posicao_email_medico = null;
+  let pegar_posicao_senha_medico = null;
+
+  let nome_valido_paciente = false;
+  let email_valido_paciente = false;
+  let senha_valido_paciente = false;
+
+
+  function logar(){
+
+    for(let i = 0; i != pegar_local_storage_paciente.length; i++){
+
+      if(pegar_local_storage_paciente[i].nome == valor_inpt_nome){
+
+        pegar_posicao_nome_paciente = pegar_local_storage_paciente[i].nome;
+
+      };
+
+      if(pegar_local_storage_paciente[i].email == valor_inpt_email){
+
+        pegar_posicao_email_paciente = pegar_local_storage_paciente[i].email;
+      };
+
+      if(pegar_local_storage_paciente[i].senha == valor_inpt_senha){
+
+        pegar_posicao_senha_paciente = pegar_local_storage_paciente[i].senha;
+      };
+
+      if(pegar_posicao_nome_paciente != null && pegar_posicao_email_paciente != null && pegar_posicao_senha_paciente != null){
+
+        posicao_do_objeto = i;
+      };
+
+    };
+
+    pegar_posicao_nome_paciente != null ? nome_valido_paciente = true : nome_valido_paciente = false;
+
+    pegar_posicao_email_paciente != null ? email_valido_paciente = true : email_valido_paciente = false;
+ 
+    pegar_posicao_senha_paciente != null ? senha_valido_paciente = true : senha_valido_paciente = false;
+
+    if(nome_valido_paciente == true && email_valido_paciente == true && senha_valido_paciente == true){
+
+      localStorage.setItem(`Usuario Logado`, JSON.stringify(pegar_local_storage_paciente[posicao_do_objeto]));
+
+      window.location.href=`/`;
+    };
+
+
+  };
 
   return (
     <div className="dv_login">
@@ -51,10 +114,16 @@ function Login() {
 
         </div>
 
-        <button className="botao_login">LOGIN</button>
+        <button className="botao_login" onClick={logar()}>LOGIN</button>
 
         <div className="nao_possui_conta">
           <p>Não Possui uma conta? <button className="nao_possui_conta_link" onClick={() => set_pop_aberto(true)}>Cadastre-se</button></p>
+        </div>
+
+        <div className="dv_massege_error">
+
+          {mensagem_de_erro}
+
         </div>
       
       </div>

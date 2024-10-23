@@ -152,6 +152,15 @@ body{
     background-color: var(--cor_sete);
 }
 
+.carrossel_conteudo_cadastrar:not(:hover){
+
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_um);
+
+    background-color: var(--cor_um);
+}
+
 /* Container Carrossel Botão de Entrar */
 
 .carrossel_conteudo_entrar{
@@ -179,6 +188,15 @@ body{
     border: 1px solid var(--cor_nove);
 
     background-color: var(--cor_nove);
+}
+
+.carrossel_conteudo_entrar:not(:hover){
+
+    transition: 0.2s;
+
+    border: 1px solid var(--cor_dois);
+
+    background-color: var(--cor_dois);
 }
 
 /* Container Carrossel Imagem */
@@ -216,11 +234,11 @@ body{
 
     width: 500px;
     height: 500px;
-}
+}   
 
 .cta_comunidade_container{
 
-    height: 780px;
+    height: 600px;
 
     background-color: #87aece3b;
 }
@@ -237,7 +255,7 @@ body{
 
 .container_comunidade_imagem{
 
-    height: 500px;
+    height: 300px;
     width: 500px;
 
     margin-left: 50px;
@@ -245,24 +263,29 @@ body{
 
 .container_comunidade_imagem img{
 
-    height: 450px;
-    width: 450px;
+    height: 300px;
+    width: 500px;
 }
 
 .container_comunidade_imagem img:hover{
 
     transition: 0.5s;
 
-    height: 500px;
-    width: 500px;
+    height: 350px;
+    width: 550px;
 }
 
 .container_comunidade_imagem img:not(:hover){
 
     transition: 0.5s;
 
-    height: 450px;
-    width: 450px;
+    height: 300px;
+    width: 500px;
+}
+
+.container_comunidade_conteudo{
+
+    margin-top: 5%;
 }
 
 .o_que_dizem_nossos_pacientes{
@@ -270,6 +293,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .o_que_dizem_nossos_pacientes_carrossel{
@@ -285,15 +309,15 @@ body{
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
 
     color: var(--cor_cinco);
 }
 
 .o_que_dizem_nossos_pacientes_underline{
 
-    width: 25px;
-    height: 5px;
+    width: 70px;
+    height: 6px;
 
     margin-bottom: 25px;
 
@@ -304,23 +328,26 @@ body{
 
 .o_que_dizem_nossos_pacientes h2:hover + .o_que_dizem_nossos_pacientes_underline{
 
-    transition: 0.4s;
+    transition: 0.5s;
 
-    width: 150px;
+    width: 450px;
 }
 
 .o_que_dizem_nossos_pacientes h2:not(:hover) + .o_que_dizem_nossos_pacientes_underline{
 
-    transition: 0.3s;
+    transition: 0.5s;
 
-    width: 25px;
+    width: 70px;
 }
+
 
 /* Botão do Carrossel */
 
 .o_que_dizem_nossos_pacientes_carrossel button{
 
     border: 0px;
+
+    padding-left: 0%;
 
     cursor: pointer;
 
@@ -363,7 +390,7 @@ body{
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 28px;
 
     color: var(--cor_cinco);
 }
@@ -417,7 +444,7 @@ body{
     width: 150px;
     height: 40px;
 
-    border: 1px solid var(--cor_dois);
+    border: 1px solid var(--cor_um);
     border-radius: 10px;
 
     cursor: pointer;
@@ -426,18 +453,28 @@ body{
     font-weight: bold;
     font-size: 13px;
 
-    color: var(--cor_cinco);
-    background-color: var(--cor_dois);
+    color: var(--cor_tres);
+    background-color: var(--cor_um);
 }
 
 .container_comunidade_conteudo button:hover{
 
     transition: 0.3s;
 
-    border: 1px solid var(--cor_nove);
+    border: 1px solid var(--cor_sete);
 
     color: var(--cor_tres);
-    background-color: var(--cor_nove);
+    background-color: var(--cor_sete);
+}
+
+.container_comunidade_conteudo button:not(:hover){
+
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_um);
+
+    color: var(--cor_tres);
+    background-color: var(--cor_um);
 }
 
 /* Container Artigos Recentes */
@@ -497,7 +534,7 @@ body{
 .container_artigos_recentes_underline{
 
     width: 50px;
-    height: 6px;
+    height: 5px;
 
     border: 1px solid var(--cor_dois);
     border-radius: 10px;
@@ -507,14 +544,14 @@ body{
 
 .container_artigos_recentes h2:hover + .container_artigos_recentes_underline{
 
-    transition: 0.3s;
+    transition: 0.4s;
 
     width: 250px;
 }
 
 .container_artigos_recentes h2:not(:hover) + .container_artigos_recentes_underline{
 
-    transition: 0.3s;
+    transition: 0.4s;
 
     width: 50px;
 }
@@ -528,9 +565,131 @@ body{
 
 .container_estamos_aqui_para_ajudar{
 
-    height: 20px;
+    height: 550px;
 
     background-color: #87aece3b;
+}
+
+/* Alinhamento do Título */
+
+.container_estamos_aqui_para_ajudar_titulo{
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    padding-left: 5%;
+}
+
+/* Título */
+
+.container_estamos_aqui_para_ajudar_titulo h2{
+
+    margin-top: 3%;
+    margin-bottom: 0%;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+    font-size: 32px;
+
+    color: var(--cor_dez);
+}
+
+/* Underline do Título */
+
+.container_estamos_aqui_para_ajudar_titulo_underline{
+
+    height: 6px;
+    width: 50px;
+
+    border-radius: 10px;
+
+    background-color: var(--cor_dois);
+}
+
+/* Efeito UnderLine */
+
+.container_estamos_aqui_para_ajudar_titulo h2:hover + .container_estamos_aqui_para_ajudar_titulo_underline{
+
+    transition: 0.4s;
+
+    width: 130px;
+}
+
+.container_estamos_aqui_para_ajudar_titulo h2:not(:hover) + .container_estamos_aqui_para_ajudar_titulo_underline{
+
+    transition: 0.4s;
+
+    width: 50px;
+}
+
+/* Alinhamento Conteúdo */
+
+.container_estamos_aqui_para_ajudar_alinhamento{
+
+    display: flex;
+
+    margin-top: 4%;
+    margin-left: 4%;
+}
+
+/* Tamnho do Container da Imagem */
+
+.container_estamos_aqui_para_ajudar_imagem{
+
+    height: 500px;
+    width: 450px;
+}
+
+/* Imagem do Container */
+
+.container_estamos_aqui_para_ajudar_imagem img{
+    
+    height: 300px;
+    width: 400px;
+}
+
+.container_estamos_aqui_para_ajudar_imagem img:hover{
+
+    transition: 0.4s;
+
+    height: 350px;
+    width: 450px;
+}
+
+.container_estamos_aqui_para_ajudar_imagem img:not(:hover){
+
+    transition: 0.4s;
+
+    height: 300px;
+    width: 400px;
+}
+
+.container_estamos_aqui_para_ajudar_texto{
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 3%;
+    margin-left: 4%;
+}
+
+.container_estamos_aqui_para_ajudar_texto ul{
+
+    font-family: var(--tipografia_secundaria);
+    font-weight: lighter;
+    font-size: 24px;
+
+    color: var(--cor_cinco);
+}
+
+.container_estamos_aqui_para_ajudar_texto p{
+
+    font-family: var(--tipografia_secundaria);
+    font-weight: bold;
+    font-size: 20px;
+
+    color: var(--cor_um);
 }
 
 /* Container FAQ */
@@ -538,7 +697,7 @@ body{
 .container_faq{
 
 
-    height: 800px;
+    height: 550px;
 
     background-color: var(--cor_tres);
 }
@@ -559,7 +718,7 @@ body{
 .container_faq h2:hover + .faixa_verde_titulo_faq{
 
     transition: 0.4s;
-    width: 100px;
+    width: 200px;
 }
 
 .container_faq h2:not(:hover) + .faixa_verde_titulo_faq{
@@ -582,6 +741,7 @@ body{
 
 .container_faq_coluna_de_divs{
 
+    padding-top: 60px;
     padding-left: 100px;
 }
 
@@ -653,6 +813,9 @@ body{
 
     box-shadow: -6px -6px 10px rgba(255,255,255,0.45), 6px 6px 10px rgba(94,104,121,0.3);
 
+    transition: 0.5s ease;
+    overflow: hidden;
+
     background-color: var(--cor_seis);
 }
 
@@ -703,6 +866,9 @@ body{
 
     box-shadow: 6px 6px 10px rgba(94,104,121,0.3);
 
+    transition: 0.5s ease;
+    overflow: hidden;
+
     background-color: var(--cor_seis);
 }
 
@@ -752,6 +918,9 @@ body{
     padding-right: 25px;
 
     box-shadow: 6px 6px 10px rgba(94,104,121,0.3);
+
+    transition: 0.5s ease;
+    overflow: hidden;
 
     background-color: var(--cor_seis);
 }
@@ -805,6 +974,9 @@ body{
     border-bottom-left-radius: 5px;
 
     box-shadow: 6px 6px 10px rgba(94,104,121,0.3);
+
+    transition: 0.5s ease;
+    overflow: hidden;
 
     background-color: var(--cor_seis);
 }
@@ -918,4 +1090,13 @@ body{
     border: 1px solid var(--cor_sete);
 
     background-color: var(--cor_sete);
+}
+
+.container_faq_cta button:not(:hover){
+
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_um);
+
+    background-color: var(--cor_um);
 }

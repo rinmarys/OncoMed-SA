@@ -10,6 +10,7 @@ import Carrossel_Comentario from '../components/Carrossel_Comentario.jsx'
 import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx'
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer.jsx'
 
 function Home() {
 
@@ -19,10 +20,39 @@ function Home() {
   const [faq_c_aberto, set_faq_c_aberto] = useState(false);
   const [faq_d_aberto, set_faq_d_aberto] = useState(false);
 
+  const [altura_faq_a, set_altura_faq_a] = useState(`60px`);
+  const [altura_faq_b, set_altura_faq_b] = useState(`60px`);
+  const [altura_faq_c, set_altura_faq_c] = useState(`60px`);
+  const [altura_faq_d, set_altura_faq_d] = useState(`60px`);
+
   let faq_a_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_b_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_c_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_d_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
+
+  function evento_faq_a(){
+
+    set_faq_a_aberto(!faq_a_aberto);
+    set_altura_faq_a(faq_a_aberto ? `60px` : `160px`);
+  };
+
+  function evento_faq_b(){
+
+    set_faq_b_aberto(!faq_b_aberto);
+    set_altura_faq_b(faq_b_aberto ? `60px` : `160px`);
+  };
+
+  function evento_faq_c(){
+
+    set_faq_c_aberto(!faq_c_aberto);
+    set_altura_faq_c(faq_c_aberto ? `60px` : `160px`);
+  };
+
+  function evento_faq_d(){
+
+    set_faq_d_aberto(!faq_d_aberto);
+    set_altura_faq_d(faq_d_aberto ? `60px`: `160px`);
+  };
 
   if(faq_a_aberto == true){
 
@@ -153,6 +183,36 @@ function Home() {
 
       <div className="container_estamos_aqui_para_ajudar">
 
+        <div className="container_estamos_aqui_para_ajudar_titulo">
+
+          <h2>Estamos aqui para ajudar!</h2>
+          <div className="container_estamos_aqui_para_ajudar_titulo_underline"></div>
+
+        </div>
+
+        <div className="container_estamos_aqui_para_ajudar_alinhamento">
+
+          <div className="container_estamos_aqui_para_ajudar_imagem">
+
+            <img src="Estamos_Aqui_Para_Ajudar.svg" alt="Ajudar" />
+
+          </div>
+
+          <div className="container_estamos_aqui_para_ajudar_texto">
+
+            <ul>
+
+              <li>Envie suas dúvidas e comentários!</li>
+              <li>Fale com nossos atendentes!</li>
+
+            </ul>
+
+            <p>Atendimento disponível de segunda a sexta, das 8h às 18h</p>
+
+          </div>
+
+        </div>
+
       </div>
 
       <div className="container_faq">
@@ -171,48 +231,48 @@ function Home() {
 
             <h3>Dúvidas Frequentes</h3>
 
-            <div className="faq_a">
+            <div className="faq_a" style={{height: altura_faq_a}}>
 
 
             <div className="faq_a_alinhamento_de_titulo">
               <h4>Como funciona o tratamento de câncer?</h4>
-              <button onClick={() => faq_a_aberto == false ? set_faq_a_aberto(true) : set_faq_a_aberto(false)} className='faq_a_botao'>{faq_a_botao}</button>
+              <button onClick={evento_faq_a} className='faq_a_botao'>{faq_a_botao}</button>
             </div>
 
             {faq_a_aberto && <Faq_a/>}
 
             </div>
 
-            <div className="faq_b">
+            <div className="faq_b" style={{height: altura_faq_b}}>
 
 
               <div className="faq_b_alinhamento_de_titulo">
                 <h4>Quais são os efeitos colaterais dos tratamentos?</h4>
-                <button onClick={() => faq_b_aberto == false ? set_faq_b_aberto(true) : set_faq_b_aberto(false)} className='faq_b_botao'>{faq_b_botao}</button>
+                <button onClick={evento_faq_b} className='faq_b_botao'>{faq_b_botao}</button>
               </div>
 
               {faq_b_aberto && <Faq_b/>}
 
             </div>
 
-            <div className="faq_c">
+            <div className="faq_c" style={{height: altura_faq_c}}>
 
 
               <div className="faq_c_alinhamento_de_titulo">
                 <h4>Quais são os sinais de alerta de câncer?</h4>
-                <button onClick={() => faq_c_aberto == false ? set_faq_c_aberto(true) : set_faq_c_aberto(false)} className='faq_c_botao'>{faq_c_botao}</button>
+                <button onClick={evento_faq_c} className='faq_c_botao'>{faq_c_botao}</button>
               </div>
 
               {faq_c_aberto && <Faq_c/>}
 
             </div>
 
-            <div className="faq_d">
+            <div className="faq_d" style={{height: altura_faq_d}}>
 
 
               <div className="faq_d_alinhamento_de_titulo">
                 <h4>Quais são os tipos mais comuns de câncer?</h4>
-                <button onClick={() => faq_d_aberto == false ? set_faq_d_aberto(true) : set_faq_d_aberto(false)} className='faq_d_botao'>{faq_d_botao}</button>
+                <button onClick={evento_faq_d} className='faq_d_botao'>{faq_d_botao}</button>
               </div>
 
               {faq_d_aberto && <Faq_d/>}
@@ -237,6 +297,7 @@ function Home() {
 
       </div>
 
+      {<Footer/>}
 
    </div>
   )
