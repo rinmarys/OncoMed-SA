@@ -5,7 +5,6 @@ function Perfil_medico() {
   return (
     <div className='user_container_doctor'>
     
-      
     <label for="">Nome completo</label><input placeholder="Digite seu nome"/>
       <label for="">Email</label><input type="email" placeholder="Digite seu email"/>
       <label for="">Telefone (com DDD)</label><input placeholder="Digite seu número de telefone"/>

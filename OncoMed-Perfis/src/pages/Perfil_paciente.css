@@ -1,4 +1,11 @@
+.info_container{
+ position: absolute;
+ left: 130px;
+ margin-top: 5%;  
+}
+
 .info_container input{
+ box-sizing: border-box;
  width: 290px;
  height: 40px;
 
@@ -6,10 +13,8 @@
  border: 1px solid;
  background-color: #fdfdfd;
  outline: none;
-
- margin-top: 1%;
  display: block;
- margin-left: 5%;
+ margin-top: 1%;
 }
    
 .info_container input:focus{
@@ -18,11 +23,13 @@
    
 .info_container label{
  font-family: "poppins", sans-serif;
+ font-weight: bold;
  font-size: 18px;
  color: #437118;
 
- margin-top: 8%;
- margin-right: 90%;
+ margin-top: 19%;
+ margin-bottom: 3%;
+ margin-right: 98%;
  display: block;
 }
    
@@ -30,28 +37,31 @@
  font-family: "poppins", sans-serif;
  font-weight: bold;
  color: #437118;
+ outline: none;
  width: 300px;
  height: 40px;
  border-radius: 5px;
  display: flex;
- margin-top: 1%;
 }
 
 .info_container option{
  color: #1D2A62;
- background-color: #345516;
  font-family: "poppins", sans-serif;
  font-weight: bold;
  background-color: #fdfdfd;
 }
+
+.posicao button{
+ margin-top: 100%;
+ display: flex;
+}
+
    
 .container_edit button{
  font-family: 'Nunito', sans-serif;
  font-weight: 800;
  height: 40px;
  width: 150px;
- margin-top: 2%;
- margin-left: 73%;
  border: 1px solid ;
  border-radius: 15px;  
  background-color: #F5F5F5 ;
@@ -73,6 +83,7 @@
  border-radius: 15px;  
  background-color: #437118 ;
  color:  #F5F5F5 ;
+ margin-left: 98%;
 }
    
 .container_delete button:hover{
