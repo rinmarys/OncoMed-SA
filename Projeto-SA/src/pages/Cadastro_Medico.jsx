@@ -69,7 +69,7 @@ function Cadastro_Medico() {
     
               <div className="input_data_de_nascimento_medico">
                 <label>Data Nascimento</label>
-                <input type="text" maxLength={10}placeholder='Data de nascimento aqui' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
+                <input type="date" maxLength={10}placeholder='Data de nascimento aqui' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
               </div>
     
               <div className="input_confirmar_senha_medico">

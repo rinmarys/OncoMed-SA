@@ -51,16 +51,24 @@ body{
 
 .container_img_medico img{
 
-    width: 550px;
-    height: 550px;
+    width: 650px;
+    height: 650px;
 }
 
 .container_img_medico img:hover{
 
     transition: 0.5s;
 
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
+}
+
+.container_img_medico img:not(:hover){
+
+    transition: 0.5s;
+
+    width: 650px;
+    height: 650px;
 }
 
 .titulo_medico{
@@ -68,17 +76,48 @@ body{
     display: flex;
     justify-content: space-around;
 
+    height: 100px;
+
     margin-top: 5%;
 }
 
 
 /* Logo SA   */
 
-.titulo_medico_logo img{
+.container_informacoes_logo_medico{
 
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
+}
+
+.titulo_medico_logo{
+
+    height: 100px;
+    width: 100px;
+}
+
+.imagem_logo_medico{
+
+    width: 80px;
+    height: 80px;
     margin-top: 50%;
+}
+
+.imagem_logo_medico:hover{
+
+    transition: 0.3s;
+
+    width: 100px;
+    height: 100px;
+    margin-top: 50%;
+}
+
+.imagem_logo_medico:not(:hover){
+
+    transition: 0.3s;
+
+    width: 80px;
+    height: 80px;
 }
 
 /* Linha verde */
@@ -87,16 +126,16 @@ body{
     
     position: absolute;
     width: 4.2%;
-    height: 1%;
+    height: 0.8%;
     left: 47.2%;
-    top: 14.5%;
+    top: 15%;
     margin-top: 1%;
     
     background-color: var(--cor_dois);
     border-radius: 50px;
 }
 
-/* CADASTRO - PACIENTE */
+/* CADASTRO - medico */
 
 .titulo_medico h2{
     
@@ -105,8 +144,8 @@ body{
     font-weight: 600;
     font-size: 30px;
 
-    margin-top: 5%;
-    margin-right: 110px;
+    margin-top: 6%;
+    margin-right: 16%;
     
     color: var(--cor_cinco);
 }
@@ -120,7 +159,7 @@ body{
 
 .coluna_de_inputs_dois_medico{
 
-    margin-left: 5%;
+    margin-left: 6%;
 }
 
 /* Nome Input */
@@ -529,23 +568,34 @@ input:focus{
     margin-left: 25%;
     margin-top: 5%;
 
-    border: 1px solid var(--cor_dois);
+    border: 1px solid var(--cor_cinco);
     border-radius: 10px;
 
     cursor: pointer;
 
-    background-color: var(--cor_dois);
-    color: var(--cor_cinco);
+    background-color: var(--cor_cinco);
+    color: var(--cor_tres);
 }
 
 .botao_cadastrar_medico:hover{
 
-    transition: 0.2s;
+    transition: 0.3s;
 
-    border: 1px solid var(--cor_nove);
+    border: 1px solid var(--cor_quatro);
 
-    background-color: var(--cor_nove);
+    background-color: var(--cor_quatro);
     color: var(--cor_cinco);
+}
+
+.botao_cadastrar_medico:not(:hover){
+
+    transition: 0.3s
+    ;
+
+    border: 1px solid var(--cor_cinco);
+
+    background-color: var(--cor_cinco);
+    color: var(--cor_tres);
 }
 
 /* Já possui uma conta? Log-In */
@@ -573,6 +623,7 @@ input:focus{
 
     text-decoration: underline;
 }
+
 
 .hyperlink_politica_de_privacidade{
 

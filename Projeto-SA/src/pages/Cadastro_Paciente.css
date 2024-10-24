@@ -51,24 +51,24 @@ body{
 
 .container_img_paciente img{
 
-    width: 550px;
-    height: 550px;
+    width: 650px;
+    height: 650px;
 }
 
 .container_img_paciente img:hover{
 
     transition: 0.5s;
 
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
 }
 
 .container_img_paciente img:not(:hover){
 
     transition: 0.5s;
 
-    width: 550px;
-    height: 550px;
+    width: 650px;
+    height: 650px;
 }
 
 .titulo_paciente{
@@ -90,8 +90,8 @@ body{
 
 .container_informacoes_logo_paciente img{
 
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-top: 50%;
 }
 
@@ -99,8 +99,8 @@ body{
 
     transition: 0.3s;
 
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-top: 50%;
 }
 
@@ -108,8 +108,8 @@ body{
 
     transition: 0.3s;
 
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
 /* Linha verde */
@@ -118,7 +118,7 @@ body{
     
     position: absolute;
     width: 4.2%;
-    height: 1%;
+    height: 0.8%;
     left: 47.2%;
     top: 15%;
     margin-top: 1%;
@@ -136,8 +136,8 @@ body{
     font-weight: 600;
     font-size: 30px;
 
-    margin-top: 5%;
-    margin-right: 90px;
+    margin-top: 6%;
+    margin-right: 15%;
     
     color: var(--cor_cinco);
 }
