@@ -43,6 +43,7 @@ body {
 
 /* Alinhamento texto do artigo */
 .alinhamento-texto {
+    width: 100%;
     margin-left: 3%;
 
     justify-content: center;
