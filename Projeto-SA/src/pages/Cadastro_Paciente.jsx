@@ -16,66 +16,124 @@ function Cadastro_Paciente() {
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
-  const [email_disponivel , set_email_disponivel] = useState(false);
-  let cpf_disponivel = false;
-  let pode_cadastrar = false;
+  const [array_de_usuarios, set_array_de_usuarios] = useState([]);
+  
+  useEffect(() => {
+    
+    console.log(array_de_usuarios);
 
-  let senhas_sao_iguais = false;
-  let termos_de_uso_paciente_aceito = false;
-
-  let array_de_usuarios_de_pacientes = [];
-  let array_de_usuarios_de_medicos = JSON.parse(localStorage.getItem(`Médicos Cadastrados`));
+      localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(array_de_usuarios));
+    
+  }, [array_de_usuarios]
+  );
   
   function cadastrar(){
     
-    let paciente = {
-  
+    let novo_usuario = {
+      
       nome: valor_inpt_nome,
+      cep: valor_inpt_cep,
       cpf: valor_inpt_cpf,
+      genero: valor_inpt_genero,
       email: valor_inpt_email,
       data_de_nascimento: valor_inpt_data_de_nascimento,
-      cep: valor_inpt_cep,
-      genero: valor_inpt_genero,
       senha: valor_inpt_senha
     };
-
-    for(let i = 0; i != array_de_usuarios_de_pacientes.length; i++){
-
-      if(array_de_usuarios_de_pacientes[i].email != valor_inpt_email && array_de_usuarios_de_medicos[i].email != valor_inpt_email && email_disponivel == false){
-
-        set_email_disponivel(true);
-        
-      } else {
-        
-        set_mensagem_de_erro(`Email já cadastrado!`);
-      };
-
-      if(array_de_usuarios_de_pacientes[i].cpf != valor_inpt_cpf || array_de_usuarios_de_medicos[i].cpf != valor_inpt_cpf && cpf_disponivel == false){
-
-        cpf_disponivel = true;
-        
-      } else{
-        
-        set_mensagem_de_erro(`CPF já cadastrado!`);
-      };
-      
-    };
-
-    valor_checkbox == true ? termos_de_uso_paciente_aceito = true : set_mensagem_de_erro(`Favor aceitar os Termos de Uso!`);
-
-    valor_inpt_senha != valor_inpt_confirmar_senha ? set_mensagem_de_erro(`As senhas não são iguais!`) : senhas_sao_iguais = true;
-
-    if(email_disponivel == true && cpf_disponivel == true && senhas_sao_iguais == true){
-
-      pode_cadastrar = true;
-    };
-
     
-    array_de_usuarios_de_pacientes.push(paciente);
-    localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(array_de_usuarios_de_pacientes));
+      let pegar_local_storage_pacientes = JSON.parse(localStorage.getItem(`Pacientes Cadastrados`));
+      let pegar_local_storage_medicos = JSON.parse(localStorage.getItem(`Médicos Cadastrados`));
+    
+      let email_ja_cadastrado = false;
+      let cpf_ja_cadastrado = false;
+      let senhas_sao_iguais = false;
+      
+      let verificar_email_cadastrado_paciente;
+      let verificar_cpf_cadastrado_paciente;
+
+      let verificar_email_cadastrado_medico;
+      let verificar_cpf_cadastrado_medico;
+
+      let verificar_checkbox_selecionado;
+
+    for(let i = 0; i != pegar_local_storage_pacientes.length; i++){
+
+      verificar_email_cadastrado_paciente = pegar_local_storage_pacientes[i].email.includes(valor_inpt_email);
+      verificar_cpf_cadastrado_paciente = pegar_local_storage_pacientes[i].cpf.includes(valor_inpt_cpf);
+
+      if(verificar_email_cadastrado_paciente == true){
+
+        email_ja_cadastrado = true;
+
+      };
+
+      if(verificar_cpf_cadastrado_paciente == true){
+
+        cpf_ja_cadastrado = true;
+
+      };
+
+    };
+
+    for(let i = 0; i != pegar_local_storage_medicos.length; i++){
+
+      verificar_email_cadastrado_medico = pegar_local_storage_medicos[i].email.includes(valor_inpt_email);
+      verificar_cpf_cadastrado_medico = pegar_local_storage_medicos[i].cpf.includes(valor_inpt_cpf);
+
+      if(verificar_email_cadastrado_medico == true){
+
+        email_ja_cadastrado = true;
+
+      };
+
+      if(verificar_cpf_cadastrado_medico == true){
+
+        cpf_ja_cadastrado = true;
+
+      };
+
+    };
+
+    valor_inpt_senha == valor_inpt_confirmar_senha && valor_inpt_senha != ``? senhas_sao_iguais = true : senhas_sao_iguais = false;
+    
+    if(valor_checkbox){
+
+      verificar_checkbox_selecionado = true;
+
+    } else {
+
+      verificar_checkbox_selecionado = false;
+    };
+        
+    if(cpf_ja_cadastrado == false && email_ja_cadastrado == false && senhas_sao_iguais == true && verificar_checkbox_selecionado == true){
+
+      set_array_de_usuarios(usuarios_anteriores => [...usuarios_anteriores, novo_usuario]);
+      localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(array_de_usuarios));
+
+
+    } else{
+
+
+
+        if(cpf_ja_cadastrado == true){
   
-    console.log(email_disponivel)
-    console.log(cpf_disponivel)
+          set_mensagem_de_erro(`CPF já cadastrado!`);
+        } else if(email_ja_cadastrado == true){
+  
+          set_mensagem_de_erro(`Email já cadastrado!`);
+  
+        } else if(senhas_sao_iguais == false){
+  
+          set_mensagem_de_erro(`As senhas devem ser iguais!`);
+  
+        } else if(verificar_checkbox_selecionado == false){
+
+          set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+        };
+
+    };
+
+    console.log(valor_inpt_senha)
+
   };
 
   return (
