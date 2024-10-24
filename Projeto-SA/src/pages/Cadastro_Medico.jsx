@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import './Cadastro_Medico.css'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 function Cadastro_Medico() {
 
     const [valor_inpt_nome, set_valor_inpt_nome] = useState();
@@ -12,7 +13,13 @@ function Cadastro_Medico() {
     const [valor_inpt_senha, set_valor_inpt_senha] = useState();
     const [valor_inpt_confirmar_senha, set_valor_inpt_confirmar_senha] = useState();
   
-    
+    let array_de_usuarios = [{nome: 'asd', email: 'asd', cpf: 'asd'}];
+
+    useEffect(() => {
+
+      localStorage.setItem(`Médicos Cadastrados`, JSON.stringify(array_de_usuarios));
+    }, [array_de_usuarios])
+
   
   
     return (

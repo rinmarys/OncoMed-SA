@@ -27,24 +27,15 @@
     margin-top: -15px;
 }
 
+.button-container{
+    margin-top: -100px;
+    margin-bottom: 50px;
+}
+
 .button-deletar{
     width: 200px;
     background-color: transparent;
     border: none;
     height: fit-content;
-    border: 1px solid black;
-    margin-left: 82%;
-    margin-top: -90%; /* Coloca el botón en la parte superior */
-    
-}
-
-.button{
-    border: 1px solid red;
-  width: 100%;
-  position: relative;
-  overflow: visible;
-}
-
-.alinhamento-texto{
-    border: 1px solid red;
+    margin-left: 80%;
 }
