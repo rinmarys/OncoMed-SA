@@ -4,7 +4,7 @@ import MarcarConsulta from "../pages/MarcarConsulta";
 import SolicitacaoConsulta from "../pages/SolicitacaoConsulta";
 
 const router = createBrowserRouter([
-    {path: "/historicoconsultas", element: <HistoricoConsultas />},
+    {path: "/", element: <HistoricoConsultas />},
     {path: "/marcarconsulta", element: <MarcarConsulta />},
     {path: "/solicitacaoconsulta", element: <SolicitacaoConsulta/>}
 

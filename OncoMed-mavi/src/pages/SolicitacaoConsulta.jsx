@@ -52,24 +52,31 @@ function SolicitacaoConsulta() {
                     <h2 className='data-solicitacao' >09/12/2024</h2>
                 </div>
                 <div className="tipo-horario-solicitacao">
-                    <h2 className='tipo-consulta-solicitacao' >mamografia</h2>
+                    <h2 className='tipo-consulta-solicitacao' >MAMOGRAFIA</h2>
                     <h2 className='horario-consulta-solicitacao' >12:30</h2>
                 </div>
-                <h2 className='observacao-solicitacao-titulo' >obervação</h2>
+                <h2 className='observacao-solicitacao-titulo' >OBSERVAÇÃO</h2>
                 <h3 className='observacao-solicitacao-cliente' >tenho medo mto medo</h3>
-                <h3 className='designar-profissional-titulo' >designar profissional</h3>
-                <select id="escolha-medico" className='designar-profissional-input'>
-                    <option value="" disabled selected></option>
-                    <option value="medico1">WALTER CAMARGO</option>
-                    <option value="medico2">ANGELICA FREITAS</option>
-                    <option value="medico3">GUSTAVO SANTOS</option>
-                </select>
-                <div className="botoes-solicitacao">
-                    <button className='botao-confirma-solicitacao'>CONFIRMAR</button>
-                    <button className='botao-cancela-solicitacao' >CANCELAR</button>
+                <h3 className='designar-profissional-titulo' >DESIGNAR PROFISSIONAL</h3>
+
+                <div className="designar-botoes-solicitacao">
+                    <select id="escolha-medico" className='designar-profissional-input'>
+                        
+                            <option value="" disabled selected></option>
+                            <option value="medico1">WALTER CAMARGO</option>
+                            <option value="medico2">ANGELICA FREITAS</option>
+                            <option value="medico3">GUSTAVO SANTOS</option>
+                     
+                    </select>
+                    <div className="botoes-solicitacao">
+                        <button className='botao-confirma-solicitacao'>CONFIRMAR</button>
+                        <button className='botao-cancela-solicitacao' >CANCELAR</button>
+                    </div>
                 </div>
-                
+
             </div>
+
+            <img src="haker.webp" alt="" />
 
         </div>
     )
