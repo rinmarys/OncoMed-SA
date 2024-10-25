@@ -14,6 +14,10 @@ body{
 background-color: #F5F5F5;
 }
 
+.consultas-solicitacao{
+
+}
+
 .logo-solicitacao {
     margin-left: 95%;
 }
@@ -55,10 +59,11 @@ background-color: #F5F5F5;
 
     /* Adicionando as propriedades para centralização */
     position: fixed; /* ou absolute, dependendo do contexto */
-    top: 59%;
+    top: 63%;
     left: 50%;
     transform: translate(-50%, -50%);
-  border: 1px solid var(--cor-6);
+  border: 2px solid var(--cor-6);
+  
     
 
 }

@@ -9,6 +9,7 @@ import { GlobalContextProvider } from './contexts/GlobalContext.jsx'
 createRoot(document.getElementById('root')).render(
   <GlobalContextProvider>
     <RouterProvider router={router}>
+      
     </RouterProvider>
   </GlobalContextProvider>
 )
