@@ -52,20 +52,13 @@ background-color: #F5F5F5;
 
 .consulta-solicitada {
     background-color: #eeeeee;
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
     padding: 2%;
     width: fit-content; /* depois mudar para fit-content, quando finalizar */
     border-radius: 15px;
-
-    /* Adicionando as propriedades para centralização */
-    position: fixed; /* ou absolute, dependendo do contexto */
-    top: 63%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   border: 2px solid var(--cor-6);
-  
-    
-
+  margin-left: 11%;
+  margin-bottom: 55px;
 }
 
 

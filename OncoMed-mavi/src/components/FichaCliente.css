@@ -1,0 +1,170 @@
+
+
+
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+    --cor-7: #D9E3EB;
+}
+.consulta-solicitada-ficha {
+    background-color: #eeeeee;
+    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
+    padding: 2%;
+    width: fit-content;
+    /* depois mudar para fit-content, quando finalizar */
+    border-radius: 15px;
+    border: 2px solid var(--cor-6);
+    margin-left: 11%;
+    margin-bottom: 55px;
+}
+
+body {
+
+    background-color: #F5F5F5;
+}
+
+.tipo-consulta-solicitacao-ficha {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 830px;
+    color: #1D2A62;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 7%;
+}
+
+.nome-pessoa-solicitacao-ficha {
+
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 7%;
+}
+
+/* .nome-tipo-solicitacao{
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: -10px;
+} */
+
+.data-horario-solicitacao-ficha {
+    color: var(--cor-6);
+    font-size: medium;
+    font-family: 'Nunito', sans-serif;
+    margin-top: -15px;
+    color:#48537F;
+}
+
+.horario-consulta-solicitacao-ficha {
+
+    width: fit-content;
+    margin-top: -15px;
+    margin-left: 68px;
+    font-size: larger;
+}
+
+.alinhamento-solicitacao-nome-horario-tipo-data-ficha {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: -10px;
+}
+
+.botoes-solicitacao-ficha {
+    display: flex;
+    flex-direction: row;
+    width: 200vh;
+    justify-content: space-between;
+    height: 50px;
+
+    justify-content: flex-end;
+
+}
+
+.botao-ok-ficha {
+    font-size: larger;
+    color: var(--cor-6);
+    border-radius: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-weight: 700;
+    width: 100px;
+    border: 2px solid var(--cor-6);
+}
+
+.botao-ok-ficha:hover {
+    background-color: #D0D9C7;
+    transition: 0.18s;
+}
+
+.botao-cancela-ficha {
+    font-size: larger;
+    color: var(--cor-6);
+    border-radius: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #D0D9C7;
+    font-weight: 700;
+    border: 2px solid var(--cor-6);
+    margin-right: 35px;
+    width: 200px;
+}
+
+.botao-cancela-ficha:hover {
+    background-color: #abb3a3;
+    transition: 0.2s;
+}
+
+
+.designar-botoes-solicitacao-ficha {
+
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 980px;
+    margin-top: 7%;
+}
+/* (em cima) ver dps, tirar isso aqui e ajeitar a distancia dos botoes) */
+
+.tipo-consulta-solicitacao-ficha {
+    margin-left: 10px;
+    margin-top: -10px;
+    color: var(--cor-2);
+}
+
+.observacao-solicitacao-titulo-ficha {
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-6);
+    font-size: x-larger;
+    margin-top: -5px;
+    margin-top: 5%;
+}
+
+.observacao-solicitacao-cliente-ficha {
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-2);
+    margin-left: 7px;
+    font-weight: 200;
+    font-size: larger;
+ 
+}

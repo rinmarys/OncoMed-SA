@@ -35,11 +35,13 @@
 // export default HistoricoConsultas
 
 import React from 'react';
+import FichaCliente from '../components/FIchaCliente';
 import "./HistoricoConsultas.css";
 
 function HistoricoConsultas() {
   return (
     <div className='tudo'>
+      
       <img className='logo' src="Logo SA.svg" alt="" />
       <div className="alinhamento">
         <div className="titulo">
@@ -143,6 +145,9 @@ function HistoricoConsultas() {
 
         </div>
       </div>
+
+      <FichaCliente/>
+
     </div>
   );
 }
