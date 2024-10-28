@@ -1,10 +1,10 @@
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import './Cadastro_Paciente.css'
+import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Paciente() {
 
-  const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
-
+  
   const [valor_inpt_nome, set_valor_inpt_nome] = useState(``);
   const [valor_inpt_cep, set_valor_inpt_cep] = useState(``);
   const [valor_inpt_cpf, set_valor_inpt_cpf] = useState(``);
@@ -13,127 +13,179 @@ function Cadastro_Paciente() {
   const [valor_inpt_data_de_nascimento, set_valor_inpt_data_de_nascimento] = useState(``);
   const [valor_inpt_senha, set_valor_inpt_senha] = useState(``);
   const [valor_inpt_confirmar_senha, set_valor_inpt_confirmar_senha] = useState(``);
+  
+  const [lista_de_pacientes, set_lista_de_pacientes] = useState([]);
+  const [recuperar_lista_de_pacientes, set_recuperar_lista_de_pacientes] = useState([...lista_de_pacientes]);
 
+  const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
-  const [array_de_usuarios, set_array_de_usuarios] = useState([]);
-  
-  useEffect(() => {
-    
-    console.log(array_de_usuarios);
+  const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
+  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
 
-      localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(array_de_usuarios));
-    
-  }, [array_de_usuarios]
-  );
-  
+
+  useEffect(() => {
+
+    localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
+
+  }, [lista_de_pacientes]);
+
   function cadastrar(){
     
-    let novo_usuario = {
-      
+    let usuario_a_cadastrar = {
+
       nome: valor_inpt_nome,
       cep: valor_inpt_cep,
       cpf: valor_inpt_cpf,
-      genero: valor_inpt_genero,
       email: valor_inpt_email,
       data_de_nascimento: valor_inpt_data_de_nascimento,
+      genero: valor_inpt_genero,
       senha: valor_inpt_senha
     };
-    
-      let pegar_local_storage_pacientes = JSON.parse(localStorage.getItem(`Pacientes Cadastrados`));
-      let pegar_local_storage_medicos = JSON.parse(localStorage.getItem(`Médicos Cadastrados`));
-    
-      let email_ja_cadastrado = false;
-      let cpf_ja_cadastrado = false;
-      let senhas_sao_iguais = false;
-      
-      let verificar_email_cadastrado_paciente;
-      let verificar_cpf_cadastrado_paciente;
 
-      let verificar_email_cadastrado_medico;
-      let verificar_cpf_cadastrado_medico;
+    let checkbox_selecionado = false;
+    let senhas_sao_iguais = false;
+    let email_ja_cadastrado_paciente = false;
+    let cpf_ja_cadastrado_paciente = false;
+    let email_ja_cadastrado_medico = false;
+    let cpf_ja_cadastrado_medico = false;
+    let email_valido = false;
+    let cpf_valido = false; 
 
-      let verificar_checkbox_selecionado;
+    let pegar_array_medicos = JSON.parse(localStorage.getItem(`Médicos Cadastrados`));
+    let pegar_array_pacientes = JSON.parse(localStorage.getItem(`Pacientes Cadastrados`));
+    let verificar_email_ja_existente_paciente;
+    let verificar_cpf_ja_existente_paciente;
+    let verificar_email_ja_existente_medico;
+    let verificar_cpf_ja_existente_medico;
 
-    for(let i = 0; i != pegar_local_storage_pacientes.length; i++){
+    if(pegar_array_medicos == null) {
 
-      verificar_email_cadastrado_paciente = pegar_local_storage_pacientes[i].email.includes(valor_inpt_email);
-      verificar_cpf_cadastrado_paciente = pegar_local_storage_pacientes[i].cpf.includes(valor_inpt_cpf);
-
-      if(verificar_email_cadastrado_paciente == true){
-
-        email_ja_cadastrado = true;
-
-      };
-
-      if(verificar_cpf_cadastrado_paciente == true){
-
-        cpf_ja_cadastrado = true;
-
-      };
-
-    };
-
-    for(let i = 0; i != pegar_local_storage_medicos.length; i++){
-
-      verificar_email_cadastrado_medico = pegar_local_storage_medicos[i].email.includes(valor_inpt_email);
-      verificar_cpf_cadastrado_medico = pegar_local_storage_medicos[i].cpf.includes(valor_inpt_cpf);
-
-      if(verificar_email_cadastrado_medico == true){
-
-        email_ja_cadastrado = true;
-
-      };
-
-      if(verificar_cpf_cadastrado_medico == true){
-
-        cpf_ja_cadastrado = true;
-
-      };
-
-    };
-
-    valor_inpt_senha == valor_inpt_confirmar_senha && valor_inpt_senha != ``? senhas_sao_iguais = true : senhas_sao_iguais = false;
-    
-    if(valor_checkbox){
-
-      verificar_checkbox_selecionado = true;
+      email_ja_cadastrado_medico = false;
+      cpf_ja_cadastrado_medico = false;
 
     } else {
 
-      verificar_checkbox_selecionado = false;
-    };
-        
-    if(cpf_ja_cadastrado == false && email_ja_cadastrado == false && senhas_sao_iguais == true && verificar_checkbox_selecionado == true){
+      for(let i = 0; i < pegar_array_medicos.length; i++){
 
-      set_array_de_usuarios(usuarios_anteriores => [...usuarios_anteriores, novo_usuario]);
-      localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(array_de_usuarios));
+        verificar_email_ja_existente_medico = pegar_array_medicos[i].email;
+        verificar_cpf_ja_existente_medico = pegar_array_medicos[i].cpf;
 
+        if(verificar_email_ja_existente_medico == valor_inpt_email){
 
-    } else{
-
-
-
-        if(cpf_ja_cadastrado == true){
-  
-          set_mensagem_de_erro(`CPF já cadastrado!`);
-        } else if(email_ja_cadastrado == true){
-  
-          set_mensagem_de_erro(`Email já cadastrado!`);
-  
-        } else if(senhas_sao_iguais == false){
-  
-          set_mensagem_de_erro(`As senhas devem ser iguais!`);
-  
-        } else if(verificar_checkbox_selecionado == false){
-
-          set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+          email_ja_cadastrado_medico = true;
         };
 
+        if(verificar_cpf_ja_existente_medico == valor_inpt_cpf){
+
+          cpf_ja_cadastrado_medico = true;
+        };
+      };
+
     };
 
-    console.log(valor_inpt_senha)
+    if(pegar_array_pacientes == null){
 
+      email_ja_cadastrado_paciente = false;
+      cpf_ja_cadastrado_paciente = false;
+
+    } else {
+
+      for(let i = 0; i < pegar_array_pacientes.length; i++){
+
+        verificar_email_ja_existente_paciente = pegar_array_pacientes[i].email;
+        verificar_cpf_ja_existente_paciente = pegar_array_pacientes[i].cpf;
+
+        if(verificar_email_ja_existente_paciente == valor_inpt_email){
+
+          email_ja_cadastrado_paciente = true;
+        };
+
+        if(verificar_cpf_ja_existente_paciente == valor_inpt_cpf){
+
+          cpf_ja_cadastrado_paciente = true;
+        };
+      };
+      
+    };
+
+    if(cpf_ja_cadastrado_paciente == false && cpf_ja_cadastrado_medico == false){
+
+      cpf_valido = true;
+    
+    } else {
+
+     cpf_valido = false;
+    
+    };
+
+    if(email_ja_cadastrado_medico == false && email_ja_cadastrado_paciente == false){
+
+      email_valido = true;
+
+    } else {
+
+      email_valido = false;
+    }
+
+    if(valor_inpt_senha == valor_inpt_confirmar_senha){
+
+      senhas_sao_iguais = true;
+    
+    } else {
+
+      senhas_sao_iguais = false;
+
+    }
+
+    if(valor_checkbox){
+
+      checkbox_selecionado = true;
+    
+    } else {
+
+      checkbox_selecionado = false;
+    }
+    
+    if(cpf_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true){
+      
+      set_lista_de_pacientes([...lista_de_pacientes, usuario_a_cadastrar]);
+      localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
+
+      ir_para_login();
+      
+    } else {
+
+      if(cpf_valido == false && email_valido == true){
+
+        set_mensagem_de_erro(`CPF já cadastrado!`);
+      
+      } else if(cpf_valido == true && email_valido == false){
+
+        set_mensagem_de_erro(`Email já cadastrado!`);
+      
+      } else if(senhas_sao_iguais == false) {
+
+        set_mensagem_de_erro(`As senhas devem ser iguais!`);
+
+      } else if(checkbox_selecionado == false){
+
+        set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+      };
+
+    };
+
+    function ir_para_login(){
+
+      window.location.href=`/login`;
+
+    };
+
+    console.log(`Email`, email_valido);
+    console.log(`CPF`, cpf_valido);
+    console.log(`Senhas`, senhas_sao_iguais);
+    console.log(`checkbox`, checkbox_selecionado);
+    
   };
 
   return (
