@@ -2,6 +2,9 @@ import React from 'react'
 import './SolicitacaoConsulta.css'
 
 function SolicitacaoConsulta() {
+
+    
+
     return (
         <div className='tudo-solicitacao'>
             <img src="Logo SA.svg " alt="logo OncoMed" className='logo-solicitacao' />

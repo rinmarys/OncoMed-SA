@@ -2,28 +2,19 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 function Carrossel_Comentario() {
 
-    
-    let array_de_comentarios = [`1 slide`, `2 slide`, `3 slide`];
+    let array_de_comentarios = [`a`, `b`, `c`];
     let posicao = 0;
+    const [comentario_a_exibir, set_comentario_a_exibir] = useState(array_de_comentarios[posicao]);
 
-    const [exibir_comentario_carrossel, set_exibir_comentario_carrossel]= useState(array_de_comentarios[posicao]);
 
-    function avancar_comentario(){
-        
-        posicao += 1
+    function avancar_carrossel(){
 
-        console.log(posicao)
+        posicao += 1;
 
-        if(posicao >= array_de_comentarios.length){
-
-            posicao = 0;
-        };
-
-        set_exibir_comentario_carrossel(array_de_comentarios[posicao]);
+        set_comentario_a_exibir(array_de_comentarios[posicao]);
 
     };
-
-
+    
   return (
     <div>
       
@@ -33,11 +24,11 @@ function Carrossel_Comentario() {
 
             <div className="o_que_dizem_nossos_pacientes_conteudo_do_carrossel">
 
-            <p>{exibir_comentario_carrossel}</p>
+            <p>{comentario_a_exibir}</p>
 
             </div>
 
-            <button onClick={avancar_comentario}><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
+            <button onClick={avancar_carrossel}><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
 
         </div>
 
