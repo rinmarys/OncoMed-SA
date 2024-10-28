@@ -14,12 +14,14 @@
     background-color: #eeeeee;
     /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
     padding: 2%;
-    width: fit-content;
+    width: 960px;
     /* depois mudar para fit-content, quando finalizar */
     border-radius: 15px;
     border: 2px solid var(--cor-6);
     margin-left: 11%;
     margin-bottom: 55px;
+
+
 }
 
 body {
@@ -49,6 +51,7 @@ body {
     align-items: center;
     text-align: center;
     margin-left: 7%;
+    margin-top: 10px ;
 }
 
 /* .nome-tipo-solicitacao{
@@ -67,6 +70,8 @@ body {
     font-family: 'Nunito', sans-serif;
     margin-top: -15px;
     color:#48537F;
+    margin-left: -10px;
+    border: 1px #1D2A62;
 }
 
 .horario-consulta-solicitacao-ficha {
@@ -88,11 +93,8 @@ body {
 
 .botoes-solicitacao-ficha {
     display: flex;
-    flex-direction: row;
-    width: 200vh;
-    justify-content: space-between;
+    width: 126vh;
     height: 50px;
-
     justify-content: flex-end;
 
 }
@@ -110,28 +112,29 @@ body {
 }
 
 .botao-ok-ficha:hover {
-    background-color: #D0D9C7;
+    background-color: var(--cor-6);
+    color: var(--cor-1);
     transition: 0.18s;
 }
 
-.botao-cancela-ficha {
+/* .botao-cancela-ficha {
     font-size: larger;
-    color: var(--cor-6);
+    color: var(--cor-1);
     border-radius: 10px;
     padding: 5px;
     padding-right: 15px;
     padding-left: 15px;
-    background-color: #D0D9C7;
+    background-color: var(--cor-2);
     font-weight: 700;
-    border: 2px solid var(--cor-6);
+    border: 2px solid var(--cor-2);
     margin-right: 35px;
     width: 200px;
 }
 
 .botao-cancela-ficha:hover {
-    background-color: #abb3a3;
+    background-color: #375E14;
     transition: 0.2s;
-}
+} */
 
 
 .designar-botoes-solicitacao-ficha {
@@ -168,3 +171,24 @@ body {
     font-size: larger;
  
 }
+/* FichaCliente.css */
+.fichacliente {
+    position: fixed;
+    top: 60%;
+    left: 41%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 20px;
+  }
+  
+  /* Estilo da sobreposição (opcional) */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
