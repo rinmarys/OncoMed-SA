@@ -245,6 +245,28 @@ body{
     color: var(--cor_um);
 }
 
+.input_senha_login_dv{
+
+    display: flex;
+
+}
+
+/* Confirmar Senha Botão */
+
+.input_senha_login_dv img{
+
+    width: 25px;
+    height: 25px;
+}
+
+.input_senha_login_dv button{
+
+    margin-left: -40px;
+
+    border: 0px;
+    background-color: transparent;
+}
+
 input:focus{
 
     border: 1.5px solid var(--cor_quatro);

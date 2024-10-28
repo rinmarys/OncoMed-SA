@@ -43,13 +43,7 @@ function Cadastro_Paciente() {
       set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho'/>);
       set_valor_do_olinho(`password`);
     };
-  }, [estado_do_olinho])
-
-  function mudar_estado_do_olho(){
-    
-    set_estado_do_olinho(!estado_do_olinho);
-
-  };
+  }, [estado_do_olinho]);
 
   function cadastrar(){
     
@@ -240,22 +234,22 @@ function Cadastro_Paciente() {
 
           <div className='input_nome_paciente'>
             <label>Nome</label>
-            <input type="text" placeholder='Nome aqui' value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
+            <input type="text" placeholder='Digite seu nome' value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
           </div>
 
           <div className="input_cpf_paciente">
             <label>CPF</label>
-            <input type="text" maxLength={14} placeholder='CPF aqui' value={valor_inpt_cpf} onChange={(e) => set_valor_inpt_cpf(e.target.value)}/>
+            <input type="text" maxLength={14} placeholder='012.234.567-89' value={valor_inpt_cpf} onChange={(e) => set_valor_inpt_cpf(e.target.value)}/>
           </div>
           
           <div className="input_genero_paciente">
             <label>Gênero</label>
-            <input type="text" placeholder='Gênero aqui' value={valor_inpt_genero} onChange={(e) => set_valor_inpt_genero(e.target.value)}/>
+            <input type="text" placeholder='Digite seu gênero aqui' value={valor_inpt_genero} onChange={(e) => set_valor_inpt_genero(e.target.value)}/>
           </div>
 
           <div className="input_senha_paciente">
             <label>Senha</label>
-            <input type="text" minLength={7} maxLength={12} placeholder='Senha aqui' value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
+            <input type="text" minLength={7} maxLength={12} placeholder='Digite sua senha aqui' value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
           </div>
 
         </div>
@@ -264,12 +258,12 @@ function Cadastro_Paciente() {
 
           <div className="input_cep_paciente">
             <label>CEP</label>
-            <input type="text" maxLength={9} placeholder='CEP aqui' value={valor_inpt_cep} onChange={(e) => set_valor_inpt_cep(e.target.value)}/>
+            <input type="text" maxLength={9} placeholder='12345-678' value={valor_inpt_cep} onChange={(e) => set_valor_inpt_cep(e.target.value)}/>
           </div>
 
           <div className="input_email_paciente">
             <label>Email</label>
-            <input type="text" placeholder='Email aqui' value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
+            <input type="text" placeholder='exemplo@gmail.com' value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
           </div>
 
           <div className="input_data_de_nascimento_paciente">
@@ -283,7 +277,7 @@ function Cadastro_Paciente() {
             <div className="input_confirmar_senha_paciente_dv">
             
               <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder='Confirme sua senha' value={valor_inpt_confirmar_senha} onChange={(e) => set_valor_inpt_confirmar_senha(e.target.value)}/>
-              <button onClick={mudar_estado_do_olho}>{imagem_olinho}</button>
+              <button onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
             
             </div>
           </div>

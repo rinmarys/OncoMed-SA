@@ -12,6 +12,25 @@ function Login() {
 
   const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
 
+  const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
+  const [estado_do_olinho, set_estado_do_olinho] = useState(false);
+  const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
+
+  useEffect(() => {
+    
+    if(estado_do_olinho == true){
+      
+      set_imagem_olinho(<img src='input_olho_aberto.png' alt='Olinho'/>);
+      set_valor_do_olinho(`text`);
+      
+      
+    } else {
+      
+      set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho'/>);
+      set_valor_do_olinho(`password`);
+    };
+  }, [estado_do_olinho]);
+
 function fazer_login(){
 
   let pegar_array_medicos = JSON.parse(localStorage.getItem(`Medicos Cadastrados`));
@@ -101,7 +120,13 @@ function fazer_login(){
 
             <div className="input_senha_login">
               <label>Senha</label>
-              <input type="password" minLength={7} maxLength={12} placeholder="Insira sua senha aqui" value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
+
+              <div className="input_senha_login_dv">
+
+                <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder="Insira sua senha aqui" value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
+                <button onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
+              
+              </div>
             </div>
 
           </div>

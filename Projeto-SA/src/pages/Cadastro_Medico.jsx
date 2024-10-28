@@ -19,11 +19,36 @@ function Cadastro_Medico() {
     const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
     const [valor_checkbox, set_valor_checkbox] = useState(``);
 
+    const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
+    const [estado_do_olinho, set_estado_do_olinho] = useState(false);
+    const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
+
   useEffect(() => {
 
     localStorage.setItem(`Medicos Cadastrados`, JSON.stringify(lista_de_medicos));
 
   }, [lista_de_medicos]);
+
+  useEffect(() => {
+    
+    if(estado_do_olinho == true){
+      
+      set_imagem_olinho(<img src='input_olho_aberto.png' alt='Olinho'/>);
+      set_valor_do_olinho(`text`);
+      
+      
+    } else {
+      
+      set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho'/>);
+      set_valor_do_olinho(`password`);
+    };
+  }, [estado_do_olinho])
+
+  function mudar_estado_do_olho(){
+    
+    set_estado_do_olinho(!estado_do_olinho);
+
+  };
 
   function cadastrar(){
     
@@ -290,8 +315,15 @@ function Cadastro_Medico() {
               </div>
     
               <div className="input_confirmar_senha_medico">
+                
                 <label>Confirmar Senha</label>
-                <input type="password" minLength={7} maxLength={12} placeholder='Confirme sua senha aqui' value={valor_inpt_confirmar_senha} onChange={(e) => set_valor_inpt_confirmar_senha(e.target.value)}/>
+
+                <div className="input_confirmar_senha_medico_dv">
+                
+                  <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder='Confirme sua senha' value={valor_inpt_confirmar_senha} onChange={(e) => set_valor_inpt_confirmar_senha(e.target.value)}/>
+                  <button onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
+                
+                </div>
               </div>
     
             </div>
