@@ -470,6 +470,11 @@ body{
     
 }
 
+.input_confirmar_senha_medico_dv{
+
+    display: flex;
+}
+
 .input_confirmar_senha_medico input{
      
     box-sizing: border-box;
@@ -502,6 +507,22 @@ body{
     margin-top: 5%;
     
     color: var(--cor_um);
+}
+
+/* Confirmar Senha Botão */
+
+.input_confirmar_senha_medico img{
+
+    width: 25px;
+    height: 25px;
+}
+
+.input_confirmar_senha_medico button{
+
+    margin-left: -40px;
+
+    border: 0px;
+    background-color: transparent;
 }
 
 /* Mudar cor do Input após o clique */
@@ -653,7 +674,7 @@ input:focus{
 
 .error_massege_medico{
 
-    margin-top: 5%;
+    margin-top: 2%;
     margin-left: 12%;
 
     font-family: var(--tipografia_primaria);
