@@ -650,3 +650,14 @@ input:focus{
 
     text-decoration: underline;
 }
+
+.error_massege_medico{
+
+    margin-top: 5%;
+    margin-left: 12%;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+
+    color: var(--cor_sete);
+}

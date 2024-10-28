@@ -462,6 +462,11 @@ body{
     
 }
 
+.input_confirmar_senha_paciente_dv{
+
+    display: flex;
+}
+
 .input_confirmar_senha_paciente input{
      
     box-sizing: border-box;
@@ -494,6 +499,22 @@ body{
     margin-top: 5%;
     
     color: var(--cor_um);
+}
+
+/* Confirmar Senha Botão */
+
+.input_confirmar_senha_paciente img{
+
+    width: 25px;
+    height: 25px;
+}
+
+.input_confirmar_senha_paciente button{
+
+    margin-left: -40px;
+
+    border: 0px;
+    background-color: transparent;
 }
 
 /* Mudar cor do Input após o clique */
