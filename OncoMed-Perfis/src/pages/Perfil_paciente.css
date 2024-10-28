@@ -1,7 +1,37 @@
+:root{
+--cor_um: #1D2A62;
+--cor_dois:  #87AECE;
+--cor_tres: #fdfdfd;
+--cor_quatro: #437118;
+--cor_cinco:  #3b4fa7;
+--cor_seis: #F5F5F5;
+--cor_sete:  #629136;
+}
+
+
 .info_container{
  position: absolute;
  left: 130px;
  margin-top: 5%;  
+}
+
+.info_container img{
+    width: 195px;
+    height: 180px;
+    margin-left: 1000px;
+    margin-top: 1%;
+    position: absolute;
+}
+
+.name_user p{
+    font-family: "poppins", sans-serif;
+    color: var(--cor_um);
+    font-weight: bold;
+    font-size: 25px;
+
+    margin-left: 1210px;
+    margin-top: 64%;
+    position: absolute;
 }
 
 .info_container input{
@@ -11,21 +41,21 @@
 
  border-radius: 5px; 
  border: 1px solid;
- background-color: #fdfdfd;
+ background-color: var(--cor_tres);
  outline: none;
  display: block;
  margin-top: 1%;
 }
    
 .info_container input:focus{
- border-color:  #87AECE;
+ border-color: var(--cor_dois);
 }
    
 .info_container label{
  font-family: "poppins", sans-serif;
  font-weight: bold;
  font-size: 18px;
- color: #437118;
+ color: var(--cor_quatro);
 
  margin-top: 19%;
  margin-bottom: 3%;
@@ -36,7 +66,7 @@
 .info_container select{
  font-family: "poppins", sans-serif;
  font-weight: bold;
- color: #437118;
+ color: var(--cor_quatro);
  outline: none;
  width: 300px;
  height: 40px;
@@ -45,68 +75,70 @@
 }
 
 .info_container option{
- color: #1D2A62;
+ color: var(--cor_um);
  font-family: "poppins", sans-serif;
  font-weight: bold;
- background-color: #fdfdfd;
-}
-
-.posicao button{
- margin-top: 100%;
- display: flex;
+ background-color: var(--cor_tres);
 }
 
    
 .container_edit button{
  font-family: 'Nunito', sans-serif;
  font-weight: 800;
- height: 40px;
- width: 150px;
  border: 1px solid ;
  border-radius: 15px;  
- background-color: #F5F5F5 ;
- color: #1D2A62;
+ background-color: var(--cor_cinco);
+ color:  var(--cor_seis);
+
+ position: absolute;
+ width: 170px;
+ height: 45px;
+ left: 1180px;
+ top: 783px;
 }
    
 .container_edit button:hover{
  transition: 0.2s;  
- background-color: #1D2A62;
- color:  #F5F5F5;
+ background-color: var(--cor_um);
+ color: var(--cor_seis);
 }
    
 .container_delete button{
  font-family: 'Nunito', sans-serif;
  font-weight: 800;
- height: 40px;
- width: 150px;
  border: 1px solid ;
  border-radius: 15px;  
- background-color: #437118 ;
- color:  #F5F5F5 ;
- margin-left: 98%;
+ background-color: var(--cor_sete);
+ color: var(--cor_seis) ;
+
+ position: absolute;
+ width: 170px;
+ height: 45px;
+ left: 1400px;
+ top: 783px;
 }
    
 .container_delete button:hover{
  transition: 0.2s;    
- background-color:  #345516;
- color:  #F5F5F5;
+ background-color: var(--cor_quatro);
+ color: var(--cor_seis);
 }
    
 .container_text input{
  position: absolute;
- left: 55.82%;
- top: 35.91%;
+ left: 54%;
+ top: 39.91%;
  bottom: 45.25%;  
- width: 40%;
- height: 40%;
- background: #F5F5F5;
- border: 1px solid #1D2A62;
+ width: 35%;
+ height: 35%;
+ background: var(--cor_seis);
+ border: 1px solid var(--cor_sete);
  outline: none;
  border-radius: 5px;
 }
    
 .container_text input:focus{
- border-color:  #87AECE;
+ border-color: var(--cor_dois);
 }
    
 #placeholder_text::placeholder{
@@ -115,34 +147,4 @@
  left: 3%;
  font-size: medium;
 }
-
-/* Input  */
-
-/*box-sizing: border-box;
-
-position: absolute;
-left: 8.6%;
-right: 61.04%;
-top: 25.12%;
-bottom: 68.89%;
-
-background: #F5F5F5;
-border: 1px solid #1D2A62;
-border-radius: 5px
-
-/* Nome */
-
-/*position: absolute;
-left: 9.13%;
-right: 66.49%;
-top: 20.71%;
-bottom: 75.52%;
-
-font-family: 'Nunito';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 33px;
-
-color: #437118;
 

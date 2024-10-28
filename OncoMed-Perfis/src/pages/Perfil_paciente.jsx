@@ -5,6 +5,10 @@ function Perfil_paciente() {
   return (
     <div className='user_container'>
       <div className='info_container'>
+      <img src="./Imgs/avatar_female.png" alt=''/>
+      <div className='name_user'>
+      <p>Aaaa</p>
+      </div>
        <label for="">Nome completo</label><input placeholder="Digite seu nome"/>
        <label for="">Email</label><input type="email" placeholder="Digite seu email"/>
        <label for="">Telefone (com DDD)</label><input placeholder="Digite seu número de telefone"/>
@@ -22,7 +26,7 @@ function Perfil_paciente() {
         <input type="text" id="placeholder_text" placeholder="Escreva algo sobre você..."/>
      </div>
 
-      <div clasName="posicao">
+      <div clasName="posicao_container">
         <div class="container_edit">
         <button>Editar</button>
         </div>
