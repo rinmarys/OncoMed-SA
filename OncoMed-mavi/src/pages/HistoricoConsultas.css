@@ -29,6 +29,11 @@
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     margin-top: 1.5%;
     justify-content: space-between;
+    border: none;
+}
+
+.consulta:hover{
+    background-color: #cfd9e0;
 }
 
 
