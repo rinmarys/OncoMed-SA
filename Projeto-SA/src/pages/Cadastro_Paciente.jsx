@@ -147,6 +147,8 @@ function Cadastro_Paciente() {
       
       set_lista_de_pacientes([...lista_de_pacientes, usuario_a_cadastrar]);
       localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
+
+      ir_para_login();
       
     } else {
 
@@ -180,10 +182,10 @@ function Cadastro_Paciente() {
 
     };
     
-    console.log(`Email`, email_valido);
-    console.log(`CPF`, cpf_valido);
-    console.log(`Senhas`, senhas_sao_iguais);
-    console.log(`checkbox`, checkbox_selecionado);
+    // console.log(`Email`, email_valido);
+    // console.log(`CPF`, cpf_valido);
+    // console.log(`Senhas`, senhas_sao_iguais);
+    // console.log(`checkbox`, checkbox_selecionado);
     
   };
   

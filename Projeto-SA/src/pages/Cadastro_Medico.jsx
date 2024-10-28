@@ -219,10 +219,10 @@ function Cadastro_Medico() {
 
     };
     
-    console.log(`Email`, email_valido);
-    console.log(`CPF`, cpf_valido);
-    console.log(`Senhas`, senhas_sao_iguais);
-    console.log(`checkbox`, checkbox_selecionado);
+    // console.log(`Email`, email_valido);
+    // console.log(`CPF`, cpf_valido);
+    // console.log(`Senhas`, senhas_sao_iguais);
+    // console.log(`checkbox`, checkbox_selecionado);
     
   };
   
