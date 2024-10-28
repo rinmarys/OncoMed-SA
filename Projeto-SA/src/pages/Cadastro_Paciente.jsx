@@ -20,10 +20,6 @@ function Cadastro_Paciente() {
   const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
-  const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
-  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
-
-
   useEffect(() => {
 
     localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
@@ -52,7 +48,7 @@ function Cadastro_Paciente() {
     let email_valido = false;
     let cpf_valido = false; 
 
-    let pegar_array_medicos = JSON.parse(localStorage.getItem(`Médicos Cadastrados`));
+    let pegar_array_medicos = JSON.parse(localStorage.getItem(`Medicos Cadastrados`));
     let pegar_array_pacientes = JSON.parse(localStorage.getItem(`Pacientes Cadastrados`));
     let verificar_email_ja_existente_paciente;
     let verificar_cpf_ja_existente_paciente;
@@ -151,41 +147,50 @@ function Cadastro_Paciente() {
       
       set_lista_de_pacientes([...lista_de_pacientes, usuario_a_cadastrar]);
       localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
-
-      ir_para_login();
       
     } else {
 
-      if(cpf_valido == false && email_valido == true){
+      switch(true){
 
-        set_mensagem_de_erro(`CPF já cadastrado!`);
-      
-      } else if(cpf_valido == true && email_valido == false){
+        case cpf_valido == false && email_valido == true:
+          
+          set_mensagem_de_erro(`CPF já cadastrado!`);
+          break;
 
-        set_mensagem_de_erro(`Email já cadastrado!`);
-      
-      } else if(senhas_sao_iguais == false) {
+        case cpf_valido == true && email_valido == false:
 
-        set_mensagem_de_erro(`As senhas devem ser iguais!`);
+          set_mensagem_de_erro(`Email já cadastrado!`);
+          break;
 
-      } else if(checkbox_selecionado == false){
+        case senhas_sao_iguais == false:
+          
+          set_mensagem_de_erro(`As senhas devem ser iguais!`);
+          break;
 
-        set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+        case checkbox_selecionado == false:
+
+          set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+          break;
+
+        case cpf_valido == false && email_valido == false:
+
+          set_mensagem_de_erro(`CPF e Email já cadastrados!`);
+          break;
       };
 
     };
-
-    function ir_para_login(){
-
-      window.location.href=`/login`;
-
-    };
-
+    
     console.log(`Email`, email_valido);
     console.log(`CPF`, cpf_valido);
     console.log(`Senhas`, senhas_sao_iguais);
     console.log(`checkbox`, checkbox_selecionado);
     
+  };
+  
+  function ir_para_login(){
+  
+        window.location.href=`/login`;
+  
   };
 
   return (
