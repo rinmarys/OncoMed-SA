@@ -147,8 +147,6 @@ function Cadastro_Paciente() {
       
       set_lista_de_pacientes([...lista_de_pacientes, usuario_a_cadastrar]);
       localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
-
-      ir_para_login();
       
     } else {
 

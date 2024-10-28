@@ -1,0 +1,22 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+.alinhamento-titulo-criarPostagem{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    padding-bottom: 20px;
+}
+
+.titulo-criarPostagem{
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
