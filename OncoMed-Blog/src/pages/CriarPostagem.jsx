@@ -38,48 +38,57 @@ function CriarPostagem() {
                     <h1>CRIAR NOVA POSTAGEM</h1>
                     <div className='line'></div>
                 </div>
-                <HamburgerMenu />
+                    <HamburgerMenu />
             </div>
 
             <div className="alinhamento-pagina">
 
-                {/* Inserir imagem */}
-                <h2 className='titles-inserirImagem'>Inserir imagem</h2>
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                    className='input-inserirImagem'
-                />
+                <div className="alinhamento-container-um">
+                    <div className="inserirImagem">
+                        {/* Inserir imagem */}
 
-                {imagem && (
-                    <div>
-                        <h3 className='titles-inserirImagem'>Pré-visualização da Imagem:</h3>
-                        <img
-                            src={URL.createObjectURL(imagem)}
-                            alt="Pré-visualização"
-                            style={{ maxWidth: '150px', maxHeight: '150px' }}
+                        <label htmlFor="file-upload" className="custom-file-upload">
+                            Inserir imagem  <img src="External Link.svg" alt="Inserir imagem com link externo" />
+                        </label>
+
+                        <input
+                            id='file-upload'
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className='input-inserirImagem'
                         />
+
+                        {imagem && (
+                            <div>
+                                <h3 className='titles-inserirImagem'>Pré-visualização da Imagem:</h3>
+                                <img
+                                    src={URL.createObjectURL(imagem)}
+                                    alt="Pré-visualização"
+                                    style={{ maxWidth: '300px', maxHeight: '300px' }}
+                                />
+                            </div>
+                        )}
+                        {/* Inserir imagem */}
                     </div>
-                )}
-                {/* Inserir imagem */}
 
-                {/* titulo do post */}
-                <input type="text"
-                    className='input-titulo'
-                    placeholder='Título do post' />
-                {/* titulo do post */}
+                    {/* titulo do post */}
+                    <input type="text"
+                        className='input-titulo-artigo'
+                        placeholder='Título do post' />
+                    {/* titulo do post */}
 
-                {/* Conteudo */}
-                <textarea name="textArea" id="" cols="30" rows="10" placeholder='Conteúdo do artigo'></textarea>
-                {/* Conteudo */}
+                    {/* Conteudo */}
+                    <textarea name="textArea" id="" cols="30" rows="17" placeholder='Conteúdo do artigo' className='text-area'></textarea>
+                    {/* Conteudo */}
+                </div>
 
                 <div className="alinhamento-categoriaTags">
-                    <div className="alinhamento-container-um">
+                    <div className="alinhamento-container-dois">
                         <h2 className='titles-categoriaTags'>Categoria</h2>
 
                         {/* select */}
-                        <select value={categoria} onChange={handleChange}>
+                        <select value={categoria} onChange={handleChange} className='select-style'>
                             <option value="">Selecione uma categoria</option>
                             {categorias.map((cat, index) => (
                                 <option key={index} value={cat}>
@@ -88,28 +97,31 @@ function CriarPostagem() {
                             ))}
                         </select>
 
-                        {categoria && <p>Categoria selecionada: {categoria}</p>}
+                        {categoria && <p className='select-p'>Categoria selecionada: {categoria}</p>}
                         {/* select */}
                     </div>
 
                     {/* hashtags */}
-                    <div className="alinhamento-container-dois">
-                        <h2 className="titles-categoriaTags">Tags</h2>
+                    <div className="alinhamento-container-tres">
+                        <h2 className="titles-categoriaTags">Hashtags</h2>
 
-                        <input type="text"
-                            placeholder='Agregar hashtags ajudara no engajamento do seu post.
-                        Exemplo de hashtags: #Alimentação, #Saúde, #Nutrição.' />
+                        <textarea name="" id="" placeholder='Agregar hashtags ajudara no engajamento do seu post. Exemplo de hashtags: #Alimentação, #Saúde, #Nutrição.'></textarea>
                     </div>
                     {/* hashtags */}
 
-                    {/* botões */}
-                    <button>SALVAR RASCUNHO</button>
-
-                    <button>PUBLICAR</button>
-
-                    <button>CANCELAR</button>
-                    {/* botões */}
                 </div>
+
+                {/* botões */}
+                <div className="alinhamento-buttons">
+                    <div className="buttons-container">
+                        <button>SALVAR RASCUNHO</button>
+
+                        <button>PUBLICAR</button>
+
+                        <button>CANCELAR</button>
+                    </div>
+                </div>
+                {/* botões */}
             </div>
 
         </div>

@@ -1,0 +1,566 @@
+:root{
+    
+    --cor_um: #437118 ;
+    --cor_dois: #AFD06E ;
+    --cor_tres: #F5F5F5;
+    --cor_quatro: #9fbacf;
+    --cor_cinco: #1D2A62;
+    --cor_seis: #F1F1F1;
+    --cor_sete: #335513;
+    --cor_oito: #87AECE;
+    --cor_nove: #819b4f;
+    --cor_dez: #303c70;
+
+    --tipografia_primaria: 'Nunito', sans-serif;
+    --tipografia_secundaria: 'Poppins', sans-serif;
+}
+
+body{
+
+    margin: 0px;
+}
+
+.dv_cadastro_paciente{
+
+    display: flex;
+}
+
+/* Fundo Branco */
+
+.container_informacoes_paciente{
+
+    background-color: var(--cor_tres);
+    width: 60%;
+}
+
+/* Fundo imagem */
+
+.container_img_paciente{
+    
+    width: 40%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cor_quatro);
+}
+
+.container_img_paciente img{
+    width: 550px;
+    height: 550px;
+}
+
+.titulo_paciente{
+
+    display: flex;
+    justify-content: space-around;
+
+    margin-top: 5%;
+}
+
+
+/* Logo SA   */
+
+.container_informacoes_logo_paciente img{
+
+    width: 60px;
+    height: 60px;
+    margin-top: 50%;
+}
+
+/* Linha verde */
+
+.faixa_verde_paciente{
+    
+    position: absolute;
+    width: 4.2%;
+    height: 1%;
+    left: 47.2%;
+    top: 14.5%;
+    margin-top: 1%;
+    
+    background-color: var(--cor_dois);
+    border-radius: 50px;
+}
+
+/* CADASTRO - PACIENTE */
+
+.titulo_paciente h2{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+
+    margin-top: 5%;
+    margin-right: 90px;
+    
+    color: var(--cor_cinco);
+}
+
+.posicao_inputs_paciente{
+
+    display: flex;
+    margin-left: 12%;
+    margin-top: 4%;
+}
+
+.coluna_de_inputs_dois_paciente{
+
+    margin-left: 5%;
+}
+
+/* Nome Input */
+
+.input_nome_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_nome_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding-left: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Nome Label */
+
+.input_nome_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* CPF Input*/
+
+.input_cpf_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_cpf_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* CPF Label */
+.input_cpf_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Gênero Input*/
+
+.input_genero_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_genero_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Gênero Label*/
+.input_genero_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Senha Input*/
+
+.input_senha_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_senha_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Senha Label */
+
+.input_senha_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* CEP Input*/
+
+.input_cep_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_cep_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* CEP Label */
+
+.input_cep_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Email Input*/
+
+.input_email_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_email_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Email Label */
+
+.input_email_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Data de Nascimento Input*/
+
+.input_data_de_nascimento_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_data_de_nascimento_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Data de Nascimento Label */
+
+.input_data_de_nascimento_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Confirmar Senha Input*/
+
+.input_confirmar_senha_paciente {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.input_confirmar_senha_paciente input{
+     
+    box-sizing: border-box;
+    
+    width: 100%;
+    height: 40px;
+    padding: 2%;
+    
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+
+    color: var(--cor_cinco);
+}
+
+/* Confirmar Senha Label */
+
+.input_confirmar_senha_paciente label{
+    
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+
+    margin-bottom: 0%;
+    margin-top: 5%;
+    
+    color: var(--cor_um);
+}
+
+/* Mudar cor do Input após o clique */
+
+input:focus{
+
+    border: 1.5px solid var(--cor_quatro);
+    outline: none;
+}
+
+/* Caminho para Termos de Uso & Política de Privacidade */
+
+.caminho_para_termos_e_politica_paciente{
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    
+    margin-left: 11.7%;
+    margin-top: 5%;
+
+    color: var(--cor_quatro);
+}
+
+/* Link de Termos de Uso */
+
+.termos_de_uso_paciente {
+
+    text-decoration: none;
+
+    font-weight: 700;
+    color: var(--cor_cinco);
+}
+
+.termos_de_uso_paciente:hover{
+
+    text-decoration: underline;
+}
+
+/* Link de Política de Privacidade */
+
+.politica_de_privacidade_paciente {
+
+    text-decoration: none;
+
+    font-weight: 700;
+    color: var(--cor_cinco);
+}
+
+.politica_de_privacidade_paciente:hover{
+
+    text-decoration: underline;
+}
+
+/* Botão */
+
+.botao_cadastrar_paciente {
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+
+    height: 40px;
+    width: 200px;
+    margin-left: 25%;
+    margin-top: 5%;
+
+    border: 1px solid var(--cor_dois);
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    background-color: var(--cor_dois);
+    color: var(--cor_cinco);
+}
+
+.botao_cadastrar_paciente:hover{
+
+    transition: 0.2s;
+
+    border: 1px solid var(--cor_nove);
+
+    background-color: var(--cor_nove);
+    color: var(--cor_cinco);
+}
+
+/* Já possui uma conta? Log-In */
+
+.possui_conta{
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+
+    margin-left: 12%;
+    margin-top: 5%;
+
+    color: var(--cor_um);
+}
+
+.possui_conta_link{
+
+    text-decoration: none;
+    font-weight: bold;
+
+    color: var(--cor_cinco);
+}
+
+.possui_conta a:hover{
+
+    text-decoration: underline;
+}
