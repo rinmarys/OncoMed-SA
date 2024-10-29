@@ -1,0 +1,103 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+body {
+    background-color: var(--cor-4);
+    margin: 0;
+}
+
+.artigos-alinhamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+/* Titulo - MANTENHA-SE INFORMADO */
+.titulo {
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-6);
+
+    width: fit-content;
+
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.titulo div {
+    width: 25%;
+    height: 5px;
+    border-radius: 7px;
+    background-color: var(--cor-3);
+    margin-top: -15px;
+}
+
+/* Titulo - MANTENHA-SE INFORMADO */
+
+/* Alinhamento texto do artigo */
+.alinhamento-texto {
+    width: 100%;
+    margin-left: 3%;
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+/* Alinhamento texto do artigo */
+
+/* Artigos */
+.container-artigos {
+    width: fit-content;
+    display: flex;
+    background-color: var(--cor-4);
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 30px;
+    padding: 3%;
+    margin-top: 3%;
+}
+
+.container-artigos img {
+    width: 40%;
+}
+
+.container-artigos img:hover{
+    width: 40.9%;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.titulos-artigos{
+    color: var(--cor-6);
+    font-family: 'Poppins', sans-serif;
+    font-size: 200%;
+    font-weight: 600;
+}
+
+.titulos-artigos:hover{
+    color: #384B7D;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.doutores-blog{
+    width: fit-content;
+    color: var(--cor-2);
+    font-family: 'Poppins', sans-serif;
+    font-size: 125%;
+    font-weight: bold;
+    opacity: 0.7;
+    margin-top: -3%;
+}
+/* Artigos */
+
+/* Link decoration font */
+.link-decoration{
+    text-decoration: none;
+}

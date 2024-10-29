@@ -44,7 +44,7 @@ function Footer() {
 
                 <ul>
                   <li><Link className='estilo-texto-link'>Sobre nós</Link></li>
-                  <li><Link to='/' className='estilo-texto-link'>Blog</Link></li>
+                  <li><Link to='/blog' className='estilo-texto-link'>Blog</Link></li>
                   <li><Link className='estilo-texto-link'>Agendamentos</Link></li>
                   <li><Link className='estilo-texto-link'>Convênios</Link></li>
                   <li><Link className='estilo-texto-link'>Equipe médica</Link></li>

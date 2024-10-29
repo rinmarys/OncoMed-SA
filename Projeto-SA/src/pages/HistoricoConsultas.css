@@ -1,0 +1,165 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+    --cor-7: #D9E3EB;
+}
+
+/* body {
+
+    justify-content: center;
+    text-align: center;
+    display: flex;
+
+} */
+
+.consulta {
+    background-color: var(--cor-7);
+    display: flex;
+    border-radius: 15px;
+    flex-direction: row;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+    width: 1400px;
+    display: flex;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    margin-top: 1.5%;
+    justify-content: space-between;
+    border: none;
+}
+
+.consulta:hover{
+    background-color: #cfd9e0;
+}
+
+
+.consultas {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}
+
+.titulo {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: block;
+    font-family: "Nunito", sans-serif;
+    color: var(--cor-6);
+    font-size: larger;
+    margin-top: -30px;
+
+}
+
+
+.logo {
+    margin-left: 95%;
+    top: 0px;
+    right: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.nome-pessoa {
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    margin-left: 20px;
+    color: #1D2A62;
+}
+
+.tipo-consulta {
+    padding: 7px;
+    background-color: #EDF0F2;
+    border-radius: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    border: none;
+    color: #1D2A62;
+}
+
+.situacao-ainda-nao-realizado {
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #5B678F;
+}
+
+.situacao-realizado {
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #437118;
+}
+
+.situacao-cancelado {
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #CB5A5E;
+
+}
+
+.horario-consulta {
+    padding: 7px;
+    background-color: #EDF0F2;
+    border-radius: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    border: none;
+    color: var(--cor-6);
+}
+
+.data-consulta {
+    font-size: large;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    border: none;
+    color: #1D2A62;
+}
+
+
+.nome-tipo-alinhamento {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    align-items: center;
+}
+
+.horario-data-alinhamento {
+    display: flex;
+    justify-content: space-between;
+    width: 12%;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.linha {
+    background-color: var(--cor-3);
+    width: 300px;
+    height: 6px;
+    margin-left: 41%;
+    border-radius: 15px;
+    margin-top: -15px;
+}

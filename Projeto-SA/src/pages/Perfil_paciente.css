@@ -1,0 +1,150 @@
+:root{
+--cor_um: #1D2A62;
+--cor_dois:  #87AECE;
+--cor_tres: #fdfdfd;
+--cor_quatro: #437118;
+--cor_cinco:  #3b4fa7;
+--cor_seis: #F5F5F5;
+--cor_sete:  #629136;
+}
+
+
+.info_container{
+ position: absolute;
+ left: 130px;
+ margin-top: 5%;  
+}
+
+.info_container img{
+    width: 195px;
+    height: 180px;
+    margin-left: 1000px;
+    margin-top: 1%;
+    position: absolute;
+}
+
+.name_user p{
+    font-family: "poppins", sans-serif;
+    color: var(--cor_um);
+    font-weight: bold;
+    font-size: 25px;
+
+    margin-left: 1210px;
+    margin-top: 64%;
+    position: absolute;
+}
+
+.info_container input{
+ box-sizing: border-box;
+ width: 290px;
+ height: 40px;
+
+ border-radius: 5px; 
+ border: 1px solid;
+ background-color: var(--cor_tres);
+ outline: none;
+ display: block;
+ margin-top: 1%;
+}
+   
+.info_container input:focus{
+ border-color: var(--cor_dois);
+}
+   
+.info_container label{
+ font-family: "poppins", sans-serif;
+ font-weight: bold;
+ font-size: 18px;
+ color: var(--cor_quatro);
+
+ margin-top: 19%;
+ margin-bottom: 3%;
+ margin-right: 98%;
+ display: block;
+}
+   
+.info_container select{
+ font-family: "poppins", sans-serif;
+ font-weight: bold;
+ color: var(--cor_quatro);
+ outline: none;
+ width: 300px;
+ height: 40px;
+ border-radius: 5px;
+ display: flex;
+}
+
+.info_container option{
+ color: var(--cor_um);
+ font-family: "poppins", sans-serif;
+ font-weight: bold;
+ background-color: var(--cor_tres);
+}
+
+   
+.container_edit button{
+ font-family: 'Nunito', sans-serif;
+ font-weight: 800;
+ border: 1px solid ;
+ border-radius: 15px;  
+ background-color: var(--cor_cinco);
+ color:  var(--cor_seis);
+
+ position: absolute;
+ width: 170px;
+ height: 45px;
+ left: 1180px;
+ top: 783px;
+}
+   
+.container_edit button:hover{
+ transition: 0.2s;  
+ background-color: var(--cor_um);
+ color: var(--cor_seis);
+}
+   
+.container_delete button{
+ font-family: 'Nunito', sans-serif;
+ font-weight: 800;
+ border: 1px solid ;
+ border-radius: 15px;  
+ background-color: var(--cor_sete);
+ color: var(--cor_seis) ;
+
+ position: absolute;
+ width: 170px;
+ height: 45px;
+ left: 1400px;
+ top: 783px;
+}
+   
+.container_delete button:hover{
+ transition: 0.2s;    
+ background-color: var(--cor_quatro);
+ color: var(--cor_seis);
+}
+   
+.container_text input{
+ position: absolute;
+ left: 54%;
+ top: 39.91%;
+ bottom: 45.25%;  
+ width: 35%;
+ height: 35%;
+ background: var(--cor_seis);
+ border: 1px solid var(--cor_sete);
+ outline: none;
+ border-radius: 5px;
+}
+   
+.container_text input:focus{
+ border-color: var(--cor_dois);
+}
+   
+#placeholder_text::placeholder{
+ position: absolute;
+ top: 9%;
+ left: 3%;
+ font-size: medium;
+}
+

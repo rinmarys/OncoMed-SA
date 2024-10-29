@@ -1,0 +1,237 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+.alinhamento-titulo-criarPostagem {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    padding-bottom: 50px;
+}
+
+/* TITULO */
+.titulo-criarPostagem {
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.line {
+    width: 140px;
+    margin-top: -25px;
+}
+
+.line:hover {
+    width: 170px;
+    transition: 0.5s;
+}
+
+.line:not(:hover) {
+    width: 140px;
+    transition: 0.5s;
+}
+
+/* TITULO */
+
+/* INSERIR IMAGEM */
+.custom-file-upload {
+    color: var(--cor-2);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    width: fit-content;
+}
+
+.custom-file-upload img {
+    height: fit-content;
+    margin-bottom: -15px;
+}
+
+.custom-file-upload:hover {
+    cursor: pointer;
+    color: #375E14;
+    transition: 0.5s;
+}
+
+.custom-file-upload:not(:hover) {
+    transition: 0.5s;
+    color: var(--cor-2);
+}
+
+.input-inserirImagem {
+    display: none;
+}
+
+.titles-inserirImagem {
+    color: var(--cor-2);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    width: fit-content;
+}
+
+/* INSERIR IMAGEM */
+
+/* ALINHAMENTOS */
+.alinhamento-pagina {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.alinhamento-container-um {
+    display: flex;
+    flex-direction: column;
+}
+
+.alinhamento-categoriaTags {
+    display: flex;
+    justify-content: space-between;
+    width: 1100px;
+    margin-top: 45px;
+}
+/* ALINHAMENTOS */
+
+/* INPUT TITULO ARTIGO */
+.input-titulo-artigo {
+    border: none;
+    height: 40px;
+    border: 2px solid #48537F;
+    border-radius: 5px;
+    background-color: var(--cor-4);
+
+    margin-top: 45px;
+}
+
+.input-titulo-artigo:focus {
+    border-color: var(--cor-6);
+    outline: none;
+}
+
+.input-titulo-artigo::placeholder {
+    color: #48537F;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+/* INPUT TITULO ARTIGO */
+
+/* TEXT AREA CONTENIDO */
+.text-area {
+    background-color: var(--cor-4);
+    border: 2px solid #48537F;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+.text-area::placeholder {
+    color: #48537F;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.text-area:focus {
+    border-color: var(--cor-6);
+    outline: none;
+}
+
+/* TEXT AREA CONTENIDO */
+
+/* CATEGORIA */
+.titles-categoriaTags {
+    color: var(--cor-2);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    width: fit-content;
+}
+
+.select-style {
+    border: 2px solid #48537F;
+    background-color: var(--cor-4);
+    padding: 14px;
+    padding-left: 10px;
+    color: #48537F;
+    border-radius: 5px;
+}
+
+.select-style:focus {
+    border-color: var(--cor-6);
+    outline: none;
+}
+
+.select-p {
+    color: var(--cor-2);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* CATEGORIA */
+
+/* TAGS */
+.alinhamento-container-tres textarea {
+    border: 2px solid #48537F;
+    background-color: var(--cor-4);
+    width: 400px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.alinhamento-container-tres textarea::placeholder {
+    color: #48537F;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.alinhamento-container-tres textarea:focus {
+    border-color: var(--cor-6);
+    outline: none;
+}
+
+/* TAGS */
+
+/* BOTÕES */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
+    height: 45px;
+    margin-top: 100px;
+    margin-bottom: 55px;
+}
+
+.alinhamento-buttons{
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.buttons-container button{
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    height: 40px;
+    width: 205px;
+    border: 1px solid var(--cor-6);
+    border-radius: 9px;
+    background-color: var(--cor-4s);
+    color: var(--cor-6);
+}
+
+.buttons-container button:hover{
+    transition: 0.2s;
+    background-color: var(--cor-6);
+    color: var(--cor-4);
+}
+/* BOTÕES */

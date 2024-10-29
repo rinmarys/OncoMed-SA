@@ -1,0 +1,226 @@
+
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+    --cor-7: #D9E3EB;
+}
+
+body{
+
+background-color: #F5F5F5;
+}
+
+
+.logo-solicitacao {
+    margin-left: 95%;
+}
+
+.titulo-solicitacao {
+    text-align: center;
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    font-size: larger;
+    margin-top: -29px;
+}
+
+.linha-solicitacao {
+    background-color: var(--cor-3);
+    width: 250px;
+    height: 6px;
+    margin-left: 41%;
+    border-radius: 15px;
+    margin-top: -15px;
+}
+
+.subtitulo-solicitacao{
+    margin-left: 4%;
+    font-family: 'Nunito', sans-serif;
+    font-size: x-large;
+    font-weight: 550;
+    font-style: normal;
+    margin-left: 250px;
+    color: #414a70;
+    margin-top: 100px;
+}
+
+.consulta-solicitada {
+    background-color: #eeeeee;
+    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
+    padding: 2%;
+    width: fit-content; /* depois mudar para fit-content, quando finalizar */
+    border-radius: 15px;
+  border: 2px solid var(--cor-6);
+  margin-left: 11%;
+  margin-bottom: 55px;
+}
+
+
+.tipo-consulta-solicitacao{
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 830px;
+    color: #1D2A62;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nome-pessoa-solicitacao{
+
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: 0px;
+}
+
+/* .nome-tipo-solicitacao{
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: -10px;
+} */
+
+.data-horario-solicitacao{
+color: var(--cor-6);
+font-size: large;
+font-family: 'Nunito', sans-serif;
+}
+
+.horario-consulta-solicitacao{
+    background-color: var(--cor-4);
+    width: fit-content;
+    border-radius: 35px;
+    margin-top: -15px;
+    padding: 4px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-left: 68px;
+    font-size: larger;
+}
+
+.alinhamento-solicitacao-nome-horario-tipo-data{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: -10px;
+}
+
+.botoes-solicitacao{
+    display: flex;
+    flex-direction: row;
+    width: 310px;
+    justify-content: space-between;
+    height: 50px;
+
+}
+
+.botao-confirma-solicitacao{
+font-size: larger;
+color: var(--cor-6);
+border-radius: 10px;
+padding: 5px;
+padding-right: 15px;
+padding-left: 15px;
+font-weight: 700;
+border: 2px solid var(--cor-6);
+}
+
+.botao-confirma-solicitacao:hover{
+    background-color: #D0D9C7;
+    transition: 0.18s;
+}
+
+.botao-cancela-solicitacao{
+    font-size: larger;
+    color: var(--cor-6);
+    border-radius: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #D0D9C7;
+font-weight: 700;
+border: 2px solid var(--cor-6);
+}
+
+.botao-cancela-solicitacao:hover{
+    background-color: #abb3a3;
+    transition: 0.2s;
+}
+
+
+.designar-botoes-solicitacao{
+
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 980px;
+}
+
+.tipo-consulta-solicitacao{
+    margin-left: 10px;
+    margin-top: -10px;
+    color: var(--cor-2);
+}
+
+.observacao-solicitacao-titulo{
+    font-family: 'Nunito', sans-serif;
+    color: #80956C;
+    font-size: larger;
+    margin-top: -5px;
+}
+
+.observacao-solicitacao-cliente{
+    font-family: 'Nunito', sans-serif;
+    color: #80956C; 
+    margin-left: 7px;
+    font-weight: 200;
+}
+
+.designar-profissional-titulo{
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-6);
+    margin-top: 28px;
+    margin-bottom: 0;
+    font-size: medium;
+    margin-left: 9px;
+    font-weight: 600;
+}
+
+.designar-profissional-input{
+    color: var(--cor-6);
+    width: 350px;
+    padding-left: 8px;
+    border-radius: 7px;
+    margin-top: 6px;
+border: 1px solid #888888;
+background-color: #eeeeee;
+/* appearance: none; */
+font-size: large;
+
+
+}
+
+.designar-profissional-input option{
+
+
+    background-color: #DEDEDE;
+    color: #437118;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 600;
+    
+   
+}
+
+
+

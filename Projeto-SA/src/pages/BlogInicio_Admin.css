@@ -1,0 +1,41 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+.titulo-admin{
+    display: flex;
+    justify-content: space-between;
+    width: 80.5%;
+
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.line-admin{
+    width: 10%;
+    width: 25%;
+    height: 5px;
+    border-radius: 7px;
+    background-color: var(--cor-3);
+    margin-top: -15px;
+}
+
+.button-container{
+    margin-top: -100px;
+    margin-bottom: 50px;
+}
+
+.button-deletar{
+    width: 200px;
+    background-color: transparent;
+    border: none;
+    height: fit-content;
+    margin-left: 80%;
+}
