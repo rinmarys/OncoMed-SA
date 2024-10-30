@@ -1,7 +1,9 @@
-import {useState} from 'react'
+import { useState } from 'react';
+import { useContext } from 'react';
 import './Cadastro_Medico.css'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Medico() {
 
     const [valor_inpt_nome, set_valor_inpt_nome] = useState(``);
@@ -13,7 +15,8 @@ function Cadastro_Medico() {
     const [valor_inpt_senha, set_valor_inpt_senha] = useState(``);
     const [valor_inpt_confirmar_senha, set_valor_inpt_confirmar_senha] = useState(``);
   
-    const [lista_de_medicos, set_lista_de_medicos] = useState([]);
+    const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
+    const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
     const [recuperar_lista_de_medicos, set_recuperar_lista_de_medicos] = useState([...lista_de_medicos]);
 
     const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
@@ -23,9 +26,14 @@ function Cadastro_Medico() {
     const [estado_do_olinho, set_estado_do_olinho] = useState(false);
     const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
 
+    const [imagem_olinho_um, set_imagem_olinho_um] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
+    const [estado_do_olinho_um, set_estado_do_olinho_um] = useState(false);
+    const [valor_do_olinho_um, set_valor_do_olinho_um] = useState(`password`);
+
   useEffect(() => {
 
-    localStorage.setItem(`Medicos Cadastrados`, JSON.stringify(lista_de_medicos));
+    console.log(`Lista de Pacientes:`, lista_de_pacientes);
+    console.log(`Lista de médicos`, lista_de_medicos);
 
   }, [lista_de_medicos]);
 
@@ -42,13 +50,22 @@ function Cadastro_Medico() {
       set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho'/>);
       set_valor_do_olinho(`password`);
     };
-  }, [estado_do_olinho])
+  }, [estado_do_olinho]);
 
-  function mudar_estado_do_olho(){
+  useEffect(() => {
     
-    set_estado_do_olinho(!estado_do_olinho);
-
-  };
+    if(estado_do_olinho_um == true){
+      
+      set_imagem_olinho_um(<img src='input_olho_aberto.png' alt='Olinho'/>);
+      set_valor_do_olinho_um(`text`);
+      
+      
+    } else {
+      
+      set_imagem_olinho_um(<img src='input_olho_fechado.png' alt='Olinho'/>);
+      set_valor_do_olinho_um(`password`);
+    };
+  }, [estado_do_olinho_um]);
 
   function cadastrar(){
     
@@ -74,8 +91,8 @@ function Cadastro_Medico() {
     let cpf_valido = false; 
     let crm_valido = false;
 
-    let pegar_array_medicos = JSON.parse(localStorage.getItem(`Medicos Cadastrados`));
-    let pegar_array_pacientes = JSON.parse(localStorage.getItem(`Pacientes Cadastrados`));
+    let pegar_array_medicos = [...lista_de_medicos];
+    let pegar_array_pacientes = [...lista_de_pacientes];
     let verificar_email_ja_existente_paciente;
     let verificar_cpf_ja_existente_paciente;
     let verificar_email_ja_existente_medico;
@@ -189,10 +206,9 @@ function Cadastro_Medico() {
     if(cpf_valido == true && crm_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true){
       
       set_lista_de_medicos([...lista_de_medicos, usuario_a_cadastrar]);
-      localStorage.setItem(`Medicos Cadastrados`, JSON.stringify(lista_de_medicos));
-
-      ir_para_login();
       
+      window.location.href=`/login`;
+
     } else {
 
       switch(true){
@@ -251,17 +267,11 @@ function Cadastro_Medico() {
     
   };
   
-  function ir_para_login(){
-  
-        window.location.href=`/login`;
-  
-  };
-  
     return (
         <div className='dv_cadastro_medico'>
 
         <div className='container_img_medico'>
-          <img src='Image_tres.png' alt="Imagem com Méidcos" className='imagem_cadastro'/>
+          <img src='Imagem_quatro.svg' alt="Imagem com Méidcos" className='imagem_cadastro'/>
         </div>
     
     <div className='container_informacoes_medico'>
@@ -277,12 +287,12 @@ function Cadastro_Medico() {
     
               <div className='input_nome_medico'>
                 <label>Nome Completo</label>
-                <input type="text" placeholder='Insira seu nome completo' value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
+                <input type="text" placeholder='Digite seu nome completo' value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
               </div>
     
               <div className="input_cpf_medico">
                 <label>CPF</label>
-                <input type="text" maxLength={14} placeholder='Insira seu CPF aqui' value={valor_inpt_cpf} onChange={(e) => set_valor_inpt_cpf(e.target.value)}/>
+                <input type="text" maxLength={14} placeholder='012.345.678-91' value={valor_inpt_cpf} onChange={(e) => set_valor_inpt_cpf(e.target.value)}/>
               </div>
               
               <div className="input_genero_medico">
@@ -292,7 +302,14 @@ function Cadastro_Medico() {
     
               <div className="input_senha_medico">
                 <label>Senha</label>
-                <input type="text" minLength={7} maxLength={12} placeholder='Insira sua senha aqui' value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
+
+                <div className="input_senha_medico_dv">
+
+                  <input type={valor_do_olinho_um} minLength={7} maxLength={12} placeholder='Digite sua senha' value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
+                  
+                  <button onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)} className='botao_input_senha'>{imagem_olinho_um}</button>
+                
+                </div>
               </div>
     
             </div>
@@ -301,12 +318,12 @@ function Cadastro_Medico() {
     
               <div className="input_crm_medico">
                 <label>CRM</label>
-                <input type="text" maxLength={13} placeholder='Insira sua CRM' value={valor_inpt_crm} onChange={(e) => set_valor_inpt_crm(e.target.value)}/>
+                <input type="text" maxLength={13} placeholder='000000/SP' value={valor_inpt_crm} onChange={(e) => set_valor_inpt_crm(e.target.value)}/>
               </div>
     
               <div className="input_email_medico">
                 <label>Email</label>
-                <input type="text" placeholder='Email aqui' value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
+                <input type="text" placeholder='exemplo@gmail.com' value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
               </div>
     
               <div className="input_data_de_nascimento_medico">

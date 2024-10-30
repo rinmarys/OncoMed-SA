@@ -324,6 +324,24 @@ body{
     color: var(--cor_um);
 }
 
+/* Confirmar Senha Botão */
+
+.input_senha_paciente img{
+
+    margin-bottom: -8px;
+
+    width: 25px;
+    height: 25px;
+}
+
+.input_senha_paciente button{
+
+    margin-left: -40px;
+
+    border: 0px;
+    background-color: transparent;
+}
+
 /* CEP Input*/
 
 .input_cep_paciente {
@@ -504,6 +522,8 @@ body{
 /* Confirmar Senha Botão */
 
 .input_confirmar_senha_paciente img{
+
+    margin-bottom: -8px;
 
     width: 25px;
     height: 25px;

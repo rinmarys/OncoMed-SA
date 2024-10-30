@@ -4,7 +4,6 @@ import './Cadastro_Paciente.css'
 import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Paciente() {
 
-  
   const [valor_inpt_nome, set_valor_inpt_nome] = useState(``);
   const [valor_inpt_cep, set_valor_inpt_cep] = useState(``);
   const [valor_inpt_cpf, set_valor_inpt_cpf] = useState(``);
@@ -14,8 +13,9 @@ function Cadastro_Paciente() {
   const [valor_inpt_senha, set_valor_inpt_senha] = useState(``);
   const [valor_inpt_confirmar_senha, set_valor_inpt_confirmar_senha] = useState(``);
   
-  const [lista_de_pacientes, set_lista_de_pacientes] = useState([]);
-  const [recuperar_lista_de_pacientes, set_recuperar_lista_de_pacientes] = useState([...lista_de_pacientes]);
+  const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
+  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
+  const [recuperar_lista_de_medicos, set_recuperar_lista_de_medicos] = useState([...lista_de_medicos]);
 
   const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
   const [valor_checkbox, set_valor_checkbox] = useState(``);
@@ -24,9 +24,14 @@ function Cadastro_Paciente() {
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
   const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
 
-  useEffect(() => {
+  const [imagem_olinho_um, set_imagem_olinho_um] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
+  const [estado_do_olinho_um, set_estado_do_olinho_um] = useState(false);
+  const [valor_do_olinho_um, set_valor_do_olinho_um] = useState(`password`);
 
-    localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
+  useEffect(() => {
+    
+    console.log(`Lista de Pacientes:`, lista_de_pacientes);
+    console.log(`Lista de médicos`, lista_de_medicos);
 
   }, [lista_de_pacientes]);
 
@@ -35,8 +40,7 @@ function Cadastro_Paciente() {
     if(estado_do_olinho == true){
       
       set_imagem_olinho(<img src='input_olho_aberto.png' alt='Olinho'/>);
-      set_valor_do_olinho(`text`);
-      
+      set_valor_do_olinho(`text`); 
       
     } else {
       
@@ -44,6 +48,20 @@ function Cadastro_Paciente() {
       set_valor_do_olinho(`password`);
     };
   }, [estado_do_olinho]);
+
+  useEffect(() => {
+    
+    if(estado_do_olinho_um == true){
+      
+      set_imagem_olinho_um(<img src='input_olho_aberto.png' alt='Olinho'/>);
+      set_valor_do_olinho_um(`text`);
+      
+    } else {
+      
+      set_imagem_olinho_um(<img src='input_olho_fechado.png' alt='Olinho'/>);
+      set_valor_do_olinho_um(`password`);
+    };
+  }, [estado_do_olinho_um]);
 
   function cadastrar(){
     
@@ -67,8 +85,8 @@ function Cadastro_Paciente() {
     let email_valido = false;
     let cpf_valido = false; 
 
-    let pegar_array_medicos = JSON.parse(localStorage.getItem(`Medicos Cadastrados`));
-    let pegar_array_pacientes = JSON.parse(localStorage.getItem(`Pacientes Cadastrados`));
+    let pegar_array_medicos = [...lista_de_medicos];
+    let pegar_array_pacientes = [...lista_de_pacientes];
     let verificar_email_ja_existente_paciente;
     let verificar_cpf_ja_existente_paciente;
     let verificar_email_ja_existente_medico;
@@ -164,9 +182,10 @@ function Cadastro_Paciente() {
     
     if(cpf_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true){
       
-      set_lista_de_pacientes([...lista_de_pacientes, usuario_a_cadastrar]);
-      localStorage.setItem(`Pacientes Cadastrados`, JSON.stringify(lista_de_pacientes));
-      
+       set_lista_de_pacientes([...lista_de_pacientes, usuario_a_cadastrar]);
+
+       window.location.href=`/login`;
+
     } else {
 
       switch(true){
@@ -204,12 +223,7 @@ function Cadastro_Paciente() {
     // console.log(`Senhas`, senhas_sao_iguais);
     // console.log(`checkbox`, checkbox_selecionado);
     
-  };
-  
-  function ir_para_login(){
-  
-        window.location.href=`/login`;
-  
+    console.log(lista_de_pacientes)
   };
 
   return (
@@ -242,12 +256,18 @@ function Cadastro_Paciente() {
           
           <div className="input_genero_paciente">
             <label>Gênero</label>
-            <input type="text" placeholder='Digite seu gênero aqui' value={valor_inpt_genero} onChange={(e) => set_valor_inpt_genero(e.target.value)}/>
+            <input type="text" placeholder='Digite seu gênero' value={valor_inpt_genero} onChange={(e) => set_valor_inpt_genero(e.target.value)}/>
           </div>
 
           <div className="input_senha_paciente">
             <label>Senha</label>
-            <input type="text" minLength={7} maxLength={12} placeholder='Digite sua senha aqui' value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
+
+            <div className="input_senha_paciente_dv">
+
+              <input type={valor_do_olinho_um} minLength={7} maxLength={12} placeholder='Digite sua senha' value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
+              <button onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)}>{imagem_olinho_um}</button>
+           
+            </div>
           </div>
 
         </div>
@@ -266,7 +286,7 @@ function Cadastro_Paciente() {
 
           <div className="input_data_de_nascimento_paciente">
             <label>Data Nascimento</label>
-            <input type="date" maxLength={10} placeholder='Data de nascimento aqui' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
+            <input type="date" maxLength={10} placeholder='Data de nascimento' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
           </div>
 
           <div className="input_confirmar_senha_paciente">

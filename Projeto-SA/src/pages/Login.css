@@ -143,7 +143,7 @@ body{
     
     box-sizing: border-box;
     
-    width: 60%;
+    width: 45%;
     height: 40px;
     padding-left: 2%;
     
@@ -179,7 +179,7 @@ body{
     
     box-sizing: border-box;
     
-    width: 60%;
+    width: 45%;
     height: 40px;
     padding-left: 2%;
     
@@ -215,7 +215,7 @@ body{
     
     box-sizing: border-box;
     
-    width: 60%;
+    width: 45%;
     height: 40px;
     padding-left: 2%;
     
@@ -283,7 +283,7 @@ input:focus{
 
     height: 40px;
     width: 200px;
-    margin-left: 260px;
+    margin-left: 210px;
     margin-top: 3%;
 
     border: 1px solid var(--cor_cinco);
@@ -343,4 +343,16 @@ input:focus{
 
     text-decoration: underline;
 
+}
+
+.dv_massege_error{
+
+    margin-top: 15px;
+    margin-left: 85px;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+    font-size: 14px;
+
+    color: var(--cor_um);
 }

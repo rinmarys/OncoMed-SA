@@ -51,24 +51,24 @@ body{
 
 .container_img_medico img{
 
-    width: 650px;
-    height: 650px;
+    width: 750px;
+    height: 750px;
 }
 
 .container_img_medico img:hover{
 
     transition: 0.5s;
 
-    width: 700px;
-    height: 700px;
+    width: 800px;
+    height: 750px;
 }
 
 .container_img_medico img:not(:hover){
 
     transition: 0.5s;
 
-    width: 650px;
-    height: 650px;
+    width: 750px;
+    height: 750px;
 }
 
 .titulo_medico{
@@ -332,6 +332,26 @@ body{
     color: var(--cor_um);
 }
 
+
+/* Confirmar Senha Botão */
+
+.input_senha_medico img{
+
+    margin-bottom: -8px;
+
+    width: 25px;
+    height: 25px;
+
+}
+
+.botao_input_senha{
+
+    margin-left: -40px;
+
+    border: 0px;
+    background-color: transparent;
+}
+
 /* CRM Input*/
 
 .input_crm_medico {
@@ -512,6 +532,8 @@ body{
 /* Confirmar Senha Botão */
 
 .input_confirmar_senha_medico img{
+
+    margin-bottom: -8px;
 
     width: 25px;
     height: 25px;

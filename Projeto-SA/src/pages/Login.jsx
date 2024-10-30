@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import './Login.css'
 import Pop_up from "../components/Pop_up.jsx";
+import { useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 function Login() {
 
@@ -11,6 +13,9 @@ function Login() {
   const [pop_up_aberto, set_pop_aberto] = useState(false);
 
   const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
+  const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
+  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
+  const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
 
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
@@ -18,6 +23,9 @@ function Login() {
 
   useEffect(() => {
     
+    console.log(`Lista de Médicos:`, lista_de_medicos);
+    console.log(`Lista de Pacientes:`, lista_de_pacientes);
+
     if(estado_do_olinho == true){
       
       set_imagem_olinho(<img src='input_olho_aberto.png' alt='Olinho'/>);
@@ -33,26 +41,31 @@ function Login() {
 
 function fazer_login(){
 
-  let pegar_array_medicos = JSON.parse(localStorage.getItem(`Medicos Cadastrados`));
-  let pegar_array_pacientes = JSON.parse(localStorage.getItem(`Pacientes Cadastrados`));
+  let pegar_array_medicos = [...lista_de_medicos];
+  let pegar_array_pacientes = [...lista_de_pacientes];
   let usuario_existente = false;
 
-  let usuario_a_logar = {
-
-    nome: valor_inpt_nome,
-    email: valor_inpt_email,
-    senha: valor_inpt_senha,
-  };
-
+  
   if(pegar_array_pacientes != null) {
+    
+    for(let i = 0; i < pegar_array_pacientes.length; i++){
+      
+      if(pegar_array_pacientes[i].email == valor_inpt_email && pegar_array_pacientes[i].senha == valor_inpt_senha){
+      
+      let usuario_a_logar = {
+    
+        nome: valor_inpt_nome,
+        email: valor_inpt_email,
+        senha: valor_inpt_senha,
+        data_de_nascimento: pegar_array_pacientes[i].data_de_nascimento,
+        cpf: pegar_array_pacientes[i].cpf,
+        cep: pegar_array_pacientes[i].cep,
+        genero: pegar_array_pacientes[i].genero
+      };
 
-  for(let i = 0; i < pegar_array_pacientes.length; i++){
+      set_usuario_logado(usuario_a_logar);
 
-    if(pegar_array_pacientes[i].email == valor_inpt_email && pegar_array_pacientes[i].senha == valor_inpt_senha){
-
-      localStorage.setItem(`Usuario Logado`, JSON.stringify(usuario_a_logar));
-
-      window.location.href=`/`;
+       window.location.href=`/`;
 
     } else {
 
@@ -70,7 +83,18 @@ function fazer_login(){
 
       if(pegar_array_medicos[i].email == valor_inpt_email && pegar_array_medicos[i].senha == valor_inpt_senha){
   
-        localStorage.setItem(`Usuario Logado`, JSON.stringify(usuario_a_logar));
+        let usuario_a_logar = {
+    
+          nome: valor_inpt_nome,
+          email: valor_inpt_email,
+          senha: valor_inpt_senha,
+          data_de_nascimento: pegar_array_pacientes[i].data_de_nascimento,
+          cpf: pegar_array_pacientes[i].cpf,
+          crm: pegar_array_pacientes[i].crm,
+          genero: pegar_array_pacientes[i].genero
+        };
+
+        set_usuario_logado(usuario_a_logar);
   
         window.location.href=`/`;
   
