@@ -10,7 +10,7 @@ function App() {
     <>
       <Nav_perfil/>
       <Perfil_paciente/>
-      {/* <Footer/> */}
+      {/* <Footer/>  */}
 
     </>
   )

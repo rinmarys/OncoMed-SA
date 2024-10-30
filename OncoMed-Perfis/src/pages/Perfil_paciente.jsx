@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Perfil_paciente.css'
 
+
 function Perfil_paciente() {
+  const[]=useContext(GlobalContext)
   return (
     <div className='user_container'>
       <div className='info_container'>
@@ -9,7 +11,7 @@ function Perfil_paciente() {
       <div className='name_user'>
       <p>Aaaa</p>
       </div>
-       <label for="">Nome completo</label><input placeholder="Digite seu nome"/>
+       <label for="">Nome completo</label><input placeholder="Digite seu nome" onChange={(event)}/>
        <label for="">Email</label><input type="email" placeholder="Digite seu email"/>
        <label for="">Telefone (com DDD)</label><input placeholder="Digite seu número de telefone"/>
        <label for="">Senha</label><input type="password" placeholder="Digite uma senha"/>

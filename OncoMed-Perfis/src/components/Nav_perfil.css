@@ -5,6 +5,20 @@
  margin-top: 1%;
  position: absolute;
 }
+
+.nav_container img:hover{
+
+    transition: 0.4s;
+    width: 80px;
+    height: 80px;
+}
+
+.nav_container img:not(:hover){
+
+    transition: 0.4s;
+    width: 75px;
+    height: 75px;
+}   
    
 .nav_container h1{
  position: absolute;
@@ -25,4 +39,3 @@
  background-color: #AFD06E;
  border-radius: 5px;
 }
-
