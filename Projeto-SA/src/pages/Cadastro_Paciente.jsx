@@ -223,7 +223,7 @@ function Cadastro_Paciente() {
     // console.log(`Senhas`, senhas_sao_iguais);
     // console.log(`checkbox`, checkbox_selecionado);
     
-    console.log(lista_de_pacientes)
+    console.log(lista_de_pacientes);
   };
 
   return (

@@ -2,17 +2,14 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 function Carrossel_Comentario() {
 
-    let array_de_comentarios = [`a`, `b`, `c`];
-    let posicao = 0;
-    const [comentario_a_exibir, set_comentario_a_exibir] = useState(array_de_comentarios[posicao]);
+    let array_de_comentarios = [`"O aplicativo mudou minha vida. Agora eu me sinto mais no controle." 
+    — Maria, 42 anos`, `b`, `c`];
+    const [posicao, set_posicao] = useState(0);
 
+    const avancar_carrossel = (posicao_anterior) =>{
 
-    function avancar_carrossel(){
-
-        posicao += 1;
-
-        set_comentario_a_exibir(array_de_comentarios[posicao]);
-
+      set_posicao(posicao_anterior += 1) % array_de_comentarios.length;
+      console.log(posicao);
     };
     
   return (
@@ -24,7 +21,7 @@ function Carrossel_Comentario() {
 
             <div className="o_que_dizem_nossos_pacientes_conteudo_do_carrossel">
 
-            <p>{comentario_a_exibir}</p>
+            <p>{array_de_comentarios[posicao]}</p>
 
             </div>
 
