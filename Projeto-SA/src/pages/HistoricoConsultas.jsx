@@ -131,8 +131,8 @@ function HistoricoConsultas() {
   return (
     <div className='tudo'>
       <img className='logo' src="Logo SA.svg" alt="" />
-      <div className="alinhamento">
-        <div className="titulo">
+      <div className="alinhamento-historicoConsulta">
+        <div className="titulo-historicoConsultas">
           <h1>HISTÓRICO DE AGENDAMENTOS</h1>
           <div className="linha"></div>
         </div>

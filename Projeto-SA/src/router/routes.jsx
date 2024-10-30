@@ -8,6 +8,8 @@ import MarcarConsulta from "../pages/MarcarConsulta";
 import ConteudoBlog from "../pages/ConteudoBlog";
 import CriarPostagem from "../pages/CriarPostagem";
 import BlogInicio_Admin from "../pages/BlogInicio_Admin";
+import SolicitacaoConsulta from "../pages/SolicitacaoConsulta";
+import HistoricoConsultas from "../pages/HistoricoConsultas";
 
 const router = createBrowserRouter([
     // Header
@@ -30,6 +32,11 @@ const router = createBrowserRouter([
     {path: "/blogInicioAdmin", element: < BlogInicio_Admin />},
     {path: "/criarPostagem", element: <CriarPostagem />},
     //Blog admin
+
+    //agendamentos
+    {path: "/solicitacaoconsulta", element: <SolicitacaoConsulta/>},
+    {path: "/historicoconsultas", element: <HistoricoConsultas />},
+
 ])
 
 export default router;

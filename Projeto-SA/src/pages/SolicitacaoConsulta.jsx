@@ -1,9 +1,17 @@
-import React from 'react'
 import './SolicitacaoConsulta.css'
+import React, { useState } from 'react';
+import CancelarConsulta from '../components/CancelarConsulta';
 
 function SolicitacaoConsulta() {
+    const [isOpen, setIsOpen] = useState(false);
 
-    
+    const handleOpenPopup = () => {
+      setIsOpen(true);
+    };
+  
+    const handleClosePopup = () => {
+      setIsOpen(false);
+    };
 
     return (
         <div className='tudo-solicitacao'>
@@ -42,7 +50,7 @@ function SolicitacaoConsulta() {
                         </select>
                         <div className="botoes-solicitacao">
                             <button className='botao-confirma-solicitacao'>CONFIRMAR</button>
-                            <button className='botao-cancela-solicitacao' >CANCELAR</button>
+                            <button className='botao-cancela-solicitacao' onClick={handleOpenPopup}>CANCELAR</button>
                         </div>
                     </div>
                 </div>
@@ -75,11 +83,15 @@ function SolicitacaoConsulta() {
                         </div>
                     </div>
                 </div>
-                
+
 
             </div>
 
-        </div>
+            <div>
+                {isOpen && <CancelarConsulta onClose={handleClosePopup} />}
+            </div>
+
+        </div >
     )
 }
 

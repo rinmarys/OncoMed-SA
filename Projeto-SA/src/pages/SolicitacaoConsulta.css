@@ -11,7 +11,7 @@
 
 body{
 
-background-color: #F5F5F5;
+background-color: #f5f5f5;
 }
 
 
@@ -48,12 +48,13 @@ background-color: #F5F5F5;
 }
 
 .consulta-solicitada {
-    background-color: #eeeeee;
-    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
+    background-color: #cdd8e2; 
+    /* background-color: var(--cor-4); */
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); 
     padding: 2%;
     width: fit-content; /* depois mudar para fit-content, quando finalizar */
     border-radius: 15px;
-  border: 2px solid var(--cor-6);
+
   margin-left: 11%;
   margin-bottom: 55px;
 }

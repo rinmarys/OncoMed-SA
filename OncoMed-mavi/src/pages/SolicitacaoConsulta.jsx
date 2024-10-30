@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SolicitacaoConsulta.css'
 
 function SolicitacaoConsulta() {
 
     
-
     return (
         <div className='tudo-solicitacao'>
             <img src="Logo SA.svg " alt="logo OncoMed" className='logo-solicitacao' />
@@ -42,7 +41,7 @@ function SolicitacaoConsulta() {
                         </select>
                         <div className="botoes-solicitacao">
                             <button className='botao-confirma-solicitacao'>CONFIRMAR</button>
-                            <button className='botao-cancela-solicitacao' >CANCELAR</button>
+                            <button className='botao-cancela-solicitacao' onClick={handleOpenPopupTwo}>CANCELAR</button>
                         </div>
                     </div>
                 </div>
@@ -60,7 +59,7 @@ function SolicitacaoConsulta() {
                         </div>
                     </div>
                     <h2 className='observacao-solicitacao-titulo' >OBSERVAÇÃO</h2>
-                    <h3 className='observacao-solicitacao-cliente' >tenho medo mto medo, meu bcacjkjhdsakh socosadjaukjsdhkj a a a  ja aiii</h3>
+                    <h3 className='observacao-solicitacao-cliente' >tenho medo mto medo, meu bcacjkjhdsakh socosadjaukjsdhkj a a a ja aiii</h3>
                     <h3 className='designar-profissional-titulo' >DESIGNAR PROFISSIONAL</h3>
                     <div className="designar-botoes-solicitacao">
                         <select id="escolha-medico" className='designar-profissional-input'>

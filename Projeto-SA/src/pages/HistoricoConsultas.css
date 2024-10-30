@@ -8,13 +8,7 @@
     --cor-7: #D9E3EB;
 }
 
-/* body {
 
-    justify-content: center;
-    text-align: center;
-    display: flex;
-
-} */
 
 .consulta {
     background-color: var(--cor-7);
@@ -43,10 +37,10 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
-.titulo {
+.titulo-historicoConsultas {
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -54,8 +48,7 @@
     font-family: "Nunito", sans-serif;
     color: var(--cor-6);
     font-size: larger;
-    margin-top: -30px;
-
+    width: 99%;
 }
 
 
