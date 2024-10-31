@@ -16,6 +16,7 @@ function Header() {
             <Link to={'/agendamentos'} className='nav_bar_link'>AGENDAMENTOS</Link>
             <Link to={'/sobrenos'} className='nav_bar_link'>SOBRE NÓS</Link>
             <Link to={'/blog'} className='nav_bar_link'>BLOG</Link>
+            <Link to={'/perfil_paciente'} className='nav_bar_link'>PERFIL</Link>
         </nav>
 
         </div>
