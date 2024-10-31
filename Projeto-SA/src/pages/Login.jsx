@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './Login.css'
 import Pop_up from "../components/Pop_up.jsx";
 import { useContext } from "react";
@@ -20,6 +20,8 @@ function Login() {
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
   const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
+
+  const navegacao_de_pagina = useNavigate(``);
 
   useEffect(() => {
     
@@ -64,8 +66,7 @@ function fazer_login(){
       };
 
       set_usuario_logado(usuario_a_logar);
-
-       window.location.href=`/`;
+      navegacao_de_pagina(`/`);
 
     } else {
 
@@ -95,14 +96,12 @@ function fazer_login(){
         };
 
         set_usuario_logado(usuario_a_logar);
-  
-        window.location.href=`/`;
+        navegacao_de_pagina(`/`);
   
       } else {
   
         set_mensagem_de_erro(`Usuário ou senha incorreto!`);
-        usuario_existente = false;
-        
+                
       };
     };
   

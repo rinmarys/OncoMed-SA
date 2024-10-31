@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useContext } from 'react';
 import './Cadastro_Medico.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Medico() {
@@ -29,6 +29,8 @@ function Cadastro_Medico() {
     const [imagem_olinho_um, set_imagem_olinho_um] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
     const [estado_do_olinho_um, set_estado_do_olinho_um] = useState(false);
     const [valor_do_olinho_um, set_valor_do_olinho_um] = useState(`password`);
+
+    const navegacao_de_pagina = useNavigate(``);
 
   useEffect(() => {
 
@@ -207,7 +209,7 @@ function Cadastro_Medico() {
       
       set_lista_de_medicos([...lista_de_medicos, usuario_a_cadastrar]);
       
-      window.location.href=`/login`;
+      navegacao_de_pagina(`/login`);
 
     } else {
 

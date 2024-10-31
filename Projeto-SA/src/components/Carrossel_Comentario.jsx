@@ -4,13 +4,8 @@ function Carrossel_Comentario() {
 
     let array_de_comentarios = [`"O aplicativo mudou minha vida. Agora eu me sinto mais no controle." 
     — Maria, 42 anos`, `b`, `c`];
+    
     const [posicao, set_posicao] = useState(0);
-
-    const avancar_carrossel = (posicao_anterior) =>{
-
-      set_posicao(posicao_anterior += 1) % array_de_comentarios.length;
-      console.log(posicao);
-    };
     
   return (
     <div>
@@ -25,7 +20,7 @@ function Carrossel_Comentario() {
 
             </div>
 
-            <button onClick={avancar_carrossel}><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
+            <button><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
 
         </div>
 

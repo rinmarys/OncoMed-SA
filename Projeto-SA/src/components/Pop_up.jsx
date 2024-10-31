@@ -1,7 +1,12 @@
 import React from 'react'
 import './Pop_up.css'
+import { useNavigate } from 'react-router-dom'
 function Pop_up() {
-  return (
+
+    const navegacao_de_pagina = useNavigate(``);
+  
+    return (
+
     <div>
 
         <div className="container_pop_up">
@@ -10,7 +15,7 @@ function Pop_up() {
 
             <div className="coluna_paciente">
 
-            <button onClick={() => window.location.href=`/cadastropaciente`}>
+            <button onClick={() => navegacao_de_pagina(`/cadastropaciente`)}>
                 <img src="Paciente_Popup.svg" alt="Imagem Paciente" className='imagem_paciente'/>
             </button>
 
@@ -21,7 +26,7 @@ function Pop_up() {
 
             <div className="coluna_medico">
 
-            <button onClick={() => window.location.href=`/cadastromedico`}>
+            <button onClick={() => navegacao_de_pagina(`/cadastromedico`)}>
                 <img src="Medico_Popup.svg" alt="Imagem Paciente" />
             </button>
 

@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Cadastro_Paciente.css'
 import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Paciente() {
@@ -15,7 +15,6 @@ function Cadastro_Paciente() {
   
   const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
   const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
-  const [recuperar_lista_de_medicos, set_recuperar_lista_de_medicos] = useState([...lista_de_medicos]);
 
   const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
   const [valor_checkbox, set_valor_checkbox] = useState(``);
@@ -27,6 +26,8 @@ function Cadastro_Paciente() {
   const [imagem_olinho_um, set_imagem_olinho_um] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
   const [estado_do_olinho_um, set_estado_do_olinho_um] = useState(false);
   const [valor_do_olinho_um, set_valor_do_olinho_um] = useState(`password`);
+
+  const navegacao_de_pagina = useNavigate(``);
 
   useEffect(() => {
     
@@ -115,6 +116,12 @@ function Cadastro_Paciente() {
         };
       };
 
+      lista_de_medicos.filter((medico) => {
+       
+        
+
+      });
+
     };
 
     if(pegar_array_pacientes == null){
@@ -184,7 +191,7 @@ function Cadastro_Paciente() {
       
        set_lista_de_pacientes([...lista_de_pacientes, usuario_a_cadastrar]);
 
-       window.location.href=`/login`;
+      navegacao_de_pagina(`/login`);
 
     } else {
 
