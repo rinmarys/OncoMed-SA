@@ -19,7 +19,7 @@ function Footer() {
               <div className="container-um-alinhamento">
 
                 <h1 className='estilo-titulos'>Contatos</h1>
-                <div className="line"></div>
+                <div className="line-footer"></div>
 
                 <p className='estilo-texto-branco'>
                   (31) 99876-5432
@@ -27,12 +27,12 @@ function Footer() {
                 </p>
 
                 <h1 className='estilo-titulos'>WhatsApp</h1>
-                <div className="line"></div>
+                <div className="line-footer"></div>
 
                 <p className='estilo-texto-branco'>(31) 99876-5432</p>
 
                 <a href="https://web.whatsapp.com/" target='_blank'><img src="WhatsApp.svg" alt="Acessar WhatsApp" /></a>
-                <a href="https://www.google.com/intl/pt-BR/gmail/about/" target='_blank'><img src="Gmail Logo.svg" alt="Acessar Gmail" /></a>
+                <a href="https://www.google.com/intl/pt-BR/gmail/about/" target='_blank'><img src="Gmail Logo.png" alt="Acessar Gmail" className='gmail-img'/></a>
                 <a href="https://www.instagram.com/" target='_blank'><img src="Instagram.svg" alt="Acessar Instragram" /></a>
 
               </div>
@@ -40,7 +40,7 @@ function Footer() {
               <div className="container-dois-alinhamento">
 
                 <h1 className='estilo-titulos'>Menu do site</h1>
-                <div className="line"></div>
+                <div className="line-footer"></div>
 
                 <ul>
                   <li><Link className='estilo-texto-link'>Sobre nós</Link></li>
@@ -58,7 +58,7 @@ function Footer() {
               <div className="container-tres-alinhamento">
 
                 <h1 className="estilo-titulos">Endereço</h1>
-                <div className="line"></div>
+                <div className="line-footer"></div>
 
                 <p className='estilo-texto-branco'><strong>OncoMed - Clínica Oncológica</strong>
                   <br /> Rua das Palmeiras, 789

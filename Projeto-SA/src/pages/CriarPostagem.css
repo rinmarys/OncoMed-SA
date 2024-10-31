@@ -21,17 +21,20 @@
     font-size: 20px;
 }
 
-.line {
+.line-criarPostagem{
+    background-color: var(--cor-3);
+    height: 7px;
+    border-radius: 10px;
     width: 140px;
     margin-top: -25px;
 }
 
-.line:hover {
+.line-criarPostagem:hover {
     width: 170px;
     transition: 0.5s;
 }
 
-.line:not(:hover) {
+.line-criarPostagem:not(:hover) {
     width: 140px;
     transition: 0.5s;
 }
@@ -149,7 +152,7 @@
     color: var(--cor-2);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 25px;
     width: fit-content;
 }
 
@@ -171,7 +174,7 @@
     color: var(--cor-2);
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 /* CATEGORIA */
@@ -230,7 +233,7 @@
 }
 
 .buttons-container button:hover{
-    transition: 0.2s;
+    transition: 0.5s;
     background-color: var(--cor-6);
     color: var(--cor-4);
 }

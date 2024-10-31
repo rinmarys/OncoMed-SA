@@ -36,7 +36,7 @@ function CriarPostagem() {
             <div className="alinhamento-titulo-criarPostagem">
                 <div className="titulo-criarPostagem">
                     <h1>CRIAR NOVA POSTAGEM</h1>
-                    <div className='line'></div>
+                    <div className='line-criarPostagem'></div>
                 </div>
                     <HamburgerMenu />
             </div>
