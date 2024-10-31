@@ -1,0 +1,67 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118; 
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+.pop-up-cancelar-consulta{
+    width: fit-content;
+    background-color: #eeeeee;
+    padding: 5%;
+    width: 860px;
+    border-radius: 15px;
+    border: 2px solid var(--cor-6);
+    margin-left: 11%;
+    margin-bottom: 55px;
+    position: absolute;
+    position: fixed;
+    left: 4%;
+    top: 15%;
+}
+
+.cancelar-consulta-titulo{
+    
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px ;
+}
+
+.inputs-cancelar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Nunito', sans-serif;
+color: #437118;
+}
+
+.input-cancelar-consulta{
+    width: fit-content;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+}
+
+.botoes-telaCancelarConsulta{
+
+
+}
+
+.cancelar-consulta-botao-telaCancelarConsulta{
+    width: fit-content;
+    background-color: #1D2A62;
+    color: #eeeeee;
+}
+
+.sair-botao-telaCancelarConsulta{
+    width: fit-content;
+    background-color: #1D2A62;
+    color: #eeeeee;
+}

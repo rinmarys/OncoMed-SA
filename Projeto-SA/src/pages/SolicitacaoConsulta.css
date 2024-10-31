@@ -50,13 +50,14 @@ background-color: #f5f5f5;
 .consulta-solicitada {
     background-color: #cdd8e2; 
     /* background-color: var(--cor-4); */
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); 
+    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);  */
     padding: 2%;
-    width: fit-content; /* depois mudar para fit-content, quando finalizar */
+    width: 1100px; /* depois mudar para fit-content, quando finalizar */
     border-radius: 15px;
 
   margin-left: 11%;
   margin-bottom: 55px;
+  border: 2px solid #1D2A62;
 }
 
 
@@ -91,6 +92,7 @@ background-color: #f5f5f5;
 color: var(--cor-6);
 font-size: large;
 font-family: 'Nunito', sans-serif;
+margin-left: 120px;
 }
 
 .horario-consulta-solicitacao{
@@ -117,42 +119,55 @@ font-family: 'Nunito', sans-serif;
 .botoes-solicitacao{
     display: flex;
     flex-direction: row;
-    width: 310px;
+    width: 370px;
     justify-content: space-between;
     height: 50px;
+    margin-bottom: -5px;
 
 }
 
 .botao-confirma-solicitacao{
 font-size: larger;
-color: var(--cor-6);
+color: var(--cor-4);
 border-radius: 10px;
 padding: 5px;
 padding-right: 15px;
 padding-left: 15px;
-font-weight: 700;
-border: 2px solid var(--cor-6);
+background-color: #525e92;
+width: 180px;
+height: 45px;
+cursor: pointer;
+border: 1px solid var(--cor-6);
+border-radius: 10px;
+font-size: 13px;
+font-weight: bold;
 }
 
 .botao-confirma-solicitacao:hover{
-    background-color: #D0D9C7;
+    background-color: #3c477a;
     transition: 0.18s;
 }
 
 .botao-cancela-solicitacao{
     font-size: larger;
-    color: var(--cor-6);
+    color: var(--cor-4);
     border-radius: 10px;
     padding: 5px;
     padding-right: 15px;
     padding-left: 15px;
-    background-color: #D0D9C7;
-font-weight: 700;
-border: 2px solid var(--cor-6);
+    width: 180px;
+    height: 45px;
+    cursor: pointer;
+    border: 1px solid var(--cor-6);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+background-color: #3c477a;
+
 }
 
 .botao-cancela-solicitacao:hover{
-    background-color: #abb3a3;
+    background-color: #525e92;
     transition: 0.2s;
 }
 
@@ -164,7 +179,7 @@ border: 2px solid var(--cor-6);
     display: flex;
     justify-content: space-between;
     text-align: center;
-    width: 980px;
+    width:1100px;
 }
 
 .tipo-consulta-solicitacao{
@@ -203,11 +218,11 @@ border: 2px solid var(--cor-6);
     padding-left: 8px;
     border-radius: 7px;
     margin-top: 6px;
-border: 1px solid #888888;
-background-color: #eeeeee;
+border: 1px solid var(--cor-6);
+background-color: rgb(255, 255, 255);
 /* appearance: none; */
-font-size: large;
-
+font-size: small;
+font-weight: bold;
 
 }
 
@@ -217,7 +232,8 @@ font-size: large;
     background-color: #DEDEDE;
     color: #437118;
     border-radius: 10px;
-    font-size: large;
+    font-size: small;
+    font-weight: bold;
     font-weight: 600;
     
    

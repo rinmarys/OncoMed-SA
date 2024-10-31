@@ -79,7 +79,7 @@ function SolicitacaoConsulta() {
                         </select>
                         <div className="botoes-solicitacao">
                             <button className='botao-confirma-solicitacao'>CONFIRMAR</button>
-                            <button className='botao-cancela-solicitacao' >CANCELAR</button>
+                            <button className='botao-cancela-solicitacao' onClick={handleOpenPopup} >CANCELAR</button>
                         </div>
                     </div>
                 </div>
