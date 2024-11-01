@@ -10,7 +10,6 @@ function Header() {
 
         <nav className="nav_bar">
 
-
             <Link to={'/'} className='nav_bar_link'><img src="Logo_SA.png" alt="Logo SA"/></Link>
             <Link to={'/marcarConsulta'} className='nav_bar_link'>MARCAR CONSULTA</Link>
             <Link to={'/agendamentos'} className='nav_bar_link'>AGENDAMENTOS</Link>
