@@ -115,6 +115,7 @@
 // export default HistoricoConsultas;
 import React, { useState } from 'react';
 import FichaCliente from '../components/FichaCliente';
+import HamburgerMenu from '../components/HamburgerMenu';
 import './HistoricoConsultas.css';
 
 function HistoricoConsultas() {
@@ -130,7 +131,10 @@ function HistoricoConsultas() {
 
   return (
     <div className='tudo'>
-      <img className='logo' src="Logo SA.svg" alt="" />
+      <div className="hamburguer-menu-div-historico">
+      <HamburgerMenu/>
+      </div>
+      
       <div className="alinhamento-historicoConsulta">
         <div className="titulo-historicoConsultas">
           <h1>HISTÓRICO DE AGENDAMENTOS</h1>

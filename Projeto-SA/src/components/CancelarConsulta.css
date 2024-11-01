@@ -1,16 +1,16 @@
 :root {
     --cor-1: #F1F1F1;
-    --cor-2: #437118; 
+    --cor-2: #437118;
     --cor-3: #AFD06E;
     --cor-4: #F5F5F5;
     --cor-5: #87AECE;
     --cor-6: #1D2A62;
 }
 
-.pop-up-cancelar-consulta{
+.pop-up-cancelar-consulta {
     width: fit-content;
     background-color: #eeeeee;
-    padding: 5%;
+    padding: 3%;
     width: 860px;
     border-radius: 15px;
     border: 2px solid var(--cor-6);
@@ -18,50 +18,143 @@
     margin-bottom: 55px;
     position: absolute;
     position: fixed;
-    left: 4%;
+    left: 7%;
     top: 15%;
 }
 
-.cancelar-consulta-titulo{
-    
+.cancelar-consulta-titulo {
+
     color: var(--cor-6);
     font-family: 'Nunito', sans-serif;
     margin-top: 0px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 10px ;
+    margin-top: -15px;
+    margin-bottom: 70px;
+
 }
 
-.inputs-cancelar{
+.inputs-cancelar-div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Nunito', sans-serif;
-color: #437118;
+    color: #437118;
+
+    height: 370px;
 }
 
-.input-cancelar-consulta{
+.input-cancelar-consulta {
+
     width: fit-content;
-    padding-bottom: 60px;
+    
     display: flex;
     flex-direction: column;
     font-size: x-large;
 }
 
-.botoes-telaCancelarConsulta{
+.input-cancelar-consulta input {
 
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding-left: 2%;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background: var(--cor_tres);
+    border: 1px solid var(--cor_cinco);
+    border-radius: 5px;
+    color: #1D2A62;
 
 }
 
-.cancelar-consulta-botao-telaCancelarConsulta{
-    width: fit-content;
-    background-color: #1D2A62;
-    color: #eeeeee;
+.input-cancelar-consulta input {
+
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding-left: 2%;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid var(--cor-6);
+    border-radius: 5px;
+    color: #1D2A62;
+
 }
 
-.sair-botao-telaCancelarConsulta{
+.input-cancelar-consulta input:focus {
+
+    border: 1px solid #87AECE;
+
+}
+
+.input-cancelar-consulta label {
+
+    margin-bottom: 5px;
+
+}
+
+.botoes-telaCancelarConsulta {
+    margin-top: 30px;
+}
+
+.cancelar-consulta-botao-telaCancelarConsulta {
     width: fit-content;
-    background-color: #1D2A62;
-    color: #eeeeee;
+    font-size: larger;
+    color: var(--cor-4);
+    border-radius: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 180px;
+    height: 45px;
+    cursor: pointer;
+    border: 1px solid var(--cor-6);
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #3c477a;
+}
+
+.cancelar-consulta-botao-telaCancelarConsulta:hover {
+    background-color: #525e92;
+    transition: 0.2s;
+}
+
+.sair-botao-telaCancelarConsulta {
+    width: fit-content;
+    font-size: larger;
+    color: var(--cor-4);
+    border-radius: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 180px;
+    height: 45px;
+    cursor: pointer;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #525e92;
+    margin-left: 15px;
+}
+
+.sair-botao-telaCancelarConsulta:hover {
+    background-color: #3c477a;
+    transition: 0.18s;
+}
+
+.alinhar-imagem-telaCancelarConsulta {
+    display: flex;
+}
+
+.imagem-cancelar-consulta {
+    width: fit-content;
+
+    height: 420px;
+    margin-top: -48%;
+    margin-left: 440px;
 }

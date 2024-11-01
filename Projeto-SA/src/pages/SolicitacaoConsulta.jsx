@@ -1,6 +1,7 @@
 import './SolicitacaoConsulta.css'
 import React, { useState } from 'react';
 import CancelarConsulta from '../components/CancelarConsulta';
+import HamburgerMenu from '../components/HamburgerMenu';
 
 function SolicitacaoConsulta() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,11 @@ function SolicitacaoConsulta() {
 
     return (
         <div className='tudo-solicitacao'>
-            <img src="Logo SA.svg " alt="logo OncoMed" className='logo-solicitacao' />
+
+            <div className="hamburguer-menu-div-solicitacao">
+            <HamburgerMenu/>
+            </div>
+        
 
             <div className="titulo-solicitacao">
                 <h1>SOLICITAÇÕES DE CONSULTA</h1>
