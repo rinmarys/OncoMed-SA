@@ -9,12 +9,10 @@
 }
 
 .alinhamento_navbar{
-    
     display: flex;
     justify-content: center;
     
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 3%;
 }
 
 .nav_bar{

@@ -38,10 +38,15 @@
 }
 
 .menu {
+    position: absolute;
+
+    top: 21%;
+    left: 82%;
+
     background-color: var(--cor-4);
     right: 0;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    width: 190px;
+    width: 210px;
     border-radius: 10px;
 }
 

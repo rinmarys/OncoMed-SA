@@ -14,8 +14,6 @@
     margin-top: 8%;
     height: fit-content;
     width: 99.9%;
-
-
 }
 
 /* ESTILOS */
@@ -25,12 +23,22 @@
     font-size: 220%;
 }
 
-.line{
+.line-footer{
     width: 55px;
     height: 8px;
     background-color: var(--cor_dois);
     border-radius: 5px;
     margin-top: -15px;
+}
+
+.line-footer:hover{
+    width: 75px;
+    transition: 0.5s;
+}
+
+.line-footer :not(:hover){
+    width: 55px;
+    transition: 0.5s;
 }
 
 .estilo-texto-branco{
@@ -88,7 +96,8 @@
     width: 160%;
     height: fit-content;
     margin-top: -28%;
-    margin-left: 22%;
+    margin-left: 11%;
+    width: 130%;
 }
 
 /* Container um (Contatos) ALINHAMENTO*/
@@ -100,16 +109,17 @@
 
 .Logo{
     margin-bottom: -25px;
-    margin-left: -6%;
+    margin-left: -40px;
     width: 320px;
-    margin-top: -20px;
+    margin-top: 80px;
+    height: fit-content;
 }
 
 .alinhamentoLogo-mascote{
     display: flex;
     justify-content: space-between;
-    width: 77%;
-    margin-left: 14%;
+    width: 90.5%;
+    margin-left: 9%;
     margin-top: -4%;
 }
 
@@ -123,7 +133,7 @@
     width: fit-content;
     height: fit-content;
 
-    margin-left: 13%;
+    margin-left: 11%;
     margin-top: 3%;
 }
 
@@ -141,7 +151,7 @@
 .container-tres-alinhamento{
     width: fit-content;
     height: fit-content;
-    margin-left: 13%;
+    margin-left: 11%;
 
     margin-top: 3%;
 }
@@ -160,3 +170,7 @@
     width: 500px;
 }
 /* Mascote alinhamento */
+
+.gmail-img{
+    width: 33px;
+}

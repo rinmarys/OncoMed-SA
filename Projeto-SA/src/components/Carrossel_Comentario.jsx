@@ -6,21 +6,21 @@ function Carrossel_Comentario() {
     — Maria, 42 anos`, `b`, `c`];
     
     const [posicao, set_posicao] = useState(0);
-    
+
   return (
     <div>
       
         <div className="o_que_dizem_nossos_pacientes_carrossel">
 
-            <button ><img src="Seta_carrossel_esquerda.svg" alt="Seta esquerda.svg" /></button>
+            <button onClick={() => posicao < 0 ? set_posicao(array_de_comentarios.length - 1) : set_posicao(posicao - 1)}><img src="Seta_carrossel_esquerda.svg" alt="Seta esquerda.svg" /></button>
 
             <div className="o_que_dizem_nossos_pacientes_conteudo_do_carrossel">
 
-            <p>{array_de_comentarios[posicao]}</p>
+            <p className='animar_entrada_dos_comentarios'>{array_de_comentarios[posicao]}</p>
 
             </div>
 
-            <button><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
+            <button onClick={() => posicao == array_de_comentarios.length ? set_posicao(0) : set_posicao(posicao + 1)}><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
 
         </div>
 

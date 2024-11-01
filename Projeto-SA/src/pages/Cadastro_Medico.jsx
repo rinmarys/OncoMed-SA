@@ -270,39 +270,57 @@ function Cadastro_Medico() {
   };
   
     return (
+        
         <div className='dv_cadastro_medico'>
 
         <div className='container_img_medico'>
+          
           <img src='Imagem_quatro.svg' alt="Imagem com Méidcos" className='imagem_cadastro'/>
+        
         </div>
     
     <div className='container_informacoes_medico'>
     
         <div className='titulo_medico'>
+            
             <h2>CADASTRO - MÉDICO</h2>
+           
             <Link to={`/`} className='titulo_medico_logo'><img src="Logo_SA.png" alt="Logo.png" className='imagem_logo_medico'/></Link>
+            
             <div className="faixa_verde_medico"></div>
+        
         </div>
     
         <div className='posicao_inputs_medico'>
+           
             <div className='coluna_de_inputs_um_medico'>
     
               <div className='input_nome_medico'>
+                
                 <label>Nome Completo</label>
+                
                 <input type="text" placeholder='Digite seu nome completo' value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
+              
               </div>
     
               <div className="input_cpf_medico">
+                
                 <label>CPF</label>
+                
                 <input type="text" maxLength={14} placeholder='012.345.678-91' value={valor_inpt_cpf} onChange={(e) => set_valor_inpt_cpf(e.target.value)}/>
+             
               </div>
               
               <div className="input_genero_medico">
+                
                 <label>Gênero</label>
+                
                 <input type="text" placeholder='Insira seu gênero aqui' value={valor_inpt_genero} onChange={(e) => set_valor_inpt_genero(e.target.value)}/>
+              
               </div>
     
               <div className="input_senha_medico">
+                
                 <label>Senha</label>
 
                 <div className="input_senha_medico_dv">
@@ -312,6 +330,7 @@ function Cadastro_Medico() {
                   <button onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)} className='botao_input_senha'>{imagem_olinho_um}</button>
                 
                 </div>
+
               </div>
     
             </div>
@@ -319,18 +338,27 @@ function Cadastro_Medico() {
             <div className="coluna_de_inputs_dois_medico">
     
               <div className="input_crm_medico">
+                
                 <label>CRM</label>
+                
                 <input type="text" maxLength={13} placeholder='000000/SP' value={valor_inpt_crm} onChange={(e) => set_valor_inpt_crm(e.target.value)}/>
+             
               </div>
     
               <div className="input_email_medico">
+                
                 <label>Email</label>
+               
                 <input type="text" placeholder='exemplo@gmail.com' value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
+              
               </div>
     
               <div className="input_data_de_nascimento_medico">
+                
                 <label>Data Nascimento</label>
+               
                 <input type="date" maxLength={10}placeholder='Data de nascimento aqui' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
+              
               </div>
     
               <div className="input_confirmar_senha_medico">
@@ -343,20 +371,26 @@ function Cadastro_Medico() {
                   <button onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
                 
                 </div>
+
               </div>
     
             </div>
         </div>
     
         <div className='caminho_para_termos_e_politica_medico'>
+          
           <input type="checkbox" className='inpt_checkbox' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)}/>
+          
           <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='hyperlink_termos_de_uso'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='hyperlink_politica_de_privacidade'>Política de Privacidade</Link></label>
+        
         </div>
     
             <button className='botao_cadastrar_medico' onClick={cadastrar}>CADASTRAR</button>
      
         <div className="possui_conta_medico">
+          
           <p>Já possui uma conta? <Link to={`/login`} className='hyperlink_login_medico'>Log-In</Link></p>
+        
         </div>
 
         <div className="error_massege_medico">

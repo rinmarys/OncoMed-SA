@@ -27,7 +27,9 @@ function Pop_up() {
             <div className="coluna_medico">
 
             <button onClick={() => navegacao_de_pagina(`/cadastromedico`)}>
+                
                 <img src="Medico_Popup.svg" alt="Imagem Paciente" />
+           
             </button>
 
                 <h4>Junte-se a nós!</h4>
