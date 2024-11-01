@@ -25,7 +25,6 @@
     position: fixed;
     left: 17%;
     top: 6%;
-
 }
 
 /* Ajuste de posição do Pop up na tela */
@@ -57,6 +56,12 @@
     width: 450px;
     height: 450px;
 
+    transition: 0.5s;
+}
+
+.container_pop_up img:not(:hover){
+    width: 400px;
+    height: 400px;
     transition: 0.5s;
 }
 
@@ -110,15 +115,14 @@
 /* Titulo do Pop Up Lado Esquerdo */
 
 .coluna_paciente h4{
-
-    width: 200px;
+    width: 220px;
 
     margin-top: 0%;
     margin-bottom: 0%;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 
     text-align: center;
 
@@ -131,7 +135,7 @@
     width: 200px;
 
     font-family: var(--tipografia_secundaria);
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 15px;
 
     text-align: center;
@@ -174,7 +178,7 @@
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 
     text-align: center;
 
@@ -183,11 +187,10 @@
 /* Parágrafo da frase CTA do Pop Up Lado Direito */
 
 .coluna_medico p{
-
-    width: 200px;
+    width: 290px;
 
     font-family: var(--tipografia_secundaria);
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 15px;
 
     text-align: center;
