@@ -1,20 +1,22 @@
-import Header from '../components/Header.jsx'
-import './Home.css'
-import Popup from '../components/Pop_up.jsx'
-import { useEffect, useState } from 'react'
-import Faq_a from '../components/Faq_a.jsx'
-import Faq_b from '../components/Faq_b.jsx'
-import Faq_c from '../components/Faq_c.jsx'
-import Faq_d from '../components/Faq_d.jsx'
-import Carrossel_Comentario from '../components/Carrossel_Comentario.jsx'
-import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx'
-import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx'
-import { Link } from 'react-router-dom'
-import Footer from '../components/Footer.jsx'
+import Header from '../components/Header.jsx';
+import './Home.css';
+import Popup from '../components/Pop_up.jsx';
+import { useEffect, useState } from 'react';
+import Faq_a from '../components/Faq_a.jsx';
+import Faq_b from '../components/Faq_b.jsx';
+import Faq_c from '../components/Faq_c.jsx';
+import Faq_d from '../components/Faq_d.jsx';
+import Carrossel_Comentario from '../components/Carrossel_Comentario.jsx';
+import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx';
+import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
+import { Link, useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer.jsx';
 
 function Home() {
 
   const [pop_aberto, set_pop_aberto] = useState(false);
+  const navegacao_de_pagina = useNavigate(``);
+
   const [faq_a_aberto, set_faq_a_aberto] = useState(false);
   const [faq_b_aberto, set_faq_b_aberto] = useState(false);
   const [faq_c_aberto, set_faq_c_aberto] = useState(false);
@@ -32,26 +34,64 @@ function Home() {
 
   function evento_faq_a(){
 
+    
     set_faq_a_aberto(!faq_a_aberto);
     set_altura_faq_a(faq_a_aberto ? `60px` : `160px`);
+
+    set_faq_b_aberto(false);
+    set_altura_faq_b(`60px`);
+
+    set_faq_c_aberto(false);
+    set_altura_faq_c(`60px`);
+
+    set_faq_d_aberto(false);
+    set_altura_faq_d(`60px`);
+
   };
 
   function evento_faq_b(){
 
     set_faq_b_aberto(!faq_b_aberto);
     set_altura_faq_b(faq_b_aberto ? `60px` : `160px`);
+
+    set_faq_a_aberto(false);
+    set_altura_faq_a(`60px`);
+
+    set_faq_c_aberto(false);
+    set_altura_faq_c(`60px`);
+
+    set_faq_d_aberto(false);
+    set_altura_faq_d(`60px`);
   };
 
   function evento_faq_c(){
 
     set_faq_c_aberto(!faq_c_aberto);
     set_altura_faq_c(faq_c_aberto ? `60px` : `160px`);
+
+    set_faq_b_aberto(false);
+    set_altura_faq_b(`60px`);
+
+    set_faq_a_aberto(false);
+    set_altura_faq_a(`60px`);
+
+    set_faq_d_aberto(false);
+    set_altura_faq_d(`60px`);
   };
 
   function evento_faq_d(){
 
     set_faq_d_aberto(!faq_d_aberto);
     set_altura_faq_d(faq_d_aberto ? `60px`: `160px`);
+
+    set_faq_b_aberto(false);
+    set_altura_faq_b(`60px`);
+
+    set_faq_c_aberto(false);
+    set_altura_faq_c(`60px`);
+
+    set_faq_a_aberto(false);
+    set_altura_faq_a(`60px`);
   };
 
   if(faq_a_aberto == true){
@@ -83,6 +123,7 @@ function Home() {
       <Header/>
 
           <div className="alinhamento_popup_na_home">
+          
           {pop_aberto && <Popup/>}
 
           </div>
@@ -105,7 +146,7 @@ function Home() {
           <div className="carrossel_container_alinhamento_botoes">
 
           <button className="carrossel_conteudo_cadastrar" onClick={() => set_pop_aberto(true)}>CADASTRE-SE</button>
-          <button className="carrossel_conteudo_entrar" onClick={() => window.location.href=`/login`}>ENTRAR</button>
+          <button className="carrossel_conteudo_entrar" onClick={() => navegacao_de_pagina(`/login`)}>ENTRAR</button>
 
           </div>
 
@@ -129,6 +170,7 @@ function Home() {
         <div className="o_que_dizem_nossos_pacientes">
 
           <h2>O que dizem nossos pacientes?</h2>
+         
           <div className="o_que_dizem_nossos_pacientes_underline"></div>
 
           {<Carrossel_Comentario/>}
@@ -146,6 +188,7 @@ function Home() {
           <div className="container_comunidade_conteudo">
 
             <h3>Junte-se à nossa comunidade!</h3>
+            
             <div className="container_comunidade_conteudo_underline_titulo"></div>
 
             <p>Conecte-se com outros pacientes e cuidadores para compartilhar expêriencias de apoio.</p>
@@ -169,12 +212,16 @@ function Home() {
         <div className="container_artigos_alinhamento">
 
           <Link to={`/blog`} className='pop_up_artigo_um'>
-          <Aritgo_Um_Home/>
+          
+            <Aritgo_Um_Home/>
+          
           </Link>
           <div className="espacamento_dos_artigos"></div>
 
           <Link to={`/blog`} className='pop_up_artigo_dois'>
-          <Artigo_Dois_Home/>
+          
+            <Artigo_Dois_Home/>
+          
           </Link>
 
         </div>
@@ -235,8 +282,10 @@ function Home() {
 
 
             <div className="faq_a_alinhamento_de_titulo">
+              
               <h4>Como funciona o tratamento de câncer?</h4>
               <button onClick={evento_faq_a} className='faq_a_botao'>{faq_a_botao}</button>
+           
             </div>
 
             {faq_a_aberto && <Faq_a/>}
@@ -247,8 +296,10 @@ function Home() {
 
 
               <div className="faq_b_alinhamento_de_titulo">
+                
                 <h4>Quais são os efeitos colaterais dos tratamentos?</h4>
                 <button onClick={evento_faq_b} className='faq_b_botao'>{faq_b_botao}</button>
+              
               </div>
 
               {faq_b_aberto && <Faq_b/>}
@@ -259,8 +310,10 @@ function Home() {
 
 
               <div className="faq_c_alinhamento_de_titulo">
+                
                 <h4>Quais são os sinais de alerta de câncer?</h4>
                 <button onClick={evento_faq_c} className='faq_c_botao'>{faq_c_botao}</button>
+             
               </div>
 
               {faq_c_aberto && <Faq_c/>}
@@ -271,8 +324,10 @@ function Home() {
 
 
               <div className="faq_d_alinhamento_de_titulo">
+                
                 <h4>Quais são os tipos mais comuns de câncer?</h4>
                 <button onClick={evento_faq_d} className='faq_d_botao'>{faq_d_botao}</button>
+             
               </div>
 
               {faq_d_aberto && <Faq_d/>}
@@ -284,7 +339,9 @@ function Home() {
           <div className="container_faq_cta">
 
             <div className="container_faq_cta_imagem">
+              
               <img src="./faq_img.svg" alt="FAQ Images" />
+           
             </div>
 
             <p>Continua com dúvidas?</p>

@@ -38,8 +38,12 @@
 
     transition: 0.3s;
 
+    padding: 10px;
+
     height: 340px;
     width: 640px;
+
+    background-color: var(--cor_onze);
 }
 
 .container_artigo_dois_home:not(:hover){
