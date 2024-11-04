@@ -82,7 +82,7 @@
 .titulo_artigo_dois p{
 
     font-family: var(--tipografia_primaria);
-    font-weight: lighter;
+    font-weight: 400;
 
     color: var(--cor_um);
 }
@@ -107,7 +107,7 @@
     margin-left: 30px;
 
     font-family: var(--tipografia_primaria);
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 17px;
 
     color: var(--cor_sete);
