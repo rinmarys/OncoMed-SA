@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom'
 
 function Footer() {
+  
+  const [gmail_logo, set_gmail_logo] = useState(`Gmail.png`);
+  const [whatsapp_logo, set_whatsapp_logo] = useState(`Whatsapp.png`);
+  const [instagram_logo, set_instagram_logo] = useState(`Instagram.png`);
+  
   return (
     <div>
       <div className='footer-container'>
@@ -26,14 +31,18 @@ function Footer() {
                   <br />  OncoMed@gmail.com
                 </p>
 
-                <h1 className='estilo-titulos'>WhatsApp</h1>
-                <div className="line-footer"></div>
+                <div className='alinhamento_titulo_whatsapp'>
+
+                  <h1 className='estilo-titulos'>WhatsApp</h1>
+                  <div className="line-footer-whatsapp"></div>
+                
+                </div>
 
                 <p className='estilo-texto-branco'>(31) 99876-5432</p>
 
-                <a href="https://web.whatsapp.com/" target='_blank'><img src="WhatsApp.svg" alt="Acessar WhatsApp" /></a>
-                <a href="https://www.google.com/intl/pt-BR/gmail/about/" target='_blank'><img src="Gmail Logo.png" alt="Acessar Gmail" className='gmail-img'/></a>
-                <a href="https://www.instagram.com/" target='_blank'><img src="Instagram.svg" alt="Acessar Instragram" /></a>
+                <Link to="https://www.instagram.com/" target='_blank' className='instagram_icon'><img src={instagram_logo} alt="Acessar Instragram" onMouseEnter={() => set_instagram_logo(`Instagram_Hover.png`)} onMouseLeave={() => set_instagram_logo(`Instagram.png`)}/></Link>
+                <Link to="https://web.whatsapp.com/" target='_blank' className='whatsapp_icon'><img src={whatsapp_logo} alt="Acessar WhatsApp" onMouseEnter={() => set_whatsapp_logo(`Whatsapp_Hover.png`)} onMouseLeave={() => set_whatsapp_logo(`Whatsapp.png`)}/></Link>
+                <Link to="https://www.google.com/intl/pt-BR/gmail/about/" target='_blank' className='gmail_icon' onMouseEnter={ () => set_gmail_logo(`Gmail_Hover.png`)} onMouseLeave={ () => set_gmail_logo(`Gmail.png`)}><img src={gmail_logo} alt="Acessar Gmail" className='gmail-img'/></Link>
 
               </div>
 

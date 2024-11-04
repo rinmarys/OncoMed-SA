@@ -54,7 +54,7 @@
 }
 
 .container-dois-alinhamento li:hover{
-    color: #BED2E2;
+    color: var(--cor_quatro);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -67,7 +67,7 @@
 }
 
 .estilo-texto-azul-link:hover{
-    color: var(--cor_tres);
+    color: var(--cor_quatro);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -85,7 +85,7 @@
 }
 
 .estilo-texto-link:hover{
-    color: #BED2E2;
+    color: var(--cor_quatro);
     transition: 0.5s;
 }
 
@@ -126,6 +126,62 @@
 .container-um-alinhamento a{
     margin: 8px;
 }
+
+.whatsapp_icon img{
+
+    width: 40px;
+    height: 40px;
+}
+
+.gmail_icon img{
+
+    width: 40px;
+    height: 40px;
+}
+
+.whatsapp_icon{
+
+    width: 40px;
+    height: 40px;
+}
+
+.instagram_icon img{
+
+    width: 40px;
+    height: 40px;
+}
+
+.alinhamento_titulo_whatsapp h1{
+
+    width: 160px;
+
+    margin-bottom: 8px;
+}
+
+.line-footer-whatsapp{
+
+    width: 60px;
+    height: 8px;
+
+    border-radius: 10px;
+
+    background-color: var(--cor_dois);
+}
+
+.alinhamento_titulo_whatsapp h1:hover + .line-footer-whatsapp{
+
+    transition: 0.3s;
+
+    width: 180px;
+}
+
+.alinhamento_titulo_whatsapp h1:not(:hover) + .line-footer-whatsapp{
+
+    transition: 0.3s;
+
+    width: 60px;
+}
+
 /* Container um (Contatos) ALINHAMENTO*/
 
 /* Container Dois (Menú) ALINHAMENTO*/
