@@ -1,4 +1,5 @@
 import React from 'react'
+import './Perfil_medico.css'
 
 
 function Perfil_medico() {

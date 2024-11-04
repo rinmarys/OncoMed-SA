@@ -1,118 +1,86 @@
 :root{
---cor_um: #1D2A62;
---cor_dois:  #87AECE;
---cor_tres: #fdfdfd;
---cor_quatro: #437118;
---cor_cinco:  #3b4fa7;
---cor_seis: #F5F5F5;
---cor_sete:  #629136;
+--cor_azul_escuro: #1D2A62;
+--cor_azul_claro:  #87AECE;
+--cor_quase_branco: #fdfdfd;
+--cor_verde_meio_termo: #437118;
+--cor_verde_claro:  #AFD06E;
+--cor_azul_meio_termo:  #3b4fa7;
+--cor_branco_gelo: #F5F5F5;
+--cor_verde_escuro:  #629136;
 }
-
-.nav_container img{
-    width: 70px;
-    height: 70px;
-    margin-left: 43%;
-    margin-top: 1%;
-    position: absolute;
-}
-   
-.nav_container img:hover{
-   
- transition: 0.4s;
- width: 80px;
- height: 80px;
-}
-   
-
-.nav_container img:not(:hover){
-   
- transition: 0.4s;
- width: 75px;
- height: 75px;
-}   
       
 .nav_container h1{
  position: absolute;
  width: 525px;
  height: 76px;
- right: 74%;
- top: 46px;
+ left: 10%;
+ top: 20%;
  font-family: "poppins", sans-serif;
- color: #1D2A62
+ font-size: 38px;
+ color: var(--cor_azul_escuro);
 }
       
 .faixa_verde{
  width: 70px;
  height: 6px;
  position: absolute;
- right: 89.8%;
- bottom: 838px;
- background-color: #AFD06E;
+ left: 10%;
+ top: 28%;
+ background-color: var(--cor_verde_claro);
  border-radius: 5px;
 }
 
 
-.info_container{
- position: absolute;
- left: 130px;
- margin-top: 5%;  
-}
-
-.info_container img{
-    width: 195px;
-    height: 180px;
-    margin-left: 1000px;
-    margin-top: 1%;
-    position: absolute;
-}
-
 .name_user p{
     font-family: "poppins", sans-serif;
-    color: var(--cor_um);
+    color: var(--cor_azul_escuro);
     font-weight: bold;
     font-size: 25px;
 
-    margin-left: 1210px;
-    margin-top: 64%;
+    margin-left: 70%;
+    margin-top: 9%;
     position: absolute;
 }
+
+.posicao_container{
+ display: block;
+ margin-left: 3%;
+ margin-top: 10%;
+}
+
 
 .info_container input{
  box-sizing: border-box;
  width: 290px;
  height: 40px;
-
+ margin-left: 7%;
  border-radius: 5px; 
  border: 1px solid;
- background-color: var(--cor_tres);
+ background-color: var(--cor_branco_gelo);
  outline: none;
- display: block;
  margin-top: 1%;
 }
    
 .info_container input:focus{
- border-color: var(--cor_dois);
+ border-color: var(--cor_azul_claro);
 }
    
 .info_container label{
  font-family: "poppins", sans-serif;
- font-weight: bold;
- font-size: 18px;
- color: var(--cor_quatro);
-
- margin-top: 19%;
- margin-bottom: 3%;
- margin-right: 98%;
+ font-size: 20px;
+ color: var(--cor_verde_meio_termo);
+ margin-top: 2%;
+ margin-left: 7%;
  display: block;
 }
    
 .container_edit button{
  font-family: 'Nunito', sans-serif;
  font-weight: 800;
- border: 1px solid ;
+ border: 1px solid var(--cor_azul_meio_termo);
  border-radius: 15px;  
- background-color: var(--cor_cinco);
- color:  var(--cor_seis);
+ background-color: var(--cor_azul_meio_termo);
+ color:  var(--cor_quase_branco);
 
  position: absolute;
  width: 170px;
@@ -123,17 +91,17 @@
    
 .container_edit button:hover{
  transition: 0.2s;  
- background-color: var(--cor_um);
- color: var(--cor_seis);
+ background-color: var(--cor_azul_escuro);
+ color: var(--cor_quase_branco);
 }
    
 .container_delete button{
  font-family: 'Nunito', sans-serif;
  font-weight: 800;
- border: 1px solid ;
+ border: 1px solid var(--cor_verde_claro) ;
  border-radius: 15px;  
- background-color: var(--cor_sete);
- color: var(--cor_seis) ;
+ background-color: var(--cor_verde_claro);
+ color: var(--cor_quase_branco) ;
 
  position: absolute;
  width: 170px;
@@ -144,25 +112,24 @@
    
 .container_delete button:hover{
  transition: 0.2s;    
- background-color: var(--cor_quatro);
- color: var(--cor_seis);
+ background-color: var(--cor_verde_escuro);
 }
    
 .container_text input{
  position: absolute;
  left: 54%;
- top: 39.91%;
+ top: 49%;
  bottom: 45.25%;  
  width: 35%;
  height: 35%;
- background: var(--cor_seis);
- border: 1px solid var(--cor_sete);
+ background: var(--cor_branco_gelo);
+ border: 1px solid var(--cor_azul_escuro);
  outline: none;
  border-radius: 5px;
 }
    
 .container_text input:focus{
- border-color: var(--cor_dois);
+ border-color: var(--cor_azul_claro);
 }
    
 #placeholder_text::placeholder{
@@ -171,4 +138,12 @@
  left: 3%;
  font-size: medium;
 }
+
+.estilizacao_icon img{
+    width: 300px;
+    height: 300px;
+    margin-left: 64%;
+    position: absolute;
+    top: 15%;
+    }
 
