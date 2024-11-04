@@ -1,0 +1,43 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+    --cor-7: #D9E3EB;
+}
+
+.tudo-popup-meusagendamentos{
+    background-color: #eeeeee;
+    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
+    padding: 2%;
+    width: 500px;
+    height: 570px;
+    border-radius: 15px;
+    border: 1.8px solid var(--cor-2);
+    margin-left: 11%;
+    margin-bottom: 55px;
+}
+
+.cada-agendamento-meusagendamentos{
+    background-color: #eeeeee;
+    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
+    padding: 2%;
+    width: 400px;
+    height: fit-content;
+    border-radius: 15px;
+    border: 2px solid var(--cor-6);
+    margin-left: 11%;
+    margin-bottom: 55px;
+}
+
+.titulo-meusagendamentos{
+    color: #1D2A62;
+    font-family: 'Nunito', sans-serif;
+    margin-left: 8%;
+
+}
+ .todas-infos-meusagendamentos{
+    margin-left: 2%;
+ }
