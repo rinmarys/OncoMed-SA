@@ -5,18 +5,30 @@ import Footer from '../components/Footer'
 import { GlobalContext } from '../contexts/GlobalContext';
 
 function Perfil_paciente() {
-  function editar(){
-  const[nomeEditado, setNomeEditado]=useState('')
-  const[emailEditado, setEmailEditado]= useState('')
-  const[telefoneEditado, setTelefoneEditado]=useState('')
-  const[senhaEditada, setSenhaEditada]=useState('')
-  const[generoEditado, setGeneroEditado]=useState('')
+ const [valor_inpt_nome, set_valor_inpt_nome]=useState('')
+ const [valor_inpt_email, set_valor_inpt_email]=useState('')
+ const[valor_inpt_telefone, set_valor_inpt_telefone]=useState('')
+ const[valor_inpt_genero, set_valor_inpt_genero]=useState('')
+ const [valor_inpt_senha, set_valor_inpt_senha]=useState('')
+ const[valor_inpt_senha_nova, set_valor_inpt_senha_nova]=useState('')
 
-  const[userPaciente, setUserPaciente]=useContext(GlobalContext)
+ const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
+ const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
+
+  function editar(){
+   let pegar_array_pacientes = [...lista_de_pacientes];
+
+    // if(pegar_array_pacientes == null){
+
+    // for(let i = 0; i < pegar_array_pacientes.length; i++){
+    
   }
 
   function deletar(){
-  
+    let userLogado = JSON.parse(localStorage.getItem("User Logado"));
+    let babasCadastradas = JSON.parse(
+      localStorage.getItem("Cuidadores Cadastrados")
+    );
   }
 
   return (
@@ -32,15 +44,22 @@ function Perfil_paciente() {
       </div>
       <div className='posicao_container'>
        <label for="">Nome completo</label>
-       <input placeholder="Digite seu nome"/>
+       <input placeholder="Digite seu nome" value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
        <label for="">Email</label>
-       <input type="email" placeholder="Digite seu email"/>
+       <input type="email" placeholder="Digite seu email" value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
        <label for="">Telefone (com DDD)</label>
        <input placeholder="Digite seu número de telefone"/>
        <label for="">Senha</label>
-       <input type="password" placeholder="Digite uma senha"/>
+       <input type="password" placeholder="Digite a sua senha"/>
+       <label for="">Nova senha </label>
+       <input type="password" placeholder="Confirme sua nova senha"/>
        <label for="">Gênero</label>
-       <input type='text' placeholder='Digite seu gênero'></input>
+       <select name="" id="">
+       <option>Selecione seu genêro</option>
+       <option>Feminino</option>
+       <option>Masculino</option>
+       <option>Prefiro não informar sobre isso</option>
+       </select>
        </div>
       </div>
     

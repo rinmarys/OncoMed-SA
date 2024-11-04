@@ -15,7 +15,7 @@
  height: 76px;
  left: 10%;
  top: 20%;
- font-family: "poppins", sans-serif;
+ font-family:  'Nunito', sans-serif;
  font-size: 38px;
  color: var(--cor_azul_escuro);
 }
@@ -33,12 +33,12 @@
 
 .name_user p{
     font-family: "poppins", sans-serif;
-    color: var(--cor_azul_escuro);
+    color: var(--cor_azul_meio_termo);
     font-weight: bold;
     font-size: 25px;
 
     margin-left: 70%;
-    margin-top: 9%;
+    margin-top: 4%;
     position: absolute;
 }
 
@@ -55,7 +55,7 @@
  height: 40px;
  margin-left: 7%;
  border-radius: 5px; 
- border: 1px solid;
+ border: 1px solid var(--cor_azul_escuro);
  background-color: var(--cor_branco_gelo);
  outline: none;
  margin-top: 1%;
@@ -73,7 +73,25 @@
  margin-left: 7%;
  display: block;
 }
+
+.info_container select{
+ box-sizing: border-box;
+ width: 290px;
+ height: 40px;
+ margin-left: 7%;
+ border-radius: 5px; 
+ border: 1px solid var(--cor_azul_escuro);
+ color: var(--cor_verde_escuro);
+ background-color: var(--cor_branco_gelo);
+ outline: none;
+ margin-top: 1%;
+}
    
+.info_container select:focus{
+ border-color: var(--cor_azul_claro);
+
+}
+
 .container_edit button{
  font-family: 'Nunito', sans-serif;
  font-weight: 800;
@@ -85,8 +103,8 @@
  position: absolute;
  width: 170px;
  height: 45px;
- left: 1180px;
- top: 783px;
+ left: 60%;
+ top: 88%;
 }
    
 .container_edit button:hover{
@@ -106,8 +124,8 @@
  position: absolute;
  width: 170px;
  height: 45px;
- left: 1400px;
- top: 783px;
+ left: 73%;
+ top: 88%;
 }
    
 .container_delete button:hover{
@@ -144,6 +162,6 @@
     height: 300px;
     margin-left: 64%;
     position: absolute;
-    top: 15%;
-    }
+    top: 18%;
+}
 
