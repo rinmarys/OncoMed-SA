@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Artigo_Um_Home.css'
 function Aritgo_Um_Home() {
+    
+    // 660px
+
   return (
     <div className='tamanho_do_container_artigo_um_home'>
       
