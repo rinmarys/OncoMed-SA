@@ -36,7 +36,7 @@ function Home() {
 
     
     set_faq_a_aberto(!faq_a_aberto);
-    set_altura_faq_a(faq_a_aberto ? `60px` : `160px`);
+    set_altura_faq_a(faq_a_aberto ? `60px` : `220px`);
 
     set_faq_b_aberto(false);
     set_altura_faq_b(`60px`);
@@ -52,7 +52,7 @@ function Home() {
   function evento_faq_b(){
 
     set_faq_b_aberto(!faq_b_aberto);
-    set_altura_faq_b(faq_b_aberto ? `60px` : `160px`);
+    set_altura_faq_b(faq_b_aberto ? `60px` : `220px`);
 
     set_faq_a_aberto(false);
     set_altura_faq_a(`60px`);
@@ -67,7 +67,7 @@ function Home() {
   function evento_faq_c(){
 
     set_faq_c_aberto(!faq_c_aberto);
-    set_altura_faq_c(faq_c_aberto ? `60px` : `160px`);
+    set_altura_faq_c(faq_c_aberto ? `60px` : `220px`);
 
     set_faq_b_aberto(false);
     set_altura_faq_b(`60px`);
@@ -82,7 +82,7 @@ function Home() {
   function evento_faq_d(){
 
     set_faq_d_aberto(!faq_d_aberto);
-    set_altura_faq_d(faq_d_aberto ? `60px`: `160px`);
+    set_altura_faq_d(faq_d_aberto ? `60px`: `220px`);
 
     set_faq_b_aberto(false);
     set_altura_faq_b(`60px`);
@@ -115,8 +115,6 @@ function Home() {
   };
 
   return (
-
-    
 
     <div>
 
