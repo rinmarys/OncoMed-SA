@@ -1,0 +1,73 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+.hamburger-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinha o menu à direita */
+   
+}
+
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon {
+    width: 95px; 
+    height: auto; 
+}
+
+.menu-icon:hover{
+    width: 99px;
+    transition: 0.4s;
+    height: auto;
+}
+
+.menu-icon:not(hover){
+    width: 95px;
+    transition: 0.4s;
+    height: auto;
+}
+
+.menu {
+    background-color: var(--cor-4);
+    right: 0;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    width: 190px;
+    border-radius: 10px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px 20px;
+}
+
+.Link-decoration{
+    text-decoration: none;
+    color: var(--cor-6);
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+.Link-decoration:hover{
+    color: #384B7D;
+    transition: 0.5s;
+}
+
+.Link-decoration:not(hover){
+    color: var(--cor-6);
+    transition: 0.5s;
+}
