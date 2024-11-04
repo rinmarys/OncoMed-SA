@@ -2,6 +2,7 @@ import React from 'react'
 import './MarcarConsulta.css'
 import HamburguerMenu from '../components/HamburgerMenu.jsx'
 import Scheduler from '../components/Scheduler.jsx'
+import { Link } from 'react-router-dom'
 
 
 function MarcarConsulta() {
