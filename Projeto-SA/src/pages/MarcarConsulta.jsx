@@ -1,32 +1,35 @@
 import React from 'react'
-import Scheduler from './Scheduler'
-import './Scheduler.css'
 import './MarcarConsulta.css'
+import HamburguerMenu from '../components/HamburgerMenu.jsx'
+import Scheduler from '../components/Scheduler.jsx'
+import { Link } from 'react-router-dom'
+
 
 function MarcarConsulta() {
   return (
-    <div className='alinhamentos'>
+    <div className='Container'>
 
+      <HamburguerMenu />
       <div className="calendario">
-        <Scheduler />
+       <Scheduler/>
       </div>
-      <div className="alinhamento-div">
 
-        <div className="alinhamento-um-container">
 
-          <div className="tipo-consulta-div">
+      <div className='Tres-partes'>
+        <div className='Container-Consulta-Horario'>
+          <div className='Selecionar-Consulta'>
             <h2>TIPO CONSULTA</h2>
-            <select id="tipo-consulta">
+            <select className='Select-Consulta' id="tipo-consulta">
               <option value="" disabled selected>Selecione um tipo de consulta</option>
               <option value="consulta1">Mamografia</option>
-              <option value="consulta2">exame de sangue</option>
-              <option value="consulta3">hdfjkhsbf</option>
+              <option value="consulta2">Exame de sangue</option>
+              <option value="consulta3">OIOI</option>
             </select>
           </div>
 
-          <div className="opcao-horario-div">
-            <h2>HORARIO</h2>
-            <select id="opcao-horario">
+          <div className='Selecionar-Horario'>
+            <h2>HORÁRIO</h2>
+            <select className="Select-Horario" id="opcao-horario">
               <option value="" disabled selected>Selecione um horario</option>
               <option value="horario1">12:30</option>
               <option value="horario2">16:20</option>
@@ -36,13 +39,18 @@ function MarcarConsulta() {
 
         </div>
 
-
-
-        <div className="div-observacoes">
+        <div className='Selecionar-Ob'>
           <h2>OBSERVAÇÕES</h2>
-          <input id='observacao-usuario' type="text" />
+          <textarea id='observacao-usuario' className='Input-Ob' type="text" />
         </div>
+
+        <div className='Botões'>
+          <button className='Button'>CONFIRMAR</button>
+          <button className='Button'>CANCELAR</button>
+        </div>
+
       </div>
+
 
 
     </div>

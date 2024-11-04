@@ -4,13 +4,13 @@ import BlogInicio_Paciente from "../pages/BlogInicio_Paciente";
 import Cadastro_Paciente from "../pages/Cadastro_Paciente";
 import Cadastro_Medico from "../pages/Cadastro_Medico";
 import Login from "../pages/Login"
-import MarcarConsulta from "../pages/MarcarConsulta";
 import ConteudoBlog from "../pages/ConteudoBlog";
 import CriarPostagem from "../pages/CriarPostagem";
 import BlogInicio_Admin from "../pages/BlogInicio_Admin";
 import SolicitacaoConsulta from "../pages/SolicitacaoConsulta";
 import HistoricoConsultas from "../pages/HistoricoConsultas";
 import Perfil_paciente from "../pages/Perfil_paciente";
+import MarcarConsulta from '../pages/MarcarConsulta'
 
 const router = createBrowserRouter([
     // Header
@@ -38,6 +38,9 @@ const router = createBrowserRouter([
     //agendamentos
     {path: "/solicitacaoconsulta", element: <SolicitacaoConsulta/>},
     {path: "/historicoconsultas", element: <HistoricoConsultas />},
+    //agendamentos
+
+
 ])
 
 export default router;
