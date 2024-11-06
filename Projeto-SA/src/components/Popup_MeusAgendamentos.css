@@ -28,16 +28,139 @@
     height: fit-content;
     border-radius: 15px;
     border: 2px solid var(--cor-6);
-    margin-left: 11%;
+    margin-left: 7%;
     margin-bottom: 55px;
 }
 
 .titulo-meusagendamentos{
     color: #1D2A62;
     font-family: 'Nunito', sans-serif;
-    margin-left: 8%;
+    margin-left: 9%;
 
 }
  .todas-infos-meusagendamentos{
     margin-left: 2%;
+
  }
+
+ .medico-meusagendamentos{
+    color: var(--cor-6);
+    font-family: 'Nunito', sans-serif;
+    font-size: x-large;
+ }
+ .tipo-horario-meusagendamentos{
+
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+    margin-left: 8px;
+
+ }
+ 
+ .tipo-consulta-meusagendamentos{
+    color: var(--cor-2);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background-color: var(--cor-4);
+    border: 1.5px solid var(--cor-6);
+    width: fit-content;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: medium;
+    border-radius: 10px;
+ }
+
+
+ .horario-meusagendamentos{
+
+    color: var(--cor-2);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background-color: var(--cor-4);
+    border: 1.5px solid var(--cor-6);
+    width: fit-content;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: medium;
+    border-radius: 10px;
+    margin-left: 10px;
+ }
+
+ .titulo-observacao-meusagendamentos{
+    
+    color: var(--cor-2);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: smaller;
+    margin-top: -2px;
+    margin-left: 8px;
+
+ }
+
+ .observacao-meusagendamentos{
+    color: var(--cor-6);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: large;
+    margin-top: -7px;
+    margin-left: 2px;
+    width: 350px;
+    height: fit-content;
+ }
+
+ /* .cancelar-meusagendamentos-popup{
+    color: var(--cor-6);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: medium;
+    width: fit-content;
+    padding-left: 15px;
+    border: 2px solid var(--cor-2);
+    background-color: #AFD06E;
+    border-radius: 10px;
+    padding-right: 15px;
+    margin-top: -7px;
+    margin-left: 2px;
+
+ } */
+
+ .cancelar-meusagendamentos-popup{
+
+    width: 140px;
+    height: 40px;
+
+    margin-right: 1%;
+
+    cursor: pointer;
+
+    border: 1px solid var(--cor_um);
+    border-radius: 10px;
+
+    font-family: var(--tipografia_primaria);
+    font-size: 13px;
+    font-weight: bold;
+
+    color: var(--cor_tres);
+    background-color: var(--cor_um);
+    margin-left: 63%;
+
+}
+
+.cancelar-meusagendamentos-popup:hover{
+
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_sete);
+
+    background-color: var(--cor_sete);
+}
+
+.cancelar-meusagendamentos-popup:not(:hover){
+
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_um);
+
+    background-color: var(--cor_um);
+}

@@ -8,3 +8,16 @@
     --cor-7: #D9E3EB;
 }
 
+
+.imagem-meusagendamentos{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin-left: 100px;
+}
+
+.alinhar-meusagendamentos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
