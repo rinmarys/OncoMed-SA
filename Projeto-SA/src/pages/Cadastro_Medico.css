@@ -606,6 +606,12 @@ input:focus{
     text-decoration: underline;
 }
 
+.alinhamento_botao_cadastro_medico{
+
+    display: flex;
+    align-items: end;
+}
+
 /* Botão */
 
 .botao_cadastrar_medico {
@@ -616,7 +622,7 @@ input:focus{
 
     height: 40px;
     width: 200px;
-    margin-left: 25%;
+    margin-left: 12%;
     margin-top: 5%;
 
     border: 1px solid var(--cor_cinco);
@@ -640,8 +646,7 @@ input:focus{
 
 .botao_cadastrar_medico:not(:hover){
 
-    transition: 0.3s
-    ;
+    transition: 0.3s;
 
     border: 1px solid var(--cor_cinco);
 
@@ -704,11 +709,11 @@ input:focus{
 
 .error_massege_medico{
 
-    margin-top: 2%;
-    margin-left: 12%;
+    margin-left: 3%;
+    margin-bottom: 10px;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
 
-    color: var(--cor_sete);
+    color: #ef2828;
 }

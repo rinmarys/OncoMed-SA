@@ -603,6 +603,12 @@ input:focus{
     text-decoration: underline;
 }
 
+.alinhamento_botao_cadastrar_paciente{
+
+    display: flex;
+    align-items: end;
+}
+
 /* Botão */
 
 .botao_cadastrar_paciente {
@@ -613,7 +619,7 @@ input:focus{
 
     height: 40px;
     width: 200px;
-    margin-left: 25%;
+    margin-left: 12%;
     margin-top: 5%;
 
     border: 1px solid var(--cor_cinco);
@@ -654,7 +660,7 @@ input:focus{
     font-size: 14px;
 
     margin-left: 12%;
-    margin-top: 5%;
+    margin-top: 2%;
 
     color: var(--cor_um);
 }
@@ -674,11 +680,11 @@ input:focus{
 
 .error_paciente{
 
-    margin-top: 2%;
-    margin-left: 12%;
+    margin-left: 3%;
+    margin-bottom: 10px;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
 
-    color: var(--cor_sete);
+    color: #ef2828;
 }

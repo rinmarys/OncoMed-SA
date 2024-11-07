@@ -388,18 +388,21 @@ function Cadastro_Medico() {
         
         </div>
     
+          <div className="alinhamento_botao_cadastro_medico">
+
             <button className='botao_cadastrar_medico' onClick={cadastrar}>CADASTRAR</button>
      
+            <div className="error_massege_medico">
+
+              {mensagem_de_erro}
+
+            </div>
+          </div>
+
         <div className="possui_conta_medico">
           
           <p>Já possui uma conta? <Link to={`/login`} className='hyperlink_login_medico'>Log-In</Link></p>
         
-        </div>
-
-        <div className="error_massege_medico">
-
-        {mensagem_de_erro}
-
         </div>
         
     </div>

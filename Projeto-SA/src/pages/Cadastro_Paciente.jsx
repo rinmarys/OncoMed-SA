@@ -344,19 +344,24 @@ function Cadastro_Paciente() {
     
     </div>
 
-        <button className='botao_cadastrar_paciente' onClick={cadastrar}>CADASTRAR</button>
+        <div className='alinhamento_botao_cadastrar_paciente'>
+
+          <button className='botao_cadastrar_paciente' onClick={cadastrar}>CADASTRAR</button>
  
+          <div className="error_paciente">
+
+            {mensagem_de_erro}
+
+          </div>
+
+        </div>
+
     <div className="possui_conta">
       
       <p>Já possui uma conta? <Link to={`/login`} className='possui_conta_link'>Log-In</Link></p>
     
     </div>
 
-    <div className="error_paciente">
-
-    {mensagem_de_erro}
-
-    </div>
     
 </div>
 
