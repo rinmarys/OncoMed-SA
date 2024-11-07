@@ -33,6 +33,7 @@ function Cadastro_Paciente() {
     
     console.log(`Lista de Pacientes:`, lista_de_pacientes);
     console.log(`Lista de médicos`, lista_de_medicos);
+    console.log(valor_inpt_data_de_nascimento)
 
   }, [lista_de_pacientes]);
 
@@ -314,7 +315,7 @@ function Cadastro_Paciente() {
             
             <label>Data Nascimento</label>
             
-            <input type="date" maxLength={10} placeholder='Data de nascimento' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
+            <input type="date" placeholder='Data de nascimento' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
           
           </div>
 

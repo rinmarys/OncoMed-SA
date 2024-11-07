@@ -558,6 +558,21 @@ input:focus{
     color: var(--cor_quatro);
 }
 
+#checkbox_cadastro_paciente{
+
+    width: 15px;
+    height: 15px;
+
+    accent-color: var(--cor_um);
+
+    background-color: var(--cor_tres);
+}
+
+.possui_conta label{
+
+    margin-bottom: 201px;
+}
+
 /* Link de Termos de Uso */
 
 .termos_de_uso_paciente {

@@ -168,11 +168,43 @@
     background-color: var(--cor_dois);
 }
 
+.container-um-alinhamento-contatos{
+
+    width: 220px;
+    height: 40px;
+
+    margin-top: 40px;
+}
+
+.container-um-alinhamento-contatos h1{
+
+    margin-bottom: 5px;
+}
+
+.line-footer-contatos{
+
+    transition: 0.3s;
+
+    border-radius: 15px;
+
+    width: 60px;
+    height: 8px;
+
+    background-color: var(--cor_dois);
+}
+
+.container-um-alinhamento-contatos h1:hover + .line-footer-contatos{
+
+    transition: 0.3s;
+
+    width: 100px;
+}
+
 .alinhamento_titulo_whatsapp h1:hover + .line-footer-whatsapp{
 
     transition: 0.3s;
 
-    width: 180px;
+    width: 120px;
 }
 
 .alinhamento_titulo_whatsapp h1:not(:hover) + .line-footer-whatsapp{
@@ -186,11 +218,70 @@
 
 /* Container Dois (Menú) ALINHAMENTO*/
 .container-dois-alinhamento{
+
     width: fit-content;
     height: fit-content;
 
     margin-left: 11%;
     margin-top: 3%;
+}
+
+.line-footer-coluna-dois{
+
+    width: 60px;
+    height: 8px;
+
+    border-radius: 15px;
+
+    background-color: var(--cor_dois);
+}
+
+.alinhamento_titulo_coluna_dois h1{
+
+    margin-bottom: 5px;
+}
+
+.alinhamento_titulo_coluna_dois h1:hover + .line-footer-coluna-dois{
+
+    transition: 0.3s;
+
+    width: 120px;
+}
+
+.alinhamento_titulo_coluna_dois h1:not(:hover) + .line-footer-coluna-dois{
+
+    transition: 0.3s;
+
+    width: 60px;
+}
+
+.alinhamento_titulo_coluna_tres h1{
+
+    margin-bottom: 5px;
+}
+
+.alinhamento_titulo_coluna_tres h1:hover + .line-footer-coluna-tres{
+
+    transition: 0.3s;
+
+    width: 120px;
+}
+
+.alinhamento_titulo_coluna_tres h1:not(:hover) + .line-footer-coluna-tres{
+
+    transition: 0.3s;
+
+    width: 60px;
+}
+
+.line-footer-coluna-tres{
+
+    width: 60px;
+    height: 8px;
+
+    border-radius: 15px;
+
+    background-color: var(--cor_dois);
 }
 
 .container-dois-alinhamento p{

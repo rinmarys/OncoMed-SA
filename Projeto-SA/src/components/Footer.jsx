@@ -21,10 +21,10 @@ function Footer() {
           <div className="container-um-alinhamento">
             <div className="alinhamento-containers">
 
-              <div className="container-um-alinhamento">
+              <div className="container-um-alinhamento-contatos">
 
                 <h1 className='estilo-titulos'>Contatos</h1>
-                <div className="line-footer"></div>
+                <div className="line-footer-contatos"></div>
 
                 <p className='estilo-texto-branco'>
                   (31) 99876-5432
@@ -48,8 +48,12 @@ function Footer() {
 
               <div className="container-dois-alinhamento">
 
-                <h1 className='estilo-titulos'>Menu do site</h1>
-                <div className="line-footer"></div>
+                <div className="alinhamento_titulo_coluna_dois">
+
+                  <h1 className='estilo-titulos'>Menu do site</h1>
+                  <div className="line-footer-coluna-dois"></div>
+                
+                </div>
 
                 <ul>
                   <li><Link className='estilo-texto-link'>Sobre nós</Link></li>
@@ -66,8 +70,12 @@ function Footer() {
 
               <div className="container-tres-alinhamento">
 
-                <h1 className="estilo-titulos">Endereço</h1>
-                <div className="line-footer"></div>
+                <div className="alinhamento_titulo_coluna_tres">
+
+                  <h1 className="estilo-titulos">Endereço</h1>
+                  <div className="line-footer-coluna-tres"></div>
+                
+                </div>
 
                 <p className='estilo-texto-branco'><strong>OncoMed - Clínica Oncológica</strong>
                   <br /> Rua das Palmeiras, 789

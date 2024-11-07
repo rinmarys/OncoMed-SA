@@ -179,7 +179,7 @@ body{
     height: 40px;
     padding-left: 2%;
     
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Poppins', sans-serif;
 
     background: var(--cor_tres);
@@ -503,7 +503,7 @@ body{
     height: 40px;
     padding: 2%;
     
-    font-size: 16px;
+    font-size: 15px;
     font-family: 'Poppins', sans-serif;
 
     background: var(--cor_tres);
@@ -542,7 +542,7 @@ body{
 .input_confirmar_senha_medico button{
 
     margin-left: -40px;
-
+    margin-top: -5px;
     border: 0px;
     background-color: transparent;
 }
@@ -566,6 +566,14 @@ input:focus{
     margin-top: 5%;
 
     color: var(--cor_quatro);
+}
+
+.inpt_checkbox{
+
+    width: 15px;
+    height: 15px;
+
+    accent-color: var(--cor_um);
 }
 
 /* Link de Termos de Uso */

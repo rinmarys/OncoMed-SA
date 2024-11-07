@@ -30,10 +30,13 @@ function Cadastro_Medico() {
     const [estado_do_olinho_um, set_estado_do_olinho_um] = useState(false);
     const [valor_do_olinho_um, set_valor_do_olinho_um] = useState(`password`);
 
+    const [ano_atual, set_ano_atual] = useState(new Date().getFullYear());
+
     const navegacao_de_pagina = useNavigate(``);
 
   useEffect(() => {
 
+    console.log(ano_atual);
     console.log(`Lista de Pacientes:`, lista_de_pacientes);
     console.log(`Lista de médicos`, lista_de_medicos);
 
