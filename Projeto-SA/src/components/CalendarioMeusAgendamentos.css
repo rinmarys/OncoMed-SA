@@ -8,19 +8,18 @@
 }
 
 .calendario {
-   
-    padding-top: 5px;
-    padding-left: 35px;
-    padding-right: 35px;
-    background-color: var(--cor-1);
+
+    background-color: var(--cor-);
     font-family: 'Nunito', sans-serif;
-  
     font-size: medium;
     margin-left: 55px;
     border-radius: 2%;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     padding-bottom: 48px;
-margin-right: 100px;
+margin-right: 200px;
+height: 500px;
+width: 500px;
+z-index: -1;
 
 }
 

@@ -8,38 +8,83 @@
     --cor-7: #D9E3EB;
 }
 
+.lifehak{
+padding: 3%;
+background-color: var(--cor-1);
+position: fixed;
+top: 18%;
+left: 9%;
+width: 450px;
+height: 500px;
+border: 1.8px solid var(--cor-2);
+border-radius: 15px;
+
+}
 .tudo-popup-meusagendamentos{
-    background-color: #eeeeee;
+    background-color: transparent;
     /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
-    padding: 2%;
-    width: 500px;
-    height: 570px;
-    border-radius: 15px;
-    border: 1.8px solid var(--cor-2);
+
+    width: 520px;
+    height: 575px;
+
+  
     margin-left: 11%;
     margin-bottom: 55px;
+    
+    position: fixed;
+    top: 57%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+   
+
+    
+    overflow-x: hidden;  
+overflow-y: scroll; 
 }
 
+.tudo-popup-meusagendamentos::-webkit-scrollbar {
+   width: 10px;  /* Largura da barra de rolagem */
+ 
+}
+
+.tudo-popup-meusagendamentos::-webkit-scrollbar-thumb {
+   background-color: #AEC09D;
+   border-radius: 5px;
+
+}
+
+.tudo-popup-meusagendamentos::-webkit-scrollbar-track {
+   background: transparent;
+
+}
+
+
+
+
+
 .cada-agendamento-meusagendamentos{
-    background-color: #eeeeee;
-    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
+    background-color: #ececec;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     padding: 2%;
     width: 400px;
     height: fit-content;
     border-radius: 15px;
-    border: 2px solid var(--cor-6);
     margin-left: 7%;
-    margin-bottom: 55px;
+    margin-bottom: 30px;
+
 }
 
 .titulo-meusagendamentos{
     color: #1D2A62;
     font-family: 'Nunito', sans-serif;
     margin-left: 9%;
+    width: fit-content;
+    margin-bottom: 60px;
 
 }
  .todas-infos-meusagendamentos{
     margin-left: 2%;
+    
 
  }
 
@@ -164,3 +209,4 @@
 
     background-color: var(--cor_um);
 }
+
