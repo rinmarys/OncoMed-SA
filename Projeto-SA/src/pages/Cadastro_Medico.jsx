@@ -272,6 +272,12 @@ function Cadastro_Medico() {
         case cpf_valido == false && email_valido == false && crm_valido == false:
 
           set_mensagem_de_erro(`CPF, Email e CRM já cadastrados!`);
+          break;
+
+        case input_vazio == true:
+
+          set_mensagem_de_erro(`Favor preencher todos os campos!`);
+          break;
         };
 
     };

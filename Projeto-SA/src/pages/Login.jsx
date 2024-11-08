@@ -16,6 +16,7 @@ function Login() {
   const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
   const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
   const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
+  const {usuario_administrador, set_usuario_administrador} = useContext(GlobalContext);
 
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
@@ -45,6 +46,7 @@ function fazer_login(){
 
   let pegar_array_medicos = [...lista_de_medicos];
   let pegar_array_pacientes = [...lista_de_pacientes];
+  let pegar_array_administrador = [...usuario_administrador]
   let usuario_existente = false;
 
   
@@ -105,8 +107,33 @@ function fazer_login(){
                 
       };
     };
-  
   };
+
+  if(pegar_array_administrador != null){
+
+    for(let i = 0; i != pegar_array_administrador.length; i++){
+
+      if(pegar_array_administrador[i].email == valor_inpt_email && pegar_array_administrador[i].senha == valor_inpt_senha){
+        
+        let usuario_a_logar = {
+      
+          nome: valor_inpt_nome,
+          email: valor_inpt_email,
+          senha: valor_inpt_senha
+        };
+
+        set_usuario_logado(usuario_a_logar);
+        navegacao_de_pagina(`/`);
+
+      } else {
+
+        set_mensagem_de_erro(`Usuário ou senha incorreto!`);
+        usuario_existente = true;
+      };
+    };
+
+  };
+
 
 };
 

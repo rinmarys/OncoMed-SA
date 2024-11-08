@@ -79,7 +79,6 @@ body{
     margin-top: 5%;
 }
 
-
 /* Logo SA   */
 
 .container_informacoes_logo_paciente{
@@ -120,7 +119,7 @@ body{
     width: 4.2%;
     height: 0.8%;
     left: 47.2%;
-    top: 15%;
+    top: 16%;
     margin-top: 1%;
     
     background-color: var(--cor_dois);
@@ -137,7 +136,7 @@ body{
     font-size: 30px;
 
     margin-top: 6%;
-    margin-right: 15%;
+    margin-right: 10%;
     
     color: var(--cor_cinco);
 }
