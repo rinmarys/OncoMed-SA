@@ -5,30 +5,38 @@ import Footer from '../components/Footer'
 import { GlobalContext } from '../contexts/GlobalContext';
 
 function Perfil_paciente() {
- const [valor_inpt_nome, set_valor_inpt_nome]=useState('')
- const [valor_inpt_email, set_valor_inpt_email]=useState('')
- const[valor_inpt_telefone, set_valor_inpt_telefone]=useState('')
- const[valor_inpt_genero, set_valor_inpt_genero]=useState('')
- const [valor_inpt_senha, set_valor_inpt_senha]=useState('')
- const[valor_inpt_senha_nova, set_valor_inpt_senha_nova]=useState('')
+const[usuario, setUsuario]=useState({
+  nome:'',
+  email:'',
+  telefone:'',
+  senha:''
+})
 
- const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
- const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
+
 
   function editar(){
-   let pegar_array_pacientes = [...lista_de_pacientes];
+    const [isEditado, setIsEditado]= useState(false)
+    const  [novoNome, setNovoNome]=useState(usuario.nome)
+    const  [novoEmail, setNovoEmail]=useState(usuario.email)
+    const  [novoTelefone, setTelfone]=useState(usuario.telefone)
+    const  [novaSenha, setNovaSenha]=useState(usuario.senha)
 
-    // if(pegar_array_pacientes == null){
+    const editrPerfil= () => {
+      setUsuario({
+        nome:novoNome,
+        email:novoEmail,
+        telefone: novoTelefone,
+        senha:novaSenha
+      })
+      setIsEditado(false)
+    }
 
-    // for(let i = 0; i < pegar_array_pacientes.length; i++){
-    
   }
 
+  
+
   function deletar(){
-    let userLogado = JSON.parse(localStorage.getItem("User Logado"));
-    let babasCadastradas = JSON.parse(
-      localStorage.getItem("Cuidadores Cadastrados")
-    );
+
   }
 
   return (
@@ -44,13 +52,13 @@ function Perfil_paciente() {
       </div>
       <div className='posicao_container'>
        <label for="">Nome completo</label>
-       <input placeholder="Digite seu nome" value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
+       <input placeholder="Digite seu nome" value={nome}onChange={(e) => setNome(e.target.value)}required/>
        <label for="">Email</label>
-       <input type="email" placeholder="Digite seu email" value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
+       <input type="email" placeholder="Digite seu email"value={email}onChange={(e) => setEmail(e.target.value)}required/>
        <label for="">Telefone (com DDD)</label>
-       <input placeholder="Digite seu número de telefone"/>
+       <input placeholder="Digite seu número de telefone" value={telefone}onChange={(e) => setTelefone(e.target.value)}required/>
        <label for="">Senha</label>
-       <input type="password" placeholder="Digite a sua senha"/>
+       <input type="password" placeholder="Digite a sua senha"value={senha}onChange={(e) => setSenha(e.target.value)}required/>
        <label for="">Nova senha </label>
        <input type="password" placeholder="Confirme sua nova senha"/>
        <label for="">Gênero</label>

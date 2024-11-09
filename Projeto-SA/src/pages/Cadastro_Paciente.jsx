@@ -227,6 +227,11 @@ function Cadastro_Paciente() {
 
           set_mensagem_de_erro(`CPF e Email já cadastrados!`);
           break;
+
+        case input_vazio == true:
+
+          set_mensagem_de_erro(`Favor preencher todos os campos!`);
+          break;
       };
 
     };

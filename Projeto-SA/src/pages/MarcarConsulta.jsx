@@ -21,7 +21,7 @@ function MarcarConsulta() {
           <div className='Tres-partes'>
             <div className='Container-Consulta-Horario'>
               <div className='Selecionar-Consulta'>
-                <h2>TIPO CONSULTA</h2>
+                <h2>CONSULTAS E EXAMES À REALIZAR</h2>
                 <select className='Select-Consulta' id="tipo-consulta">
                   <option value="" disabled selected>Selecione um tipo de consulta</option>
                   <option value="consulta1">Mamografia</option>

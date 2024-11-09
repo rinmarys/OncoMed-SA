@@ -21,11 +21,12 @@
 .Container-Consulta-Horario h2{
     font-family: 'Nunito', sans-serif;
     color: var(--cor-2);
+    font-size: 22px;
 }
 
 .Selecionar-Consulta{
     /* border:1px solid black; */
-    width: 200px;
+    width: 500px;
 }
 
 .Selecionar-Horario{
@@ -46,6 +47,7 @@
 .Selecionar-Ob h2{
     font-family: 'Nunito', sans-serif;
     color: var(--cor-2);
+    font-size: 22px;
 }
 .Input-Ob{
     height: 200px;

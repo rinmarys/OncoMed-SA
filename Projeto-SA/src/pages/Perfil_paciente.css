@@ -7,6 +7,7 @@
 --cor_azul_meio_termo:  #3b4fa7;
 --cor_branco_gelo: #F5F5F5;
 --cor_verde_escuro:  #629136;
+--cor_verde_escurao:#2e500e;
 }
       
 .nav_container h1{
@@ -33,7 +34,7 @@
 
 .name_user p{
     font-family: "poppins", sans-serif;
-    color: var(--cor_azul_meio_termo);
+    color: var(--cor_verde_escurao);
     font-weight: bold;
     font-size: 25px;
 
@@ -94,15 +95,16 @@
 
 .container_edit button{
  font-family: 'Nunito', sans-serif;
- font-weight: 800;
+ font-weight: bold;
+ font-size: 16px;
  border: 1px solid var(--cor_azul_meio_termo);
  border-radius: 15px;  
  background-color: var(--cor_azul_meio_termo);
  color:  var(--cor_quase_branco);
 
  position: absolute;
- width: 170px;
- height: 45px;
+ width: 160px;
+ height: 43px;
  left: 60%;
  top: 88%;
 }
@@ -115,15 +117,16 @@
    
 .container_delete button{
  font-family: 'Nunito', sans-serif;
- font-weight: 800;
+ font-weight: bold;
+ font-size: 16px;
  border: 1px solid var(--cor_verde_claro) ;
  border-radius: 15px;  
  background-color: var(--cor_verde_claro);
  color: var(--cor_quase_branco) ;
 
  position: absolute;
- width: 170px;
- height: 45px;
+ width: 160px;
+ height: 43px;
  left: 73%;
  top: 88%;
 }
