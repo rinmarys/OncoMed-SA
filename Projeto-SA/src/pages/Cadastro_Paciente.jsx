@@ -146,7 +146,7 @@ function Cadastro_Paciente() {
       
     };
 
-    if(valor_inpt_nome != `` && valor_inpt_email != `` && valor_inpt_cpf != `` && valor_inpt_data_de_nascimento != `` && valor_inpt_senha != `` && valor_inpt_crm != ``){
+    if(valor_inpt_nome != `` && valor_inpt_email != `` && valor_inpt_cpf != `` && valor_inpt_data_de_nascimento != `` && valor_inpt_senha != `` && valor_inpt_cep != ``){
 
       input_vazio = false;
 

@@ -12,6 +12,7 @@ import HistoricoConsultas from "../pages/HistoricoConsultas";
 import Perfil_paciente from "../pages/Perfil_paciente";
 import MarcarConsulta from '../pages/MarcarConsulta'
 import MeusAgendamentos from "../pages/MeusAgendamentos";
+import SobreNos from "../pages/SobreNos";
 
 const router = createBrowserRouter([
     // Header
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     {path: "/marcarConsulta", element: <MarcarConsulta />},
     {path: "/perfil_paciente", element: <Perfil_paciente />},
     {path: "/meusAgendamentos", element: <MeusAgendamentos />},
+    {path: "/sobreNos", element: <SobreNos />},
     // Header
 
     //Cadastro

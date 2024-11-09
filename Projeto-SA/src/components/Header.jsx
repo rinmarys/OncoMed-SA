@@ -13,7 +13,7 @@ function Header() {
             <Link to={'/'} className='nav_bar_link'><img src="Logo_SA.png" alt="Logo SA"/></Link>
             <Link to={'/marcarConsulta'} className='nav_bar_link'>MARCAR CONSULTA</Link>
             <Link to={'/meusAgendamentos'} className='nav_bar_link'>AGENDAMENTOS</Link>
-            <Link to={'/sobrenos'} className='nav_bar_link'>SOBRE NÓS</Link>
+            <Link to={'/sobreNos'} className='nav_bar_link'>SOBRE NÓS</Link>
             <Link to={'/blog'} className='nav_bar_link'>BLOG</Link>
             <Link to={'/perfil_paciente'} className='nav_bar_link'>PERFIL</Link>
         </nav>

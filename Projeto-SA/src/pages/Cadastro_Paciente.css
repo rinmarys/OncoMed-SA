@@ -76,9 +76,8 @@ body{
     display: flex;
     justify-content: space-around;
 
-    margin-top: 5%;
+    margin-top: 2%;
 }
-
 
 /* Logo SA   */
 
@@ -119,8 +118,8 @@ body{
     position: absolute;
     width: 4.2%;
     height: 0.8%;
-    left: 47.2%;
-    top: 15%;
+    left: 46%;
+    top: 14%;
     margin-top: 1%;
     
     background-color: var(--cor_dois);
@@ -133,7 +132,7 @@ body{
     
     font-family: 'Nunito', sans-serif;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 30px;
 
     margin-top: 6%;
@@ -145,13 +144,12 @@ body{
 .posicao_inputs_paciente{
 
     display: flex;
-    margin-left: 12%;
-    margin-top: 4%;
+    margin-left: 10%;
+    margin-top: 1%;
 }
 
 .coluna_de_inputs_dois_paciente{
-
-    margin-left: 6%;
+    margin-left: 9%;
 }
 
 /* Nome Input */
@@ -552,7 +550,7 @@ input:focus{
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     
-    margin-left: 11.7%;
+    margin-left: 10%;
     margin-top: 5%;
 
     color: var(--cor_quatro);
@@ -619,7 +617,11 @@ input:focus{
 
     height: 40px;
     width: 200px;
+
+    margin-left: 10%;
+
     margin-left: 12%;
+
     margin-top: 5%;
 
     border: 1px solid var(--cor_cinco);
@@ -659,6 +661,10 @@ input:focus{
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
 
+
+    margin-left: 10%;
+    margin-top: 5%;
+
     margin-left: 12%;
     margin-top: 2%;
 
@@ -669,8 +675,14 @@ input:focus{
 
     text-decoration: none;
     font-weight: bold;
+    font-size: 15px;
 
     color: var(--cor_cinco);
+}
+
+.possui_conta p{
+
+    font-size: 15px;
 }
 
 .possui_conta a:hover{

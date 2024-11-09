@@ -79,7 +79,6 @@ function Perfil_paciente() {
       <img src="./public/icon_user.png"></img>
       </div>
   
-      <Footer/>
     </div>
 
   )

@@ -96,8 +96,6 @@ function Cadastro_Medico() {
     let cpf_valido = false; 
     let crm_valido = false;
 
-    let input_vazio = false;
-
     let pegar_array_medicos = [...lista_de_medicos];
     let pegar_array_pacientes = [...lista_de_pacientes];
     let verificar_email_ja_existente_paciente;
@@ -160,16 +158,7 @@ function Cadastro_Medico() {
           cpf_ja_cadastrado_paciente = true;
         };
       };
-
-    };
-
-    if(valor_inpt_nome != `` && valor_inpt_email != `` && valor_inpt_cpf != `` && valor_inpt_data_de_nascimento != `` && valor_inpt_senha != `` && valor_inpt_crm != ``){
-
-      input_vazio = false;
-
-    } else {
-
-      input_vazio = true;
+      
     };
 
     if(cpf_ja_cadastrado_paciente == false && cpf_ja_cadastrado_medico == false){
@@ -219,7 +208,7 @@ function Cadastro_Medico() {
       checkbox_selecionado = false;
     }
     
-    if(cpf_valido == true && crm_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true && input_vazio == false){
+    if(cpf_valido == true && crm_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true){
       
       set_lista_de_medicos([...lista_de_medicos, usuario_a_cadastrar]);
       
