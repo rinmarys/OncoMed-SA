@@ -150,7 +150,6 @@ function Home() {
 
           </div>
 
-
         </div>    
 
 

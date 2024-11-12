@@ -7,11 +7,14 @@
     --cor-6: #1D2A62;
 }
 
+.titulo-agendamento{
+    font-size: 4.3vh;
+}
+
 .calendario {
 
     color: var(--cor-6);
     font-family: 'Nunito', sans-serif;
-    font-size: medium;
     margin-left: 55px;
     border-radius: 2%;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
@@ -43,7 +46,7 @@
     --fc-event-text-color: #fff;
     --fc-bg-event-opacity: 0.3;
     --fc-button-bg-color: #2c3e50;
-    
+    --font-weight: 200px;
 }
 
 a {

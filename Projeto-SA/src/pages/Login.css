@@ -16,7 +16,6 @@
 }
 
 body{
-
     margin: 0px;
 }
 
@@ -40,21 +39,19 @@ body{
 .titulo_login{
 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
+    width: 70%;
     margin-top: 30px;
+    margin-left: 12%;
 }
 
 .titulo_login h2{
 
     font-family: var(--tipografia_primaria);
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 30px;
-
-    margin-right: 330px;
-    margin-bottom: 2px;
-    
     color: var(--cor_cinco);
 }
 
@@ -62,8 +59,20 @@ body{
 
 .titulo_login img{
 
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
+}
+
+.titulo_login img:hover{
+    transition: 0.3s;
+    width: 100px;
+    height: 100px;
+}
+
+.titulo_login img:not(:hover){
+    transition: 0.3s;
+    width: 80px;
+    height: 80px;
 }
 
 /* Faixa verde LOGIN*/
@@ -72,8 +81,7 @@ body{
 
     width: 50px;
     height: 8px;
-
-    margin-left: 113px;
+    margin-top: -20%;
 
     background: #AFD06E;
     border-radius: 50px;
@@ -283,7 +291,7 @@ input:focus{
 
     height: 40px;
     width: 200px;
-    margin-left: 210px;
+    margin-left: 197px;
     margin-top: 3%;
 
     border: 1px solid var(--cor_cinco);
@@ -315,10 +323,11 @@ input:focus{
 
 /* Não possui conta texto */
 
-.nao_possui_conta{
+.nao_possui_conta p{
 
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    font-style: normal;
     
     margin-top: 5%;
     margin-left: 12.5%;
@@ -331,7 +340,7 @@ input:focus{
     border: 0px;
 
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
     font-weight: bold;
 

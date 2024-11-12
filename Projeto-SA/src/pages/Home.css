@@ -376,6 +376,11 @@ body{
     background-color: var(--cor_tres);
 }
 
+.animar_entrada_dos_comentarios{
+
+    font-size: 14.5px;
+}
+
 .o_que_dizem_nossos_pacientes_conteudo_do_carrossel{
 
     width: 510px;
@@ -839,6 +844,11 @@ body{
     background-color: var(--cor_seis);
 }
 
+.faq_a p{
+
+    font-size: 15px;
+}
+
 /* Alinhamento de Titulo Faq A */
 
 .faq_a_alinhamento_de_titulo {
@@ -892,6 +902,11 @@ body{
     background-color: var(--cor_seis);
 }
 
+.faq_b p{
+
+    font-size: 15px;
+}
+
 /* Alinhamento de Titulo Faq B */
 
 .faq_b_alinhamento_de_titulo {
@@ -943,6 +958,11 @@ body{
     overflow: hidden;
 
     background-color: var(--cor_seis);
+}
+
+.faq_c p{
+
+    font-size: 15px;
 }
 
 /* Alinhamento de Titulo Faq C */
@@ -999,6 +1019,11 @@ body{
     overflow: hidden;
 
     background-color: var(--cor_seis);
+}
+
+.faq_d p{
+
+    font-size: 15px;
 }
 
 /* Alinhamento de Titulo Faq D */

@@ -5,26 +5,38 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 import './CalendarioMeusAgendamentos.css'
+import Popup_MeusAgendamentos from './Popup_MeusAgendamentos';
 
 function CalendarioMeusAgendamentos() {
-  const [events, setEvents] = useState([{ title: 'Reunião', date: '2024-10-02' }]);
-  
+  const [selectedDate, setSelectedDate] = useState(false)
+  const [eventDetails, setEventDetails] = useState(null)
+
   const handleDateClick = (arg) => {
-    const title = prompt('Novo evento:');
-    if (title) {
-      setEvents([...events, { title, date: arg.dateStr }]);
+    setSelectedDate(arg.dateStr)
+
+    if (arg.dateStr === '2024-11-14') {
+      setEventDetails('tienes una reunion')
+    } else {
+      setEventDetails('nada')
     }
-  };
+  }
 
   return (
     <div>
       <h1 className='titulo-agendamento'>Calendário de Agendamentos</h1>
-      <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
-        events={events}
-        dateClick={handleDateClick}
-      />
+
+      <div className="calendario-consulta">
+        <FullCalendar
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          dateClick={handleDateClick}
+        />
+      </div>
+
+      <div className="evento-info">
+        {selectedDate && <Popup_MeusAgendamentos />}
+      </div>
+
     </div>
   );
 }

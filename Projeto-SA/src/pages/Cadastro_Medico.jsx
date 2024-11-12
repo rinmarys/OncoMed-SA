@@ -96,7 +96,7 @@ function Cadastro_Medico() {
     let cpf_valido = false; 
     let crm_valido = false;
 
-    let input_vazio = false;
+    let todos_os_campos_preenchidos = false;
 
     let pegar_array_medicos = [...lista_de_medicos];
     let pegar_array_pacientes = [...lista_de_pacientes];
@@ -160,16 +160,7 @@ function Cadastro_Medico() {
           cpf_ja_cadastrado_paciente = true;
         };
       };
-
-    };
-
-    if(valor_inpt_nome != `` && valor_inpt_email != `` && valor_inpt_cpf != `` && valor_inpt_data_de_nascimento != `` && valor_inpt_senha != `` && valor_inpt_crm != ``){
-
-      input_vazio = false;
-
-    } else {
-
-      input_vazio = true;
+      
     };
 
     if(cpf_ja_cadastrado_paciente == false && cpf_ja_cadastrado_medico == false){
@@ -200,6 +191,15 @@ function Cadastro_Medico() {
       crm_valido = false;
     };
 
+    if(valor_inpt_nome != `` && valor_inpt_cpf != `` && valor_inpt_confirmar_senha != `` && valor_inpt_email != `` && valor_inpt_genero != `` && valor_inpt_crm != `` && valor_inpt_data_de_nascimento != ``){
+
+      todos_os_campos_preenchidos = true;
+    
+    } else {
+
+      todos_os_campos_preenchidos = false;
+    };
+
     if(valor_inpt_senha == valor_inpt_confirmar_senha){
 
       senhas_sao_iguais = true;
@@ -219,7 +219,7 @@ function Cadastro_Medico() {
       checkbox_selecionado = false;
     }
     
-    if(cpf_valido == true && crm_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true && input_vazio == false){
+    if(cpf_valido == true && crm_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true && todos_os_campos_preenchidos == true){
       
       set_lista_de_medicos([...lista_de_medicos, usuario_a_cadastrar]);
       
@@ -272,6 +272,12 @@ function Cadastro_Medico() {
         case cpf_valido == false && email_valido == false && crm_valido == false:
 
           set_mensagem_de_erro(`CPF, Email e CRM já cadastrados!`);
+          break;
+
+        case todos_os_campos_preenchidos == false:
+
+          set_mensagem_de_erro(`Favor preencher todos os campos!`);
+          break;
         };
 
     };
@@ -393,7 +399,7 @@ function Cadastro_Medico() {
     
         <div className='caminho_para_termos_e_politica_medico'>
           
-          <input type="checkbox" className='inpt_checkbox' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)}/>
+          <input type="checkbox" id='inpt_checkbox_medico' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)}/>
           
           <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='hyperlink_termos_de_uso'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='hyperlink_politica_de_privacidade'>Política de Privacidade</Link></label>
         
@@ -403,11 +409,12 @@ function Cadastro_Medico() {
 
             <button className='botao_cadastrar_medico' onClick={cadastrar}>CADASTRAR</button>
      
-            <div className="error_massege_medico">
+             <div className="error_massege_medico">
 
               {mensagem_de_erro}
 
             </div>
+          
           </div>
 
         <div className="possui_conta_medico">

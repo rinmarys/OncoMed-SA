@@ -39,6 +39,8 @@ const HamburgerMenu = () => {
                         <li><Link to='/marcarConsulta' className='Link-decoration'>Marcar consulta</Link></li>
                         <li><Link to='/meusAgendamentos' className='Link-decoration'>Agendamentos</Link></li>
                         <li><Link to='/blogInicioAdmin' className='Link-decoration'>Blog</Link></li>
+                        <li><Link to='/sobreNos' className='Link-decoration'>Sobre nós</Link></li>
+                        <li><Link to='/perfil_paciente' className='Link-decoration'>Meu perfil</Link></li>
                     </ul>
                 </nav>
             )}

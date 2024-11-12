@@ -12,9 +12,9 @@ function MeusAgendamentos() {
       <HamburguerMenu />
 
 <div className="alinhar-meusagendamentos">
-      <img className='imagem-meusagendamentos' src="img_ofc_meusagendamentos.svg" alt="" />
+      <img className='imagem-meusagendamentos' src="Add New.svg" alt="" />
 
-    <Popup_MeusAgendamentos/>
+    {/* <Popup_MeusAgendamentos/> */}
 
     <div className="calendario">
        <CalendarioMeusAgendamentos/>

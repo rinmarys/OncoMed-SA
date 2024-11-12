@@ -83,6 +83,7 @@
 
     font-family: var(--tipografia_primaria);
     font-weight: 400;
+    font-size: 18px;
 
     color: var(--cor_um);
 }
