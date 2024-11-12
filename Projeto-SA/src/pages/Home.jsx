@@ -22,10 +22,10 @@ function Home() {
   const [faq_c_aberto, set_faq_c_aberto] = useState(false);
   const [faq_d_aberto, set_faq_d_aberto] = useState(false);
 
-  const [altura_faq_a, set_altura_faq_a] = useState(`60px`);
-  const [altura_faq_b, set_altura_faq_b] = useState(`60px`);
-  const [altura_faq_c, set_altura_faq_c] = useState(`60px`);
-  const [altura_faq_d, set_altura_faq_d] = useState(`60px`);
+  const [altura_faq_a, set_altura_faq_a] = useState(`7vh`);
+  const [altura_faq_b, set_altura_faq_b] = useState(`7vh`);
+  const [altura_faq_c, set_altura_faq_c] = useState(`7vh`);
+  const [altura_faq_d, set_altura_faq_d] = useState(`7vh`);
 
   let faq_a_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_b_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
@@ -36,62 +36,62 @@ function Home() {
 
     
     set_faq_a_aberto(!faq_a_aberto);
-    set_altura_faq_a(faq_a_aberto ? `60px` : `220px`);
+    set_altura_faq_a(faq_a_aberto ? `7vh` : `220px`);
 
     set_faq_b_aberto(false);
-    set_altura_faq_b(`60px`);
+    set_altura_faq_b(`7vh`);
 
     set_faq_c_aberto(false);
-    set_altura_faq_c(`60px`);
+    set_altura_faq_c(`7vh`);
 
     set_faq_d_aberto(false);
-    set_altura_faq_d(`60px`);
+    set_altura_faq_d(`7vh`);
 
   };
 
   function evento_faq_b(){
 
     set_faq_b_aberto(!faq_b_aberto);
-    set_altura_faq_b(faq_b_aberto ? `60px` : `220px`);
+    set_altura_faq_b(faq_b_aberto ? `7vh` : `220px`);
 
     set_faq_a_aberto(false);
-    set_altura_faq_a(`60px`);
+    set_altura_faq_a(`7vh`);
 
     set_faq_c_aberto(false);
-    set_altura_faq_c(`60px`);
+    set_altura_faq_c(`7vh`);
 
     set_faq_d_aberto(false);
-    set_altura_faq_d(`60px`);
+    set_altura_faq_d(`7vh`);
   };
 
   function evento_faq_c(){
 
     set_faq_c_aberto(!faq_c_aberto);
-    set_altura_faq_c(faq_c_aberto ? `60px` : `220px`);
+    set_altura_faq_c(faq_c_aberto ? `7vh` : `220px`);
 
     set_faq_b_aberto(false);
-    set_altura_faq_b(`60px`);
+    set_altura_faq_b(`7vh`);
 
     set_faq_a_aberto(false);
-    set_altura_faq_a(`60px`);
+    set_altura_faq_a(`7vh`);
 
     set_faq_d_aberto(false);
-    set_altura_faq_d(`60px`);
+    set_altura_faq_d(`7vh`);
   };
 
   function evento_faq_d(){
 
     set_faq_d_aberto(!faq_d_aberto);
-    set_altura_faq_d(faq_d_aberto ? `60px`: `220px`);
+    set_altura_faq_d(faq_d_aberto ? `7vh`: `220px`);
 
     set_faq_b_aberto(false);
-    set_altura_faq_b(`60px`);
+    set_altura_faq_b(`7vh`);
 
     set_faq_c_aberto(false);
-    set_altura_faq_c(`60px`);
+    set_altura_faq_c(`7vh`);
 
     set_faq_a_aberto(false);
-    set_altura_faq_a(`60px`);
+    set_altura_faq_a(`7vh`);
   };
 
   if(faq_a_aberto == true){
