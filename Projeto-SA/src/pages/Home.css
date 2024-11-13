@@ -802,7 +802,7 @@ body{
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 1vw;
+    font-size: 1.4vw;
 
     color: var(--cor_cinco);
 }
@@ -848,8 +848,9 @@ body{
 .faq_a_botao{
 
     display: flex;
+    align-items: center;
 
-    height: fit-content;
+    height: 5vh;
 
     cursor: pointer;
 
@@ -863,16 +864,14 @@ body{
     display: flex;
     align-items: center;
 
-    height: 8vh;
-}
+
+    height: 8vh;}
 
 /* Faq A */
 
 .faq_a{
 
-
     width: 32.43vw;
-
 
     padding-top: 0px;
     padding-bottom: 0px;
@@ -925,6 +924,9 @@ body{
 
 .faq_b_botao{
 
+    display: flex;
+    align-items: center;
+
     height: fit-content;
 
     cursor: pointer;
@@ -937,7 +939,6 @@ body{
 /* Faq B */
 
 .faq_b{
-
 
     width: 32.43vw;
 
@@ -986,7 +987,10 @@ body{
 
 .faq_c_botao{
 
-    height: fit-content;
+    display: flex;
+    align-items: center;
+
+    height: 5vh;
 
     cursor: pointer;
 
@@ -999,7 +1003,6 @@ body{
 /* Faq C */
 
 .faq_c{
-
 
     width: 32.43vw;
 
@@ -1017,6 +1020,7 @@ body{
 }
 
 .faq_c p{
+
 
     font-size: 0.9vw;
 }
@@ -1039,6 +1043,7 @@ body{
 
 .faq_c_alinhamento_de_titulo h4{
 
+
     font-size: 1vw;
 
     color: var(--cor_sete);
@@ -1048,7 +1053,10 @@ body{
 
 .faq_d_botao{
 
-    height: fit-content;
+    display: flex;
+    align-items: center;
+
+    height: 5vh;
 
     cursor: pointer;
 
@@ -1060,7 +1068,6 @@ body{
 /* Faq D */
 
 .faq_d{
-
 
     width: 32.43vw;
 
@@ -1082,6 +1089,7 @@ body{
 
 .faq_d p{
 
+
     font-size: 0.9vw;
 }
 
@@ -1102,6 +1110,7 @@ body{
 /* Pergunta FAQ D*/
 
 .faq_d_alinhamento_de_titulo h4{
+
 
     font-size: 1vw;
 

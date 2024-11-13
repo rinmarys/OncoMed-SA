@@ -36,6 +36,7 @@ function Home() {
 
     
     set_faq_a_aberto(!faq_a_aberto);
+
     set_altura_faq_a(faq_a_aberto ? `8vh` : `24vh`);
 
     set_faq_b_aberto(false);
@@ -46,7 +47,6 @@ function Home() {
 
     set_faq_d_aberto(false);
     set_altura_faq_d(`8vh`);
-
   };
 
   function evento_faq_b(){
