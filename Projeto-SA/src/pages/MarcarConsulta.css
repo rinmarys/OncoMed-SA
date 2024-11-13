@@ -11,33 +11,43 @@
 .Select-Horario{
     height: 30px;
 }
-.calendario{
-    /* border:1px solid black; */
-    margin-top: 5%;
-    margin-left: 3%;
-}
+
 .Container-Consulta-Horario{
     display: flex;
-    /* border:1px solid rgb(185, 39, 39); */
+    width: 740px;
     justify-content: space-between;
-    width: 900px;
-    margin-left: 50%;
-    margin-top: -38%; 
-    
 }
+
+.Container-Consulta-Horario h2{
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-2);
+    font-size: 22px;
+}
+
 .Selecionar-Consulta{
     /* border:1px solid black; */
-    width: 300px;   
+    width: 500px;
 }
 
 .Selecionar-Horario{
     /* border:1px solid black; */
-    width: 400px;    
-    
+    width: 300px;
 }
 .Selecionar-Ob{
-    margin-top: 100px;
-    margin-left: 50%;
+    margin-top: 7%;
+    width: fit-content;
+}
+
+.Selecionar-Ob textarea{
+    border: 1.5px solid var(--cor-6);
+    width: 740px;
+    font-size: 20px;
+}
+
+.Selecionar-Ob h2{
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-2);
+    font-size: 22px;
 }
 .Input-Ob{
     height: 200px;
@@ -45,52 +55,89 @@
     font-size: 24px;
     font-family: "Poppins", sans-serif;
     border-radius: 5px;
-    border-color: #1D2A62;
+    border: 1.5px solid var(--cor-6);
     background-color: #f5f5f5;
 }
+
+.Input-Ob:focus{
+    border: 2px solid var(--cor-5);
+}
+
 .Select-Consulta{
     width: 400px;
-    height: 50px;
-    font-size: 24px;
+    height: 40px;
+    font-size: 20px;
     font-family: "Poppins", sans-serif;
     color: #757575;
     background-color: #f5f5f5;
     border-radius: 5px;
-    border-color: #1D2A62;
+    border: 1.5px solid var(--cor-6);
 }
+
+.Select-Consulta:focus{
+    border: 2px solid var(--cor-5);
+}
+
 .Select-Horario{
     width: 300px;
-    height: 50px;
-    font-size: 24px;
+    height: 40px;
+    font-size: 20px;
     font-family: "Poppins", sans-serif;
     color: #757575;
     background-color: #f5f5f5;
     border-radius: 5px;
-    border-color: #1D2A62;
+    border: 1.5px solid var(--cor-6);
 }
+
+.Select-Horario:focus{
+    border:2px solid var(--cor-5) ;
+}
+
 .Button{
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     height: 50px;
     width: 280px;
-    border: 1px solid var(--cor_cinco);
+    border: none;
     border-radius: 15px;
-    background-color:  #1D2A62;
+    background-color: var(--cor-2);
     color: #f5f5f5;
 }
+
 .Botões{
     display: flex;
-     /* border:1px solid rgb(185, 39, 39);  */
     justify-content: space-between;
     width: 600px;
-    margin-left: 55%;
-    margin-top: 100px;
+    margin-left: 70px;
+    margin-top: 6%;
 }
 
-
 .Button:hover{
-   
-    transition: 0.2s;
-    background-color: #f5f5f5;
-    color: #1D2A62;
+    transition: 0.3s;
+
+    color: var(--cor_tres);
+    background-color: var(--cor_sete);
+}
+
+.Button :not(:hover){
+    transition: 0.3s;
+
+    border: 1px solid var(--cor_um);
+
+    color: var(--cor_tres);
+    background-color: var(--cor_um);
+}
+
+/* Alinhamentos */
+.alinhamento-displayFlex{
+    display: flex;
+}
+
+.alinhamento-hamburger{
+    margin-top: 40px;
+    margin-right: 40px;
+}
+
+.Tres-partes{
+    margin-left: -100px;
 }

@@ -40,7 +40,7 @@
 .menu {
     position: absolute;
 
-    top: 21%;
+    top: 19%;
     left: 82%;
 
     background-color: var(--cor-4);
@@ -48,6 +48,7 @@
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     width: 210px;
     border-radius: 10px;
+    z-index: 2;
 }
 
 .menu ul {

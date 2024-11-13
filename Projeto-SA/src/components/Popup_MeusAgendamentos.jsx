@@ -17,7 +17,7 @@ function Popup_MeusAgendamentos() {
   return (
     <div className="lifehak">
     <div className='tudo-popup-meusagendamentos'>
-      <h1 className='titulo-meusagendamentos' >AGENDAMENTOS DO DIA</h1>
+      <h1 className='titulo-meusagendamentos-h1' >AGENDAMENTOS DO DIA</h1>
 
       <div className="cada-agendamento-meusagendamentos">
         <div className="todas-infos-meusagendamentos">

@@ -10,10 +10,9 @@
 
 .footer-container{
     background-color: var(--cor_cinco);
-    border: 1px solid var(--cor_cinco);
     margin-top: 8%;
     height: fit-content;
-    width: 99.9%;
+    width: 100%;
 }
 
 /* ESTILOS */
@@ -62,7 +61,7 @@
 .estilo-texto-azul-link{
     color: var(--cor_quatro);
     font-family: 'Poppins', sans-serif;
-    font-size: 140%;
+    font-size: 70%;
     text-decoration: none;
 }
 
@@ -111,7 +110,7 @@
     margin-bottom: -25px;
     margin-left: -40px;
     width: 320px;
-    margin-top: 80px;
+    margin-top: 70px;
     height: fit-content;
 }
 
@@ -120,7 +119,7 @@
     justify-content: space-between;
     width: 90.5%;
     margin-left: 9%;
-    margin-top: -4%;
+    margin-bottom: -20px;
 }
 
 .container-um-alinhamento a{
@@ -222,7 +221,7 @@
     width: fit-content;
     height: fit-content;
 
-    margin-left: 11%;
+    margin-left: 13%;
     margin-top: 3%;
 }
 
@@ -285,7 +284,8 @@
 }
 
 .container-dois-alinhamento p{
-    margin-bottom: -13px;
+    margin-bottom: -45px;
+    margin-top: 8%;
 }
 
 .container-dois-alinhamento ul{
@@ -298,7 +298,7 @@
 .container-tres-alinhamento{
     width: fit-content;
     height: fit-content;
-    margin-left: 11%;
+    margin-left: 6%;
 
     margin-top: 3%;
 }

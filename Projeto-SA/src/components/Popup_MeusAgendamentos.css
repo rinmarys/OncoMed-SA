@@ -1,160 +1,158 @@
 :root {
-    --cor-1: #F1F1F1;
-    --cor-2: #437118;
-    --cor-3: #AFD06E;
-    --cor-4: #F5F5F5;
-    --cor-5: #87AECE;
-    --cor-6: #1D2A62;
-    --cor-7: #D9E3EB;
+   --cor-1: #F1F1F1;
+   --cor-2: #437118;
+   --cor-3: #AFD06E;
+   --cor-4: #F5F5F5;
+   --cor-5: #87AECE;
+   --cor-6: #1D2A62;
+   --cor-7: #D9E3EB;
 }
 
-.lifehak{
-padding: 3%;
-background-color: var(--cor-1);
-position: fixed;
-top: 18%;
-left: 9%;
-width: 450px;
-height: 500px;
-border: 1.8px solid var(--cor-2);
-border-radius: 15px;
+.lifehak {
+   padding: 3%;
+   background-color: var(--cor-1);
+   position: fixed;
+   top: 18%;
+   left: 9%;
+   width: 450px;
+   height: 500px;
+   border: 1.8px solid var(--cor-2);
+   border-radius: 15px;
 
 }
-.tudo-popup-meusagendamentos{
-    background-color: transparent;
-    /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
 
-    width: 520px;
-    height: 575px;
+.tudo-popup-meusagendamentos {
+   background-color: transparent;
+   /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
 
-  
-    margin-left: 11%;
-    margin-bottom: 55px;
-    
-    position: fixed;
-    top: 57%;
-    left: 16%;
-    transform: translate(-50%, -50%);
-   
+   width: 520px;
+   height: 575px;
 
-    
-    overflow-x: hidden;  
-overflow-y: scroll; 
+
+   margin-left: 11%;
+   margin-bottom: 55px;
+
+   position: fixed;
+   top: 57%;
+   left: 16%;
+   transform: translate(-50%, -50%);
+
+
+
+   overflow-x: hidden;
+   overflow-y: scroll;
 }
 
 .tudo-popup-meusagendamentos::-webkit-scrollbar {
-   width: 10px;  /* Largura da barra de rolagem */
- 
+   width: 10px;
+   /* Largura da barra de rolagem */
 }
 
 .tudo-popup-meusagendamentos::-webkit-scrollbar-thumb {
    background-color: #AEC09D;
    border-radius: 5px;
-
 }
 
 .tudo-popup-meusagendamentos::-webkit-scrollbar-track {
    background: transparent;
+}
+
+.cada-agendamento-meusagendamentos {
+   background-color: #ececec;
+   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+   padding: 2%;
+   width: 400px;
+   height: fit-content;
+   border-radius: 15px;
+   margin-left: 7%;
+   margin-bottom: 30px;
 
 }
 
-
-
-
-
-.cada-agendamento-meusagendamentos{
-    background-color: #ececec;
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    padding: 2%;
-    width: 400px;
-    height: fit-content;
-    border-radius: 15px;
-    margin-left: 7%;
-    margin-bottom: 30px;
+.titulo-meusagendamentos-h1 {
+   color: #1D2A62;
+   font-family: 'Nunito', sans-serif;
+   margin-left: 9%;
+   width: fit-content;
+   margin-bottom: 2vw;
+   font-size: 2vw;
 
 }
 
-.titulo-meusagendamentos{
-    color: #1D2A62;
-    font-family: 'Nunito', sans-serif;
-    margin-left: 9%;
-    width: fit-content;
-    margin-bottom: 60px;
+.todas-infos-meusagendamentos {
+   margin-left: 2%;
+
 
 }
- .todas-infos-meusagendamentos{
-    margin-left: 2%;
-    
 
- }
+.medico-meusagendamentos {
+   color: var(--cor-6);
+   font-family: 'Nunito', sans-serif;
+   font-size: x-large;
+}
 
- .medico-meusagendamentos{
-    color: var(--cor-6);
-    font-family: 'Nunito', sans-serif;
-    font-size: x-large;
- }
- .tipo-horario-meusagendamentos{
+.tipo-horario-meusagendamentos {
 
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    margin-top: -20px;
-    margin-left: 8px;
+   width: 600px;
+   display: flex;
+   flex-direction: row;
+   margin-top: -20px;
+   margin-left: 8px;
 
- }
- 
- .tipo-consulta-meusagendamentos{
-    color: var(--cor-2);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    background-color: var(--cor-4);
-    border: 1.5px solid var(--cor-6);
-    width: fit-content;
-    padding-left: 7px;
-    padding-right: 7px;
-    font-size: medium;
-    border-radius: 10px;
- }
+}
+
+.tipo-consulta-meusagendamentos {
+   color: var(--cor-2);
+   font-family: 'Poppins', sans-serif;
+   font-weight: 500;
+   background-color: var(--cor-4);
+   border: 1.5px solid var(--cor-6);
+   width: fit-content;
+   padding-left: 7px;
+   padding-right: 7px;
+   font-size: medium;
+   border-radius: 10px;
+}
 
 
- .horario-meusagendamentos{
+.horario-meusagendamentos {
 
-    color: var(--cor-2);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    background-color: var(--cor-4);
-    border: 1.5px solid var(--cor-6);
-    width: fit-content;
-    padding-left: 7px;
-    padding-right: 7px;
-    font-size: medium;
-    border-radius: 10px;
-    margin-left: 10px;
- }
+   color: var(--cor-2);
+   font-family: 'Poppins', sans-serif;
+   font-weight: 500;
+   background-color: var(--cor-4);
+   border: 1.5px solid var(--cor-6);
+   width: fit-content;
+   padding-left: 7px;
+   padding-right: 7px;
+   font-size: medium;
+   border-radius: 10px;
+   margin-left: 10px;
+}
 
- .titulo-observacao-meusagendamentos{
-    
-    color: var(--cor-2);
-    font-family: 'Nunito', sans-serif;
-    font-weight: 600;
-    font-size: smaller;
-    margin-top: -2px;
-    margin-left: 8px;
+.titulo-observacao-meusagendamentos {
 
- }
+   color: var(--cor-2);
+   font-family: 'Nunito', sans-serif;
+   font-weight: 600;
+   font-size: smaller;
+   margin-top: -2px;
+   margin-left: 8px;
 
- .observacao-meusagendamentos{
-    color: var(--cor-6);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: large;
-    margin-top: -7px;
-    margin-left: 2px;
-    width: 350px;
-    height: fit-content;
- }
+}
 
- /* .cancelar-meusagendamentos-popup{
+.observacao-meusagendamentos {
+   color: var(--cor-6);
+   font-family: 'Poppins', sans-serif;
+   font-weight: 500;
+   font-size: large;
+   margin-top: -7px;
+   margin-left: 2px;
+   width: 350px;
+   height: fit-content;
+}
+
+/* .cancelar-meusagendamentos-popup{
     color: var(--cor-6);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -170,43 +168,42 @@ overflow-y: scroll;
 
  } */
 
- .cancelar-meusagendamentos-popup{
+.cancelar-meusagendamentos-popup {
 
-    width: 140px;
-    height: 40px;
+   width: 140px;
+   height: 40px;
 
-    margin-right: 1%;
+   margin-right: 1%;
 
-    cursor: pointer;
+   cursor: pointer;
 
-    border: 1px solid var(--cor_um);
-    border-radius: 10px;
+   border: 1px solid var(--cor_um);
+   border-radius: 10px;
 
-    font-family: var(--tipografia_primaria);
-    font-size: 13px;
-    font-weight: bold;
+   font-family: var(--tipografia_primaria);
+   font-size: 13px;
+   font-weight: bold;
 
-    color: var(--cor_tres);
-    background-color: var(--cor_um);
-    margin-left: 63%;
+   color: var(--cor_tres);
+   background-color: var(--cor_um);
+   margin-left: 63%;
 
 }
 
-.cancelar-meusagendamentos-popup:hover{
+.cancelar-meusagendamentos-popup:hover {
 
-    transition: 0.3s;
+   transition: 0.3s;
 
-    border: 1px solid var(--cor_sete);
+   border: 1px solid var(--cor_sete);
 
-    background-color: var(--cor_sete);
+   background-color: var(--cor_sete);
 }
 
-.cancelar-meusagendamentos-popup:not(:hover){
+.cancelar-meusagendamentos-popup:not(:hover) {
 
-    transition: 0.3s;
+   transition: 0.3s;
 
-    border: 1px solid var(--cor_um);
+   border: 1px solid var(--cor_um);
 
-    background-color: var(--cor_um);
+   background-color: var(--cor_um);
 }
-

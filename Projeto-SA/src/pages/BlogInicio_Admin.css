@@ -18,24 +18,39 @@
     margin-left: 10%;
 }
 
+.titulo-admin h1{
+    font-size: 35px;
+}
+
 .line-admin{
     width: 10%;
     width: 25%;
-    height: 5px;
+    height: 6px;
     border-radius: 7px;
     background-color: var(--cor-3);
-    margin-top: -15px;
+    margin-top: -18px;
 }
 
-.button-container{
-    margin-top: -100px;
-    margin-bottom: 50px;
+.line-admin:hover{
+    transition: 0.4s;
+    width: 40%;
 }
+
+.line-admin:not(:hover){
+    width: 25%;
+    transition: 0.4s;
+}
+
+/* .button-container{
+    margin-top: -100px;
+    margin-bottom: 60px;
+} */
 
 .button-deletar{
     width: 200px;
     background-color: transparent;
     border: none;
     height: fit-content;
-    margin-left: 80%;
+    margin-left: 75%;
+    margin-top: -50%;
 }

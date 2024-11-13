@@ -7,6 +7,8 @@
     --cor-6: #1D2A62;
 }
 
+
+
 .pop-up-cancelar-consulta {
     width: fit-content;
     background-color: #eeeeee;
@@ -16,11 +18,11 @@
     border: 2px solid var(--cor-6);
     margin-left: 11%;
     margin-bottom: 55px;
-    position: absolute;
     position: fixed;
     left: 7%;
     top: 15%;
-
+    /* z-index: 100 !important; */
+    
 }
 
 .cancelar-consulta-titulo {
@@ -158,4 +160,5 @@
     height: 420px;
     margin-top: -48%;
     margin-left: 440px;
+
 }
