@@ -2,47 +2,33 @@ import React, { useContext, useState } from 'react'
 import './Perfil_paciente.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { GlobalContext } from '../contexts/GlobalContext';
 
 function Perfil_paciente() {
-const[usuario, setUsuario]=useState({
+const[user, setUser]=useState({
   nome:'',
   email:'',
   telefone:'',
   senha:''
 })
 
-
-
-  function editar(){
-    const [isEditado, setIsEditado]= useState(false)
-    const  [novoNome, setNovoNome]=useState(usuario.nome)
-    const  [novoEmail, setNovoEmail]=useState(usuario.email)
-    const  [novoTelefone, setTelfone]=useState(usuario.telefone)
-    const  [novaSenha, setNovaSenha]=useState(usuario.senha)
-
-    const editrPerfil= () => {
-      setUsuario({
-        nome:novoNome,
-        email:novoEmail,
-        telefone: novoTelefone,
-        senha:novaSenha
-      })
-      setIsEditado(false)
-    }
-
-  }
-
+  const editar= (e) => {
+   e.preventDefault();
+     
+   localStorage.setItem('user', JSON.stringify(user))
+   alert('Dados salvos com sucesso!')
+  } 
   
-
-  function deletar(){
-
+  
+  const deletar= () => {
+   if(window.confirm('Tem certeza que deseja deletar sua conta?'))
+   alert('Perfil deletdo com sucesso!')
   }
-
+  
   return (
     <div className='user_container'>
       <Header/>
-       <div className='nav_container'>
+      {/* <form onSubmit={handleSave}> */}
+      <div className='nav_container'>
       <h1>PERFIL PACIENTE</h1>
       <div className="faixa_verde"></div>
       </div>
@@ -52,13 +38,13 @@ const[usuario, setUsuario]=useState({
       </div>
       <div className='posicao_container'>
        <label for="">Nome completo</label>
-       <input placeholder="Digite seu nome" value={nome}onChange={(e) => setNome(e.target.value)}required/>
+       <input placeholder="Digite seu nome" value={user.nome}onChange={(e) => setUser({...user, nome:e.target.value})}/>
        <label for="">Email</label>
-       <input type="email" placeholder="Digite seu email"value={email}onChange={(e) => setEmail(e.target.value)}required/>
+       <input type="email" placeholder="Digite seu email" value={user.email}onChange={(e) => setUser({...user, email:e.target.value})}/>
        <label for="">Telefone (com DDD)</label>
-       <input placeholder="Digite seu número de telefone" value={telefone}onChange={(e) => setTelefone(e.target.value)}required/>
+       <input placeholder="Digite seu número de telefone" value={user.telefone}onChange={(e) => setUser({...user, telefone:e.target.value})}/>
        <label for="">Senha</label>
-       <input type="password" placeholder="Digite a sua senha"value={senha}onChange={(e) => setSenha(e.target.value)}required/>
+       <input type="password" placeholder="Digite a sua senha"value={user.nome}onChange={(e) => setUser({...user, senha:e.target.value})}/>
        <label for="">Nova senha </label>
        <input type="password" placeholder="Confirme sua nova senha"/>
        <label for="">Gênero</label>
@@ -77,11 +63,12 @@ const[usuario, setUsuario]=useState({
 
   
       <div class="container_edit">
-        <button onClick={editar}>Editar</button>
+        <button onClick={editar} >Editar</button>
         </div>
         <div class="container_delete">
         <button onClick={deletar}>Deletar</button>
       </div>
+      {/* </form> */}
       
       <div className='estilizacao_icon'>
       <img src="./public/icon_user.png"></img>
@@ -91,6 +78,8 @@ const[usuario, setUsuario]=useState({
     </div>
 
   )
+
 }
+
 
 export default Perfil_paciente
