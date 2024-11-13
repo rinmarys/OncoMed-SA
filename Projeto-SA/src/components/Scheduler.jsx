@@ -7,26 +7,40 @@ import interactionPlugin from '@fullcalendar/interaction';
 import './Scheduler.css';
 
 function Scheduler() {
-  const [events, setEvents] = useState([
-    { title: 'Reunião', date: '2024-10-02' },
-  ]);
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  const handleDateClick = (arg) => {
-    const title = prompt('Novo evento:');
-    if (title) {
-      setEvents([...events, { title, date: arg.dateStr }]);
+  // Manejar el clic en la fecha del calendario
+  const handleDateClick = (info) => {
+    // Actualizamos el estado con la fecha seleccionada
+    setSelectedDate(info.dateStr);
+
+    // Remover la clase CSS de la fecha previamente seleccionada
+    const previouslySelected = document.querySelector('.fc-selected-day');
+    if (previouslySelected) {
+      previouslySelected.classList.remove('fc-selected-day');
     }
+
+    // Añadir la clase CSS a la fecha clickeada
+    info.dayEl.classList.add('fc-selected-day');
   };
 
   return (
-    <div>
-      <h1 className='titulo-agendamento' >Calendário de Agendamentos</h1>
+    <div className='calendario-marcarConsulta'>
+      <h1 className="titulo-agendamento">Calendário de Agendamentos</h1>
+
+      {/* Calendario con FullCalendar */}
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
-        events={events}
-        dateClick={handleDateClick}
+        dateClick={handleDateClick}  // Llamamos a handleDateClick cuando se hace clic en una fecha
       />
+
+      {/* Mostrar la fecha seleccionada debajo del calendario */}
+      {selectedDate && (
+        <div className="fecha-seleccionada">
+          <p>Fecha seleccionada: {selectedDate}</p>
+        </div>
+      )}
     </div>
   );
 }

@@ -5,24 +5,25 @@
     --cor-4: #F5F5F5;
     --cor-5: #87AECE;
     --cor-6: #1D2A62;
+    
+    --fc-event-bg-color: var(--cor-5);
+    --fc-event-border-color: var(--cor-5);
+    --fc-event-text-color: #fff;
+    --fc-bg-event-opacity: 0.3;
+    --fc-button-bg-color: #2c3e50;
 }
 
-.calendario {
-   
-    padding-top: 5px;
-    padding-left: 35px;
-    padding-right: 35px;
+.calendario-marcarConsulta {
+    padding-top: 1vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    width: 53vh;
     background-color: var(--cor-1);
     font-family: 'Nunito', sans-serif;
-  
-    font-size: medium;
-    margin-left: 55px;
     border-radius: 2%;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    padding-bottom: 48px;
-    display: inline-block;
-
-    
+    /* display: inline-block; */
+    border: 1px solid red;
 }
 
 .fc-daygrid-day-number {
@@ -30,19 +31,34 @@
 }
 
 .fc-day-header {
-    color: var(--cor-2) !important; /* Alterando a cor dos dias da semana */
-    font-weight: bold; /* Opcional */
-}
-
-:root {
-    --fc-event-bg-color: var(--cor-5);
-    --fc-event-border-color: var(--cor-5);
-    --fc-event-text-color: #fff;
-    --fc-bg-event-opacity: 0.3;
-    --fc-button-bg-color: #2c3e50;
-  font-weight: 200px;
+    color: var(--cor-2) !important;
+    font-weight: bold;
 }
 
 a {
     color: var(--cor-6);
 }
+
+.fc-selected-day {
+    background-color: var(--cor-3) !important;
+    color: white !important;
+}
+
+.fc-day:hover {
+    background-color: var(--cor-4); 
+    cursor: pointer;
+}
+
+/* Este no lo hice yo */
+.fc-event {
+    background-color: var(--fc-event-bg-color) !important;
+    border-color: var(--fc-event-border-color) !important;
+    color: var(--fc-event-text-color) !important;
+    opacity: var(--fc-bg-event-opacity);
+}
+
+.fc-button {
+    background-color: var(--fc-button-bg-color);
+    color: white;
+}
+/* Este no lo hice yo */
