@@ -18,18 +18,18 @@
 
 .tamanho_do_container_artigo_um_home{
 
-    height: 330px;
-    width: 660px;
+    height: 36vh;
+    width:  34.375vw;
 }
 
 .container_artigo_um_home{
 
-    height: 330px;
-    width: 620px;
+    height: 34.62vw;
+    width: 33vw;
 
-    border-radius: 15px;
+    border-radius: 1.6vw;
 
-    box-shadow: -6px -6px 10px rgba(255,255,255,0.45), 6px 6px 10px rgba(94,104,121,0.3);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0.26vw 0.78125vw;
 
     background-color: var(--cor_seis);
 }
@@ -38,10 +38,10 @@
 
     transition: 0.3s;
 
-    padding: 10px;
+    padding: 0.52vw;
 
-    height: 340px;
-    width: 640px;
+    height: 35.67vh;
+    width: 33.33vw;
 
     background-color: var(--cor_onze);
 }
@@ -50,8 +50,8 @@
 
     transition: 0.3s;
 
-    height: 330px;
-    width: 620px;
+    height: 35vh;
+    width: 32.29vw;
 }
 
 .container_artigo_um_home_alinhamento_conteudo{
@@ -62,19 +62,19 @@
 
 .titulo_artigo_um{
 
-    margin-top: 30px;
-    margin-left: 30px;
+    margin-top: 3.8vh;
+    margin-left: 1.8vw;
 }
 
 .titulo_artigo_um h3{
 
-    width: 350px;
+    width: 16vw;
 
-    margin-bottom: 10px;
+    margin-bottom: 1vw;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 1.5vw;
 
     color: var(--cor_cinco);
 }
@@ -83,33 +83,33 @@
 
     font-family: var(--tipografia_primaria);
     font-weight: 400;
-    font-size: 18px;
+    font-size: 0.9vw;
 
     color: var(--cor_um);
 }
 
 .imagem_artigo_um{
 
-    margin-top: 20px;
-    margin-right: 60px;
+    margin-top: 0.8vw;
+    margin-right: 2.5vw;
 }
 
 .imagem_artigo_um img{
 
-    width: 210px;
-    height: 210px;
+    width: 10.93vw;
+    height: 22.03vh;
 }
 
 .paragrafo_do_artigo p{
 
-    width: 550px;
+    width: 28.64vw;
 
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 1vw;
+    margin-left: 1.8vw;
 
     font-family: var(--tipografia_primaria);
     font-weight: 400;
-    font-size: 17px;
+    font-size: 0.9vw;
 
     color: var(--cor_sete);
 }

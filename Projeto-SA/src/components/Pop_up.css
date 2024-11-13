@@ -23,8 +23,8 @@
 
     position: absolute;
     position: fixed;
-    left: 17%;
-    top: 6%;
+    left: 19vw;
+    top: 8vh;
 }
 
 /* Ajuste de posição do Pop up na tela */
@@ -34,8 +34,8 @@
     display: flex;
     justify-content: center;
 
-    width: 1000px;
-    height: 650px;
+    width: 60vw;
+    height: 85vh;
 
 }
 
@@ -43,8 +43,8 @@
 
 .container_pop_up button img{
 
-    width: 400px;
-    height: 400px;
+    width: 25vw;
+    height: 40vh;
 
     cursor: pointer;
 }
@@ -53,15 +53,17 @@
 
 .container_pop_up img:hover{
 
-    width: 450px;
-    height: 450px;
+    width: 27vw;
+    height: 45vh;
 
     transition: 0.5s;
 }
 
 .container_pop_up img:not(:hover){
-    width: 400px;
-    height: 400px;
+    
+    width: 25vw;
+    height: 40vh;
+    
     transition: 0.5s;
 }
 
@@ -69,8 +71,8 @@
 
 .container_pop_up button{
 
-    width: 480px;
-    height: 480px;
+    width: 30vw;
+    height: 60vh;
 
     border: 0px;
 
@@ -85,8 +87,8 @@
     align-items: center;
     flex-direction: column;
 
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-top-left-radius: 4vw;
+    border-bottom-left-radius: 4vw;
 
     background-color: var(--cor_treze);
 
@@ -107,22 +109,20 @@
 .coluna_paciente:hover + .coluna_paciente img{
 
     transition: 0.5s;
-
-    width: 450px;
-    height: 450px;
 }
 
 /* Titulo do Pop Up Lado Esquerdo */
 
 .coluna_paciente h4{
-    width: 220px;
+
+    width: 20vw;
 
     margin-top: 0%;
     margin-bottom: 0%;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.5vw;
 
     text-align: center;
 
@@ -132,11 +132,11 @@
 
 .coluna_paciente p{
 
-    width: 200px;
+    width: 15vw;
 
     font-family: var(--tipografia_secundaria);
     font-weight: 400;
-    font-size: 15px;
+    font-size: 0.9vw;
 
     text-align: center;
 
@@ -150,8 +150,8 @@
     align-items: center;
     flex-direction: column;
 
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-right-radius: 4vw;
+    border-bottom-right-radius: 4vw;
 
     background-color: var(--cor_treze);
     color: var(--cor_cinco);
@@ -171,14 +171,14 @@
 
 .coluna_medico h4{
 
-    width: 200px;
+    width: 20vw;
 
     margin-top: 0%;
     margin-bottom: 0%;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.5vw;
 
     text-align: center;
 
@@ -187,11 +187,12 @@
 /* Parágrafo da frase CTA do Pop Up Lado Direito */
 
 .coluna_medico p{
-    width: 290px;
+
+    width: 16vw;
 
     font-family: var(--tipografia_secundaria);
     font-weight: 400;
-    font-size: 15px;
+    font-size: 0.9vw;
 
     text-align: center;
 
