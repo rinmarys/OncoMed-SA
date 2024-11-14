@@ -10,23 +10,20 @@
     --cor_verde_escurao: #2e500e;
 }
 
-/* ALINHAMENTO TITULO-HAMBURGER */
+/* Alinhamento titulo-hamburger */
 .alinhamento-tituloHamburger {
     display: flex;
     justify-content: space-between;
 }
 
-/* ALINHAMENTO TITULO-HAMBURGER */
-
-/* ALINHAMENTO HAMBURGER */
+/* Alinhamento hamburger */
 .alinhamento-hamburger-perfilPaciente {
     margin-top: 40px;
     margin-right: 40px;
 }
 
-/* ALINHAMENTO HAMBURGER */
 
-/* TITULO */
+/* Titulo */
 .nav_container {
     display: flex;
     flex-direction: column;
@@ -52,9 +49,7 @@
     border-radius: 5px;
 }
 
-/* TITULO */
-
-
+/* estilizações e posições das informações do usuário */
 .name_user p {
     font-family: "poppins", sans-serif;
     color: var(--cor_verde_escurao);
@@ -73,9 +68,9 @@
 
 .info_container input {
     box-sizing: border-box;
-    width: 360px;
+    width: 325px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 7px;
     border: 1px solid var(--cor_azul_escuro);
     background-color: var(--cor_branco_gelo);
     outline: none;
@@ -90,14 +85,14 @@
     font-family: "poppins", sans-serif;
     font-size: 20px;
     color: var(--cor_verde_meio_termo);
-    margin-top: 2%;
+    margin-top: 8%;
     display: block;
     font-weight: 480;
 }
 
 .info_container select {
     box-sizing: border-box;
-    width: 360px;
+    width: 325px;
     height: 40px;
     border-radius: 5px;
     border: 1px solid var(--cor_azul_escuro);
@@ -112,6 +107,14 @@
 
 }
 
+/* posicao do user */
+.posicao button{
+ float: left;
+ margin-top: 5%;
+ margin-left: 10%;
+}
+
+/* Estilização do button edit */
 .container_edit button {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -121,10 +124,8 @@
     background-color: var(--cor_azul_meio_termo);
     color: var(--cor_quase_branco);
 
-    width: 160px;
+    width: 158px;
     height: 43px;
-    left: 60%;
-    top: 88%;
 }
 
 .container_edit button:hover {
@@ -133,6 +134,7 @@
     color: var(--cor_quase_branco);
 }
 
+/* Estilização do botão delete */
 .container_delete button {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -142,10 +144,8 @@
     background-color: var(--cor_verde_claro);
     color: var(--cor_quase_branco);
 
-    width: 160px;
+    width: 158px;
     height: 43px;
-    left: 73%;
-    top: 88%;
 }
 
 .container_delete button:hover {
@@ -153,25 +153,28 @@
     background-color: var(--cor_verde_escuro);
 }
 
+/* Caixinha de texto/biografia */
 .container_text textarea {
     margin-top: -8%;
-    width: 450px;
-    height: 150px;
+    width: 540px;
+    height: 260px;
     background: var(--cor_branco_gelo);
     border: 1px solid var(--cor_azul_escuro);
     outline: none;
     border-radius: 5px;
 }
 
-.container_text input:focus {
+.container_text textarea:focus {
     border-color: var(--cor_azul_claro);
 }
 
+/* posicao placehober */
 #placeholder_text::placeholder {
     top: 9%;
     left: 3%;
     font-size: medium;
 }
+
 
 .estilizacao_icon img {
     width: 300px;
@@ -179,17 +182,14 @@
     margin-top: -5%;
 }
 
-/* ALINHAMENTOS */
+/* Alinhamentos */
 .container-alinhamento-dois{
-    border: 1px solid red;
     width: 700px;
 }
 
 .container-alinhamento-um{
-    border: 1px solid black;
     width: 84%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
-/* ALINHAMENTOS */
