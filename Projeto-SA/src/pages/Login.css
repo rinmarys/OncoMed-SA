@@ -27,7 +27,7 @@ body{
 
 .container_informacoes_login{
     
-    width: 60%;
+    width: 60vw;
 
     padding-top: 5%;
 
@@ -41,9 +41,10 @@ body{
     display: flex;
     justify-content: space-between;
 
-    width: 70%;
-    margin-top: 30px;
-    margin-left: 12%;
+    width: 45vw;
+    height: 6vh;
+    margin-top: 4vh;
+    margin-left: 7vw;
 }
 
 .titulo_login h2{
@@ -51,7 +52,10 @@ body{
     font-family: var(--tipografia_primaria);
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 2vw;
+
+    margin-bottom: 2vh;
+
     color: var(--cor_cinco);
 }
 
@@ -59,32 +63,46 @@ body{
 
 .titulo_login img{
 
-    width: 80px;
-    height: 80px;
+    width: 6vw;
+    height: 10vh;
 }
 
 .titulo_login img:hover{
     transition: 0.3s;
-    width: 100px;
-    height: 100px;
+    width: 8vw;
+    height: 12vh;
 }
 
 .titulo_login img:not(:hover){
     transition: 0.3s;
-    width: 80px;
-    height: 80px;
+    width: 6vw;
+    height: 10vh;
+}
+
+.titulo_login h2:hover + .faixa_verde_login{
+
+    transition: 0.4s;
+
+    width: 6vw;
+}
+
+.titulo_login h2:not(:hover) + .faixa_verde_login{
+
+    transition: 0.4s;
+
+    width: 2.8vw;
 }
 
 /* Faixa verde LOGIN*/
 
 .faixa_verde_login{
 
-    width: 50px;
-    height: 8px;
+    width: 2.8vw;
+    height: 1vh;
     margin-top: -20%;
 
     background: #AFD06E;
-    border-radius: 50px;
+    border-radius: 2vw;
 }
 
 /* Imagem de Login */
@@ -95,7 +113,7 @@ body{
     align-items: center;
     justify-content: center;
 
-    width: 40%;
+    width: 40vw;
     height: 100vh;
 
     background-color: var(--cor_quatro);
@@ -111,13 +129,21 @@ body{
 
     transition: 0.5s;
 
-    width: 800px;
-    height: 500px;
+    width: 55vw;
+    height: 65vh;
+}
+
+.container_img_login img:not(:hover){
+
+    transition: 0.5s;
+
+    width: 50vw;
+    height: 60vh;
 }
 
 .posicao_dos_inputs_login{
 
-    margin-left: 12%;
+    margin-left: 7vw;
 }
 
 /* Posição da div nome */
@@ -151,16 +177,16 @@ body{
     
     box-sizing: border-box;
     
-    width: 45%;
-    height: 40px;
-    padding-left: 2%;
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
     
-    font-size: 16px;
+    font-size: 1vw;
     font-family: var(--tipografia_secundaria);
     
     background: var(--cor_tres);
-    border: 1px solid var(--cor_cinco);
-    border-radius: 5px;
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
     
     color: var(--cor_cinco);
 }
@@ -172,11 +198,11 @@ body{
     font-family: var(--tipografia_primaria);
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 33px;
+    font-size: 1.3vw;
+    line-height: 5vh;
     
     margin-bottom: 0%;
-    margin-top: 5%;
+    margin-top: 8vh;
     
     color: var(--cor_um);
 }
@@ -187,16 +213,16 @@ body{
     
     box-sizing: border-box;
     
-    width: 45%;
-    height: 40px;
-    padding-left: 2%;
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
     
-    font-size: 16px;
+    font-size: 1vw;
     font-family: var(--tipografia_secundaria);
     
     background: var(--cor_tres);
-    border: 1px solid var(--cor_cinco);
-    border-radius: 5px;
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
     
     color: var(--cor_cinco);
 }
@@ -208,11 +234,11 @@ body{
     font-family: var(--tipografia_primaria);
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 33px;
+    font-size: 1.3vw;
+    line-height: 5vh;
     
     margin-bottom: 0%;
-    margin-top: 2%;
+    margin-top: 2vh;
     
     color: var(--cor_um);
 }
@@ -223,16 +249,16 @@ body{
     
     box-sizing: border-box;
     
-    width: 45%;
-    height: 40px;
-    padding-left: 2%;
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
     
-    font-size: 16px;
+    font-size: 1vw;
     font-family: var(--tipografia_secundaria);
     
     background: var(--cor_tres);
-    border: 1px solid var(--cor_cinco);
-    border-radius: 5px;
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
     
     color: var(--cor_cinco);
 }
@@ -244,11 +270,11 @@ body{
     font-family: var(--tipografia_primaria);
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 33px;
+    font-size: 1.3vw;
+    line-height: 5vh;
     
     margin-bottom: 0%;
-    margin-top: 2%;
+    margin-top: 2vh;
     
     color: var(--cor_um);
 }
@@ -263,13 +289,16 @@ body{
 
 .input_senha_login_dv img{
 
-    width: 25px;
-    height: 25px;
+    width: 1.5vw;
+    height: 3.5vh;
 }
 
 .input_senha_login_dv button{
 
-    margin-left: -40px;
+    width: 1.5vw;
+    height: 6.5vh;
+
+    margin-left: -2.5vw;
 
     border: 0px;
     background-color: transparent;
@@ -287,15 +316,15 @@ input:focus{
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1vw;
 
-    height: 40px;
-    width: 200px;
-    margin-left: 197px;
-    margin-top: 3%;
+    height: 5.5vh;
+    width: 13vw;
+    margin-left: 7vw;
+    margin-top: 5vh;
 
-    border: 1px solid var(--cor_cinco);
-    border-radius: 10px;
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
 
     cursor: pointer;
 
@@ -307,7 +336,7 @@ input:focus{
 
     transition: 0.2s;
 
-    border: 1px solid var(--cor_quatro);
+    border: 0.1vw solid var(--cor_quatro);
 
     background-color: var(--cor_quatro);
     color: var(--cor_cinco);
@@ -326,11 +355,11 @@ input:focus{
 .nao_possui_conta p{
 
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 1vw;
     font-style: normal;
     
-    margin-top: 5%;
-    margin-left: 12.5%;
+    margin-top: 7vh;
+    margin-left: 7vw;
     
     color: var(--cor_um);
 }
@@ -340,7 +369,7 @@ input:focus{
     border: 0px;
 
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 1vw;
     text-decoration: none;
     font-weight: bold;
 
@@ -354,14 +383,20 @@ input:focus{
 
 }
 
+.dv_do_botao_login{
+
+    display: flex;
+    align-items: center;
+}
+
 .dv_massege_error{
 
-    margin-top: 15px;
-    margin-left: 85px;
+    margin-top: 2.5vw;
+    margin-left: 1vw;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1vw;
 
-    color: var(--cor_um);
+    color: red;
 }

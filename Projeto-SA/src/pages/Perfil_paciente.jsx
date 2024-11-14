@@ -18,8 +18,7 @@ function Perfil_paciente() {
 
  const [isEditing, setIsEditing]=useState(false)
  const handleCgange=(e) => {
-  const{ame,value}= e.target
-  
+  const{ame,value}= e.target;
  }
 
   const editar= (e) => {

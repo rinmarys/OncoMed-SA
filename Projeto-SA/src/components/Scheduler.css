@@ -23,7 +23,6 @@
     border-radius: 2%;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     /* display: inline-block; */
-    border: 1px solid red;
 }
 
 .fc-daygrid-day-number {
@@ -49,6 +48,13 @@ a {
     cursor: pointer;
 }
 
+.p-fecha-selecionada{
+    color: var(--cor-2);
+    font-size: 1vw;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 0.5vw;
+}
 /* Este no lo hice yo */
 .fc-event {
     background-color: var(--fc-event-bg-color) !important;

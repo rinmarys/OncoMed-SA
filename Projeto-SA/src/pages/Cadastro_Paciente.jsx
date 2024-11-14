@@ -271,7 +271,7 @@ function Cadastro_Paciente() {
 
           <div className='input_nome_paciente'>
             
-            <label>Nome</label>
+            <label>Nome Completo</label>
             
             <input type="text" placeholder='Digite seu nome' value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
           

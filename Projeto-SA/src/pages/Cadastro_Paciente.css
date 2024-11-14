@@ -342,6 +342,11 @@ body{
 
     width: 2.0vw;
     height: 4vh;
+
+    position: absolute;
+
+    top: 63vh;
+    left: 57vw;
 }
 
 .input_senha_paciente_dv{
@@ -542,8 +547,13 @@ body{
 
     margin-bottom: -0.4vw;
 
-    width: 2.0vw;
+    width: 1.8vw;
     height: 4vh;
+
+    position: absolute;
+
+    top: 63vh;
+    right: 20.8vw;
 }
 
 .input_confirmar_senha_paciente_dv{
@@ -720,8 +730,7 @@ body{
 
 .botao_cadastrar_paciente:not(:hover){
 
-    transition: 0.3s
-    ;
+    transition: 0.3s;
 
     border: 0.1vw solid var(--cor_cinco);
 

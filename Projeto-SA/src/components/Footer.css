@@ -23,33 +23,33 @@
 }
 
 .line-footer{
-    width: 55px;
-    height: 8px;
+    width: 3.4375vw;
+    height: 1vh;
     background-color: var(--cor_dois);
-    border-radius: 5px;
+    border-radius: 2vw;
     margin-top: -15px;
 }
 
 .line-footer:hover{
-    width: 75px;
+    width: 4.6875vw;
     transition: 0.5s;
 }
 
 .line-footer :not(:hover){
-    width: 55px;
+    width: 3.4375vw;
     transition: 0.5s;
 }
 
 .estilo-texto-branco{
     color: var(--cor_tres);
     font-family: 'Poppins', sans-serif;
-    font-size: 155%;
+    font-size: 1.5vw;
 }
 
 .container-dois-alinhamento li{
     color: var(--cor_tres);
     font-family: 'Poppins', sans-serif;
-    font-size: 155%;
+    font-size: 1.5vw;
 }
 
 .container-dois-alinhamento li:hover{
@@ -61,7 +61,7 @@
 .estilo-texto-azul-link{
     color: var(--cor_quatro);
     font-family: 'Poppins', sans-serif;
-    font-size: 70%;
+    font-size: 1.2vw;
     text-decoration: none;
 }
 
@@ -74,7 +74,7 @@
 .estilo-texto-azul{
     color: var(--cor_quatro);
     font-family: 'Poppins', sans-serif;
-    font-size: 140%;
+    font-size: 1.2vw;
 }
 
 .estilo-texto-link{
@@ -93,10 +93,11 @@
 .alinhamento-containers{
     display: flex;
     width: 160%;
+    height: 60vh;
     height: fit-content;
     margin-top: -28%;
     margin-left: 11%;
-    width: 130%;
+    width: 65vw;
 }
 
 /* Container um (Contatos) ALINHAMENTO*/
@@ -107,10 +108,10 @@
 }
 
 .Logo{
-    margin-bottom: -25px;
-    margin-left: -40px;
-    width: 320px;
-    margin-top: 70px;
+    margin-bottom: -3.23vh;
+    margin-left: -2.5vw;
+    width: 20vw;
+    margin-top: 9vh;
     height: fit-content;
 }
 
@@ -119,75 +120,80 @@
     justify-content: space-between;
     width: 90.5%;
     margin-left: 9%;
-    margin-bottom: -20px;
+    margin-bottom: -1vh;
 }
 
 .container-um-alinhamento a{
-    margin: 8px;
+    
+    margin: 0.8vw;
 }
 
 .whatsapp_icon img{
 
-    width: 40px;
-    height: 40px;
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 .gmail_icon img{
 
-    width: 40px;
-    height: 40px;
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 .whatsapp_icon{
 
-    width: 40px;
-    height: 40px;
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 .instagram_icon img{
 
-    width: 40px;
-    height: 40px;
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 .alinhamento_titulo_whatsapp h1{
 
-    width: 160px;
+    font-size: 2vw;
 
-    margin-bottom: 8px;
+    width: 10vw;
+
+    margin-bottom: 0.5vw;
 }
 
 .line-footer-whatsapp{
 
-    width: 60px;
-    height: 8px;
+    width: 3.75vw;
+    height: 0.5vw;
 
-    border-radius: 10px;
+    border-radius: 2vw;
 
     background-color: var(--cor_dois);
 }
 
 .container-um-alinhamento-contatos{
 
-    width: 220px;
-    height: 40px;
+    width: 13.75vw;
+    height: 5vh;
 
-    margin-top: 40px;
+    margin-top: 2.5vw;
 }
 
 .container-um-alinhamento-contatos h1{
 
-    margin-bottom: 5px;
+    font-size: 2vw;
+
+    margin-bottom: 0.5vh;
 }
 
 .line-footer-contatos{
 
     transition: 0.3s;
 
-    border-radius: 15px;
+    width: 3.75vw;
+    height: 0.5vw;
 
-    width: 60px;
-    height: 8px;
+    border-radius: 2vw;
 
     background-color: var(--cor_dois);
 }
@@ -196,21 +202,21 @@
 
     transition: 0.3s;
 
-    width: 100px;
+    width: 6.25vw;
 }
 
 .alinhamento_titulo_whatsapp h1:hover + .line-footer-whatsapp{
 
     transition: 0.3s;
 
-    width: 120px;
+    width: 7.5vw;
 }
 
 .alinhamento_titulo_whatsapp h1:not(:hover) + .line-footer-whatsapp{
 
     transition: 0.3s;
 
-    width: 60px;
+    width: 3.75vw;
 }
 
 /* Container um (Contatos) ALINHAMENTO*/
@@ -218,8 +224,8 @@
 /* Container Dois (Menú) ALINHAMENTO*/
 .container-dois-alinhamento{
 
-    width: fit-content;
-    height: fit-content;
+    width: 20vw;
+    height: 60vh;
 
     margin-left: 13%;
     margin-top: 3%;
@@ -227,70 +233,82 @@
 
 .line-footer-coluna-dois{
 
-    width: 60px;
-    height: 8px;
+    width: 3.75vw;
+    height: 0.5vw;
 
-    border-radius: 15px;
+    border-radius: 2vw;
 
     background-color: var(--cor_dois);
 }
 
 .alinhamento_titulo_coluna_dois h1{
 
-    margin-bottom: 5px;
+    font-size: 2vw;
+
+    margin-bottom: 0.5vh;
 }
 
 .alinhamento_titulo_coluna_dois h1:hover + .line-footer-coluna-dois{
 
     transition: 0.3s;
 
-    width: 120px;
+    width: 7.5vw;
 }
 
 .alinhamento_titulo_coluna_dois h1:not(:hover) + .line-footer-coluna-dois{
 
     transition: 0.3s;
 
-    width: 60px;
+    width: 3.75vw;
 }
 
 .alinhamento_titulo_coluna_tres h1{
 
-    margin-bottom: 5px;
+    font-size: 2vw;
+
+    margin-bottom: 0.5vh;
 }
 
 .alinhamento_titulo_coluna_tres h1:hover + .line-footer-coluna-tres{
 
     transition: 0.3s;
 
-    width: 120px;
+    width: 7.5vw;
 }
 
 .alinhamento_titulo_coluna_tres h1:not(:hover) + .line-footer-coluna-tres{
 
     transition: 0.3s;
 
-    width: 60px;
+    width: 3.75vw;
 }
 
 .line-footer-coluna-tres{
 
-    width: 60px;
-    height: 8px;
+    width: 3.75vw;
+    height: 0.5vw;
 
-    border-radius: 15px;
+    border-radius: 2vw;
 
     background-color: var(--cor_dois);
 }
 
 .container-dois-alinhamento p{
-    margin-bottom: -45px;
+
+    font-size: 1.8vw;
+
+    margin-bottom: -2.5vw;
     margin-top: 8%;
 }
 
 .container-dois-alinhamento ul{
-    margin-top: 25px;
-    margin-bottom: 29px;
+    
+    font-size: 1vw;
+
+    padding-left: 1.5vw;
+
+    margin-top: 1.23vw;
+    margin-bottom: 1vw;
 }
 /* Container Dois (Menú) ALINHAMENTO*/
 
@@ -312,12 +330,12 @@
 .mascote{
     width: fit-content;
     height: fit-content;
-    margin-top: -130px;
+    margin-top: -8vw;
     position: relative;
-    width: 500px;
+    width: 31.25vw;
 }
 /* Mascote alinhamento */
 
 .gmail-img{
-    width: 33px;
+    width: 2vw;
 }

@@ -93,39 +93,57 @@
     border:2px solid var(--cor-5) ;
 }
 
-.Button{
+.Button-confirmar{
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     height: 50px;
-    width: 280px;
+    width: 56vh;
     border: none;
     border-radius: 15px;
     background-color: var(--cor-2);
     color: #f5f5f5;
 }
 
+.Button-cancelar{
+    font-family:  "Nunito", sans-serif;
+    font-weight: 800;
+    height: 50px;
+    width: 20vh;
+    border: none;
+    border-radius: 1.8vh;
+    background-color: var(--cor-6);
+    color: var(--cor-4);
+}
+
 .Botões{
     display: flex;
     justify-content: space-between;
-    width: 600px;
-    margin-left: 70px;
-    margin-top: 6%;
+    width: 78vh;
+    margin-top: 6%;;
 }
 
-.Button:hover{
+.Button-confirmar:hover{
     transition: 0.3s;
 
     color: var(--cor_tres);
     background-color: var(--cor_sete);
 }
 
-.Button :not(:hover){
+.Button-cancelar:hover{
     transition: 0.3s;
+    background-color: #323D70;
+}
 
-    border: 1px solid var(--cor_um);
+.Button-confirmar:not(:hover){
+    transition: 0.3s;
 
     color: var(--cor_tres);
     background-color: var(--cor_um);
+}
+
+.Button-cancelar:not(:hover){
+    transition: 0.3s;
+    background-color: var(--cor-6);
 }
 
 /* Alinhamentos */
@@ -140,4 +158,8 @@
 
 .Tres-partes{
     margin-left: -100px;
+}
+
+.alinhamento-inputs{
+    margin-left: 10vh;
 }
