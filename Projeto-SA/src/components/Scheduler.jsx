@@ -38,7 +38,7 @@ function Scheduler() {
       {/* Mostrar la fecha seleccionada debajo del calendario */}
       {selectedDate && (
         <div className="fecha-seleccionada">
-          <p>Fecha seleccionada: {selectedDate}</p>
+          <p className='p-fecha-selecionada'>Fecha seleccionada: {selectedDate}</p>
         </div>
       )}
     </div>
