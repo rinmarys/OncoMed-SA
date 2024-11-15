@@ -30,14 +30,14 @@ body{
 .container_informacoes_paciente{
 
     background-color: var(--cor_tres);
-    width: 60%;
+    width: 60vw;
 }
 
 /* Fundo imagem */
 
 .container_img_paciente{
     
-    width: 40%;
+    width: 40vw;
     height: 100vh;
     left: 0px;
     top: 0px;
@@ -340,13 +340,15 @@ body{
 
 .input_senha_paciente img{
 
-    width: 2.0vw;
+    width: 1.8vw;
     height: 4vh;
 
     position: absolute;
 
-    top: 63vh;
+    top: 64vh;
     left: 57vw;
+    right: 0vw;
+    bottom: 0vh;
 }
 
 .input_senha_paciente_dv{
@@ -552,8 +554,10 @@ body{
 
     position: absolute;
 
-    top: 63vh;
-    right: 20.8vw;
+    top: 64vh;
+    left: 77.5vw;
+    right: 0vw;
+    bottom: 0vh;
 }
 
 .input_confirmar_senha_paciente_dv{
@@ -650,8 +654,11 @@ body{
     width: 1vw;
     height: 1vw;
 
-    border: 1vw solid var(--cor_um);
-    border-radius: 2vw;
+    border: 0.1vw solid var(--cor_um);
+    border-radius: 1vw;
+
+    margin: 0vw;
+    margin-left: 0.3vw;
 
     accent-color: var(--cor_um);
 

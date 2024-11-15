@@ -27,7 +27,7 @@ body{
 
 .container_informacoes_login{
     
-    width: 60vw;
+    width: 40vw;
 
     padding-top: 5%;
 
@@ -129,16 +129,16 @@ body{
 
     transition: 0.5s;
 
-    width: 55vw;
-    height: 65vh;
+    width: 45vw;
+    height: 55vh;
 }
 
 .container_img_login img:not(:hover){
 
     transition: 0.5s;
 
-    width: 50vw;
-    height: 60vh;
+    width: 40vw;
+    height: 50vh;
 }
 
 .posicao_dos_inputs_login{
@@ -289,8 +289,15 @@ body{
 
 .input_senha_login_dv img{
 
-    width: 1.5vw;
-    height: 3.5vh;
+    width: 1.8vw;
+    height: 4vh;
+
+    position: absolute;
+
+    top: 61vh;
+    bottom: 0vw;
+    left: 68.5vw;
+    right: 0vw;
 }
 
 .input_senha_login_dv button{

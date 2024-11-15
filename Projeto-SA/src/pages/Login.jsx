@@ -225,8 +225,6 @@
 
 // export default Login
 
-
-
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './Login.css';
@@ -242,6 +240,7 @@ function Login() {
   const [mensagem_de_erro, set_mensagem_de_erro] = useState('');
   
   // Accedemos al contexto de GlobalContext solo una vez
+
   const { lista_de_pacientes, lista_de_medicos, usuario_administrador, set_usuario_logado } = useContext(GlobalContext);
   
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho' />);
@@ -251,27 +250,42 @@ function Login() {
   const navegacao_de_pagina = useNavigate();
 
   useEffect(() => {
+  
     if (estado_do_olinho) {
+  
       set_imagem_olinho(<img src='input_olho_aberto.png' alt='Olinho' />);
+  
       set_valor_do_olinho('text');
+  
     } else {
+  
       set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho' />);
+  
       set_valor_do_olinho('password');
+  
     }
+  
   }, [estado_do_olinho]);
 
   function fazer_login() {
+    
     // Declaramos as variáveis apenas uma vez
+    
     let pegar_array_medicos = [...lista_de_medicos];
     let pegar_array_pacientes = [...lista_de_pacientes];
     let pegar_array_administrador = [...usuario_administrador];
     let usuario_existente = false;
 
     // Verificação para pacientes
+    
     if (pegar_array_pacientes != null) {
+    
       for (let i = 0; i < pegar_array_pacientes.length; i++) {
+    
         if (pegar_array_pacientes[i].email === valor_inpt_email && pegar_array_pacientes[i].senha === valor_inpt_senha) {
+    
           let usuario_a_logar = {
+            
             nome: valor_inpt_nome,
             email: valor_inpt_email,
             senha: valor_inpt_senha,
@@ -280,18 +294,29 @@ function Login() {
             cep: pegar_array_pacientes[i].cep,
             genero: pegar_array_pacientes[i].genero
           };
+    
           set_usuario_logado(usuario_a_logar);
+    
           navegacao_de_pagina('/');
+    
           return; // Exit the function once the user is logged in
-        }
-      }
-    }
+    
+        };
+    
+      };
+    
+    };
 
     // Verificação para médicos
+    
     if (pegar_array_medicos != null) {
+    
       for (let i = 0; i < pegar_array_medicos.length; i++) {
+    
         if (pegar_array_medicos[i].email === valor_inpt_email && pegar_array_medicos[i].senha === valor_inpt_senha) {
+    
           let usuario_a_logar = {
+            
             nome: valor_inpt_nome,
             email: valor_inpt_email,
             senha: valor_inpt_senha,
@@ -300,39 +325,57 @@ function Login() {
             crm: pegar_array_medicos[i].crm,
             genero: pegar_array_medicos[i].genero
           };
+    
           set_usuario_logado(usuario_a_logar);
+    
           navegacao_de_pagina('/');
+    
           return; // Exit the function once the user is logged in
-        }
-      }
-    }
+    
+        };
+    
+      };
+    
+    };
 
     // Verificação para administrador
+    
     if (pegar_array_administrador != null) {
+    
       for (let i = 0; i < pegar_array_administrador.length; i++) {
+    
         if (pegar_array_administrador[i].email === valor_inpt_email && pegar_array_administrador[i].senha === valor_inpt_senha) {
+    
           let usuario_a_logar = {
+           
             nome: valor_inpt_nome,
             email: valor_inpt_email,
             senha: valor_inpt_senha
           };
+    
           set_usuario_logado(usuario_a_logar);
+    
           navegacao_de_pagina('/');
+    
           return; // Exit the function once the user is logged in
-        }
-      }
-    }
+    
+        };
+    
+      };
+    
+    };
 
     // Se nenhum usuário foi encontrado
+    
     set_mensagem_de_erro('Usuário ou senha incorreto!');
-  }
+  };
 
   return (
     <div className="dv_login">
 
       <div className="container_img_login">
 
-        <img src="Imagem_quatro.svg" alt="Imagem de Login" />
+        <img src="Imagem_tres.svg" alt="Imagem de Login" />
 
       </div>
 

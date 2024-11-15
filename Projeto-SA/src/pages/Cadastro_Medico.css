@@ -342,6 +342,13 @@ body{
 
     width: 2.0vw;
     height: 4vh;
+
+    position: absolute;
+
+    top: 64vh;
+    bottom: 0vw;
+    right: 0vw;
+    left: 57vw;
 }
 
 .input_senha_medico_dv{
@@ -538,12 +545,19 @@ body{
 
 /* Confirmar Senha Botão */
 
-.input_confirmar_senha_medico img{
+.input_confirmar_senha_medico_dv img{
 
-    margin-bottom: -0.4vw;
+    margin-bottom: -0.8vh;
 
     width: 2.0vw;
     height: 4vh;
+
+    position: absolute;
+    
+    top: 64vh;
+    bottom: 0vw;
+    right: 0vw;
+    left: 77.5vw;
 }
 
 .input_confirmar_senha_medico_dv{
@@ -642,6 +656,9 @@ body{
 
     border: 1vw solid var(--cor_um);
     border-radius: 2vw;
+
+    margin: 0vw;
+    margin-left: 0.3vw;
 
     accent-color: var(--cor_um);
 
@@ -745,6 +762,8 @@ body{
 .caminho_para_termos_e_politica_medico label{
 
     margin-left: 1%;
+
+    width: 35vw;
 }
 
 /* Já possui uma conta? Log-In */
