@@ -27,6 +27,8 @@
     height: 34.62vw;
     width: 33vw;
 
+    margin-left: -8vw;
+
     border-radius: 1.6vw;
 
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0.26vw 0.78125vw;
@@ -40,8 +42,8 @@
 
     padding: 0.52vw;
 
-    height: 35.67vh;
-    width: 33.33vw;
+    height: 41.67vh;
+    width: 40.33vw;
 
     background-color: var(--cor_onze);
 }
@@ -50,8 +52,8 @@
 
     transition: 0.3s;
 
-    height: 35vh;
-    width: 32.29vw;
+    height: 40vh;
+    width: 38.29vw;
 }
 
 .container_artigo_um_home_alinhamento_conteudo{
@@ -68,13 +70,13 @@
 
 .titulo_artigo_um h3{
 
-    width: 16vw;
+    width: 20vw;
 
     margin-bottom: 1vw;
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 1.8vw;
 
     color: var(--cor_cinco);
 }
@@ -83,7 +85,7 @@
 
     font-family: var(--tipografia_primaria);
     font-weight: 400;
-    font-size: 0.9vw;
+    font-size: 1vw;
 
     color: var(--cor_um);
 }
@@ -96,20 +98,22 @@
 
 .imagem_artigo_um img{
 
-    width: 10.93vw;
+    margin-top: 2vh;
+
+    width: 12.93vw;
     height: 22.03vh;
 }
 
 .paragrafo_do_artigo p{
 
-    width: 28.64vw;
+    width: 30.64vw;
 
     margin-top: 1vw;
     margin-left: 1.8vw;
 
     font-family: var(--tipografia_primaria);
     font-weight: 400;
-    font-size: 0.9vw;
+    font-size: 1vw;
 
     color: var(--cor_sete);
 }

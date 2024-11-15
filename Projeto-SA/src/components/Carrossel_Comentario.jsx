@@ -12,7 +12,7 @@ function Carrossel_Comentario() {
       
         <div className="o_que_dizem_nossos_pacientes_carrossel">
 
-            <button onClick={() => posicao < 0 ? set_posicao(array_de_comentarios.length - 1) : set_posicao(posicao - 1)}><img src="Seta_carrossel_esquerda.svg" alt="Seta esquerda.svg" /></button>
+            <button onClick={() => set_posicao(posicao === 0 ? array_de_comentarios.length - 1 : posicao - 1)}><img src="Seta_carrossel_esquerda.svg" alt="Seta esquerda.svg" /></button>
 
             <div className="o_que_dizem_nossos_pacientes_conteudo_do_carrossel">
 
@@ -20,7 +20,7 @@ function Carrossel_Comentario() {
 
             </div>
 
-            <button onClick={() => posicao == array_de_comentarios.length ? set_posicao(0) : set_posicao(posicao + 1)}><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
+            <button onClick={() => set_posicao(posicao === array_de_comentarios.length - 1 ? 0 : posicao + 1)}><img src="Seta_carrossel_direita.svg" alt="Seta direita.svg" /></button>
 
         </div>
 

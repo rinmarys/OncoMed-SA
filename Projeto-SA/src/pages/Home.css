@@ -264,8 +264,8 @@ body{
     height: 25vh;
     width: 26vw;
 
-    margin-left: 10%;
-    margin-top: 8px;
+    margin-left: 8vw;
+    margin-top: -15vh;
 }
 
 .container_comunidade_imagem img{
@@ -278,7 +278,7 @@ body{
 
     transition: 0.5s;
 
-    height: 38vh;
+    height: 48vh;
     width: 30vw;
 }
 
@@ -286,7 +286,7 @@ body{
 
     transition: 0.5s;
 
-    height: 35vh;
+    height: 45vh;
     width: 28vw;
 }
 
@@ -355,6 +355,7 @@ body{
     border: 0px;
 
     padding-left: 0%;
+    padding-right: 0%;
 
     cursor: pointer;
 
@@ -364,6 +365,10 @@ body{
 /* Botão do Carrossel */
 
 .o_que_dizem_nossos_pacientes_carrossel img{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     width:  3vw;
     height: 5vh;
@@ -378,9 +383,10 @@ body{
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    width: 100%;
-    height: 7vh;
+    width: 45vw;
+    height: 9vh;
 
     border-radius: 2vw;
 
@@ -389,7 +395,11 @@ body{
 
 .animar_entrada_dos_comentarios{
 
-    font-size: 0.82vw;
+    width: 35vw;
+
+    margin-left: -3vw;
+
+    font-size: 1vw;
 }
 
 .o_que_dizem_nossos_pacientes_conteudo_do_carrossel{
@@ -407,7 +417,7 @@ body{
 
 .container_comunidade_conteudo{
 
-    margin-left: 3vw;
+    margin-left: 6vw;
 }
 
 /* Container Comunidade Titulo */
@@ -443,7 +453,7 @@ body{
 .container_comunidade_conteudo_underline_titulo{
 
     width: 2.2vw;
-    height: 0.8vh;
+    height: 1vh;
 
     border-radius: 2vw;
 
@@ -454,14 +464,14 @@ body{
 
 .container_comunidade_conteudo p{
 
-    width: 20vw;
+    width: 30vw;
 
     margin-top: 2vh;
     margin-bottom: 2vh;
 
     font-family: var(--tipografia_secundaria);
     font-weight: 400;
-    font-size: 1.1vw;
+    font-size: 1.3vw;
 
     color: var(--cor_dez);
 }
@@ -470,8 +480,8 @@ body{
 
 .container_comunidade_conteudo button{
 
-    width: 10vw;
-    height: 4.5vh;
+    width: 11vw;
+    height: 5.5vh;
 
     border: 0.1vw solid var(--cor_um);
     border-radius: 0.8vw;
@@ -852,6 +862,8 @@ body{
 
     height: 5vh;
 
+    padding-right: 0%;
+
     cursor: pointer;
 
     border: 0px;
@@ -929,6 +941,8 @@ body{
 
     height: fit-content;
 
+    padding-right: 0%;
+
     cursor: pointer;
 
     border: 0px;
@@ -991,6 +1005,8 @@ body{
     align-items: center;
 
     height: 5vh;
+
+    padding-right: 0%;
 
     cursor: pointer;
 
@@ -1057,6 +1073,8 @@ body{
     align-items: center;
 
     height: 5vh;
+
+    padding-right: 0%;
 
     cursor: pointer;
 
@@ -1182,11 +1200,11 @@ body{
 
 .container_faq_cta button{
 
-    width: 11vw;
-    height: 4.7vh;
+    width: 13vw;
+    height: 6.7vh;
 
     margin-top: 0%;
-    margin-left: 5vw;
+    margin-left: 3.8vw;
 
     cursor: pointer;
 
@@ -1195,7 +1213,7 @@ body{
 
     font-family: var(--tipografia_primaria);
     font-weight: bold;
-    font-size: 0.8vw;
+    font-size: 0.9vw;
 
     color: var(--cor_tres);
     background-color: var(--cor_um);
