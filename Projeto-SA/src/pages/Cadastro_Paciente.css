@@ -101,7 +101,7 @@ body{
     transition: 0.3s;
 
     width: 8vw;
-    height: 12vh;
+    height: 13vh;
 }
 
 .container_informacoes_logo_paciente img:not(:hover){
@@ -121,7 +121,7 @@ body{
     height: 1vh;
     left: 46vw;
     top: 11vh;
-    margin-top: 2vh;
+    margin-top: 3vh;
     
     background-color: var(--cor_dois);
     border-radius: 2vw;

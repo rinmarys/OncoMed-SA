@@ -8,48 +8,50 @@
     --cor-7: #D9E3EB;
 }
 
-.Select-Horario{
+.Select-Horario {
     height: 30px;
 }
 
-.Container-Consulta-Horario{
+.Container-Consulta-Horario {
     display: flex;
     width: 740px;
     justify-content: space-between;
 }
 
-.Container-Consulta-Horario h2{
+.Container-Consulta-Horario h2 {
     font-family: 'Nunito', sans-serif;
     color: var(--cor-2);
     font-size: 22px;
 }
 
-.Selecionar-Consulta{
+.Selecionar-Consulta {
     /* border:1px solid black; */
     width: 500px;
 }
 
-.Selecionar-Horario{
+.Selecionar-Horario {
     /* border:1px solid black; */
     width: 300px;
 }
-.Selecionar-Ob{
+
+.Selecionar-Ob {
     margin-top: 7%;
     width: fit-content;
 }
 
-.Selecionar-Ob textarea{
+.Selecionar-Ob textarea {
     border: 1.5px solid var(--cor-6);
     width: 740px;
     font-size: 20px;
 }
 
-.Selecionar-Ob h2{
+.Selecionar-Ob h2 {
     font-family: 'Nunito', sans-serif;
     color: var(--cor-2);
     font-size: 22px;
 }
-.Input-Ob{
+
+.Input-Ob {
     height: 200px;
     width: 800px;
     font-size: 24px;
@@ -59,11 +61,11 @@
     background-color: #f5f5f5;
 }
 
-.Input-Ob:focus{
+.Input-Ob:focus {
     border: 2px solid var(--cor-5);
 }
 
-.Select-Consulta{
+.Select-Consulta {
     width: 400px;
     height: 40px;
     font-size: 20px;
@@ -74,11 +76,11 @@
     border: 1.5px solid var(--cor-6);
 }
 
-.Select-Consulta:focus{
+.Select-Consulta:focus {
     border: 2px solid var(--cor-5);
 }
 
-.Select-Horario{
+.Select-Horario {
     width: 300px;
     height: 40px;
     font-size: 20px;
@@ -89,77 +91,206 @@
     border: 1.5px solid var(--cor-6);
 }
 
-.Select-Horario:focus{
-    border:2px solid var(--cor-5) ;
+.Select-Horario:focus {
+    border: 2px solid var(--cor-5);
 }
 
-.Button-confirmar{
+.Button-confirmar {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     height: 50px;
-    width: 56vh;
+    width: 69vh;
     border: none;
     border-radius: 15px;
     background-color: var(--cor-2);
     color: #f5f5f5;
 }
 
-.Button-cancelar{
-    font-family:  "Nunito", sans-serif;
+.Button-cancelar {
+    font-family: "Nunito", sans-serif;
     font-weight: 800;
     height: 50px;
-    width: 20vh;
+    width: 30vh;
     border: none;
     border-radius: 1.8vh;
     background-color: var(--cor-6);
     color: var(--cor-4);
 }
 
-.Botões{
+.Botões {
     display: flex;
     justify-content: space-between;
-    width: 78vh;
-    margin-top: 6%;;
+    width: 10hw;
+    margin-top: 6%;
 }
 
-.Button-confirmar:hover{
+.Button-confirmar:hover {
     transition: 0.3s;
 
     color: var(--cor_tres);
     background-color: var(--cor_sete);
 }
 
-.Button-cancelar:hover{
+.Button-cancelar:hover {
     transition: 0.3s;
     background-color: #323D70;
 }
 
-.Button-confirmar:not(:hover){
+.Button-confirmar:not(:hover) {
     transition: 0.3s;
 
     color: var(--cor_tres);
     background-color: var(--cor_um);
 }
 
-.Button-cancelar:not(:hover){
+.Button-cancelar:not(:hover) {
     transition: 0.3s;
     background-color: var(--cor-6);
 }
 
 /* Alinhamentos */
-.alinhamento-displayFlex{
+.alinhamento-displayFlex {
     display: flex;
+    margin-left: 85px;
 }
 
-.alinhamento-hamburger{
+.alinhamento-hamburger {
     margin-top: 40px;
     margin-right: 40px;
 }
 
-.Tres-partes{
+.Tres-partes {
     margin-left: -100px;
 }
 
-.alinhamento-inputs{
-    margin-left: 10vh;
+.alinhamento-inputs {
+    margin-left: 24vh;
 }
+
+.mensagem-erro-marcarConsulta {
+    margin-top: 1vw;
+    font-size: 2vh;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #ef2828;
+}
+
+/* POP UPS LEGAISSS */
+.popup-confirmar {
+    height: fit-content;
+    position: fixed;
+    background-color: var(--cor-4);
+    padding: 3vw;
+    border-radius: 1vw;
+    box-shadow: rgba(44, 44, 44, 0.35) 0px 0.26vw 0.78vw;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    align-items: center;
+}
+
+.popup-confirmar-conteudo h3 {
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-6);
+    font-weight: 800;
+    font-size: 1.5vw;
+}
+
+.popup-confirmar-conteudo button {
+    border: none;
+    background-color: var(--cor-2);
+    border-radius: 0.8vh;
+    width: 6vw;
+    color: var(--cor-4);
+    padding: 0.4vw;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.popup-confirmar-conteudo button:hover {
+    background-color: #335513;
+    transition: 0.4s;
+}
+
+.popup-confirmar-conteudo button:not(:hover) {
+    background-color: var(--cor-2);
+    transition: 0.4s;
+}
+
+.popup-cancelar {
+    height: fit-content;
+    position: fixed;
+    background-color: var(--cor-4);
+    padding: 3vw;
+    padding-top: 1.5vw;
+    border-radius: 1vw;
+    box-shadow: rgba(44, 44, 44, 0.35) 0px 0.26vw 0.78vw;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    align-items: center;
+}
+
+.popup-cancelar-conteudo h3 {
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-6);
+    font-weight: 800;
+    font-size: 1.5vw;
+    width: 26vw;
+}
+
+.popup-cancelar-fechar-button {
+    border: none;
+    background-color: var(--cor-2);
+    border-radius: 0.8vh;
+    width: 9vw;
+    color: var(--cor-4);
+    padding: 0.4vw;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.popup-cancelar-fechar-button:hover {
+    background-color: #335513;
+    transition: 0.4s;
+}
+
+.popup-cancelar-fechar-button:not(:hover) {
+    background-color: var(--cor-2);
+    transition: 0.4s;
+}
+
+.popup-cancelar-confirmar-button {
+    border: none;
+    background-color: var(--cor-6);
+    border-radius: 0.8vh;
+    width: 13vw;
+    color: var(--cor-4);
+    padding: 0.4vw;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.popup-cancelar-confirmar-button:hover {
+    background-color: #323D70;
+    transition: 0.4s;
+}
+
+.popup-cancelar-confirmar-button:not(:hover) {
+    background-color: var(--cor-6);
+    transition: 0.4s;
+}
+
+.buttons-popupCancelar-alinhamento{
+    display: flex;
+    justify-content: space-between;
+    width: 23vw;
+}
+/* POP UPS LEGAISSS */

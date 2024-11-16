@@ -1,13 +1,14 @@
 // src/Scheduler.js
-import React, { useState } from 'react';
+import { useContext } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import './Scheduler.css';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 function Scheduler() {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const { selectedDate, setSelectedDate } = useContext(GlobalContext);
 
   // Manejar el clic en la fecha del calendario
   const handleDateClick = (info) => {
@@ -15,14 +16,14 @@ function Scheduler() {
     setSelectedDate(info.dateStr);
 
     // Remover la clase CSS de la fecha previamente seleccionada
-    const previouslySelected = document.querySelector('.fc-selected-day');
+    const previouslySelected = document.querySelector('.fc-selected-day')
     if (previouslySelected) {
-      previouslySelected.classList.remove('fc-selected-day');
+      previouslySelected.classList.remove('fc-selected-day')
     }
 
     // Añadir la clase CSS a la fecha clickeada
-    info.dayEl.classList.add('fc-selected-day');
-  };
+    info.dayEl.classList.add('fc-selected-day')
+  }
 
   return (
     <div className='calendario-marcarConsulta'>

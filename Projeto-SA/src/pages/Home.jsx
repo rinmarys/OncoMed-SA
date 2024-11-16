@@ -114,6 +114,12 @@ function Home() {
     faq_d_botao = <img src='FAQ_aberto.png' className='faq_fechado'></img>;
   };
 
+  function acessarComunidade() {
+
+     window.location.href = 'https://chat.whatsapp.com/Bmql2XCn7eI7Y4IpS2xecT'
+    
+  }
+
   return (
 
     <div>
@@ -190,7 +196,7 @@ function Home() {
 
             <p>Conecte-se com outros pacientes e cuidadores para compartilhar expêriencias de apoio.</p>
 
-            <button>ACESSAR</button>
+            <button onClick={acessarComunidade}>ACESSAR</button>
 
           </div>
 
@@ -343,7 +349,7 @@ function Home() {
 
             <p>Continua com dúvidas?</p>
 
-            <button>CONTATE-NOS</button>
+            <button onClick={acessarComunidade}>CONTATE-NOS</button>
 
           </div>
 

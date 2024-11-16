@@ -68,3 +68,7 @@ a {
     color: white;
 }
 /* Este no lo hice yo */
+
+.fc-toolbar-title{
+    color: var(--cor-6);
+}

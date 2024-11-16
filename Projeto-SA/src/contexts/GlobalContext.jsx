@@ -2,16 +2,19 @@ import { createContext, useState } from "react";
 
 export const GlobalContext = createContext()
 
-export const GlobalContextProvider = ({children}) => {
+export const GlobalContextProvider = ({ children }) => {
 
     const [usuario_logado, set_usuario_logado] = useState([]);
     const [lista_de_pacientes, set_lista_de_pacientes] = useState([]);
     const [lista_de_medicos, set_lista_de_medicos] = useState([]);
-    const [usuario_administrador, set_usuario_administrador] = useState([{nome: `Administrador`, email: `administrador@gmail.com`, senha: `654321`}]);
-    const [selectedDate, setSelectedDate] = useState(null);
-    
+    const [usuario_administrador, set_usuario_administrador] = useState([{ nome: `Administrador`, email: `administrador@gmail.com`, senha: `654321` }]);
 
-    return(
+    // informações de marcar consulta
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta] = useState([])
+    // informações de marcar consulta
+
+    return (
         <GlobalContext.Provider value={{
 
             usuario_logado,
@@ -22,9 +25,16 @@ export const GlobalContextProvider = ({children}) => {
             set_lista_de_pacientes,
             usuario_administrador,
             set_usuario_administrador,
+
             //Fecha select
             selectedDate,
-            setSelectedDate
+            setSelectedDate,
+            //Fecha select
+
+            // MARCAR CONSULTA INFORMAÇÔES
+            listaInformacoesMarcarConsulta,
+            setListaInformacoesMarcarConsulta
+            // MARCAR CONSULTA INFORMAÇÔES
         }}>
             {children}
         </GlobalContext.Provider>

@@ -4,7 +4,7 @@ function Faq_a() {
   return (
     <div className='faq_a_r'>
       
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores corrupti neque aliquid et asperiores architecto perferendis velit accusamus ad enim soluta atque, laudantium tempore minima cupiditate tempora magnam fugiat quam.</p>
+    <p>O tratamento do câncer inclui cirurgia para remoção do tumor, radioterapia, quimioterapia, imunoterapia, terapia alvo, terapia hormonal e, em casos graves, transplante de células-tronco. A escolha do tratamento depende do tipo e estágio da doença, sendo adaptado para cada paciente.</p>
 
     </div>
   )

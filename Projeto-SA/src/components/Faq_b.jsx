@@ -5,7 +5,7 @@ function Faq_b() {
   return (
     <div  className='faq_b_r'>
       
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, dolorum! Reprehenderit, consequatur laudantium modi quas eos assumenda architecto rem ullam esse maxime vero tenetur corrupti facere eaque dolore quod voluptas?</p>
+      <p>Os efeitos colaterais dos tratamentos de câncer podem variar bastante, mas geralmente incluem cansaço, náuseas, dor, queda de cabelo e alterações na pele. Além disso, o sistema imunológico pode ficar enfraquecido, e alguns tratamentos causam reações no corpo, como mudanças hormonais ou infecções. Cada pessoa reage de maneira única.</p>
 
     </div>
   )
