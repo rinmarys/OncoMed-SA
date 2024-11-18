@@ -72,17 +72,28 @@ function Cadastro_Medico() {
     };
   }, [estado_do_olinho_um]);
 
-  function cadastrar(){
+  class Cadastrar{
+
+    constructor(nome_do_medico, crm_do_medico, cpf_do_medico, email_do_medico, data_de_nascimento_do_medico, genero_do_medico, senha_do_medico, confirmar_senha_do_medico){
+
+      this.nome = nome_do_medico,
+      this.email = email_do_medico,
+      this.crm = crm_do_medico,
+      this.cpf = cpf_do_medico,
+      this.data_de_nascimento = data_de_nascimento_do_medico,
+      this.genero = genero_do_medico,
+      this.senha = senha_do_medico,
+      this.confirmar_senha = confirmar_senha_do_medico
     
     let usuario_a_cadastrar = {
 
-      nome: valor_inpt_nome,
-      crm: valor_inpt_crm,
-      cpf: valor_inpt_cpf,
-      email: valor_inpt_email,
-      data_de_nascimento: valor_inpt_data_de_nascimento,
-      genero: valor_inpt_genero,
-      senha: valor_inpt_senha
+      nome: this.nome,
+      crm: this.crm,
+      cpf: this.cpf,
+      email: this.email,
+      data_de_nascimento: this.data_de_nascimento,
+      genero: this.genero,
+      senha: this.senha
     };
 
     let checkbox_selecionado = false;
@@ -120,17 +131,17 @@ function Cadastro_Medico() {
         verificar_cpf_ja_existente_medico = pegar_array_medicos[i].cpf;
         verificar_crm_ja_existente_medico = pegar_array_medicos[i].crm;
 
-        if(verificar_email_ja_existente_medico == valor_inpt_email){
+        if(verificar_email_ja_existente_medico == this.email){
 
           email_ja_cadastrado_medico = true;
         };
 
-        if(verificar_cpf_ja_existente_medico == valor_inpt_cpf){
+        if(verificar_cpf_ja_existente_medico == this.cpf){
 
           cpf_ja_cadastrado_medico = true;
         };
 
-        if(verificar_crm_ja_existente_medico == valor_inpt_crm){
+        if(verificar_crm_ja_existente_medico == this.crm){
 
           crm_ja_cadastrado_medico = true;
         };
@@ -150,12 +161,12 @@ function Cadastro_Medico() {
         verificar_email_ja_existente_paciente = pegar_array_pacientes[i].email;
         verificar_cpf_ja_existente_paciente = pegar_array_pacientes[i].cpf;
 
-        if(verificar_email_ja_existente_paciente == valor_inpt_email){
+        if(verificar_email_ja_existente_paciente == this.email){
 
           email_ja_cadastrado_paciente = true;
         };
 
-        if(verificar_cpf_ja_existente_paciente == valor_inpt_cpf){
+        if(verificar_cpf_ja_existente_paciente == this.cpf){
 
           cpf_ja_cadastrado_paciente = true;
         };
@@ -191,7 +202,7 @@ function Cadastro_Medico() {
       crm_valido = false;
     };
 
-    if(valor_inpt_nome != `` && valor_inpt_cpf != `` && valor_inpt_confirmar_senha != `` && valor_inpt_email != `` && valor_inpt_genero != `` && valor_inpt_crm != `` && valor_inpt_data_de_nascimento != ``){
+    if(this.nome != `` && this.cpf != `` && this.confirmar_senha != `` && this.email != `` && this.genero != `` && this.crm != `` && this.data_de_nascimento != ``){
 
       todos_os_campos_preenchidos = true;
     
@@ -200,7 +211,7 @@ function Cadastro_Medico() {
       todos_os_campos_preenchidos = false;
     };
 
-    if(valor_inpt_senha == valor_inpt_confirmar_senha){
+    if(this.senha == this.confirmar_senha){
 
       senhas_sao_iguais = true;
     
@@ -288,6 +299,7 @@ function Cadastro_Medico() {
     // console.log(`checkbox`, checkbox_selecionado);
     
   };
+};
   
     return (
         
@@ -407,7 +419,7 @@ function Cadastro_Medico() {
     
           <div className="alinhamento_botao_cadastro_medico">
 
-            <button className='botao_cadastrar_medico' onClick={cadastrar}>CADASTRAR</button>
+            <button className='botao_cadastrar_medico' onClick={() => new Cadastrar(valor_inpt_nome, valor_inpt_crm, valor_inpt_cpf, valor_inpt_email, valor_inpt_data_de_nascimento, valor_inpt_genero, valor_inpt_senha, valor_inpt_confirmar_senha)}>CADASTRAR</button>
      
              <div className="error_massege_medico">
 

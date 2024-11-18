@@ -65,17 +65,28 @@ function Cadastro_Paciente() {
     };
   }, [estado_do_olinho_um]);
 
-  function cadastrar(){
+  class Cadastrar{
+
+    constructor(nome_do_paciente, cep_do_paciente, cpf_do_paciente, email_do_paciente, data_de_nascimento_do_paciente, genero_do_paciente, senha_do_paciente, confirmar_senha_do_paciente){
     
+      this.nome = nome_do_paciente,
+      this.cep = cep_do_paciente,
+      this.cpf = cpf_do_paciente,
+      this.email = email_do_paciente,
+      this.data_de_nascimento = data_de_nascimento_do_paciente,
+      this.genero = genero_do_paciente,
+      this.senha = senha_do_paciente,
+      this.confirmar_senha = confirmar_senha_do_paciente
+
     let usuario_a_cadastrar = {
 
-      nome: valor_inpt_nome,
-      cep: valor_inpt_cep,
-      cpf: valor_inpt_cpf,
-      email: valor_inpt_email,
-      data_de_nascimento: valor_inpt_data_de_nascimento,
-      genero: valor_inpt_genero,
-      senha: valor_inpt_senha
+      nome: this.nome,
+      cep: this.cep,
+      cpf: this.cpf,
+      email: this.email,
+      data_de_nascimento: this.data_de_nascimento,
+      genero: this.genero,
+      senha: this.senha
     };
 
     let checkbox_selecionado = false;
@@ -146,7 +157,7 @@ function Cadastro_Paciente() {
       
     };
 
-    if(valor_inpt_nome != `` && valor_inpt_email != `` && valor_inpt_cpf != `` && valor_inpt_data_de_nascimento != `` && valor_inpt_senha != `` && valor_inpt_cep != ``){
+    if(this.nome != `` && this.email != `` && this.cpf != `` && this.data_de_nascimento != `` && this.senha != `` && this.cep != ``){
 
       input_vazio = false;
 
@@ -174,7 +185,7 @@ function Cadastro_Paciente() {
       email_valido = false;
     }
 
-    if(valor_inpt_senha == valor_inpt_confirmar_senha){
+    if(this.senha == this.confirmar_senha){
 
       senhas_sao_iguais = true;
     
@@ -242,6 +253,7 @@ function Cadastro_Paciente() {
     // console.log(`checkbox`, checkbox_selecionado);
     
     console.log(lista_de_pacientes);
+  };
   };
 
   return (
@@ -362,7 +374,7 @@ function Cadastro_Paciente() {
 
         <div className='alinhamento_botao_cadastrar_paciente'>
 
-          <button className='botao_cadastrar_paciente' onClick={cadastrar}>CADASTRAR</button>
+          <button className='botao_cadastrar_paciente' onClick={() => new Cadastrar(valor_inpt_nome, valor_inpt_cep, valor_inpt_cpf, valor_inpt_email, valor_inpt_data_de_nascimento, valor_inpt_genero, valor_inpt_senha, valor_inpt_confirmar_senha)}>CADASTRAR</button>
  
           <div className="error_paciente">
 
