@@ -1,0 +1,50 @@
+import React from 'react'
+import './EspacoControle_Admin.css'
+
+
+function EspacoControle_Admin() {
+    return (
+        <div className='alinhamento-espacoControle'>
+            <div className="titulo-espacoControle">
+                <h2>Bem-vindo</h2>
+                <h3>ao espaço de controle</h3>
+            </div>
+
+            <div className="alinhamento-containers-espacoControle">
+                <div className="container-um-espacoControle">
+                    <div className="style-container-espacoControle">
+                        <div className="alinhamento-conteudo-espacoControle">
+                            <img className='dadosPessoas-img' src="usuario-controle.svg" alt="Dados pessoais de administrador" />
+                            <h3>Dados pessoais</h3>
+                        </div>
+                    </div>
+
+                    <div className="style-container-espacoControle">
+                        <div className="alinhamento-conteudo-espacoControle">
+                            <img className='gerenciarBlog-img' src="blog-controle.svg" alt="Gerenciar blog" />
+                            <h3>Gerenciar blog</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="container-dois-espacoControle">
+                    <div className="style-container-espacoControle">
+                        <div className="alinhamento-conteudo-espacoControle">
+                            <img className='solicitacaoConsulta-img' src="solicitacao-controle.svg" alt="Solicitação de consulta" />
+                            <h3>Solicitações</h3>
+                        </div>
+                    </div>
+
+                    <div className="style-container-espacoControle">
+                        <div className="alinhamento-conteudo-espacoControle">
+                            <img className='medicos-img' src="medico-controle.svg" alt="Medicos cadastrados" />
+                            <h3>Médicos</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default EspacoControle_Admin

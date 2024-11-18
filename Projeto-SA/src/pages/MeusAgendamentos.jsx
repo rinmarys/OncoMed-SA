@@ -12,7 +12,7 @@ function MeusAgendamentos() {
       <HamburguerMenu />
 
 <div className="alinhar-meusagendamentos">
-      <img className='imagem-meusagendamentos' src="Add New.svg" alt="" />
+      <img className='imagem-meusagendamentos' src="Imagem_Para_Tela_de_Agendamento.svg" alt="" />
 
     {/* <Popup_MeusAgendamentos/> */}
 

@@ -1,0 +1,67 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+}
+
+.titulo-espacoControle{
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.titulo-espacoControle h2{
+    font-family: 'Nunito', sans-serif;
+    font-size: 2vw;
+    border: 1px solid red;
+}
+
+.container-um-espacoControle{
+    width: fit-content;
+    display: flex;
+}
+
+.container-dois-espacoControle{
+    width: fit-content;
+    display: flex;
+}
+
+.alinhamento-containers-espacoControle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.style-container-espacoControle{
+    width: 24vw;
+    height: 18vw;
+    margin-left: 5vw;
+    margin-bottom: 3vw;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 1vw;
+}
+
+.alinhamento-conteudo-espacoControle{
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 3.5vw;
+}
+
+.style-container-espacoControle h3{
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-6);
+    font-size: 1.3vw;
+    margin-top: 2vw;
+}

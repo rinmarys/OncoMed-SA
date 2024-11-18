@@ -13,6 +13,7 @@ import Perfil_paciente from "../pages/Perfil_paciente";
 import MarcarConsulta from '../pages/MarcarConsulta'
 import MeusAgendamentos from "../pages/MeusAgendamentos";
 import SobreNos from "../pages/SobreNos";
+import EspacoControle_Admin from '../pages/EspacoControle_Admin.jsx'
 
 const router = createBrowserRouter([
     // Header
@@ -34,15 +35,15 @@ const router = createBrowserRouter([
     {path: "/conteudoBlog", element: <ConteudoBlog />},
     //Blog pacientes
 
-    //Blog admin
+    //Telas Administradores
+    {path: "/espacoDeControleAdmin", element: <EspacoControle_Admin />},
     {path: "/blogInicioAdmin", element: < BlogInicio_Admin />},
     {path: "/criarPostagem", element: <CriarPostagem />},
-    //Blog admin
+    //Telas Administradores
 
     //agendamentos
     {path: "/solicitacaoconsulta", element: <SolicitacaoConsulta/>},
     {path: "/historicoconsultas", element: <HistoricoConsultas />},
-
     //agendamentos
 
 
