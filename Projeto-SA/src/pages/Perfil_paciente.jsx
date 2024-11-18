@@ -1,39 +1,65 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Perfil_paciente.css'
 import Footer from '../components/Footer'
 import HamburgerMenu from '../components/HamburgerMenu'
 
 function Perfil_paciente() {
-  const [nome, setNome] = useState()
-  const [email, setEmail] = useState()
-  const [telefone, setTelefone] = useState()
-  const [senha, setSenha] = useState()
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [telefone, setTelefone] = useState('')
+  const [senha, setSenha] = useState('')
+  const [confirmarSenha, setConfirmarSenha] = useState('')
+  const [genero, setGenero] = useState ('')
+  const [loading, setLoading]= useState(false)
+  const [error, setError]= useState('')
 
-  const[user, setUser]=useState({
-  nome:'',
-  email:'',
-  telefone:'',
-  senha:''
-})
+  useEffect(() => {
+  const savedProfile= JSON.parse(localStorage.getItem('userProfile'));
+  if (savedProfile){
+    setNome(savedProfile.nome || '');
+ 
+    setEmail(savedProfile.email || '');
 
- const [isEditing, setIsEditing]=useState(false)
- const handleCgange=(e) => {
-  const{ame,value}= e.target;
- }
-
-  const editar= (e) => {
-   e.preventDefault();
-     
-   localStorage.setItem('user', JSON.stringify(user))
-   alert('Dados salvos com sucesso!')
-  } 
-  
-  
-  const deletar= () => {
-   if(window.confirm('Tem certeza que deseja deletar sua conta?'))
-   alert('Perfil deletdo com sucesso!')
+    setGenero(savedProfile.genero || '');
   }
+  })
 
+ const handleChange=(setter) => (event) => setter (event.target.value)
+
+  const editar=() => {
+    if (senha !== confirmarSenha){
+      alert ("As duas senhas devem ser iguais!")
+    }
+    
+    setLoading(true)
+    setError('')
+  
+    try{
+      const userProfile = {
+       nome,
+       email,
+       telefone,
+       senha,
+       confirmarSenha,
+      }
+     localStorage.setItem("userProfile", JSON.stringify(userProfile));
+    
+     alert("Dados atualizados!")
+
+      } catch (err) {
+        console.error(error);
+       setError("Falha ao atualizar os dados. tente novamente.");
+  
+       } finally {
+       setLoading(false);
+       
+      }  
+    }
+
+    const deletar= () => {
+     if(window.confirm('Tem certeza que deseja deletar sua conta?'))
+     alert('Perfil deletdo com sucesso!')
+    }
   
   return (
     <div className='user-container'>
@@ -53,22 +79,22 @@ function Perfil_paciente() {
 
           <div className='posicao_container'>
             <label for="">Nome completo</label>
-            <input placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
+            <input placeholder="Digite seu nome" value={nome} onChange={handleChange(setNome)}/>
 
             <label for="">Email</label>
-            <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input type="email" placeholder="Digite seu email" value={email} onChange={handleChange(setEmail)}/>
 
             <label for="">Telefone (com DDD)</label>
-            <input placeholder="Digite seu número de telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} required />
+            <input placeholder="Digite seu número de telefone"  value={telefone} onChange={handleChange(setTelefone)}/>
 
             <label for="">Senha</label>
-            <input type="password" placeholder="Digite a sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} required />
+            <input type="password" placeholder="Digite a sua senha" value={senha} onChange={handleChange(setSenha)}/>
 
             <label for="">Nova senha </label>
-            <input type="password" placeholder="Confirme sua nova senha" />
+            <input type="password" placeholder="Confirme sua nova senha" value={confirmarSenha} onChange={handleChange(setConfirmarSenha)}/>
 
             <label for="">Gênero</label>
-            <select name="" id="">
+            <select id="genero" value={genero} onChange={handleChange(setGenero)}>
               <option>Selecione seu genêro</option>
               <option>Feminino</option>
               <option>Masculino</option>
@@ -89,7 +115,7 @@ function Perfil_paciente() {
 
           <div className='posicao'>
             <div class="container_edit">
-             <button onClick={editar}>Editar</button>
+             <button onClick={editar} disable={loading}>Editar</button>
             </div>
             <div class="container_delete">
              <button onClick={deletar}>Deletar</button>
@@ -100,7 +126,6 @@ function Perfil_paciente() {
       <Footer/>
     </div>
   )
-
 }
 
 
