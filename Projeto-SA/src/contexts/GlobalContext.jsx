@@ -11,6 +11,7 @@ export const GlobalContextProvider = ({ children }) => {
 
     // informações de marcar consulta
     const [selectedDate, setSelectedDate] = useState(null);
+    const [array_consultas_do_dia, set_array_consultas_do_dia] = useState([]);
     const [listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta] = useState([])
     // informações de marcar consulta
 
@@ -25,6 +26,9 @@ export const GlobalContextProvider = ({ children }) => {
             set_lista_de_pacientes,
             usuario_administrador,
             set_usuario_administrador,
+
+            array_consultas_do_dia,
+            set_array_consultas_do_dia,
 
             //Fecha select
             selectedDate,

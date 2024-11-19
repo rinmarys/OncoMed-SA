@@ -15,6 +15,8 @@ import MeusAgendamentos from "../pages/MeusAgendamentos";
 import SobreNos from "../pages/SobreNos";
 import EspacoControle_Admin from '../pages/EspacoControle_Admin.jsx'
 import PoliticaPrivacidade from '../pages/PoliticaPrivacidade'
+import TermosDeUso from '../pages/TermosDeUso'
+import Convenio from "../pages/Convenio";
 
 const router = createBrowserRouter([
     // Header
@@ -47,8 +49,11 @@ const router = createBrowserRouter([
     {path: "/historicoconsultas", element: <HistoricoConsultas />},
     //agendamentos
 
-    //Politicas
+    // Footer
     {path: "/politicaPrivacidade", element: <PoliticaPrivacidade />},
+    {path: "/termosDeUso", element: <TermosDeUso />},
+    {path: "/convenios", element: <Convenio />},
+    // Footer
 
 ])
 

@@ -10,6 +10,7 @@ function MarcarConsulta() {
 
   const navigate = useNavigate()
   const { selectedDate } = useContext(GlobalContext)
+  const {lista_de_pacientes, usuario_logado} =  useContext(GlobalContext);
   const [consultaSelecionada, setConsultaSelecionada] = useState('')
   const [horarioSelecionado, setHorarioSelecionado] = useState('')
   const [observacaoEscrita, setObservacaoEscrita] = useState('')
@@ -50,6 +51,14 @@ function MarcarConsulta() {
     }
     ])
 
+    for(let i = 0; i < lista_de_pacientes.length; i++){
+
+      lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email ? lista_de_pacientes[i].minhas_consulstas = selectedDate : console.error(`Usuário não encontrado`);
+
+      console.log(lista_de_pacientes[i]);
+      
+    };
+    
     setMostrarPopUpConfirmar(true)
     return true
   }
@@ -59,6 +68,8 @@ function MarcarConsulta() {
     setMostrarPopUpCancelar(true)
 
   }
+
+
 
   return (
     <div className='Container-marcarConsulta-alinhamento'>
