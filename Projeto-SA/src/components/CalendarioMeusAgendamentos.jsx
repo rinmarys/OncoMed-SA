@@ -20,6 +20,7 @@ function CalendarioMeusAgendamentos() {
       setEventDetails('nada')
     }
   }
+  
 
   return (
     <div>

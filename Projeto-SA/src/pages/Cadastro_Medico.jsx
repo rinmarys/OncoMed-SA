@@ -93,6 +93,7 @@ function Cadastro_Medico() {
       email: this.email,
       data_de_nascimento: this.data_de_nascimento,
       genero: this.genero,
+      minhas_consultas: ``,
       senha: this.senha
     };
 

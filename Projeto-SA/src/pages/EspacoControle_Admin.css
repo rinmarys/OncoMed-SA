@@ -5,21 +5,30 @@
     --cor-4: #F5F5F5;
     --cor-5: #87AECE;
     --cor-6: #1D2A62;
+
+    --cor-hover: #D9E3EB;
 }
 
 .titulo-espacoControle{
-    border: 1px solid red;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    margin-bottom: 1vw;
 }
 
 .titulo-espacoControle h2{
     font-family: 'Nunito', sans-serif;
     font-size: 2vw;
-    border: 1px solid red;
+    color: var(--cor-6);
+
+}
+
+.titulo-espacoControle h3{
+    color: #5C658D;
+    font-family: 'Nunito', sans-serif;
+    margin-top: -2vw;
 }
 
 .container-um-espacoControle{
@@ -49,6 +58,16 @@
     border-radius: 1vw;
 }
 
+.style-container-espacoControle:hover{
+    background-color: var(--cor-hover);
+    transition: 0.4s;
+}
+
+.style-container-espacoControle:not(:hover){
+    background-color: var(--cor-4);
+    transition: 0.4s;
+}
+
 .alinhamento-conteudo-espacoControle{
     width: fit-content;
     justify-content: center;
@@ -56,7 +75,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-top: 3.5vw;
+    margin-top: 3.5vw;;
 }
 
 .style-container-espacoControle h3{
@@ -64,4 +83,8 @@
     color: var(--cor-6);
     font-size: 1.3vw;
     margin-top: 2vw;
+}
+
+.link{
+    text-decoration: none;
 }

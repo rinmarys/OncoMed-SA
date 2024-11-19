@@ -12,12 +12,22 @@
 .imagem-meusagendamentos{
     display: flex;
     flex-direction: column;
-    width: 600px;
-    margin-left: 200px;
+    width: 500px;
+    margin-left: 100px;
+    position: absolute;
+    margin-top: 8%;
 }
 
 .alinhar-meusagendamentos{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.ventozs{
+    background-color: var(--cor-5);
+  
+    width: 700px;
+    height: 767px;
+margin-top: -100px;
 }

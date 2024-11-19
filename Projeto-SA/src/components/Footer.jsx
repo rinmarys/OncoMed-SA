@@ -56,15 +56,15 @@ function Footer() {
                 </div>
 
                 <ul>
-                  <li><Link className='estilo-texto-link'>Sobre nós</Link></li>
+                  <li><Link to='/sobreNos' className='estilo-texto-link'>Sobre nós</Link></li>
                   <li><Link to='/blog' className='estilo-texto-link'>Blog</Link></li>
-                  <li><Link className='estilo-texto-link'>Agendamentos</Link></li>
-                  <li><Link className='estilo-texto-link'>Convênios</Link></li>
+                  <li><Link to='/meusAgendamentos' className='estilo-texto-link'>Agendamentos</Link></li>
+                  <li><Link to='/convenios' className='estilo-texto-link'>Convênios</Link></li>
                   <li><Link className='estilo-texto-link'>Equipe médica</Link></li>
                 </ul>
 
-                <p><Link to='' className='estilo-texto-azul-link'>Termos de uso</Link></p>
-                <p><Link to='' className='estilo-texto-azul-link'>Politica de privacidade</Link></p>
+                <p><Link to='/termosDeUso' className='estilo-texto-azul-link'>Termos de uso</Link></p>
+                <p><Link to='/politicaPrivacidade' className='estilo-texto-azul-link'>Politica de privacidade</Link></p>
 
               </div>
 
