@@ -55,7 +55,7 @@ function MarcarConsulta() {
 
       if(lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email){
       
-      lista_de_pacientes[i].minhas_consulstas = selectedDate;
+      lista_de_pacientes[i].minhas_consulstas = [...lista_de_pacientes[i].minhas_consulstas, selectedDate];
       set_usuario_logado(lista_de_pacientes[i]);
       
     };
@@ -73,8 +73,6 @@ function MarcarConsulta() {
     setMostrarPopUpCancelar(true)
 
   }
-
-
 
   return (
     <div className='Container-marcarConsulta-alinhamento'>
