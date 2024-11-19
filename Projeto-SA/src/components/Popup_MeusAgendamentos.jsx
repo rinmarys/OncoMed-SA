@@ -1,7 +1,9 @@
 
 import './Popup_MeusAgendamentos.css'
 import CancelarConsulta from '../components/CancelarConsulta';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
+import { useEffect } from 'react';
 
 function Popup_MeusAgendamentos() {
 
@@ -14,6 +16,24 @@ function Popup_MeusAgendamentos() {
     const handleClosePopup = () => {
       setIsOpen(false);
     };
+    
+        const [pop_up_agendamento, set_pop_up_agendamento] = useState(false);
+        const {lista_de_pacientes, array_consultas_do_dia} = useContext(GlobalContext);
+    
+    useEffect(() => {
+
+      
+      for(let i = 0; i < lista_de_pacientes.length; i++){
+  
+       if(lista_de_pacientes[i].minhas_consulstas == Date.now() ){
+        
+        [...array_consultas_do_dia, lista_de_pacientes[i]];
+
+      };
+    };
+    }, [array_consultas_do_dia]);
+    
+
   return (
     <div className="lifehak">
     <div className='tudo-popup-meusagendamentos'>
@@ -34,6 +54,8 @@ function Popup_MeusAgendamentos() {
           <button onClick={handleOpenPopup} className='cancelar-meusagendamentos-popup'>CANCELAR</button>
         </div>
       </div>
+
+      {}
 
       <div className="cada-agendamento-meusagendamentos">
         <div className="todas-infos-meusagendamentos">

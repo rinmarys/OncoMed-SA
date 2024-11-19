@@ -86,6 +86,7 @@ function Cadastro_Paciente() {
       email: this.email,
       data_de_nascimento: this.data_de_nascimento,
       genero: this.genero,
+      minhas_consulstas: ``,
       senha: this.senha
     };
 
