@@ -22,7 +22,7 @@ function Perfil_paciente() {
 
     setGenero(savedProfile.genero || '');
   }
-  })
+  }, []);
 
  const handleChange=(setter) => (event) => setter (event.target.value)
 
@@ -58,10 +58,14 @@ function Perfil_paciente() {
 
     const deletar= () => {
      if(window.confirm('Tem certeza que deseja deletar sua conta?'))
-     alert('Perfil deletdo com sucesso!')
+
+     localStorage.removeItem("userProfile")
+     alert ("Conta deletada!")
+     history.push("/home")
     }
   
-  return (
+
+   return (
     <div className='user-container'>
       <div className="alinhamento-tituloHamburger">
         <div className='nav_container'>

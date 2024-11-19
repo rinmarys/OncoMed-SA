@@ -107,11 +107,11 @@
 
 }
 
-/* posicao do user */
+/* posicao do botao */
 .posicao button{
  float: left;
  margin-top: 5%;
- margin-left: 10%;
+ margin-left: 7%;
 }
 
 /* Estilização do button edit */
@@ -124,8 +124,8 @@
     background-color: var(--cor_azul_meio_termo);
     color: var(--cor_quase_branco);
 
-    width: 158px;
-    height: 43px;
+    width: 248px;
+    height: 44px;
 }
 
 .container_edit button:hover {
@@ -144,8 +144,8 @@
     background-color: var(--cor_verde_claro);
     color: var(--cor_quase_branco);
 
-    width: 158px;
-    height: 43px;
+    width: 153px;
+    height: 44px;
 }
 
 .container_delete button:hover {
@@ -156,8 +156,8 @@
 /* Caixinha de texto/biografia */
 .container_text textarea {
     margin-top: -8%;
-    width: 540px;
-    height: 260px;
+    width: 568px;
+    height: 268px;
     background: var(--cor_branco_gelo);
     border: 1px solid var(--cor_azul_escuro);
     outline: none;
