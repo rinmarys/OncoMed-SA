@@ -1,5 +1,6 @@
 import React from 'react'
 import './EspacoControle_Admin.css'
+import { Link } from 'react-router-dom'
 
 
 function EspacoControle_Admin() {
@@ -27,13 +28,17 @@ function EspacoControle_Admin() {
                     </div>
                 </div>
 
+
                 <div className="container-dois-espacoControle">
                     <div className="style-container-espacoControle">
-                        <div className="alinhamento-conteudo-espacoControle">
-                            <img className='solicitacaoConsulta-img' src="solicitacao-controle.svg" alt="Solicitação de consulta" />
-                            <h3>Solicitações</h3>
-                        </div>
+                        <Link to='/solicitacaoconsulta' className='link'>
+                            <div className="alinhamento-conteudo-espacoControle">
+                                <img className='solicitacaoConsulta-img' src="solicitacao-controle.svg" alt="Solicitação de consulta" />
+                                <h3>Solicitações</h3>
+                            </div>
+                        </Link>
                     </div>
+
 
                     <div className="style-container-espacoControle">
                         <div className="alinhamento-conteudo-espacoControle">
@@ -43,7 +48,7 @@ function EspacoControle_Admin() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

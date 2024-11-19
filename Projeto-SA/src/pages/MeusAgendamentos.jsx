@@ -11,7 +11,7 @@ import './MeusAgendamentos.css'
 function MeusAgendamentos() {
 
   const { lista_de_pacientes, array_consultas_do_dia, set_array_consultas_do_dia, usuario_logado } = useContext(GlobalContext);
-  const { selectedDate, setSelectedDate } = useContext(GlobalContext);
+  const { selectedDate} = useContext(GlobalContext);
 
   useEffect(() => {
 
@@ -30,19 +30,31 @@ function MeusAgendamentos() {
 
   console.log(`Cadastro do dia atual:`, array_consultas_do_dia);
 
-
   return (
     <div className='tudo-MeusAgendamentos'>
 
       <HamburguerMenu />
 
       <div className="alinhar-meusagendamentos">
-        <img className='imagem-meusagendamentos' src="Imagem_Para_Tela_de_Agendamento.svg" alt="" />
+        {<img className='imagem-meusagendamentos' src="agendarkk.svg" alt="" />}
 
+        <div className='ventozs'></div>
         {/* <Popup_MeusAgendamentos/> */}
 
         <div className="calendario">
           <CalendarioMeusAgendamentos />
+        </div>
+
+
+        <div className="alinhar-meusagendamentos">
+          <img className='imagem-meusagendamentos' src="Imagem_Para_Tela_de_Agendamento.svg" alt="" />
+
+          {/* <Popup_MeusAgendamentos/> */}
+
+          <div className="calendario">
+            <CalendarioMeusAgendamentos />
+          </div>
+
         </div>
       </div>
     </div>
