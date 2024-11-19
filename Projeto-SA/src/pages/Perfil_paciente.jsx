@@ -123,7 +123,6 @@ function Perfil_paciente() {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   )
 }

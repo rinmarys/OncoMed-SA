@@ -64,7 +64,7 @@ function Footer() {
                 </ul>
 
                 <p><Link to='' className='estilo-texto-azul-link'>Termos de uso</Link></p>
-                <p><Link to='' className='estilo-texto-azul-link'>Politica de privacidade</Link></p>
+                <p><Link to='/politicaPrivacidade' className='estilo-texto-azul-link'>Politica de privacidade</Link></p>
 
               </div>
 
