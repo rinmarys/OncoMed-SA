@@ -10,7 +10,7 @@ function MarcarConsulta() {
 
   const navigate = useNavigate()
   const { selectedDate } = useContext(GlobalContext)
-  const {lista_de_pacientes, usuario_logado} =  useContext(GlobalContext);
+  const {lista_de_pacientes, usuario_logado, set_usuario_logado} =  useContext(GlobalContext);
   const [consultaSelecionada, setConsultaSelecionada] = useState('')
   const [horarioSelecionado, setHorarioSelecionado] = useState('')
   const [observacaoEscrita, setObservacaoEscrita] = useState('')
@@ -53,11 +53,16 @@ function MarcarConsulta() {
 
     for(let i = 0; i < lista_de_pacientes.length; i++){
 
-      lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email ? lista_de_pacientes[i].minhas_consulstas = selectedDate : console.error(`Usuário não encontrado`);
-
-      console.log(lista_de_pacientes[i]);
+      if(lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email){
+      
+      lista_de_pacientes[i].minhas_consulstas = selectedDate;
+      set_usuario_logado(lista_de_pacientes[i]);
       
     };
+
+    };
+    console.log(`Lista de pacientes`, lista_de_pacientes);
+    console.log(`Usuario logado`, usuario_logado);
     
     setMostrarPopUpConfirmar(true)
     return true
