@@ -1,4 +1,4 @@
-import HamburgerMenu from '../components/HamburgerMenu'
+import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
 import { useState } from 'react';
 import './CriarPostagem.css'
 
@@ -38,7 +38,7 @@ function CriarPostagem() {
                     <h1>CRIAR NOVA POSTAGEM</h1>
                     <div className='line-criarPostagem'></div>
                 </div>
-                    <HamburgerMenu />
+                    <HamburgerMenuAdmin/>
             </div>
 
             <div className="alinhamento-pagina">

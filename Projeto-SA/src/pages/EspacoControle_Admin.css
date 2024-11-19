@@ -79,9 +79,10 @@
 }
 
 .style-container-espacoControle h3{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
     color: var(--cor-6);
-    font-size: 1.3vw;
+    font-size: 1.4vw;
     margin-top: 2vw;
 }
 

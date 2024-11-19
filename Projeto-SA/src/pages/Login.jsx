@@ -126,7 +126,7 @@ function Login() {
     
           set_usuario_logado(usuario_a_logar);
     
-          navegacao_de_pagina('/');
+          navegacao_de_pagina('/espacoDeControleAdmin');
     
           return;
     

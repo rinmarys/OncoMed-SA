@@ -45,8 +45,8 @@ const router = createBrowserRouter([
     //Telas Administradores
 
     //agendamentos
-    {path: "/solicitacaoconsulta", element: <SolicitacaoConsulta/>},
-    {path: "/historicoconsultas", element: <HistoricoConsultas />},
+    {path: "/solicitacaoConsulta", element: <SolicitacaoConsulta/>},
+    {path: "/historicoConsultas", element: <HistoricoConsultas />},
     //agendamentos
 
     // Footer

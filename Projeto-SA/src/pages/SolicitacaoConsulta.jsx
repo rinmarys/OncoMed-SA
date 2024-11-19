@@ -1,7 +1,7 @@
 import './SolicitacaoConsulta.css'
 import React, { useState } from 'react';
 import CancelarConsulta from '../components/CancelarConsulta';
-import HamburgerMenu from '../components/HamburgerMenu';
+import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
 
 function SolicitacaoConsulta() {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ function SolicitacaoConsulta() {
         <div className='tudo-solicitacao'>
 
             <div className="hamburguer-menu-div-solicitacao">
-            <HamburgerMenu/>
+            <HamburgerMenuAdmin />
             </div>
         
 

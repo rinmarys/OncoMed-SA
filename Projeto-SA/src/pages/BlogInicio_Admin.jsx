@@ -8,8 +8,7 @@ import './BlogInicio_Admin.css'
 function BlogInicio_Admin() {
     return (
         <div>
-            <Header />
-
+            
             <div className="blog-alinhamento">
 
                 {/* Titulo */}
