@@ -222,11 +222,11 @@
     justify-items: center;
 }
 
-.buttons-container button{
+.salvar-rascunho-button{
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
-    font-weight: 900;
-    height: 40px;
+    font-weight: 800;
+    height: 45px;
     width: 205px;
     border: 1px solid var(--cor-6);
     border-radius: 9px;
@@ -234,9 +234,63 @@
     color: var(--cor-6);
 }
 
-.buttons-container button:hover{
+.salvar-rascunho-button:hover{
     transition: 0.5s;
+    background-color: #303c70;
+    color: var(--cor-4);
+    cursor: pointer;
+}
+
+.salvar-rascunho-button:not(:hover){
+    transition: 0.5s;
+    background-color: var(--cor-4s);
+    color: var(--cor-6);
+}
+
+.publicar-button{
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    height: 45px;
+    width: 205px;
+    border-radius: 9px;
+    background-color: var(--cor-2);
+    color: var(--cor-4);
+    border: none;
+}
+
+.publicar-button:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: #335513;
+}
+
+.publicar-button:not(:hover){
+    background-color: var(--cor-2);
+    transition: 0.5s;
+}
+
+.cancelar-button{
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    height: 45px;
+    width: 205px;
+    border-radius: 9px;
     background-color: var(--cor-6);
     color: var(--cor-4);
+    border: none;
+}
+
+.cancelar-button:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: #303c70;
+}
+
+.cancelar-button:not(:hover){
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: var(--cor-6);
 }
 /* BOTÕES */

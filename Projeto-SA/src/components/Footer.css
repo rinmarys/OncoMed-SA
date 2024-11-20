@@ -35,7 +35,7 @@
     transition: 0.5s;
 }
 
-.line-footer :not(:hover){
+.line-footer:not(:hover){
     width: 3.4375vw;
     transition: 0.5s;
 }
@@ -58,6 +58,11 @@
     transition: 0.5s;
 }
 
+.container-dois-alinhamento li :not(:hover){
+    color: var(--cor_tres);
+    transition: 0.5s
+}
+
 .estilo-texto-azul-link{
     color: var(--cor_quatro);
     font-family: 'Poppins', sans-serif;
@@ -66,6 +71,12 @@
 }
 
 .estilo-texto-azul-link:hover{
+    color: var(--cor_seis);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.estilo-texto-azul-link:not(:hover){
     color: var(--cor_quatro);
     cursor: pointer;
     transition: 0.5s;
@@ -136,8 +147,9 @@
 
 .gmail_icon img{
 
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2.9vw;
+    height: 3vw;
+    margin-bottom: -5px;
 }
 
 .whatsapp_icon{
@@ -227,7 +239,7 @@
     width: 20vw;
     height: 60vh;
 
-    margin-left: 13%;
+    margin-left: 8vw;
     margin-top: 3%;
 }
 
@@ -316,7 +328,7 @@
 .container-tres-alinhamento{
     width: fit-content;
     height: fit-content;
-    margin-left: 6%;
+    margin-left: 5vw;
 
     margin-top: 3%;
 }
