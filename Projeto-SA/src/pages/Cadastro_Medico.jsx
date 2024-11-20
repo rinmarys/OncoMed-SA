@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Medico() {
-
+ 
   const {lista_de_pacientes} = useContext(GlobalContext);
   const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
   const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' });
@@ -35,6 +35,7 @@ function Cadastro_Medico() {
   let checkbox_selecionado = false;
 
   // Função para buscar todos os medicos
+
   const fetchClientes = async () => {
       try {
           const response = await axios.get('http://localhost:3000/medicos');
@@ -148,6 +149,7 @@ function Cadastro_Medico() {
     } else {
 
       senhas_sao_iguais = false;
+      console.log(senhas_sao_iguais);
     };
 
       if(email_ja_cadastrado == false && cpf_ja_cadastrado == false && senhas_sao_iguais == true && checkbox_selecionado == true && crm_ja_cadastrado == false){
