@@ -192,7 +192,7 @@
     margin-top: 6px;
     border: none;
     /* border: 1px solid var(--cor-5); */
-    background-color: rgb(255, 255, 255);
+    background-color: var(--cor-4);
     /* appearance: none; */
     font-size: small;
     font-weight: bold;
