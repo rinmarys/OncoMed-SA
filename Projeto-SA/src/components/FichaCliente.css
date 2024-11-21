@@ -1,6 +1,3 @@
-
-
-
 :root {
     --cor-1: #F1F1F1;
     --cor-2: #437118;
@@ -10,16 +7,17 @@
     --cor-6: #1D2A62;
     --cor-7: #D9E3EB;
 }
+
 .consulta-solicitada-ficha {
     background-color: #eeeeee;
     /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3); */
-    padding: 2%;
-    width: 960px;
+    padding: 3vw;
+    width: 70vw;
     /* depois mudar para fit-content, quando finalizar */
-    border-radius: 15px;
+    border-radius: 2vw;
     border: 2px solid var(--cor-6);
-    margin-left: 11%;
-    margin-bottom: 55px;
+    margin-left: 12%;
+    margin-bottom: 8vw;
 }
 
 body {
@@ -33,23 +31,16 @@ body {
     flex-direction: column;
     width: 830px;
     color: #1D2A62;
+    font-size: 1.8vw;
     justify-content: space-between;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-left: 7%;
+
 }
 
 .nome-pessoa-solicitacao-ficha {
-
+    margin-bottom: 0.5vw;
     color: var(--cor-6);
     font-family: 'Nunito', sans-serif;
-    margin-top: 0px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-left: 7%;
-    margin-top: 10px ;
+    margin-top: 10px;
 }
 
 /* .nome-tipo-solicitacao{
@@ -63,21 +54,15 @@ body {
 } */
 
 .data-horario-solicitacao-ficha {
-    color: var(--cor-6);
-    font-size: medium;
     font-family: 'Nunito', sans-serif;
     margin-top: -15px;
-    color:#48537F;
-    margin-left: -10px;
-    border: 1px #1D2A62;
 }
 
 .horario-consulta-solicitacao-ficha {
-
     width: fit-content;
-    margin-top: -15px;
-    margin-left: 68px;
-    font-size: larger;
+    margin-top: -25px;
+    margin-left: 7.3vw;
+    font-size: 2vw;
 }
 
 .alinhamento-solicitacao-nome-horario-tipo-data-ficha {
@@ -90,30 +75,33 @@ body {
 }
 
 .botoes-solicitacao-ficha {
+    margin-top: 7%;
     display: flex;
-    width: 126vh;
-    height: 50px;
     justify-content: flex-end;
-
 }
 
 .botao-ok-ficha {
-    font-size: larger;
-    color: var(--cor-6);
+    font-size: 1.4vw;
+    background-color: var(--cor-2);
+    color: var(--cor-4);
     border-radius: 10px;
     padding: 5px;
     padding-right: 15px;
     padding-left: 15px;
     font-weight: 700;
     width: 100px;
-    border: 2px solid var(--cor-6);
-    margin-right: 20px;
+    height: 50px;
+    border: none;
 }
 
 .botao-ok-ficha:hover {
-    background-color: var(--cor-6);
-    color: var(--cor-1);
-    transition: 0.18s;
+    background-color: #335513;
+    transition: 0.4s;
+}
+
+.botao-ok-ficha:not(:hover){
+    background-color: var(--cor-2);
+    transition: 0.4s;
 }
 
 /* .botao-cancela-ficha {
@@ -135,21 +123,9 @@ body {
     transition: 0.2s;
 } */
 
-
-.designar-botoes-solicitacao-ficha {
-
-    display: flex;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    width: 980px;
-    margin-top: 7%;
-}
 /* (em cima) ver dps, tirar isso aqui e ajeitar a distancia dos botoes) */
 
 .tipo-consulta-solicitacao-ficha {
-    margin-left: 10px;
     margin-top: -10px;
     color: var(--cor-2);
 }
@@ -158,18 +134,16 @@ body {
     font-family: 'Nunito', sans-serif;
     color: var(--cor-6);
     font-size: x-larger;
-    margin-top: -5px;
-    margin-top: 5%;
+    margin-top: 1vw;
 }
 
 .observacao-solicitacao-cliente-ficha {
     font-family: 'Nunito', sans-serif;
     color: var(--cor-2);
-    margin-left: 7px;
-    font-weight: 200;
+    font-weight: 600;
     font-size: larger;
- 
 }
+
 /* FichaCliente.css */
 .fichacliente {
     position: fixed;
@@ -179,10 +153,10 @@ body {
     border-radius: 8px;
     z-index: 1000;
     padding: 20px;
-  }
-  
-  /* Estilo da sobreposição (opcional) */
-  .popup-overlay {
+}
+
+/* Estilo da sobreposição (opcional) */
+.popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -190,4 +164,4 @@ body {
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
-  }
+}

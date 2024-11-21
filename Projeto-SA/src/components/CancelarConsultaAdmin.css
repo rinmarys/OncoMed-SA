@@ -1,0 +1,140 @@
+:root {
+
+    --cor_1: #437118;
+    --cor_2: #AFD06E;
+    --cor_3: #F5F5F5;
+    --cor_4: #9fbacf;
+    --cor_5: #1D2A62;
+    --cor_6: #F1F1F1;
+    --cor_7: #335513;
+    --cor_8: #87AECE;
+    --cor_9: #819b4f;
+    --cor_10: #303c70;
+
+    --cor_18: #7ab60c;
+    --cor_19: #5b8808;
+
+
+    --tipografia_nunito: 'Nunito', sans-serif;
+    --tipografia_poppins: 'Poppins', sans-serif;
+}
+
+.alinhamentoTudo-cancelarConsultaAdmin{
+    width: fit-content;
+    position: fixed;
+    top: 4.5vw;
+    left: 15.6vw;
+}
+
+.container-cancelarConsulta-admin {
+    background-color: var(--cor_3);
+    border: 2px solid var(--cor_5);
+    border-radius: 1.5vw;
+    padding: 3vw;
+
+    top: 5vw;
+    left: 9vw;
+
+    width: 60vw;
+    height: auto;
+}
+
+.titulo-cancelarConsultaAdmin h1 {
+    font-size: 2.6vw;
+}
+
+.alinhamento-inputs-cancenlarConsultaAdmin {
+    display: flex;
+    width: 55vw;
+}
+
+.alinhamento-img-cancelarConsultaAdmin img {
+    width: 23VW;
+    height: auto;
+}
+
+.inputs-cancelarConsultaAdmin h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5vw;
+    color: var(--cor_1);
+    margin-top: 0;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.6vw;
+}
+
+.inputs label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.3vw;
+    color: var(--cor_1);
+    font-weight: 600;
+}
+
+.inputs input {
+    border: 1.5px solid var(--cor_10);
+    width: 18vw;
+    height: 2.5vw;
+    font-size: 1.2vw;
+    border-radius: 1vh;
+    background-color: var(--cor_6);
+    color: var(--cor_10);
+}
+
+.inputs input:focus {
+    border: 1.9px solid var(--cor_8);
+    color: var(--cor_10);
+}
+
+.alinhamento-buttons {
+    width: 25vw;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6VW;
+}
+
+.style-button-CancelarConsultaAdmin {
+    border: none;
+    background-color: var(--cor_5);
+    color: var(--cor_3);
+    font-size: 1.2vw;
+    border-radius: 0.6VW;
+    padding: 1.5vh;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    width: 15vw;
+}
+
+.style-button-CancelarConsultaAdmin:hover {
+    background-color: var(--cor_10);
+    transition: 0.4s;
+}
+
+.style-button-CancelarConsultaAdmin:not(:hover) {
+    background-color: var(--cor_5);
+    transition: 0.4s;
+}
+
+.style-button-SairConsultaAdmin {
+    border: none;
+    background-color: var(--cor_1);
+    color: var(--cor_3);
+    font-size: 1.2vw;
+    border-radius: 0.6VW;
+    padding: 1.5vh;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    width: 8vw;
+}
+
+.style-button-SairConsultaAdmin:hover {
+    background-color: var(--cor_7);
+    transition: 0.4s;
+}
+
+.style-button-SairConsultaAdmin:not(:hover) {
+    background-color: var(--cor_1);
+    transition: 0.4s;
+}

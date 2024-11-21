@@ -2,16 +2,13 @@ import React from 'react'
 import { GlobalContext } from '../contexts/GlobalContext'
 import { useContext } from 'react'
 import { useEffect } from 'react'
-import Scheduler from '../components/Scheduler'
 import HamburguerMenu from '../components/HamburgerMenu'
-import Popup_MeusAgendamentos from '../components/Popup_MeusAgendamentos'
 import CalendarioMeusAgendamentos from '../components/CalendarioMeusAgendamentos'
-import CancelarConsulta from '../components/CancelarConsulta';
 import './MeusAgendamentos.css'
 function MeusAgendamentos() {
 
   const { lista_de_pacientes, array_consultas_do_dia, set_array_consultas_do_dia, usuario_logado } = useContext(GlobalContext);
-  const { selectedDate} = useContext(GlobalContext);
+  const { selectedDate } = useContext(GlobalContext);
 
   useEffect(() => {
 
@@ -33,28 +30,20 @@ function MeusAgendamentos() {
   return (
     <div className='tudo-MeusAgendamentos'>
 
-      <HamburguerMenu />
+      <div className="alinhamento-hamburger">
+        <HamburguerMenu />
+      </div>
 
-      <div className="alinhar-meusagendamentos">
-        {<img className='imagem-meusagendamentos' src="agendarkk.svg" alt="" />}
-
-        <div className='ventozs'></div>
-        {/* <Popup_MeusAgendamentos/> */}
-
-        <div className="calendario">
-          <CalendarioMeusAgendamentos />
+      <div className="container-conteudo-meusAgendamentos">
+        <div className="alinhamento-texto-mascote-meusAgendamentos">
+          <h1>Confira suas próximas consultas e mantenha o cuidado em dia!</h1>
+          <img src="JadeMascoteFeliz.png" alt="Jade o mascote felizz" />
         </div>
 
-
         <div className="alinhar-meusagendamentos">
-          <img className='imagem-meusagendamentos' src="Imagem_Para_Tela_de_Agendamento.svg" alt="" />
-
-          {/* <Popup_MeusAgendamentos/> */}
-
           <div className="calendario">
             <CalendarioMeusAgendamentos />
           </div>
-
         </div>
       </div>
     </div>

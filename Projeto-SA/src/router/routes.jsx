@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     {path: "/marcarConsulta", element: <MarcarConsulta />},
     {path: "/perfil_paciente", element: <Perfil_paciente />},
     {path: "/meusAgendamentos", element: <MeusAgendamentos />},
-    {path: "/sobreNos", element: <SobreNos />},
+    {path: "/historicoConsultas", element: <HistoricoConsultas />},
     // Header
 
     //Cadastro
@@ -42,17 +42,14 @@ const router = createBrowserRouter([
     {path: "/espacoDeControleAdmin", element: <EspacoControle_Admin />},
     {path: "/blogInicioAdmin", element: < BlogInicio_Admin />},
     {path: "/criarPostagem", element: <CriarPostagem />},
-    //Telas Administradores
-
-    //agendamentos
     {path: "/solicitacaoConsulta", element: <SolicitacaoConsulta/>},
-    {path: "/historicoConsultas", element: <HistoricoConsultas />},
-    //agendamentos
+    //Telas Administradores
 
     // Footer
     {path: "/politicaPrivacidade", element: <PoliticaPrivacidade />},
     {path: "/termosDeUso", element: <TermosDeUso />},
     {path: "/convenios", element: <Convenio />},
+    {path: "/sobreNos", element: <SobreNos />},
     // Footer
 
 ])

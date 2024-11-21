@@ -11,7 +11,7 @@ function CancelarConsulta({ onClose }) {
         <div className="inputs-cancelar-div">
           <div className="input-cancelar-consulta">
             <label htmlFor="">Confirme seu CPF</label>
-            <input placeholder='*** *** ***-**' type="text" />
+            <input placeholder='000.000.000-00' type="text" />
           </div>
 
           <div className="input-cancelar-consulta">

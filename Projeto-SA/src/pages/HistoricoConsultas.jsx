@@ -131,7 +131,7 @@ function HistoricoConsultas() {
 
   return (
     <div className='tudo'>
-      <div className="hamburguer-menu-div-historico">
+      <div className="alinhamento-hamburger">
       <HamburgerMenu/>
       </div>
       
