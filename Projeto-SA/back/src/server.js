@@ -7,7 +7,7 @@ const pool = new Pool({
     user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
     host: 'localhost',
     database: 'template', // Nome da sua database
-    password: 'postgres', // Substitua pela sua senha
+    password: 'senai', // Substitua pela sua senha
     port: 5432, // Porta padrão do PostgreSQL
 });
 
@@ -43,11 +43,11 @@ app.get('/pacientes/:id', async (req, res) => {
 
 // Rota para adicionar um paciente
 app.post('/pacientes', async (req, res) => {
-    const {  nome, cpf, cep, email,genero, data_de_nascimento, senha } = req.body;
+    const {  nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO pacientes (nome, cpf, cep, email,genero, data_de_nascimento, senha) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha]
+            'INSERT INTO pacientes (nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+            [nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -59,11 +59,11 @@ app.post('/pacientes', async (req, res) => {
 // Rota para atualizar um pacientes
 app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, cep, email,genero, data_de_nascimento, senha } = req.body;
+    const { nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7 WHERE id = $5 RETURNING *',
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha, id]
+            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, minhas_consultas = $8 WHERE id = $5 RETURNING *',
+            [nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Paciente não encontrado' });
