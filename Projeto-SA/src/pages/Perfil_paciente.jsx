@@ -20,6 +20,8 @@ function Perfil_paciente() {
  
     setEmail(savedProfile.email || '');
 
+    setTelefone(savedProfile.telefone || '');
+
     setGenero(savedProfile.genero || '');
   }
   }, []);
@@ -29,6 +31,7 @@ function Perfil_paciente() {
   const editar=() => {
     if (senha !== confirmarSenha){
       alert ("As duas senhas devem ser iguais!")
+      return;
     }
     
     setLoading(true)
@@ -43,7 +46,7 @@ function Perfil_paciente() {
        confirmarSenha,
       }
      localStorage.setItem("userProfile", JSON.stringify(userProfile));
-    
+  
      alert("Dados atualizados!")
 
       } catch (err) {
@@ -127,6 +130,7 @@ function Perfil_paciente() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }
