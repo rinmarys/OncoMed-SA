@@ -120,6 +120,17 @@ function Home() {
     
   }
 
+  let aparecer_pop_up_de_bemvindo = true;
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      
+      aparecer_pop_up_de_bemvindo = false
+
+    }, 5000);
+  }, []);
+
   return (
 
     <div>
