@@ -25,8 +25,7 @@ function BlogInicio_Admin() {
     }
     return (
         <div>
-            <Header />
-
+            
             <div className="blog-alinhamento">
 
                 {/* Titulo */}

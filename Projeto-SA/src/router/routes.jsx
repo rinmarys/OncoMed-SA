@@ -15,6 +15,8 @@ import MeusAgendamentos from "../pages/MeusAgendamentos";
 import SobreNos from "../pages/SobreNos";
 import EspacoControle_Admin from '../pages/EspacoControle_Admin.jsx'
 import PoliticaPrivacidade from '../pages/PoliticaPrivacidade'
+import TermosDeUso from '../pages/TermosDeUso'
+import Convenio from "../pages/Convenio";
 
 const router = createBrowserRouter([
     // Header
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
     {path: "/marcarConsulta", element: <MarcarConsulta />},
     {path: "/perfil_paciente", element: <Perfil_paciente />},
     {path: "/meusAgendamentos", element: <MeusAgendamentos />},
-    {path: "/sobreNos", element: <SobreNos />},
+    {path: "/historicoConsultas", element: <HistoricoConsultas />},
     // Header
 
     //Cadastro
@@ -40,15 +42,15 @@ const router = createBrowserRouter([
     {path: "/espacoDeControleAdmin", element: <EspacoControle_Admin />},
     {path: "/blogInicioAdmin", element: < BlogInicio_Admin />},
     {path: "/criarPostagem", element: <CriarPostagem />},
+    {path: "/solicitacaoConsulta", element: <SolicitacaoConsulta/>},
     //Telas Administradores
 
-    //agendamentos
-    {path: "/solicitacaoconsulta", element: <SolicitacaoConsulta/>},
-    {path: "/historicoconsultas", element: <HistoricoConsultas />},
-    //agendamentos
-
-    //Politicas
+    // Footer
     {path: "/politicaPrivacidade", element: <PoliticaPrivacidade />},
+    {path: "/termosDeUso", element: <TermosDeUso />},
+    {path: "/convenios", element: <Convenio />},
+    {path: "/sobreNos", element: <SobreNos />},
+    // Footer
 
 ])
 

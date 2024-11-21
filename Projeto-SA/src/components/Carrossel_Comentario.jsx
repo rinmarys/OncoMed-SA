@@ -3,8 +3,8 @@ import { useState } from 'react';
 function Carrossel_Comentario() {
 
     let array_de_comentarios = [`"O aplicativo mudou minha vida. Agora eu me sinto mais no controle." 
-    — Maria, 42 anos`, `b`, `c`];
-    
+    — Maria, 42 anos`, `"Agendar minhas consultas nunca foi tão simples. Faço tudo pelo celular em minutos." — Pedro, 29 anos`, `"OncoMed me dá confiança para gerenciar minhas consultas de forma segura e organizada." — Roberto, 40 anos`];
+
     const [posicao, set_posicao] = useState(0);
 
   return (

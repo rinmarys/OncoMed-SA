@@ -214,7 +214,7 @@ function Home() {
         </div>
         <div className="container_artigos_alinhamento">
 
-          <Link to={`/blog`} className='pop_up_artigo_um'>
+          <Link to={`/conteudoBlog`} className='pop_up_artigo_um'>
           
             <Aritgo_Um_Home/>
           

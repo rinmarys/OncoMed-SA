@@ -8,16 +8,32 @@
     --cor-7: #D9E3EB;
 }
 
-
-.imagem-meusagendamentos{
+.container-conteudo-meusAgendamentos {
     display: flex;
-    flex-direction: column;
-    width: 600px;
-    margin-left: 200px;
 }
 
-.alinhar-meusagendamentos{
+.alinhar-meusagendamentos {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.alinhamento-texto-mascote-meusAgendamentos {
+    width: fit-content;
+}
+
+.alinhamento-texto-mascote-meusAgendamentos h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    position: absolute;
+    margin-left: 12vw;
+    font-size: 2vw;
+    width: 30vw;
+}
+
+.alinhamento-texto-mascote-meusAgendamentos img {
+    width: 42vw;
+    height: fit-content;
+    margin-left: 4vw;
+    margin-top: -4vw;
 }

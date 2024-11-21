@@ -7,10 +7,11 @@ export const GlobalContextProvider = ({ children }) => {
     const [usuario_logado, set_usuario_logado] = useState([]);
     const [lista_de_pacientes, set_lista_de_pacientes] = useState([]);
     const [lista_de_medicos, set_lista_de_medicos] = useState([]);
-    const [usuario_administrador, set_usuario_administrador] = useState([{ nome: `Administrador`, email: `administrador@gmail.com`, senha: `654321` }]);
+    const [usuario_administrador, set_usuario_administrador] = useState([{ nome: `Administrador`, email: `administrador@gmail.com`, senha: `123` }]);
 
     // informações de marcar consulta
     const [selectedDate, setSelectedDate] = useState(null);
+    const [array_consultas_do_dia, set_array_consultas_do_dia] = useState([]);
     const [listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta] = useState([])
     // informações de marcar consulta
 
@@ -25,6 +26,9 @@ export const GlobalContextProvider = ({ children }) => {
             set_lista_de_pacientes,
             usuario_administrador,
             set_usuario_administrador,
+
+            array_consultas_do_dia,
+            set_array_consultas_do_dia,
 
             //Fecha select
             selectedDate,

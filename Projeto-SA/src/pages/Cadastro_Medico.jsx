@@ -1,443 +1,396 @@
 import { useState } from 'react';
 import { useContext } from 'react';
+import axios from 'axios';
 import './Cadastro_Medico.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Medico() {
+ 
+  const {lista_de_pacientes} = useContext(GlobalContext);
+  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
+  const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' });
+  const [confirmar_senha, set_confirmar_senha] = useState(``);
+  const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
 
-    const [valor_inpt_nome, set_valor_inpt_nome] = useState(``);
-    const [valor_inpt_crm, set_valor_inpt_crm] = useState(``);
-    const [valor_inpt_cpf, set_valor_inpt_cpf] = useState(``);
-    const [valor_inpt_genero, set_valor_inpt_genero] = useState(``);
-    const [valor_inpt_email, set_valor_inpt_email] = useState(``);
-    const [valor_inpt_data_de_nascimento, set_valor_inpt_data_de_nascimento] = useState(``);
-    const [valor_inpt_senha, set_valor_inpt_senha] = useState(``);
-    const [valor_inpt_confirmar_senha, set_valor_inpt_confirmar_senha] = useState(``);
-  
-    const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
-    const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
-    const [recuperar_lista_de_medicos, set_recuperar_lista_de_medicos] = useState([...lista_de_medicos]);
+  const [valor_checkbox, set_valor_checkbox] = useState(``);
 
-    const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
-    const [valor_checkbox, set_valor_checkbox] = useState(``);
+  const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
+  const [estado_do_olinho, set_estado_do_olinho] = useState(false);
+  const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
 
-    const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
-    const [estado_do_olinho, set_estado_do_olinho] = useState(false);
-    const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
+  const [imagem_olinho_um, set_imagem_olinho_um] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
+  const [estado_do_olinho_um, set_estado_do_olinho_um] = useState(false);
+  const [valor_do_olinho_um, set_valor_do_olinho_um] = useState(`password`);
 
-    const [imagem_olinho_um, set_imagem_olinho_um] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
-    const [estado_do_olinho_um, set_estado_do_olinho_um] = useState(false);
-    const [valor_do_olinho_um, set_valor_do_olinho_um] = useState(`password`);
+  const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
 
-    const [ano_atual, set_ano_atual] = useState(new Date().getFullYear());
+  const navegacao_de_pagina = useNavigate(`/`);
 
-    const navegacao_de_pagina = useNavigate(``);
+  let email_ja_cadastrado = false;
+  let cpf_ja_cadastrado = false;
+  let crm_ja_cadastrado = false;
+  let senhas_sao_iguais = false;
+   
+  let checkbox_selecionado = false;
+
+  // Função para buscar todos os medicos
+
+  const fetchClientes = async () => {
+      try {
+          const response = await axios.get('http://localhost:3000/medicos');
+          set_lista_de_medicos(response.data);
+      } catch (error) {
+          console.error('Erro ao buscar medicos:', error);
+      }
+  };
 
   useEffect(() => {
+  
+      if(estado_do_olinho == true){
+        
+        set_imagem_olinho(<img src='input_olho_aberto.png' alt='Olinho'/>);
+        set_valor_do_olinho(`text`); 
+        
+      } else {
+        
+        set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho'/>);
+        set_valor_do_olinho(`password`);
+      };
+    }, [estado_do_olinho]);
+  
+    useEffect(() => {
+      
+      if(estado_do_olinho_um == true){
+        
+        set_imagem_olinho_um(<img src='input_olho_aberto.png' alt='Olinho'/>);
+        set_valor_do_olinho_um(`text`);
+        
+      } else {
+        
+        set_imagem_olinho_um(<img src='input_olho_fechado.png' alt='Olinho'/>);
+        set_valor_do_olinho_um(`password`);
+      };
+    }, [estado_do_olinho_um]);
+  
 
-    console.log(ano_atual);
-    console.log(`Lista de Pacientes:`, lista_de_pacientes);
-    console.log(`Lista de médicos`, lista_de_medicos);
+  useEffect(() => {
+      fetchClientes();
+  }, []);
 
+
+  useEffect(() => {
+      console.log(lista_de_medicos);
   }, [lista_de_medicos]);
 
-  useEffect(() => {
-    
-    if(estado_do_olinho == true){
-      
-      set_imagem_olinho(<img src='input_olho_aberto.png' alt='Olinho'/>);
-      set_valor_do_olinho(`text`);
-      
-      
-    } else {
-      
-      set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho'/>);
-      set_valor_do_olinho(`password`);
-    };
-  }, [estado_do_olinho]);
+  // Função para lidar com o envio do formulário (adicionar ou atualizar)
+  const handleSubmit = async (e) => {
+      e.preventDefault();
 
-  useEffect(() => {
-    
-    if(estado_do_olinho_um == true){
-      
-      set_imagem_olinho_um(<img src='input_olho_aberto.png' alt='Olinho'/>);
-      set_valor_do_olinho_um(`text`);
-      
-      
-    } else {
-      
-      set_imagem_olinho_um(<img src='input_olho_fechado.png' alt='Olinho'/>);
-      set_valor_do_olinho_um(`password`);
-    };
-  }, [estado_do_olinho_um]);
+    // EMail já existente
 
-  class Cadastrar{
+    for(let i = 0; i < lista_de_medicos.length; i++){
 
-    constructor(nome_do_medico, crm_do_medico, cpf_do_medico, email_do_medico, data_de_nascimento_do_medico, genero_do_medico, senha_do_medico, confirmar_senha_do_medico){
+      if(lista_de_medicos[i].email == form.email){
 
-      this.nome = nome_do_medico,
-      this.email = email_do_medico,
-      this.crm = crm_do_medico,
-      this.cpf = cpf_do_medico,
-      this.data_de_nascimento = data_de_nascimento_do_medico,
-      this.genero = genero_do_medico,
-      this.senha = senha_do_medico,
-      this.confirmar_senha = confirmar_senha_do_medico
-    
-    let usuario_a_cadastrar = {
-
-      nome: this.nome,
-      crm: this.crm,
-      cpf: this.cpf,
-      email: this.email,
-      data_de_nascimento: this.data_de_nascimento,
-      genero: this.genero,
-      senha: this.senha
-    };
-
-    let checkbox_selecionado = false;
-    let senhas_sao_iguais = false;
-    let email_ja_cadastrado_paciente = false;
-    let cpf_ja_cadastrado_paciente = false;
-    let email_ja_cadastrado_medico = false;
-    let cpf_ja_cadastrado_medico = false;
-    let crm_ja_cadastrado_medico = false;
-    let email_valido = false;
-    let cpf_valido = false; 
-    let crm_valido = false;
-
-    let todos_os_campos_preenchidos = false;
-
-    let pegar_array_medicos = [...lista_de_medicos];
-    let pegar_array_pacientes = [...lista_de_pacientes];
-    let verificar_email_ja_existente_paciente;
-    let verificar_cpf_ja_existente_paciente;
-    let verificar_email_ja_existente_medico;
-    let verificar_cpf_ja_existente_medico;
-    let verificar_crm_ja_existente_medico;
-
-    if(pegar_array_medicos == null) {
-
-      email_ja_cadastrado_medico = false;
-      cpf_ja_cadastrado_medico = false;
-      crm_ja_cadastrado_medico = false;
-
-    } else {
-
-      for(let i = 0; i < pegar_array_medicos.length; i++){
-
-        verificar_email_ja_existente_medico = pegar_array_medicos[i].email;
-        verificar_cpf_ja_existente_medico = pegar_array_medicos[i].cpf;
-        verificar_crm_ja_existente_medico = pegar_array_medicos[i].crm;
-
-        if(verificar_email_ja_existente_medico == this.email){
-
-          email_ja_cadastrado_medico = true;
-        };
-
-        if(verificar_cpf_ja_existente_medico == this.cpf){
-
-          cpf_ja_cadastrado_medico = true;
-        };
-
-        if(verificar_crm_ja_existente_medico == this.crm){
-
-          crm_ja_cadastrado_medico = true;
-        };
+        email_ja_cadastrado = true;
       };
-
     };
 
-    if(pegar_array_pacientes == null){
+    for(let i = 0; i < lista_de_pacientes.length; i++){
 
-      email_ja_cadastrado_paciente = false;
-      cpf_ja_cadastrado_paciente = false;
+      if(lista_de_pacientes[i].email == form.email){
 
-    } else {
-
-      for(let i = 0; i < pegar_array_pacientes.length; i++){
-
-        verificar_email_ja_existente_paciente = pegar_array_pacientes[i].email;
-        verificar_cpf_ja_existente_paciente = pegar_array_pacientes[i].cpf;
-
-        if(verificar_email_ja_existente_paciente == this.email){
-
-          email_ja_cadastrado_paciente = true;
-        };
-
-        if(verificar_cpf_ja_existente_paciente == this.cpf){
-
-          cpf_ja_cadastrado_paciente = true;
-        };
+        email_ja_cadastrado = true;
       };
-      
     };
 
-    if(cpf_ja_cadastrado_paciente == false && cpf_ja_cadastrado_medico == false){
+    // CPF já existente
 
-      cpf_valido = true;
-    
-    } else {
+    for(let i = 0; i < lista_de_medicos.length; i++){
 
-     cpf_valido = false;
-    
+      if(lista_de_medicos[i].cpf == form.cpf){
+
+        cpf_ja_cadastrado = true;
+      };
     };
 
-    if(email_ja_cadastrado_medico == false && email_ja_cadastrado_paciente == false){
+    for(let i = 0; i < lista_de_pacientes.length; i++){
 
-      email_valido = true;
+      if(lista_de_pacientes[i].cpf == form.cpf){
 
-    } else {
-
-      email_valido = false;
+        cpf_ja_cadastrado = true;
+      };
     };
 
-    if(crm_ja_cadastrado_medico == false){
+    // CRM já existenteee
 
-      crm_valido = true;
-    
-    } else {
+    for(let i = 0; i < lista_de_medicos.length; i++){
 
-      crm_valido = false;
+      if(lista_de_medicos[i].crm == form.crm){
+
+        crm_ja_cadastrado = true;
+      };
     };
-
-    if(this.nome != `` && this.cpf != `` && this.confirmar_senha != `` && this.email != `` && this.genero != `` && this.crm != `` && this.data_de_nascimento != ``){
-
-      todos_os_campos_preenchidos = true;
     
-    } else {
-
-      todos_os_campos_preenchidos = false;
-    };
-
-    if(this.senha == this.confirmar_senha){
-
-      senhas_sao_iguais = true;
-    
-    } else {
-
-      senhas_sao_iguais = false;
-
-    }
-
     if(valor_checkbox){
 
       checkbox_selecionado = true;
-    
+
     } else {
 
       checkbox_selecionado = false;
-    }
-    
-    if(cpf_valido == true && crm_valido == true && email_valido == true && senhas_sao_iguais == true && checkbox_selecionado == true && todos_os_campos_preenchidos == true){
-      
-      set_lista_de_medicos([...lista_de_medicos, usuario_a_cadastrar]);
-      
-      navegacao_de_pagina(`/login`);
+    };
+
+    if(form.senha == confirmar_senha){
+
+      senhas_sao_iguais = true;
 
     } else {
 
+      senhas_sao_iguais = false;
+      console.log(senhas_sao_iguais);
+    };
+
+      if(email_ja_cadastrado == false && cpf_ja_cadastrado == false && senhas_sao_iguais == true && checkbox_selecionado == true && crm_ja_cadastrado == false){
+
+      try {
+          if (selectedCliente) {
+              // Atualizar medico existente (PUT)
+              const response = await axios.put(`http://localhost:3000/medicos/${selectedCliente.id}`, form);
+              if (response.status === 200) {
+                  fetchClientes(); // Atualiza a lista de medicos após a edição
+                  setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+                  setSelectedCliente(null); // Reseta o medico selecionado
+              }
+          } else {
+              // Adicionar novo medico (POST)
+              const response = await axios.post('http://localhost:3000/medicos', form);
+              if (response.status === 201) {
+                  fetchClientes(); // Atualiza a lista de medicos após a adição
+                  setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+
+                  navegacao_de_pagina(`/login`)
+                };
+          };
+      } catch (error) {
+          console.error('Erro ao adicionar/atualizar medico:', error);
+      };
+    } else {
+
+      // Configura a mensagem de erro
+      
       switch(true){
 
-        case cpf_valido == false && email_valido == true && crm_valido == true:
-          
-          set_mensagem_de_erro(`CPF já cadastrado!`);
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == true:
+
+          set_mensagem_de_erro("CPF e Email já cadastrados!");
           break;
 
-        case cpf_valido == true && email_valido == false && crm_valido == true:
-
-          set_mensagem_de_erro(`Email já cadastrado!`);
+        case email_ja_cadastrado == true:
+      
+          set_mensagem_de_erro("Email já cadastrado!");
           break;
 
-        case cpf_valido == true && email_valido == true && crm_valido == false:
-
-          set_mensagem_de_erro(`CRM já cadsatrado!`);
+        case cpf_ja_cadastrado == true: 
+      
+          set_mensagem_de_erro("CPF já cadastrado!");
           break;
 
-        case senhas_sao_iguais == false:
-          
-          set_mensagem_de_erro(`As senhas devem ser iguais!`);
+        case senhas_sao_iguais == true:
+      
+          set_mensagem_de_erro("As senhas devem ser iguais!");
           break;
 
-        case checkbox_selecionado == false:
-
-          set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+        case !valor_checkbox:
+      
+          set_mensagem_de_erro("Favor aceitar os Termos de Uso!");
           break;
 
-        case cpf_valido == false && email_valido == false && crm_valido == true:
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == false && crm_ja_cadastrado == true:
 
-          set_mensagem_de_erro(`CPF e Email já cadastrados!`);
+          set_mensagem_de_erro(`CRM já cadastrado!`);
           break;
 
-        case cpf_valido == true && email_valido == false && crm_valido == false:
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == false && crm_ja_cadastrado == true:
 
-          set_mensagem_de_erro(`Email e CRM já cadastrados!`);
-          break;
-
-        case cpf_valido == false && email_valido == true && crm_valido == false:
-          
           set_mensagem_de_erro(`CPF e CRM já cadastrados!`);
           break;
 
-        case cpf_valido == false && email_valido == false && crm_valido == false:
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == true && crm_ja_cadastrado == true:
 
-          set_mensagem_de_erro(`CPF, Email e CRM já cadastrados!`);
+          set_mensagem_de_erro(`Email e CRM já cadastrados!`);
           break;
-
-        case todos_os_campos_preenchidos == false:
-
-          set_mensagem_de_erro(`Favor preencher todos os campos!`);
-          break;
-        };
-
+      } 
     };
-    
-    // console.log(`Email`, email_valido);
-    // console.log(`CPF`, cpf_valido);
-    // console.log(`Senhas`, senhas_sao_iguais);
-    // console.log(`checkbox`, checkbox_selecionado);
-    
   };
-};
+
+  // Função para buscar medico por ID
+  const fetchClienteById = async (id) => {
+      try {
+          const response = await axios.get(`http://localhost:3000/medicos/${id}`);
+          setSelectedCliente(response.data); // Seleciona o cliente para edição
+          setForm(response.data); // Preenche o formulário com os dados do medico
+      } catch (error) {
+          console.error('Erro ao buscar cliente por ID:', error);
+      }
+  };
+
+  // Função para deletar medico
+  const deleteCliente = async (id) => {
+      try {
+          const response = await axios.delete(`http://localhost:3000/medicos/${id}`);
+          if (response.status === 200) {
+              fetchClientes(); // Atualiza a lista de medicos após a exclusão
+          }
+      } catch (error) {
+          console.error('Erro ao deletar cliente:', error);
+      }
+  };
   
     return (
         
-        <div className='dv_cadastro_medico'>
-
-        <div className='container_img_medico'>
+      <div>
+      <form onSubmit={handleSubmit}>
+  <div className='dv_cadastro_medico'>
+  
+  <div className='container_img_medico'>
+    
+    <img src="Imagem_tres.svg" alt="Imagem de Acolhimento" className='imagem_cadastro'/>
+  
+  </div>
+  
+  <div className='container_informacoes_medico'>
+  
+  <div className='titulo_medico'>
+      
+      <h2>CADASTRO - MÉDICO</h2>
+      
+      <Link to={'/'} className='container_informacoes_logo_paciente'><img src="Logo_SA.png" alt="Logo.png" className='imagem_logo_paciente'/></Link>
+      
+      <div className="faixa_verde_medico"></div>
+  
+  </div>
+  
+  <div className='posicao_inputs_medico'>
+      
+      <div className='coluna_de_inputs_um_medico'>
+  
+        <div className='input_nome_medico'>
           
-          <img src='Imagem_quatro.svg' alt="Imagem com Méidcos" className='imagem_cadastro'/>
+          <label>Nome Completo</label>
+          
+          <input type="text" placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({...form, nome: e.target.value})}/>
         
         </div>
-    
-    <div className='container_informacoes_medico'>
-    
-        <div className='titulo_medico'>
+  
+        <div className="input_cpf_medico">
+         
+          <label>CPF</label>
+          
+          <input type="text" minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
+        
+        </div>
+        
+        <div className="input_genero_medico">
+          
+          <label>Gênero</label>
+         
+          <input type="text" placeholder='Digite seu gênero' value={form.genero || ''} onChange={(e) => setForm({...form, genero: e.target.value})}/>
+        
+        </div>
+  
+        <div className="input_senha_medico">
+          
+          <label>Senha</label>
+  
+          <div className="input_senha_medico_dv">
+  
+            <input type={valor_do_olinho_um} minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({...form, senha: e.target.value})}/>
             
-            <h2>CADASTRO - MÉDICO</h2>
-           
-            <Link to={`/`} className='titulo_medico_logo'><img src="Logo_SA.png" alt="Logo.png" className='imagem_logo_medico'/></Link>
-            
-            <div className="faixa_verde_medico"></div>
+            <button type='button' onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)}>{imagem_olinho_um}</button>
+         
+          </div>
+  
+        </div>
+  
+      </div>
+  
+      <div className="coluna_de_inputs_dois_medico">
+  
+        <div className="input_crm_medico">
+          
+          <label>CRM</label>
+          
+          <input type="text" minLength={9} maxLength={9} placeholder='CRM/SP 123456' value={form.crm || ''} onChange={(e) => setForm({...form, crm: e.target.value})}/>
         
         </div>
-    
-        <div className='posicao_inputs_medico'>
-           
-            <div className='coluna_de_inputs_um_medico'>
-    
-              <div className='input_nome_medico'>
-                
-                <label>Nome Completo</label>
-                
-                <input type="text" placeholder='Digite seu nome completo' value={valor_inpt_nome} onChange={(e) => set_valor_inpt_nome(e.target.value)}/>
-              
-              </div>
-    
-              <div className="input_cpf_medico">
-                
-                <label>CPF</label>
-                
-                <input type="text" maxLength={14} placeholder='012.345.678-91' value={valor_inpt_cpf} onChange={(e) => set_valor_inpt_cpf(e.target.value)}/>
-             
-              </div>
-              
-              <div className="input_genero_medico">
-                
-                <label>Gênero</label>
-                
-                <input type="text" placeholder='Insira seu gênero aqui' value={valor_inpt_genero} onChange={(e) => set_valor_inpt_genero(e.target.value)}/>
-              
-              </div>
-    
-              <div className="input_senha_medico">
-                
-                <label>Senha</label>
-
-                <div className="input_senha_medico_dv">
-
-                  <input type={valor_do_olinho_um} minLength={7} maxLength={12} placeholder='Digite sua senha' value={valor_inpt_senha} onChange={(e) => set_valor_inpt_senha(e.target.value)}/>
-                  
-                  <button onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)} className='botao_input_senha'>{imagem_olinho_um}</button>
-                
-                </div>
-
-              </div>
-    
-            </div>
-    
-            <div className="coluna_de_inputs_dois_medico">
-    
-              <div className="input_crm_medico">
-                
-                <label>CRM</label>
-                
-                <input type="text" maxLength={13} placeholder='000000/SP' value={valor_inpt_crm} onChange={(e) => set_valor_inpt_crm(e.target.value)}/>
-             
-              </div>
-    
-              <div className="input_email_medico">
-                
-                <label>Email</label>
-               
-                <input type="text" placeholder='exemplo@gmail.com' value={valor_inpt_email} onChange={(e) => set_valor_inpt_email(e.target.value)}/>
-              
-              </div>
-    
-              <div className="input_data_de_nascimento_medico">
-                
-                <label>Data Nascimento</label>
-               
-                <input type="date" maxLength={10}placeholder='Data de nascimento aqui' value={valor_inpt_data_de_nascimento} onChange={(e) => set_valor_inpt_data_de_nascimento(e.target.value)}/>
-              
-              </div>
-    
-              <div className="input_confirmar_senha_medico">
-                
-                <label>Confirmar Senha</label>
-
-                <div className="input_confirmar_senha_medico_dv">
-                
-                  <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder='Confirme sua senha' value={valor_inpt_confirmar_senha} onChange={(e) => set_valor_inpt_confirmar_senha(e.target.value)}/>
-                  <button onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
-                
-                </div>
-
-              </div>
-    
-            </div>
-        </div>
-    
-        <div className='caminho_para_termos_e_politica_medico'>
+  
+        <div className="input_email_medico">
+  
+          <label>Email</label>
           
-          <input type="checkbox" id='inpt_checkbox_medico' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)}/>
-          
-          <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='hyperlink_termos_de_uso'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='hyperlink_politica_de_privacidade'>Política de Privacidade</Link></label>
+          <input type="text" placeholder='exemplo@gmail.com' value={form.email || ''} onChange={(e) => setForm({...form, email: e.target.value})}/>
         
         </div>
-    
-          <div className="alinhamento_botao_cadastro_medico">
-
-            <button className='botao_cadastrar_medico' onClick={() => new Cadastrar(valor_inpt_nome, valor_inpt_crm, valor_inpt_cpf, valor_inpt_email, valor_inpt_data_de_nascimento, valor_inpt_genero, valor_inpt_senha, valor_inpt_confirmar_senha)}>CADASTRAR</button>
-     
-             <div className="error_massege_medico">
-
-              {mensagem_de_erro}
-
-            </div>
+  
+        <div className="input_data_de_nascimento_medico">
+          
+          <label>Data Nascimento</label>
+          
+          <input type="date" placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({...form, data_de_nascimento: e.target.value})}/>
+        
+        </div>
+  
+        <div className="input_confirmar_senha_medico">
+          
+          <label>Confirmar Senha</label>
+  
+          <div className="input_confirmar_senha_medico_dv">
+          
+            <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)}/>
+            <button type='button' onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
           
           </div>
-
-        <div className="possui_conta_medico">
-          
-          <p>Já possui uma conta? <Link to={`/login`} className='hyperlink_login_medico'>Log-In</Link></p>
-        
+  
         </div>
-        
-    </div>
+  
+      </div>
+  
+  </div>
+  
+  <div className='caminho_para_termos_e_politica_medico'>
     
+    <input type="checkbox" id='checkbox_cadastro_medico' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)}/>
+    
+    <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='termos_de_uso_medico'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='politica_de_privacidade_paciente'>Política de Privacidade</Link></label>
+  
+  </div>
+  
+      <div className='alinhamento_botao_cadastrar_medico'>
+  
+        <button className='botao_cadastrar_medico' type='submit'>CADASTRAR</button>
+  
+        <div className="error_paciente">
+  
+          {mensagem_de_erro}
+  
         </div>
+  
+      </div>
+  
+  <div className="possui_conta">
+    
+    <p>Já possui uma conta? <Link to={`/login`} className='possui_conta_link'>Log-In</Link></p>
+  
+  </div>
+  
+  
+  </div>
+  
+  </div>
+  </form>
+  </div>
   )
 }
 

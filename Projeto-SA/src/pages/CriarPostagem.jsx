@@ -1,4 +1,4 @@
-import HamburgerMenu from '../components/HamburgerMenu'
+import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
 import { useState } from 'react';
 import './CriarPostagem.css'
 
@@ -38,7 +38,7 @@ function CriarPostagem() {
                     <h1>CRIAR NOVA POSTAGEM</h1>
                     <div className='line-criarPostagem'></div>
                 </div>
-                    <HamburgerMenu />
+                    <HamburgerMenuAdmin/>
             </div>
 
             <div className="alinhamento-pagina">
@@ -114,11 +114,11 @@ function CriarPostagem() {
                 {/* botões */}
                 <div className="alinhamento-buttons">
                     <div className="buttons-container">
-                        <button>SALVAR RASCUNHO</button>
+                        <button className='salvar-rascunho-button'>SALVAR RASCUNHO</button>
 
-                        <button>PUBLICAR</button>
+                        <button className='publicar-button'>PUBLICAR</button>
 
-                        <button>CANCELAR</button>
+                        <button className='cancelar-button'>CANCELAR</button>
                     </div>
                 </div>
                 {/* botões */}

@@ -67,7 +67,8 @@ function Login() {
             data_de_nascimento: pegar_array_pacientes[i].data_de_nascimento,
             cpf: pegar_array_pacientes[i].cpf,
             cep: pegar_array_pacientes[i].cep,
-            genero: pegar_array_pacientes[i].genero
+            genero: pegar_array_pacientes[i].genero,
+            minhas_consulstas: pegar_array_pacientes[i].minhas_consulstas
           };
     
           set_usuario_logado(usuario_a_logar);
@@ -125,7 +126,7 @@ function Login() {
     
           set_usuario_logado(usuario_a_logar);
     
-          navegacao_de_pagina('/');
+          navegacao_de_pagina('/espacoDeControleAdmin');
     
           return;
     

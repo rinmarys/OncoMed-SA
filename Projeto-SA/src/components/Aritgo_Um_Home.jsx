@@ -13,14 +13,14 @@ function Aritgo_Um_Home() {
 
             <div className="titulo_artigo_um">
 
-                <h3>Dicas para gerenciar efeitos colaterais</h3>
-                <p>por Dr. Priscila Souza</p>
+                <h3>Medicina alternativa ou medicina convencional? Junção dos dois.</h3>
+                <p>por Doutor Mauricio Campos</p>
 
             </div>
 
             <div className="imagem_artigo_um">
 
-                <img src="Imagem_Artigo_Um_Home.svg" alt="Artigo Um Imagem" />
+                <img src="Doctor.svg" alt="Artigo Um Imagem" />
 
             </div>
 
@@ -28,7 +28,7 @@ function Aritgo_Um_Home() {
 
         <div className="paragrafo_do_artigo">
 
-            <p>Estratégias práticas para lidar com efeitos colaterais do tratamento, incluindo nutrição, exercícios e relaxamento.</p>
+            <p>O artigo explora como unir medicina alternativa e convencional pode ajudar pacientes oncológicos.</p>
 
         </div>
 
