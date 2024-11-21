@@ -1,0 +1,46 @@
+.Container-PopUpBlog{
+    top: 50vh;
+    position: absolute;
+    background-color: #f1f1f1;
+    height: 10vw;
+    position: fixed;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 2vw;
+}
+.FontePopUpBlog{
+    color: #1D2A62;
+    font-size: 1.6vw;
+    margin: 1.2vw;
+}
+.ButtonsPopUpBlog{
+    display: flex;
+    justify-content:space-around;
+    
+
+}
+.buttonNaoDeletar{
+    height: 2.7vw;
+    width: 12vw;
+    border-radius: 15px; 
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    background-color: #1D2A62;
+    color: #F1F1F1;
+    border: none;
+}
+.buttonDeletar{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    height: 40px;
+    width: 180px;
+    border: none;
+    border-radius: 15px;  
+    background-color: #437118 ;
+    color:  #F5F5F5 ;
+}
+
+.ButtonsPopUpBlog button:hover{
+    transition: 0.2s;    
+    background-color:  #345516;
+    color:  #F5F5F5;
+}

@@ -2,10 +2,27 @@ import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { Link } from 'react-router-dom'
+import '/Maria/Repos/OncoMed-SA/Projeto-SA/src/components/Pop_upBlog.css'
 
 import './BlogInicio_Admin.css'
+import { useState } from 'react'
 
 function BlogInicio_Admin() {
+
+    const [mostrarPopDeletar, setMostrarPopDeletar] = useState(false)
+   
+    function buttonDeletar(){
+
+        setMostrarPopDeletar(true)
+
+    }
+    function naoDeletarBlog(){
+ 
+        setMostrarPopDeletar(false)
+    }
+    function deletarBlog(){
+     
+    }
     return (
         <div>
             
@@ -25,14 +42,14 @@ function BlogInicio_Admin() {
                 {/* Artigos do blog */}
                 <div className="artigos-alinhamento">
 
-                    <Link to='/conteudoBlog' className='link-decoration'>
+                    
                         <div className="container-artigos">
                             <img src="Doctor.svg" alt="Doutor" />
 
                             <div className="alinhamento-texto">
 
                                 <div className="button-container">
-                                    <button className='button-deletar'><img src="Trash.svg" alt="Deletar artigo" /></button>
+                                    <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                                 </div>
 
                                 <div className='texto-artigo'>
@@ -42,7 +59,7 @@ function BlogInicio_Admin() {
 
                             </div>
                         </div>
-                    </Link>
+                    
 
                     <div className="container-artigos">
                         <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
@@ -50,7 +67,7 @@ function BlogInicio_Admin() {
                         <div className='alinhamento-texto'>
 
                             <div className="button-container">
-                                <button className='button-deletar'><img src="Trash.svg" alt="Deletar artigo" /></button>
+                                <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                             </div>
 
                             <p className='titulos-artigos'>Como a sua alimentação afeta no desenvolvimento contra o câncer?</p>
@@ -64,7 +81,7 @@ function BlogInicio_Admin() {
                         <div className='alinhamento-texto'>
 
                             <div className="button-container">
-                                <button className='button-deletar'><img src="Trash.svg" alt="Deletar artigo" /></button>
+                                <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                             </div>
 
                             <p className='titulos-artigos'>Por que é tão importante manter-se informado? Direitos legais
@@ -79,7 +96,7 @@ function BlogInicio_Admin() {
                         <div className="alinhamento-texto">
 
                             <div className="button-container">
-                                <button className='button-deletar'><img src="Trash.svg" alt="Deletar artigo" /></button>
+                                <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                             </div>
 
                             <p className='titulos-artigos'>O psicologico é importante?
@@ -87,6 +104,18 @@ function BlogInicio_Admin() {
                             <p className='doutores-blog'>por Psicologa Vannessa Suarez</p>
                         </div>
                     </div>
+
+                  {/* POP UP BLOG BUTTON DELETAR */}
+                    {mostrarPopDeletar && (
+                        <div className='Container-PopUpBlog'>
+                            <h2 className='FontePopUpBlog'>Deseja mesmo deletar este arquivo?</h2>
+                            <div className='ButtonsPopUpBlog'>
+                            <button className='buttonNaoDeletar'onClick={naoDeletarBlog}>NÃO</button>
+                            <button className='buttonDeletar'onClick={deletarBlog}>SIM</button>
+                            </div>
+                        </div>
+                    )}
+
 
                 </div>
                 {/* Artigos do blog */}

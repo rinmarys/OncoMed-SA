@@ -12,20 +12,27 @@ function EspacoControle_Admin() {
             </div>
 
             <div className="alinhamento-containers-espacoControle">
-                <div className="container-um-espacoControle">
+            <div className="container-um-espacoControle">
+                
                     <div className="style-container-espacoControle">
                         <div className="alinhamento-conteudo-espacoControle">
+
+                        <img className='dadosPessoas-img' src="usuario-controle.svg" alt="Dados pessoais de administrador" /> 
+
                             <img className='img-espacoControle' src="usuario-controle.svg" alt="Dados pessoais de administrador" />
+
                             <h3>Dados pessoais</h3>
                         </div>
                     </div>
-
+                   
+                    <Link to='/blogInicioAdmin'>
                     <div className="style-container-espacoControle">
                         <div className="alinhamento-conteudo-espacoControle">
                             <img className='img-espacoControle' src="blog-controle.svg" alt="Gerenciar blog" />
                             <h3>Gerenciar blog</h3>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
 
