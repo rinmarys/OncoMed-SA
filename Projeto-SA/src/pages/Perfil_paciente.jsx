@@ -85,22 +85,22 @@ function Perfil_paciente() {
         <div className='info_container'>
 
           <div className='posicao_container'>
-            <label for="">Nome completo</label>
+            <label>Nome completo</label>
             <input placeholder="Digite seu nome" value={nome} onChange={handleChange(setNome)}/>
 
-            <label for="">Email</label>
+            <label>Email</label>
             <input type="email" placeholder="Digite seu email" value={email} onChange={handleChange(setEmail)}/>
 
-            <label for="">Telefone (com DDD)</label>
+            <label>Telefone (com DDD)</label>
             <input placeholder="Digite seu número de telefone"  value={telefone} onChange={handleChange(setTelefone)}/>
 
-            <label for="">Senha</label>
+            <label>Senha</label>
             <input type="password" placeholder="Digite a sua senha" value={senha} onChange={handleChange(setSenha)}/>
 
-            <label for="">Nova senha </label>
+            <label>Nova senha </label>
             <input type="password" placeholder="Confirme sua nova senha" value={confirmarSenha} onChange={handleChange(setConfirmarSenha)}/>
 
-            <label for="">Gênero</label>
+            <label>Gênero</label>
             <select id="genero" value={genero} onChange={handleChange(setGenero)}>
               <option>Selecione seu genêro</option>
               <option>Feminino</option>
@@ -121,10 +121,10 @@ function Perfil_paciente() {
           </div>
 
           <div className='posicao'>
-            <div class="container_edit">
+            <div className="container_edit">
              <button onClick={editar} disable={loading}>Editar</button>
             </div>
-            <div class="container_delete">
+            <div className="container_delete">
              <button onClick={deletar}>Deletar</button>
             </div>
           </div>

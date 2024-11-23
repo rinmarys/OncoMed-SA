@@ -7,7 +7,7 @@ function Cadastro_Paciente() {
 
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
   const { lista_de_medicos } = useContext(GlobalContext);
-  const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '', minhas_consultas: [] });
+  const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: ''});
   const [confirmar_senha, set_confirmar_senha] = useState(``);
   const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
 
@@ -37,7 +37,7 @@ function Cadastro_Paciente() {
       const response = await axios.get('http://localhost:3000/pacientes');
       set_lista_de_pacientes(response.data);
     } catch (error) {
-      console.error('Erro ao buscar clientes:', error);
+      console.error('Erro ao buscar pacientes:', error);
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import './MarcarConsulta.css'
 import HamburguerMenu from '../components/HamburgerMenu.jsx'
 import Scheduler from '../components/Scheduler.jsx'
@@ -10,23 +10,15 @@ function MarcarConsulta() {
 
   const navigate = useNavigate()
   const { selectedDate } = useContext(GlobalContext)
-  const { lista_de_pacientes, usuario_logado, set_usuario_logado, set_lista_de_pacientes } = useContext(GlobalContext);
+  const { lista_de_pacientes, usuario_logado, set_lista_de_consultas } = useContext(GlobalContext);
   const [consultaSelecionada, setConsultaSelecionada] = useState('')
   const [horarioSelecionado, setHorarioSelecionado] = useState('')
   const [observacaoEscrita, setObservacaoEscrita] = useState('')
 
   const [mensagemErroMarcarConsulta, setMensagemErroMarcarConsulta] = useState('')
 
-  const { listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta } = useContext(GlobalContext)
-
   const [mostrarPopUpConfirmar, setMostrarPopUpConfirmar] = useState(false)
   const [mostrarPopUpCancelar, setMostrarPopUpCancelar] = useState(false)
-
-  const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
-
-  useEffect(() => {
-    console.log(`Lista de informações atualizada:`, listaInformacoesMarcarConsulta)
-  }, [listaInformacoesMarcarConsulta])
 
   function buttonConfirmar() {
 
@@ -41,17 +33,7 @@ function MarcarConsulta() {
     if (!horarioSelecionado) {
       setMensagemErroMarcarConsulta("Por favor, selecione um horário!")
       return false
-    }
-
-    // Después de la confirmación, navegamos a otra página
-    setListaInformacoesMarcarConsulta(prevState => [...prevState,
-    {
-      selectedDate,
-      consultaSelecionada,
-      horarioSelecionado,
-      observacaoEscrita,
-    }
-    ])
+    };
 
     console.log(`Lista de pacientes`, lista_de_pacientes);
     console.log(`Usuario logado`, usuario_logado);
@@ -64,60 +46,54 @@ function MarcarConsulta() {
 
     setMostrarPopUpCancelar(true)
 
-  }
-
-  const fetch_pacientes = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/pacientes');
-      set_lista_de_pacientes(response.data);
-    } catch (error) {
-      console.error('Erro ao buscar clientes:', error);
-    }
   };
 
+  useEffect(() => {
+
+    fetch_consultas();
+  }, []);
+
+  const fetch_consultas = async () => {
+    
+    try {
+      
+      const response = await axios.get('http://localhost:3000/marcarConsulta');
+      
+      set_lista_de_consultas(response.data);
+  
+    } catch (error) {
+  
+      console.error('Erro ao buscar consultas:', error);
+    };  
+  };
 
   // CODIGO DE NICHOLAS
   const handleSubmit = async (e) => {
+   
     e.preventDefault();
+  
+    const consulta = {
 
-    for (let i = 0; i < lista_de_pacientes.length; i++) {
-      
-      if (lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email) {
-        
-        let consulta = {
-          data: selectedDate,
-          tipo_consulta: consultaSelecionada,
-          horario: horarioSelecionado,
-          observacoes: observacaoEscrita,
-        }
-        set_lista_de_pacientes(...lista_de_pacientes, lista_de_pacientes [i].minhas_consultas = [...lista_de_pacientes[i].minhas_consultas, consulta])
-      }
-      
-    }
-
-    try {
-      if (selectedCliente) {
-        // Atualizar pacientes existente (PUT)
-        const response = await axios.put(`http://localhost:3000/pacientes/${selectedCliente.id}`, form);
-        if (response.status === 200) {
-          fetch_pacientes(); // Atualiza a lista de pacientes após a edição
-          setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
-          setSelectedCliente(null); // Reseta o paciente selecionado
-        }
-      } else {
-        // Adicionar novo cliente (POST)
-        const response = await axios.post('http://localhost:3000/pacientes', form);
-        if (response.status === 201) {
-          fetch_pacientes(); // Atualiza a lista de pacientes após a adição
-          setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
-
-          navegacao_de_pagina(`/login`)
-        };
-      };
-    } catch (error) {
-      console.error('Erro ao adicionar/atualizar paciente:', error);
+      data_agendamento: selectedDate,
+      tipo_consulta: consultaSelecionada,
+      horario: horarioSelecionado,
+      observacoes: observacaoEscrita
     };
+  
+    try {
+          // Adicionar novo cliente (POST)
+          const response = await axios.post('http://localhost:3000/marcarConsulta', consulta);
+          
+          if (response.status === 201) {
+          
+            fetch_consultas(); // Atualiza a lista de clientes após a adição
+          };
+
+  } catch (error) {
+      
+    console.error('Erro ao adicionar uma consulta:', error);
   }
+  };
 
 
 
@@ -148,22 +124,19 @@ function MarcarConsulta() {
                     <option value="consulta2">Exame de sangue</option>
                     <option value="consulta3">Consultas bakanas</option>
                   </select>
+
                 </div>
                 {/* CONSULTAS E EXAMES À REALIZAR */}
 
                 {/* SELECIONAR HORARIO */}
                 <div className='Selecionar-Horario'>
                   <h2>HORÁRIO</h2>
-                  <select className="Select-Horario"
+                  <input type='time' className="Select-Horario"
                     id="opcao-horario"
                     value={horarioSelecionado}
                     onChange={(event) => { setHorarioSelecionado(event.target.value) }}
                   >
-                    <option value="" disabled>Selecione um horario</option>
-                    <option value="horario1">12:30</option>
-                    <option value="horario2">16:20</option>
-                    <option value="horario3">20:10</option>
-                  </select>
+                  </input>
                 </div>
                 {/* SELECIONAR HORARIO */}
 
