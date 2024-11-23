@@ -147,7 +147,7 @@ function Cadastro_Paciente() {
             fetch_pacientes(); // Atualiza a lista de pacientes após a edição
             setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
             setSelectedCliente(null); // Reseta o paciente selecionado
-          }
+          };
         } else {
           // Adicionar novo cliente (POST)
           const response = await axios.post('http://localhost:3000/pacientes', form);
