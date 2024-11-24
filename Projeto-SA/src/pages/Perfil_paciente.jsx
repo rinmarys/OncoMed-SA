@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Perfil_paciente.css'
-import Footer from '../components/Footer'
 import HamburgerMenu from '../components/HamburgerMenu'
 
 function Perfil_paciente() {
@@ -9,70 +8,70 @@ function Perfil_paciente() {
   const [telefone, setTelefone] = useState('')
   const [senha, setSenha] = useState('')
   const [confirmarSenha, setConfirmarSenha] = useState('')
-  const [genero, setGenero] = useState ('')
-  const [loading, setLoading]= useState(false)
-  const [error, setError]= useState('')
+  const [genero, setGenero] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
-  const savedProfile= JSON.parse(localStorage.getItem('userProfile'));
-  if (savedProfile){
-    setNome(savedProfile.nome || '');
- 
-    setEmail(savedProfile.email || '');
+    const savedProfile = JSON.parse(localStorage.getItem('userProfile'));
+    if (savedProfile) {
+      setNome(savedProfile.nome || '');
 
-    setTelefone(savedProfile.telefone || '');
+      setEmail(savedProfile.email || '');
 
-    setGenero(savedProfile.genero || '');
-  }
+      setTelefone(savedProfile.telefone || '');
+
+      setGenero(savedProfile.genero || '');
+    }
   }, []);
 
- const handleChange=(setter) => (event) => setter (event.target.value)
+  const handleChange = (setter) => (event) => setter(event.target.value)
 
-  const editar=() => {
-    if (senha !== confirmarSenha){
-      alert ("As duas senhas devem ser iguais!")
+  const editar = () => {
+    if (senha !== confirmarSenha) {
+      alert("As duas senhas devem ser iguais!")
       return;
     }
-    
+
     setLoading(true)
     setError('')
-  
-    try{
+
+    try {
       const userProfile = {
-       nome,
-       email,
-       telefone,
-       senha,
-       confirmarSenha,
+        nome,
+        email,
+        telefone,
+        senha,
+        confirmarSenha,
       }
-     localStorage.setItem("userProfile", JSON.stringify(userProfile));
-  
-     alert("Dados atualizados!")
+      localStorage.setItem("userProfile", JSON.stringify(userProfile));
 
-      } catch (err) {
-        console.error(error);
-       setError("Falha ao atualizar os dados. tente novamente.");
-  
-       } finally {
-       setLoading(false);
-       
-      }  
+      alert("Dados atualizados!")
+
+    } catch (err) {
+      console.error(error);
+      setError("Falha ao atualizar os dados. tente novamente.");
+
+    } finally {
+      setLoading(false);
+
     }
+  }
 
-    const deletar= () => {
-     if(window.confirm('Tem certeza que deseja deletar sua conta?'))
+  const deletar = () => {
+    if (window.confirm('Tem certeza que deseja deletar sua conta?'))
 
-     localStorage.removeItem("userProfile")
-     alert ("Conta deletada!")
-     history.push("/home")
-    }
-  
+      localStorage.removeItem("userProfile")
+    alert("Conta deletada!")
+    history.push("/home")
+  }
 
-   return (
+
+  return (
     <div className='user-container'>
       <div className="alinhamento-tituloHamburger">
         <div className='nav_container'>
-          <h1>PERFIL PACIENTE</h1>
+          <h1>MEU PERFIL</h1>
           <div className="faixa_verde"></div>
         </div>
 
@@ -86,19 +85,13 @@ function Perfil_paciente() {
 
           <div className='posicao_container'>
             <label for="">Nome completo</label>
-            <input placeholder="Digite seu nome" value={nome} onChange={handleChange(setNome)}/>
+            <input placeholder="Digite seu nome" value={nome} onChange={handleChange(setNome)} />
 
             <label for="">Email</label>
-            <input type="email" placeholder="Digite seu email" value={email} onChange={handleChange(setEmail)}/>
+            <input type="email" placeholder="Digite seu email" value={email} onChange={handleChange(setEmail)} />
 
             <label for="">Telefone (com DDD)</label>
-            <input placeholder="Digite seu número de telefone"  value={telefone} onChange={handleChange(setTelefone)}/>
-
-            <label for="">Senha</label>
-            <input type="password" placeholder="Digite a sua senha" value={senha} onChange={handleChange(setSenha)}/>
-
-            <label for="">Nova senha </label>
-            <input type="password" placeholder="Confirme sua nova senha" value={confirmarSenha} onChange={handleChange(setConfirmarSenha)}/>
+            <input placeholder="Digite seu número de telefone" value={telefone} onChange={handleChange(setTelefone)} />
 
             <label for="">Gênero</label>
             <select id="genero" value={genero} onChange={handleChange(setGenero)}>
@@ -112,25 +105,42 @@ function Perfil_paciente() {
         </div>
 
         <div className="container-alinhamento-dois">
-          <div className='estilizacao_icon'>
-            <img src="./public/icon_user.png"></img>
-          </div>
 
           <div className="container_text">
-            <textarea name="" id="" placeholder='Escreva algo sobre você...'></textarea>
-          </div>
+            <div className="alinhamento-inputs-perfis">
+              <label for="">Senha</label>
+              <input type="password"
+                placeholder="Digite a sua senha"
+                value={senha}
+                onChange={handleChange(setSenha)} />
 
-          <div className='posicao'>
-            <div class="container_edit">
-             <button onClick={editar} disable={loading}>Editar</button>
-            </div>
-            <div class="container_delete">
-             <button onClick={deletar}>Deletar</button>
+              <label for="">Nova senha </label>
+              <input
+                type="password"
+                placeholder="Confirme sua nova senha"
+                value={confirmarSenha}
+                onChange={handleChange(setConfirmarSenha)} />
+
+              <label>Descrição breve</label>
+              <textarea name="" id="" placeholder='Escreva algo sobre você...'></textarea>
             </div>
           </div>
         </div>
+
+        <div className="container-alinhamento-tres">
+          <div className="container-foto-usuario">
+            <label>Escolha sua foto de perfil</label>
+            <img src="icon_user.png" alt="foto de usuario" />
+          </div>
+
+          <div className="alinhamento-buttons-perfis">
+            <button className='button-editar-perfis' onClick={editar} disable={loading}>EDITAR</button>
+
+            <button className='button-deletar-perfis' onClick={deletar}>DELETAR</button>
+          </div>
+        </div>
+
       </div>
-      <Footer/>
     </div>
   )
 }

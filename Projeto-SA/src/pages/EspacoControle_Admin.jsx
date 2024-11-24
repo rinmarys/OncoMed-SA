@@ -23,14 +23,14 @@ function EspacoControle_Admin() {
                         </div>
                     </div>
 
-                    <Link to='/blogInicioAdmin'>
-                        <div className="style-container-espacoControle">
+                    <div className="style-container-espacoControle">
+                        <Link to='/blogInicioAdmin' className='link'>
                             <div className="alinhamento-conteudo-espacoControle">
                                 <img className='img-espacoControle' src="blog-controle.svg" alt="Gerenciar blog" />
                                 <h3>Gerenciar blog</h3>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 </div>
 
 

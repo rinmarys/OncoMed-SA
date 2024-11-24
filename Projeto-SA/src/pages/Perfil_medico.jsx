@@ -7,9 +7,7 @@ function Perfil_medico() {
     <div className='user_container_doctor'>
     
     <div className='info_container'>
-      <img src="./Imgs/avatar_female.png" alt=''/>
       <div className='name_user'>
-      <p>Aaaa</p>
       </div>
        <label for="">Nome completo</label><input placeholder="Digite seu nome"/>
        <label for="">Email</label><input type="email" placeholder="Digite seu email"/>

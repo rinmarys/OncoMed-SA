@@ -56,7 +56,7 @@
 }
 
 .alinhamentoTudo-gerenciarPostagens {
-    margin-top: -9.6vw;
+    margin-top: -10.5vw;
 }
 
 /* POP UP BLOG DE ADMIN */
@@ -70,7 +70,6 @@
     position: fixed;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     border-radius: 2vw;
-    border: 1px solid red;
 }
 
 .FontePopUpBlog {
@@ -95,6 +94,16 @@
     border: none;
 }
 
+.buttonNaoDeletar:hover{
+    background-color: #323D70;
+    transition: 0.4s;
+}
+
+.buttonNaoDeletar:not(:hover){
+    background-color: var(--cor-6);
+    transition: 0.4s;
+}
+
 .buttonDeletar {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
@@ -106,8 +115,13 @@
     color: #F5F5F5;
 }
 
-.ButtonsPopUpBlog button:hover {
-    transition: 0.2s;
+.buttonDeletar:hover {
+    transition: 0.4s;
     background-color: #345516;
     color: #F5F5F5;
+}
+
+.buttonDeletar:not(:hover){
+    transition: 0.4s;
+    background-color: var(--cor-2);
 }

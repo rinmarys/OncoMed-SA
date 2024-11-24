@@ -112,8 +112,8 @@ function CriarPostagem() {
                 </div>
 
                 {/* botões */}
-                <div className="alinhamento-buttons">
-                    <div className="buttons-container">
+                <div className="alinhamento-buttons-criarPostagem">
+                    <div className="buttons-container-criarPostagem">
                         <button className='salvar-rascunho-button'>SALVAR RASCUNHO</button>
 
                         <button className='publicar-button'>PUBLICAR</button>

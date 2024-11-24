@@ -38,16 +38,16 @@ app.get('/pacientes/:id', async (req, res) => {
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ error: 'Erro ao buscar paciente' });
-    }
+    };
 });
 
 // Rota para adicionar um paciente
 app.post('/pacientes', async (req, res) => {
-    const {  nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas } = req.body;
+    const {  nome, cpf, cep, email,genero, data_de_nascimento, senha} = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO pacientes (nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas]
+            'INSERT INTO pacientes ( nome, cpf, cep, email, genero, data_de_nascimento, senha) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+            [nome, cpf, cep, email,genero, data_de_nascimento, senha]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -59,11 +59,11 @@ app.post('/pacientes', async (req, res) => {
 // Rota para atualizar um pacientes
 app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas } = req.body;
+    const { nome, cpf, cep, email,genero, data_de_nascimento, senha} = req.body;
     try {
         const result = await pool.query(
-            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, minhas_consultas = $8 WHERE id = $5 RETURNING *',
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha, minhas_consultas, id]
+            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7 WHERE id = $8 RETURNING *',
+            [nome, cpf, cep, email,genero, data_de_nascimento, senha, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Paciente não encontrado' });
@@ -170,4 +170,3 @@ app.delete('/medicos/:id', async (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
-
