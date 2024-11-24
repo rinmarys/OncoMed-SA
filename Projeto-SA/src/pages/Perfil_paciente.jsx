@@ -84,6 +84,7 @@ function Perfil_paciente() {
         <div className='info_container'>
 
           <div className='posicao_container'>
+<<<<<<< HEAD
             <label for="">Nome completo</label>
             <input placeholder="Digite seu nome" value={nome} onChange={handleChange(setNome)} />
 
@@ -92,8 +93,24 @@ function Perfil_paciente() {
 
             <label for="">Telefone (com DDD)</label>
             <input placeholder="Digite seu número de telefone" value={telefone} onChange={handleChange(setTelefone)} />
+=======
+            <label>Nome completo</label>
+            <input placeholder="Digite seu nome" value={nome} onChange={handleChange(setNome)}/>
 
-            <label for="">Gênero</label>
+            <label>Email</label>
+            <input type="email" placeholder="Digite seu email" value={email} onChange={handleChange(setEmail)}/>
+
+            <label>Telefone (com DDD)</label>
+            <input placeholder="Digite seu número de telefone"  value={telefone} onChange={handleChange(setTelefone)}/>
+
+            <label>Senha</label>
+            <input type="password" placeholder="Digite a sua senha" value={senha} onChange={handleChange(setSenha)}/>
+
+            <label>Nova senha </label>
+            <input type="password" placeholder="Confirme sua nova senha" value={confirmarSenha} onChange={handleChange(setConfirmarSenha)}/>
+>>>>>>> 5552daca759801a91ce4d5e3bd0c18fb4d01611c
+
+            <label>Gênero</label>
             <select id="genero" value={genero} onChange={handleChange(setGenero)}>
               <option>Selecione seu genêro</option>
               <option>Feminino</option>
@@ -114,6 +131,7 @@ function Perfil_paciente() {
                 value={senha}
                 onChange={handleChange(setSenha)} />
 
+<<<<<<< HEAD
               <label for="">Nova senha </label>
               <input
                 type="password"
@@ -123,6 +141,14 @@ function Perfil_paciente() {
 
               <label>Descrição breve</label>
               <textarea name="" id="" placeholder='Escreva algo sobre você...'></textarea>
+=======
+          <div className='posicao'>
+            <div className="container_edit">
+             <button onClick={editar} disable={loading}>Editar</button>
+            </div>
+            <div className="container_delete">
+             <button onClick={deletar}>Deletar</button>
+>>>>>>> 5552daca759801a91ce4d5e3bd0c18fb4d01611c
             </div>
           </div>
         </div>

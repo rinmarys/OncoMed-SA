@@ -7,7 +7,7 @@ const pool = new Pool({
     user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
     host: 'localhost',
     database: 'template', // Nome da sua database
-    password: 'senai', // Substitua pela sua senha
+    password: 'postgres', // Substitua pela sua senha
     port: 5432, // Porta padrão do PostgreSQL
 });
 
@@ -62,7 +62,11 @@ app.put('/pacientes/:id', async (req, res) => {
     const { nome, cpf, cep, email,genero, data_de_nascimento, senha} = req.body;
     try {
         const result = await pool.query(
+
             'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7 WHERE id = $8 RETURNING *',
+
+            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7 WHERE id = $1 RETURNING *',
+
             [nome, cpf, cep, email,genero, data_de_nascimento, senha, id]
         );
         if (result.rows.length === 0) {
@@ -87,6 +91,84 @@ app.delete('/pacientes/:id', async (req, res) => {
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ error: 'Erro ao deletar paciente' });
+    }
+});
+
+//Marcar consulta
+
+    // Rota para buscar todos os consultas
+app.get('/marcarConsulta', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM marcarConsulta');
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao buscar marcarConsulta' });
+    }
+});
+
+// Rota para buscar uma consulta por ID
+app.get('/marcarConsulta/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query('SELECT * FROM marcarConsulta WHERE id = $1', [id]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'marcarConsulta não encontrado' });
+        }
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao buscar marcarConsulta' });
+    };
+});
+
+// Rota para adicionar uma consulta
+app.post('/marcarConsulta', async (req, res) => {
+    const {  data_agendamento, tipo_consulta, horario, observacoes} = req.body;
+    try {
+        const result = await pool.query(
+            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes ) VALUES ($1, $2, $3, $4) RETURNING *',
+            [data_agendamento, tipo_consulta, horario, observacoes]
+        );
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao adicionar marcarConsulta' });
+    }
+});
+
+// Rota para atualizar um pacientes
+app.put('/marcarConsulta/:id', async (req, res) => {
+    const { id } = req.params;
+    const { data_agendamento, tipo_consulta, horario, observacoes } = req.body;
+    try {
+        const result = await pool.query(
+
+            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4 WHERE id = $1 RETURNING *',
+            [ data_agendamento, tipo_consulta, horario, observacoes, id]
+        );
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'marcarConsulta não encontrado' });
+        }
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao atualizar marcarConsulta' });
+    }
+});
+
+// Rota para deletar um Paciente
+app.delete('/marcarConsulta/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query('DELETE FROM marcarConsulta WHERE id = $1 RETURNING *', [id]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'marcarConsulta não encontrado' });
+        }
+        res.json({ message: 'marcarConsulta deletado com sucesso' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao deletar marcarConsulta' });
     }
 });
 
