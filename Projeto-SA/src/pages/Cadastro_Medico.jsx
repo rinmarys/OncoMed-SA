@@ -96,6 +96,7 @@ function Cadastro_Medico() {
   
 
   useEffect(() => {
+    
     fetch_lista_de_medicos();
     fetch_lista_de_pacientes();
   }, []);

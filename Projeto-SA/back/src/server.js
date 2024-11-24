@@ -70,7 +70,9 @@ app.put('/pacientes/:id', async (req, res) => {
     const { nome, cpf, cep, email,genero, data_de_nascimento, senha} = req.body;
     try {
         const result = await pool.query(
+
             'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7 WHERE id_paciente = $1 RETURNING *',
+
             [nome, cpf, cep, email,genero, data_de_nascimento, senha, id]
         );
         if (result.rows.length === 0) {
@@ -269,4 +271,3 @@ app.delete('/medicos/:id', async (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
-

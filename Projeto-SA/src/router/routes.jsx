@@ -17,6 +17,7 @@ import EspacoControle_Admin from '../pages/EspacoControle_Admin.jsx'
 import PoliticaPrivacidade from '../pages/PoliticaPrivacidade'
 import TermosDeUso from '../pages/TermosDeUso'
 import Convenio from "../pages/Convenio";
+import Perfil_medico from "../pages/Perfil_medico.jsx";
 
 const router = createBrowserRouter([
     // Header
@@ -51,6 +52,9 @@ const router = createBrowserRouter([
     {path: "/convenios", element: <Convenio />},
     {path: "/sobreNos", element: <SobreNos />},
     // Footer
+
+    //Medico
+    {path: "/perfilMedico", element: <Perfil_medico />},
 
 ])
 

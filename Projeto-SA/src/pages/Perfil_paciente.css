@@ -107,64 +107,17 @@
 
 }
 
-/* posicao do botao */
-.posicao button{
- float: left;
- margin-top: 5%;
- margin-left: 7%;
-}
-
-/* Estilização do button edit */
-.container_edit button {
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    border: 1px solid var(--cor_azul_meio_termo);
-    border-radius: 15px;
-    background-color: var(--cor_azul_meio_termo);
-    color: var(--cor_quase_branco);
-
-    width: 278px;
-    height: 44px;
-}
-
-.container_edit button:hover {
-    transition: 0.2s;
-    background-color: var(--cor_azul_escuro);
-    color: var(--cor_quase_branco);
-}
-
-/* Estilização do botão delete */
-.container_delete button {
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    border: 1px solid var(--cor_verde_claro);
-    border-radius: 15px;
-    background-color: var(--cor_verde_claro);
-    color: var(--cor_quase_branco);
-
-    width: 153px;
-    height: 44px;
-}
-
-.container_delete button:hover {
-    transition: 0.2s;
-    background-color: var(--cor_verde_escuro);
-}
-
 /* Caixinha de texto/biografia */
-.container_text textarea {
-    margin-top: -8%;
-    width: 568px;
-    height: 268px;
+.textArea-perfis {
+    width: 25vw;
+    height: 10.4vw;
     background: var(--cor_branco_gelo);
     border: 1px solid var(--cor_azul_escuro);
     outline: none;
     border-radius: 5px;
 }
 
-.container_text textarea:focus {
+.textArea-perfis:focus {
     border-color: var(--cor_azul_claro);
 }
 
@@ -183,13 +136,123 @@
 }
 
 /* Alinhamentos */
-.container-alinhamento-dois{
+.container-alinhamento-dois {
+    margin-right: 10vw;
     width: 700px;
-}
-
-.container-alinhamento-um{
-    width: 84%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
+
+.container-alinhamento-um {
+    width: 84%;
+    margin: 0 auto;
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.alinhamento-inputs-perfis {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.alinhamento-inputs-perfis label {
+    font-family: "poppins", sans-serif;
+    font-size: 20px;
+    color: var(--cor_verde_meio_termo);
+    margin-top: 2.7vw;
+    display: block;
+    font-weight: 480;
+}
+
+.alinhamento-inputs-perfis input {
+    box-sizing: border-box;
+    width: 325px;
+    height: 40px;
+    border-radius: 7px;
+    border: 1px solid var(--cor_azul_escuro);
+    background-color: var(--cor_branco_gelo);
+    outline: none;
+    margin-top: 1%;
+}
+
+.alinhamento-inputs-perfis input:focus {
+    border-color: var(--cor_azul_claro);
+}
+
+.container-alinhamento-tres {
+    display: flex;
+    flex-direction: column; 
+    margin-top: 1vw;
+    margin-left: 8vw;
+}
+
+.container-foto-usuario label {
+    font-family: "poppins", sans-serif;
+    font-size: 20px;
+    color: var(--cor_verde_meio_termo);
+    margin-top: 8%;
+    display: block;
+    font-weight: 480;
+}
+
+.container-foto-usuario img {
+    width: 19vw;
+    height: auto;
+    margin-top: -2vw;
+}
+
+.alinhamento-buttons-perfis{
+    display: flex;
+    flex-direction: column;
+    height: 14vh;
+    
+    justify-content: center;
+    align-items: center;
+
+    justify-content: space-between; 
+}
+
+.button-editar-perfis{
+    border: none;
+    background-color: var(--cor_azul_escuro);
+    color: var(--cor_quase_branco);
+    width: 15vw;
+    height: 5vh;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 0.6vw;
+}
+
+.button-editar-perfis:hover{
+    background-color: #455392;
+    transition: 0.4s;
+}
+
+.button-editar-perfis:not(:hover){
+    background-color: var(--cor_azul_escuro);
+    transition: 0.4s;
+}
+
+.button-deletar-perfis{
+    border: none;
+    background-color: #ef2828;
+    color: var(--cor_quase_branco);
+    width: 15vw;
+    height: 5vh;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 0.6vw;
+}
+
+.button-deletar-perfis:hover{
+    background-color: #891c1c;
+    transition: 0.4s;
+}
+
+.button-deletar-perfis:not(:hover){
+    background-color: #ef2828;
+    transition: 0.4s;
+}
+
