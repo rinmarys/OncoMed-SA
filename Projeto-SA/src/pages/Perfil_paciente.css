@@ -108,7 +108,7 @@
 }
 
 /* Caixinha de texto/biografia */
-.container_text textarea {
+.textArea-perfis {
     width: 25vw;
     height: 10.4vw;
     background: var(--cor_branco_gelo);
@@ -117,7 +117,7 @@
     border-radius: 5px;
 }
 
-.container_text textarea:focus {
+.textArea-perfis:focus {
     border-color: var(--cor_azul_claro);
 }
 
@@ -139,7 +139,8 @@
 .container-alinhamento-dois {
     margin-right: 10vw;
     width: 700px;
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .container-alinhamento-um {
@@ -184,6 +185,7 @@
     display: flex;
     flex-direction: column; 
     margin-top: 1vw;
+    margin-left: 8vw;
 }
 
 .container-foto-usuario label {
@@ -253,3 +255,4 @@
     background-color: #ef2828;
     transition: 0.4s;
 }
+
