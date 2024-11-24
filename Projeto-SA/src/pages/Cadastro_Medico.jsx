@@ -7,9 +7,9 @@ import { useEffect } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 function Cadastro_Medico() {
  
-  const {lista_de_pacientes} = useContext(GlobalContext);
+  const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
   const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
-  const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' });
+  const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '', genero: '', data_de_nascimento: '', senha: '' });
   const [confirmar_senha, set_confirmar_senha] = useState(``);
   const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
 
@@ -36,13 +36,34 @@ function Cadastro_Medico() {
 
   // Função para buscar todos os medicos
 
-  const fetchClientes = async () => {
+  const fetch_lista_de_medicos = async () => {
+      
       try {
-          const response = await axios.get('http://localhost:3000/medicos');
+      
+        const response = await axios.get('http://localhost:3000/medicos');
+      
           set_lista_de_medicos(response.data);
-      } catch (error) {
-          console.error('Erro ao buscar medicos:', error);
-      }
+      
+        } catch (error) {
+       
+        console.error('Erro ao buscar medicos:', error);
+      };
+  };
+
+    // Função para buscar todos os pacientes
+
+    const fetch_lista_de_pacientes = async () => {
+      
+      try {
+      
+        const response = await axios.get('http://localhost:3000/pacientes');
+      
+          set_lista_de_pacientes(response.data);
+      
+        } catch (error) {
+       
+        console.error('Erro ao buscar pacientes:', error);
+      };
   };
 
   useEffect(() => {
@@ -75,7 +96,8 @@ function Cadastro_Medico() {
   
 
   useEffect(() => {
-      fetchClientes();
+    fetch_lista_de_medicos();
+    fetch_lista_de_pacientes();
   }, []);
 
 
@@ -85,7 +107,8 @@ function Cadastro_Medico() {
 
   // Função para lidar com o envio do formulário (adicionar ou atualizar)
   const handleSubmit = async (e) => {
-      e.preventDefault();
+     
+    e.preventDefault();
 
     // EMail já existente
 
@@ -158,17 +181,24 @@ function Cadastro_Medico() {
           if (selectedCliente) {
               // Atualizar medico existente (PUT)
               const response = await axios.put(`http://localhost:3000/medicos/${selectedCliente.id}`, form);
+              
               if (response.status === 200) {
-                  fetchClientes(); // Atualiza a lista de medicos após a edição
-                  setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+              
+                fetch_lista_de_medicos(); // Atualiza a lista de medicos após a edição
+              
+                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+              
                   setSelectedCliente(null); // Reseta o medico selecionado
               }
           } else {
               // Adicionar novo medico (POST)
               const response = await axios.post('http://localhost:3000/medicos', form);
+              
               if (response.status === 201) {
-                  fetchClientes(); // Atualiza a lista de medicos após a adição
-                  setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+                
+                fetch_lista_de_medicos(); // Atualiza a lista de medicos após a adição
+                  
+                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
 
                   navegacao_de_pagina(`/login`)
                 };
@@ -241,7 +271,7 @@ function Cadastro_Medico() {
       try {
           const response = await axios.delete(`http://localhost:3000/medicos/${id}`);
           if (response.status === 200) {
-              fetchClientes(); // Atualiza a lista de medicos após a exclusão
+            fetch_lista_de_medicos(); // Atualiza a lista de medicos após a exclusão
           }
       } catch (error) {
           console.error('Erro ao deletar cliente:', error);

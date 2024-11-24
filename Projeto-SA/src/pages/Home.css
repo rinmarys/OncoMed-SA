@@ -176,7 +176,7 @@ body{
 
     cursor: pointer;
 
-    border: 0.1vw solid var(--cor_dois);
+    border: 0.1vw solid #97b360;
     border-radius: 0.8vw;
 
     font-family: var(--tipografia_primaria);
@@ -191,7 +191,7 @@ body{
 
     transition: 0.2s;
 
-    border: 0.1vw solid var(--cor_nove);
+    border: 0.1vw solid var(--cor_dezenove);
 
     background-color: var(--cor_dezenove);
 }
@@ -200,7 +200,7 @@ body{
 
     transition: 0.2s;
 
-    border: 1px solid var(--cor_dois);
+    border: 0.1vw solid var(--cor_dezoito);
 
     background-color: var(--cor_dezoito);
 }

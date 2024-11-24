@@ -6,7 +6,7 @@ import axios from 'axios';
 function Cadastro_Paciente() {
 
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
-  const { lista_de_medicos } = useContext(GlobalContext);
+  const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
   const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: ''});
   const [confirmar_senha, set_confirmar_senha] = useState(``);
   const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
@@ -33,12 +33,30 @@ function Cadastro_Paciente() {
 
   // Função para buscar todos os clientes
   const fetch_pacientes = async () => {
+    
     try {
+    
       const response = await axios.get('http://localhost:3000/pacientes');
+    
       set_lista_de_pacientes(response.data);
     } catch (error) {
+    
       console.error('Erro ao buscar pacientes:', error);
-    }
+    };
+  };
+
+  const fetch_medicos = async () => {
+    
+    try {
+    
+      const response = await axios.get('http://localhost:3000/medicos');
+    
+      set_lista_de_medicos(response.data);
+    
+    } catch (error) {
+      
+      console.error('Erro ao buscar medicos:', error);
+    };
   };
 
   useEffect(() => {
@@ -71,7 +89,9 @@ function Cadastro_Paciente() {
 
 
   useEffect(() => {
+    
     fetch_pacientes();
+    fetch_medicos();
   }, []);
 
 
@@ -81,6 +101,7 @@ function Cadastro_Paciente() {
 
   // Função para lidar com o envio do formulário (adicionar ou atualizar)
   const handleSubmit = async (e) => {
+  
     e.preventDefault();
 
     // Email ja existente4
@@ -141,24 +162,36 @@ function Cadastro_Paciente() {
 
       try {
         if (selectedCliente) {
+          
           // Atualizar pacientes existente (PUT)
           const response = await axios.put(`http://localhost:3000/pacientes/${selectedCliente.id}`, form);
+          
           if (response.status === 200) {
+          
             fetch_pacientes(); // Atualiza a lista de pacientes após a edição
+          
             setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+          
             setSelectedCliente(null); // Reseta o paciente selecionado
+          
           };
         } else {
+          
           // Adicionar novo cliente (POST)
+          
           const response = await axios.post('http://localhost:3000/pacientes', form);
+          
           if (response.status === 201) {
+           
             fetch_pacientes(); // Atualiza a lista de pacientes após a adição
+           
             setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
 
             navegacao_de_pagina(`/login`)
           };
         };
       } catch (error) {
+        
         console.error('Erro ao adicionar/atualizar paciente:', error);
       };
     } else {

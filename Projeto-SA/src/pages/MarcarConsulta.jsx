@@ -48,9 +48,12 @@ function MarcarConsulta() {
 
   };
 
+    // CODIGO DE NICHOLAS
+
   useEffect(() => {
 
     fetch_consultas();
+    fecth_paciente_pelo_id();
   }, []);
 
   const fetch_consultas = async () => {
@@ -67,7 +70,23 @@ function MarcarConsulta() {
     };  
   };
 
-  // CODIGO DE NICHOLAS
+  const [paciente_selecionado, set_paciente_selecionado] = useState(null);
+  
+  const fecth_paciente_pelo_id = async (id) => {
+
+    try {
+
+      const response = await axios.get(`http://localhost:3000/pacientes/${id}`);
+
+      set_paciente_selecionado(response.data.id_paciente);
+
+    } catch (error) {
+      
+      set_paciente_selecionado(null);
+      console.error('Erro ao buscar cliente por ID:', error);
+    };
+  };
+
   const handleSubmit = async (e) => {
    
     e.preventDefault();
@@ -77,16 +96,17 @@ function MarcarConsulta() {
       data_agendamento: selectedDate,
       tipo_consulta: consultaSelecionada,
       horario: horarioSelecionado,
-      observacoes: observacaoEscrita
+      observacoes: observacaoEscrita,
+      id_do_paciente: paciente_selecionado
     };
   
     try {
-          // Adicionar novo cliente (POST)
+          // Adicionar nova consulta (POST)
           const response = await axios.post('http://localhost:3000/marcarConsulta', consulta);
           
           if (response.status === 201) {
           
-            fetch_consultas(); // Atualiza a lista de clientes após a adição
+            fetch_consultas(); // Atualiza a lista de consultas após a adição
           };
 
   } catch (error) {
