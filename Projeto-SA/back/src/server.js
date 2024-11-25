@@ -7,7 +7,7 @@ const pool = new Pool({
     user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
     host: 'localhost',
     database: 'template', // Nome da sua database
-    password: 'postgres', // Substitua pela sua senha
+    password: 'senai', // Substitua pela sua senha
     port: 5432, // Porta padrão do PostgreSQL
 });
 
@@ -137,12 +137,12 @@ app.get('/marcarConsulta/:id', async (req, res) => {
 // Rota para adicionar uma consulta
 app.post('/marcarConsulta', async (req, res) => {
     
-    const {  data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente} = req.body;
+    const {  data_agendamento, tipo_consulta, horario, observacoes, id_paciente} = req.body;
     
     try {
         const result = await pool.query(
-            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente]
+            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+            [data_agendamento, tipo_consulta, horario, observacoes, id_paciente]
         );
        
         res.status(201).json(result.rows[0]);
@@ -158,13 +158,13 @@ app.post('/marcarConsulta', async (req, res) => {
 app.put('/marcarConsulta/:id', async (req, res) => {
     
     const { id } = req.params;
-    const { data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente } = req.body;
+    const { data_agendamento, tipo_consulta, horario, observacoes, id_paciente } = req.body;
     
     try {
         const result = await pool.query(
 
-            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, id_do_paciente = $5 WHERE id = $1 RETURNING *',
-            [ data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente, id]
+            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, id_paciente = $5 WHERE id = $1 RETURNING *',
+            [ data_agendamento, tipo_consulta, horario, observacoes, id_paciente, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'marcarConsulta não encontrado' });
@@ -271,3 +271,17 @@ app.delete('/medicos/:id', async (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
+
+
+//Admin
+
+    // Rota para buscar todos os consultas
+    app.get('/admin', async (req, res) => {
+        try {
+            const result = await pool.query('SELECT * FROM admin');
+            res.json(result.rows);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ error: 'Erro ao buscar marcarConsulta' });
+        }
+    });

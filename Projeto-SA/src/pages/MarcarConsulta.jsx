@@ -35,8 +35,8 @@ function MarcarConsulta() {
       return false
     };
 
-    console.log(`Lista de pacientes`, lista_de_pacientes);
-    console.log(`Usuario logado`, usuario_logado);
+    console.log('Lista de pacientes:', lista_de_pacientes);
+    console.log('Usuario logado:', usuario_logado);
 
     setMostrarPopUpConfirmar(true)
     return true
@@ -60,7 +60,7 @@ function MarcarConsulta() {
     
     try {
       
-      const response = await axios.get('http://localhost:3000/marcarConsulta');
+      const response = await axios.get(`http://localhost:3000/marcarConsulta`);
       
       set_lista_de_consultas(response.data);
   
@@ -102,7 +102,7 @@ function MarcarConsulta() {
   
     try {
           // Adicionar nova consulta (POST)
-          const response = await axios.post('http://localhost:3000/marcarConsulta', consulta);
+          const response = await axios.post(`http://localhost:3000/marcarConsulta`, consulta);
           
           if (response.status === 201) {
           
