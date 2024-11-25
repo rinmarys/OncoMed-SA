@@ -1,120 +1,94 @@
-// import React from 'react'
-// import './Perfil_medico.css'
-
-
-// function Perfil_medico() {
-//   return (
-//     <div className='user_container_doctor'>
-    
-//     <div className='info_container'>
-//       <div className='name_user'>
-//       </div>
-//        <label for="">Nome completo</label><input placeholder="Digite seu nome"/>
-//        <label for="">Email</label><input type="email" placeholder="Digite seu email"/>
-//        <label for="">Telefone (com DDD)</label><input placeholder="Digite seu número de telefone"/>
-//        <label for="">Senha</label><input type="password" placeholder="Digite uma senha"/>
-//        <label for="">Gênero</label>
-//        <select>
-//        <option value="">Selecione seu Gênero</option>
-//        <option value="">Masculino</option>
-//        <option value="">Feminino</option>
-//        <option value="">Prefiro não informar</option>
-//        </select>
-//       </div>
-    
-//       <div className="container_text">
-//         <input type="text" id="placeholder_text" placeholder="Escreva algo sobre você..."/>
-//      </div>
-
-//       <div clasName="posicao_container">
-//         <div class="container_edit">
-//         <button>Editar</button>
-//         </div>
-//         <div class="container_delete">
-//         <button>Deletar</button>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Perfil_medico
-
-
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import './Perfil_medico.css'
 import HamburgerMenu from '../components/HamburgerMenu'
 
 function Perfil_medico() {
-  const [nome, setNome] = useState('')
-  const [email, setEmail] = useState('')
-  const [telefone, setTelefone] = useState('')
-  const [senha, setSenha] = useState('')
-  const [confirmarSenha, setConfirmarSenha] = useState('')
-  const [genero, setGenero] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [cep, setCep] = useState('');
+  const [genero, setGenero] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [editando, setEditando] = useState(false); 
+  const userId=''
 
-  useEffect(() => {
-    const savedProfile = JSON.parse(localStorage.getItem('userProfile'));
-    if (savedProfile) {
-      setNome(savedProfile.nome || '');
-
-      setEmail(savedProfile.email || '');
-
-      setTelefone(savedProfile.telefone || '');
-
-      setGenero(savedProfile.genero || '');
+ useEffect(() => {
+  const fetchUsuarioPaciente= async() =>{
+    try{
+      const response= await axios.get(`http://localhost:5173/perfil_paciente/${userId}`)
+      const {nome, email, telefone}=response.data
+      setNome(nome)
+      setEmail(email)
+      setTelefone(telefone)
+    }catch (err){
+     console.error(err)
+     setError('Erro ao carregar os dados do usuário')
     }
-  }, []);
+  }
+  fetchUsuarioPaciente()
+ }, [])
 
-  const handleChange = (setter) => (event) => setter(event.target.value)
+  const handleChange = (setter) => (event) => setter(event.target.value);
 
-  const editar = () => {
-    if (senha !== confirmarSenha) {
-      alert("As duas senhas devem ser iguais!")
+  const editar = async () => {
+    if (!editando) {
+      setEditando(true); 
       return;
     }
 
-    setLoading(true)
-    setError('')
+    if (senha !== confirmarSenha) {
+      alert('As duas senhas devem ser iguais!');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
 
     try {
-      const userProfile = {
+      const pacientePerfil = {
         nome,
         email,
         telefone,
         senha,
         confirmarSenha,
       }
-      localStorage.setItem("userProfile", JSON.stringify(userProfile));
+      await axios.put(`http://localhost:5173/perfil_paciente/${userId}`,pacientePerfil)
 
-      alert("Dados atualizados!")
+      alert('Dados atualizados!');
+      setEditando(false); 
 
     } catch (err) {
       console.error(error);
-      setError("Falha ao atualizar os dados. tente novamente.");
+      setError('Falha ao atualizar os dados. Tente novamente.');
 
     } finally {
       setLoading(false);
-
     }
-  }
+  };
 
-  const deletar = () => {
-    if (window.confirm('Tem certeza que deseja deletar sua conta?'))
-
-      localStorage.removeItem("userProfile")
-    alert("Conta deletada!")
-    history.push("/home")
-  }
-
+  const deletar = async () => {
+    if (window.confirm('Tem certeza que deseja deletar sua conta?')) {
+      try{
+      await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`)
+      alert('Conta deletada!');
+      window.location.href = '/home';
+      }catch (err){
+      console.error(err)
+      alert('Falha ao deletar a conta. Tente novamnete')
+    }
+    }
+  };
 
   return (
-    <div className='user-container'>
+    <div>
+     <div className='user-container'>
       <div className="alinhamento-tituloHamburger">
         <div className='nav_container'>
-          <h1>MEU PERFIL - MÉDICO</h1>
+          <h1>MEU PERFIL - PACIENTE</h1>
           <div className="faixa_verde"></div>
         </div>
 
@@ -128,49 +102,81 @@ function Perfil_medico() {
 
           <div className='posicao_container'>
 
-            <label for="">Nome completo</label>
-            <input placeholder="Digite seu nome" value={nome} onChange={handleChange(setNome)} />
+            <label>Nome completo</label>
+            <input
+              placeholder="Digite seu nome"
+              value={nome}
+              onChange={handleChange(setNome)}
+              disabled={!editando} 
+            />
 
-            <label for="">Email</label>
-            <input type="email" placeholder="Digite seu email" value={email} onChange={handleChange(setEmail)} />
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Digite seu email"
+              value={email}
+              onChange={handleChange(setEmail)}
+              disabled={!editando}
+            />
 
-            <label for="">Telefone (com DDD)</label>
-            <input placeholder="Digite seu número de telefone" value={telefone} onChange={handleChange(setTelefone)} />
+            <label>Telefone (com DDD)</label>
+            <input
+              type='text'
+              placeholder="Digite seu número de telefone"
+              value={telefone}
+              onChange={handleChange(setTelefone)}
+              disabled={!editando}
+            />
 
-            <label>CRM</label>
-            <input type="text" placeholder='Informe seu CRM' />
+            <label>CEP</label>
+            <input
+              type="text"
+              placeholder='Digite seu CEP'
+              value={cep}
+              onChange={handleChange(setCep)}
+              disabled={!editando}
+            />
 
-            {/* <label>Gênero</label>
-            <select id="genero" value={genero} onChange={handleChange(setGenero)}>
-              <option>Selecione seu genêro</option>
-              <option>Feminino</option>
-              <option>Masculino</option>
-              <option>Prefiro não informar sobre isso</option>
-            </select> */}
+            <label>Gênero</label>
+            <select value={genero} 
+            onChange={handleChange(setGenero)}
+            disabled={!editando}>
+            <option>Selecione seu genêro</option>
+            <option>Feminino</option>
+            <option>Masculino</option>
+            <option>Prefiro não informar sobre isso</option>
+            </select> 
           </div>
 
         </div>
 
         <div className="container-alinhamento-dois">
-            <div className="alinhamento-inputs-perfis">
-              <label for="">Senha</label>
-              <input type="password"
-                placeholder="Digite a sua senha"
-                value={senha}
-                onChange={handleChange(setSenha)} />
+          <div className="alinhamento-inputs-perfis">
+            <label>Senha</label>
+            <input
+              type="password"
+              placeholder="Digite a sua senha"
+              value={senha}
+              onChange={handleChange(setSenha)}
+              disabled={!editando}
+            />
 
+            <label>Nova senha</label>
+            <input
+              type="password"
+              placeholder="Confirme sua nova senha"
+              value={confirmarSenha}
+              onChange={handleChange(setConfirmarSenha)}
+              disabled={!editando}
+            />
 
-              <label for="">Nova senha </label>
-              <input
-                type="password"
-                placeholder="Confirme sua nova senha"
-                value={confirmarSenha}
-                onChange={handleChange(setConfirmarSenha)} />
-
-              <label>Descrição breve</label>
-              <textarea placeholder='Escreva algo sobre você...' className='textArea-perfis'></textarea>
-            </div>
-          
+            <label>Descrição breve</label>
+            <textarea
+              placeholder='Escreva algo sobre você...'
+              className='textArea-perfis'
+              disabled={!editando}
+            ></textarea>
+          </div>
 
           <div className="container-alinhamento-tres">
             <div className="container-foto-usuario">
@@ -179,16 +185,26 @@ function Perfil_medico() {
             </div>
 
             <div className="alinhamento-buttons-perfis">
-              <button className='button-editar-perfis' onClick={editar} disable={loading}>EDITAR</button>
+              <button
+                className='button-editar-perfis'
+                onClick={editar}
+                disabled={loading}
+              >
+                {editando ? 'SALVAR' : 'EDITAR'}
+              </button>
 
-              <button className='button-deletar-perfis' onClick={deletar}>DELETAR</button>
+              <button
+                className='button-deletar-perfis'
+                onClick={deletar}
+              >deletar
+              </button>
             </div>
           </div>
         </div>
+       </div>
       </div>
     </div>
-  )
+  );
 }
-
 
 export default Perfil_medico
