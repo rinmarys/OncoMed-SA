@@ -1,10 +1,12 @@
 import './SolicitacaoConsulta.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
 import CancelarConsultaAdmin from '../components/CancelarConsultaAdmin';
 
 
 function SolicitacaoConsulta() {
+
+    // POP UP _ SOLICITAÇÕES
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenPopup = () => {
@@ -14,6 +16,15 @@ function SolicitacaoConsulta() {
     const handleClosePopup = () => {
         setIsOpen(false);
     };
+    // POP UP _ SOLICITAÇÕES
+
+    const [solicitacoesMarcadas, setSolicitacoesMarcadas] = useState([])
+
+    useEffect( () => {
+        fetch('')
+
+    }
+    )
 
     return (
         <div className='tudo-solicitacao'>
