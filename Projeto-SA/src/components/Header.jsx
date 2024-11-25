@@ -11,7 +11,9 @@ function Header() {
         <nav className="nav_bar">
 
             <div className='dv_imagem_logo'>
+              
               <Link to={'/'} className='nav_bar_link'><img src="Logo_SA.png" alt="Logo SA"/></Link>
+            
             </div>
             <Link to={'/marcarConsulta'} className='nav_bar_link'>MARCAR CONSULTA</Link>
             <Link to={'/meusAgendamentos'} className='nav_bar_link'>AGENDAMENTOS</Link>

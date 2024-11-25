@@ -1,48 +1,183 @@
+.Container-SobreNos{
+    margin-left: 10%;
+    margin-top: 10%;
+    /* border:1px solid black;  */
+    width: 80%;
+}
 h1{
     font-family: "Nunito", sans-serif;
     color: #1D2A62;
-    font-size: 45px;
+    font-size: 2.5vw;
 }
-.Texto-Nos{
-    margin-left: 10%;
-    margin-top: 10%;
-    /* border:1px solid black; */
-    width: 65%;
+.FonteNossaEquipe{
+   
 }
-.Nossa-Equipe{
-    margin-left: 30%;
-    margin-top: 50px;
+.Linha-Dois{
+    background-color: #87AECE;
+    border-radius: 10vw;
+    height: 0.7vw;
+    width: 15vw;
+    margin-top: -1.5vw;
+   
+    
+}
+.Img-NossaEquipe{
+    margin-top: 5vw;
+    
+}
+.imagemGrupo{
+    border-radius: 3vw;
+    width: 80vw;
+    height: 50vw;
+}
+.Paragrafo-Um{
+    margin-top: 9vw;
+     /* border:1px solid rgb(163, 73, 73);   */
+    width: 80vw;
+    height: 30vw;
+}
+.FonteSobreNos{
+    margin-left: 64vw;
+     /* border:1px solid black;     */
+    width: 100vw;
     
 }
 .Linha{
     background-color: #AFD06E;
-    border-radius: 10px;
-    height: 8px;
-    width: 15%;
-    margin-top: -25px;
-   
+    border-radius: 10vw;
+    height: 0.7vw;
+    width: 10vw;
+    margin-left: 69vw; 
+    margin-top: -1.7vw;
     
 }
-.Linha-Dois{
-    background-color: #87AECE;
-    border-radius: 10px;
-    height: 8px;
-    width: 15%;
-    margin-top: -30px;
-   
-    
+.Paragrafo-Um-Texto{
+    margin-left: 30vw;
+    width: 50vw;
+    text-align: right;
+    margin-top: 4vw;
+    /* border:1px solid black;    */
 }
 p{
     color: #2F2E43;
     font-family: "Poppins", sans-serif;
-    font-size: 35px;
+    font-size: 2.5vw;
 }
-.Sobre-Nos{
-    margin-top: 15%;
+.pessoasBalao{
+    position: absolute;
+    margin-top: -25vw;
+    margin-left: -2vw;
+    height: 25vw;
+
+    
 }
-.Missao{
-    margin-top: 15%;
+.Paragrafo-Dois{
+    margin-top: 12vw;
+    /* border:1px solid rgb(73, 86, 163);  */
 }
-.Compromissos{
-    margin-top: 15%;
+.FonteMissao{
+
+}
+.Paragrafo-Tres{
+    /* border:1px solid rgb(163, 73, 118);  */
+    margin-top: 10vw;
+}
+.FonteCompromissos{
+    margin-left: 58vw;
+
+}
+.Alinhamento-Containers{
+    /* border:1px solid rgb(255, 96, 176);  */
+    display: flex;
+    justify-content: space-between
+}
+.Container-Acessibilidade{
+    margin-top: 4vw;
+    /* border:1px solid rgb(163, 73, 118);  */
+    background-color: #C0CFA4;
+    width: 37vw;
+    border-radius: 4vw;
+}
+.FonteAcessibilidade{
+    margin-top: 4vw;
+    margin-left: 4vw;
+    color: #304A18;
+    font-family: "Nunitos",;
+    font-size: 2.5vw;
+}
+.Paragrafo-Acessibilidade{
+    color: #304A18;
+    margin-left: 4vw;
+    font-size: 1.8vw;
+    margin-bottom: 4vw;
+    margin-right: 4vw;
+}
+.Container-EducacaoContinuada{
+    margin-top: 4vw;
+    /* border:1px solid rgb(163, 73, 118);  */
+    background-color: #87AECE;
+    width: 37vw;
+    border-radius: 4vw;
+}
+.FonteEducacaoContinuada{
+    margin-top: 4vw;
+    margin-left: 4vw;
+    color: #1D2A62;
+    font-family: "Nunitos",;
+    font-size: 2.5vw;
+}
+.Paragrafo-EducacaoContinuada{
+    color: #1D2A62;
+    margin-left: 4vw;
+    font-size: 1.8vw;
+    margin-bottom: 4vw;
+    margin-right: 4vw;
+}
+.Alinhamento-ContainersDois{
+    display: flex;
+    justify-content: space-between;
+    border:1px solid rgb(163, 73, 118); 
+    margin-bottom: 10vw;
+}
+.Container-EticaTransparencia{
+    margin-top: 4vw;
+    /* border:1px solid rgb(163, 73, 118);  */
+    background-color: #67874A;
+    width: 37vw;
+    border-radius: 4vw;
+}
+.FonteEticaTransparencia{
+    margin-top: 4vw;
+    margin-left: 4vw;
+    color: #E9FEBE;
+    font-family: "Nunitos",;
+    font-size: 2.5vw;
+}
+.Paragrafo-EticaTransparencia{
+    color: #E9FEBE;
+    margin-left: 4vw;
+    font-size: 1.8vw;
+    margin-bottom: 4vw;
+    margin-right: 4vw;
+}
+.Container-Comunidade{
+    margin-top: 4vw;
+    /* border:1px solid rgb(163, 73, 118);  */
+    background-color: #D9DFE2;
+    width: 37vw;
+    border-radius: 4vw;
+}
+.FonteComunidade{
+    margin-top: 4vw;
+    margin-left: 4vw;
+    color: #496664;
+    font-family: "Nunitos",;
+    font-size: 2.5vw;
+}
+.Paragrafo-Comunidade{
+    color: #496664;
+    margin-left: 4vw;
+    font-size: 1.8vw;
+    margin-bottom: 4vw;
+    margin-right: 4vw;
 }

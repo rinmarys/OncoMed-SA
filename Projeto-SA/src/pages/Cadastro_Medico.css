@@ -119,9 +119,9 @@ body{
     position: absolute;
     width: 3.5vw;
     height: 1vh;
-    left: 46vw;
+    left: 46.5vw;
     top: 11vh;
-    margin-top: 2vh;
+    margin-top: 3vh;
     
     background-color: var(--cor_dois);
     border-radius: 2vw;
@@ -639,7 +639,6 @@ body{
 /* Caminho para Termos de Uso & Política de Privacidade */
 
 .caminho_para_termos_e_politica_medico{
-
     font-family: 'Poppins', sans-serif;
     font-size: 0.9vw;
     
@@ -668,7 +667,6 @@ body{
 /* Link de Termos de Uso */
 
 .hyperlink_termos_de_uso {
-
     text-decoration: none;
 
     font-weight: 700;

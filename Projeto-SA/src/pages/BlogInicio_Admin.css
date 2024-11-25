@@ -7,7 +7,7 @@
     --cor-6: #1D2A62;
 }
 
-.titulo-admin{
+.titulo-admin {
     display: flex;
     justify-content: space-between;
     width: 80.5%;
@@ -18,11 +18,11 @@
     margin-left: 10%;
 }
 
-.titulo-admin h1{
+.titulo-admin h1 {
     font-size: 35px;
 }
 
-.line-admin{
+.line-admin {
     width: 10%;
     width: 25%;
     height: 6px;
@@ -31,12 +31,12 @@
     margin-top: -18px;
 }
 
-.line-admin:hover{
+.line-admin:hover {
     transition: 0.4s;
     width: 40%;
 }
 
-.line-admin:not(:hover){
+.line-admin:not(:hover) {
     width: 25%;
     transition: 0.4s;
 }
@@ -46,11 +46,82 @@
     margin-bottom: 60px;
 } */
 
-.button-deletar{
+.button-deletar {
     width: 200px;
     background-color: transparent;
     border: none;
     height: fit-content;
     margin-left: 75%;
     margin-top: -50%;
+}
+
+.alinhamentoTudo-gerenciarPostagens {
+    margin-top: -10.5vw;
+}
+
+/* POP UP BLOG DE ADMIN */
+
+.Container-PopUpBlog {
+    top: 20vw;
+    left: 35vw;
+    position: absolute;
+    background-color: #f1f1f1;
+    height: 10vw;
+    position: fixed;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 2vw;
+}
+
+.FontePopUpBlog {
+    color: #1D2A62;
+    font-size: 1.6vw;
+    margin: 1.2vw;
+}
+
+.ButtonsPopUpBlog {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonNaoDeletar {
+    height: 2.7vw;
+    width: 12vw;
+    border-radius: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    background-color: #1D2A62;
+    color: #F1F1F1;
+    border: none;
+}
+
+.buttonNaoDeletar:hover{
+    background-color: #323D70;
+    transition: 0.4s;
+}
+
+.buttonNaoDeletar:not(:hover){
+    background-color: var(--cor-6);
+    transition: 0.4s;
+}
+
+.buttonDeletar {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    height: 2.7vw;
+    width: 12vw;
+    border: none;
+    border-radius: 15px;
+    background-color: #437118;
+    color: #F5F5F5;
+}
+
+.buttonDeletar:hover {
+    transition: 0.4s;
+    background-color: #345516;
+    color: #F5F5F5;
+}
+
+.buttonDeletar:not(:hover){
+    transition: 0.4s;
+    background-color: var(--cor-2);
 }

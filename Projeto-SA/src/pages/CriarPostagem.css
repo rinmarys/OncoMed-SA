@@ -205,7 +205,7 @@
 /* TAGS */
 
 /* BOTÕES */
-.buttons-container {
+.buttons-container-criarPostagem {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -216,7 +216,7 @@
     margin-bottom: 55px;
 }
 
-.alinhamento-buttons{
+.alinhamento-buttons-criarPostagem{
     justify-content: center;
     align-items: center;
     justify-items: center;
