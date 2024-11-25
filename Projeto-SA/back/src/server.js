@@ -137,12 +137,12 @@ app.get('/marcarConsulta/:id', async (req, res) => {
 // Rota para adicionar uma consulta
 app.post('/marcarConsulta', async (req, res) => {
     
-    const {  data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente} = req.body;
+    const {  data_agendamento, tipo_consulta, horario, observacoes, id_paciente} = req.body;
     
     try {
         const result = await pool.query(
-            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente]
+            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+            [data_agendamento, tipo_consulta, horario, observacoes, id_paciente]
         );
        
         res.status(201).json(result.rows[0]);
@@ -158,13 +158,13 @@ app.post('/marcarConsulta', async (req, res) => {
 app.put('/marcarConsulta/:id', async (req, res) => {
     
     const { id } = req.params;
-    const { data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente } = req.body;
+    const { data_agendamento, tipo_consulta, horario, observacoes, id_paciente } = req.body;
     
     try {
         const result = await pool.query(
 
-            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, id_do_paciente = $5 WHERE id = $1 RETURNING *',
-            [ data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente, id]
+            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, id_paciente = $5 WHERE id = $1 RETURNING *',
+            [ data_agendamento, tipo_consulta, horario, observacoes, id_paciente, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'marcarConsulta não encontrado' });

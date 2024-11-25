@@ -78,13 +78,19 @@
     height: 6vh;
 }
 
-.nav_bar img{
+.nav_bar_link_logo img{
 
     width: 3vw;
     height: 6vh;
 }
 
-.nav_bar img:hover{
+.nav_bar_link_perfil img{
+
+    width: 3vw;
+    height: 6vh;
+}
+
+.nav_bar_logo img:hover{
 
     transition: 0.3s;
 
@@ -92,10 +98,31 @@
     height: 7vh;
 }
 
-.nav_bar img:not(:hover){
+.nav_bar_logo img:not(:hover){
 
     transition: 0.3s;
 
     width: 3vw;
+    height: 6vh;
+}
+
+.nav_bar_link_perfil img:hover{
+
+    transition: 0.3s;
+
+    width: 6vw;
+    height: 7vh;
+}
+
+.nav_bar_link_perfil{
+
+    height: 6vh;
+}
+
+.nav_bar_link_perfil img:not(:hover){
+
+    transition: 0.3s;
+
+    width: 6vw;
     height: 6vh;
 }
