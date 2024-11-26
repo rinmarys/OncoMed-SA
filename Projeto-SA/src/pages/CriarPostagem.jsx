@@ -159,9 +159,15 @@ try {
                 </div>
 
                 {/* botões */}
+<<<<<<< HEAD
                 <div className="alinhamento-buttons">
                     <div className="buttons-container">
                         
+=======
+                <div className="alinhamento-buttons-criarPostagem">
+                    <div className="buttons-container-criarPostagem">
+                        <button className='salvar-rascunho-button'>SALVAR RASCUNHO</button>
+>>>>>>> 18436a007755dedd43ce8fe681e5d7c8d45be7c5
 
                         <button className='publicar-button' type = 'submit' id='buttonPublicarBlog'>PUBLICAR</button>
 

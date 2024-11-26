@@ -11,6 +11,9 @@ import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx';
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
+import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
+import { useContext } from 'react/index.js';
+import { GlobalContext } from '../contexts/GlobalContext.jsx';
 
 function Home() {
 
@@ -32,12 +35,14 @@ function Home() {
   let faq_c_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_d_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
 
+  const {tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
+
   function evento_faq_a(){
 
     
     set_faq_a_aberto(!faq_a_aberto);
 
-    set_altura_faq_a(faq_a_aberto ? `8vh` : `24vh`);
+    set_altura_faq_a(faq_a_aberto ? `8vh` : `26vh`);
 
     set_faq_b_aberto(false);
     set_altura_faq_b(`8vh`);
@@ -52,7 +57,7 @@ function Home() {
   function evento_faq_b(){
 
     set_faq_b_aberto(!faq_b_aberto);
-    set_altura_faq_b(faq_b_aberto ? `8vh` : `24vh`);
+    set_altura_faq_b(faq_b_aberto ? `8vh` : `28vh`);
 
     set_faq_a_aberto(false);
     set_altura_faq_a(`8vh`);
@@ -67,7 +72,7 @@ function Home() {
   function evento_faq_c(){
 
     set_faq_c_aberto(!faq_c_aberto);
-    set_altura_faq_c(faq_c_aberto ? `8vh` : `24vh`);
+    set_altura_faq_c(faq_c_aberto ? `8vh` : `28vh`);
 
     set_faq_b_aberto(false);
     set_altura_faq_b(`8vh`);
@@ -82,7 +87,7 @@ function Home() {
   function evento_faq_d(){
 
     set_faq_d_aberto(!faq_d_aberto);
-    set_altura_faq_d(faq_d_aberto ? `8vh`: `24vh`);
+    set_altura_faq_d(faq_d_aberto ? `8vh`: `29vh`);
 
     set_faq_b_aberto(false);
     set_altura_faq_b(`8vh`);
@@ -120,9 +125,19 @@ function Home() {
     
   }
 
+    useEffect(() => {
+
+      setTimeout(() => {
+
+        set_tempo_do_pop_up_de_boas_vindas(false);
+      }, 3000);
+    }, []);
+
   return (
 
     <div>
+
+      {tempo_do_pop_up_de_boas_vindas && <Pop_up_de_boas_vindas/>}
 
       <Header/>
 

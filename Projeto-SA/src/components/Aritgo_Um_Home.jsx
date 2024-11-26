@@ -13,7 +13,7 @@ function Aritgo_Um_Home() {
 
             <div className="titulo_artigo_um">
 
-                <h3>Medicina alternativa ou medicina convencional? Junção dos dois.</h3>
+                <h3>Medicina alternativa ou medicina convencional?</h3>
                 <p>por Doutor Mauricio Campos</p>
 
             </div>

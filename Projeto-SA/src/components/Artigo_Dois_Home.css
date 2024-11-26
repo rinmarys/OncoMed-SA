@@ -66,6 +66,8 @@
 
     margin-top: 3.8vh;
     margin-left: 1.8vw;
+
+    height: 20vh;
 }
 
 .titulo_artigo_dois h3{
@@ -87,7 +89,7 @@
     font-weight: 400;
     font-size: 1vw;
 
-    color: var(--cor_dois);
+    color: var(--cor_sete);
 }
 
 .imagem_artigo_dois{
@@ -108,7 +110,7 @@
 
     width: 30.64vw;
 
-    margin-top: 1vw;
+    margin-top: 1.5vh;
     margin-left: 1.8vw;
 
     font-family: var(--tipografia_primaria);
