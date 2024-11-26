@@ -196,7 +196,7 @@ function Perfil_medico() {
               <button
                 className='button-deletar-perfis'
                 onClick={deletar}
-              >deletar
+              >DELETAR
               </button>
             </div>
           </div>
