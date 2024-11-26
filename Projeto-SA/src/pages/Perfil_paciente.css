@@ -237,7 +237,7 @@
 
 .button-deletar-perfis{
     border: none;
-    background-color: #ef2828;
+    background-color: var(--cor_verde_claro);
     color: var(--cor_quase_branco);
     width: 15vw;
     height: 5vh;
@@ -247,12 +247,12 @@
 }
 
 .button-deletar-perfis:hover{
-    background-color: #891c1c;
+    background-color: var(--cor_verde_meio_termo);
     transition: 0.4s;
 }
 
 .button-deletar-perfis:not(:hover){
-    background-color: #ef2828;
+    background-color: var(--cor_verde_claro);
     transition: 0.4s;
 }
 
