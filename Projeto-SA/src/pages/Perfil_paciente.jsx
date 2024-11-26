@@ -150,20 +150,20 @@
 
 // REVISAR CODIGO
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Perfil_paciente.css';
 import HamburgerMenu from '../components/HamburgerMenu';
 
 function Perfil_paciente() {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
-  const [genero, setGenero] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [editando, setEditando] = useState(false); // Estado para controlar el modo de edición
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [telefone, setTelefone] = useState('')
+  const [senha, setSenha] = useState('')
+  const [genero, setGenero] = useState('')
+  const [confirmarSenha, setConfirmarSenha] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [editando, setEditando] = useState(false)
 
   useEffect(() => {
     const savedProfile = JSON.parse(localStorage.getItem('userProfile'));
@@ -179,7 +179,7 @@ function Perfil_paciente() {
 
   const editar = () => {
     if (!editando) {
-      setEditando(true); // Activa el modo de edición
+      setEditando(true);
       return;
     }
 
@@ -199,17 +199,16 @@ function Perfil_paciente() {
         senha,
         confirmarSenha,
       };
-      localStorage.setItem('userProfile', JSON.stringify(userProfile));
+      localStorage.setItem('userProfile', JSON.stringify(userProfile))
 
-      alert('Dados atualizados!');
-      setEditando(false); // Desactiva el modo de edición después de guardar
-
+      alert('Dados atualizados!')
+      setEditando(false)
     } catch (err) {
-      console.error(error);
-      setError('Falha ao atualizar os dados. Tente novamente.');
+      console.error(error)
+      setError('Falha ao atualizar os dados. Tente novamente.')
 
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   };
 
@@ -217,8 +216,7 @@ function Perfil_paciente() {
     if (window.confirm('Tem certeza que deseja deletar sua conta?')) {
       localStorage.removeItem('userProfile');
       alert('Conta deletada!');
-      // Redirige al usuario (asegúrate de tener configurado el enrutador)
-      window.location.href = '/home';
+      window.location.href = '/'
     }
   };
 
@@ -245,7 +243,7 @@ function Perfil_paciente() {
               placeholder="Digite seu nome"
               value={nome}
               onChange={handleChange(setNome)}
-              disabled={!editando} // Bloquea el input si no está en modo de edición
+              disabled={!editando}
             />
 
             <label>Email</label>
@@ -332,6 +330,6 @@ function Perfil_paciente() {
   );
 }
 
-export default Perfil_paciente;
+export default Perfil_paciente
 
 // REVISAR CODIGO
