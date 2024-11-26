@@ -8,7 +8,9 @@ export const GlobalContextProvider = ({ children }) => {
     const [lista_de_pacientes, set_lista_de_pacientes] = useState([]);
     const [lista_de_medicos, set_lista_de_medicos] = useState([]);
     const [lista_de_consultas, set_lista_de_consultas] = useState([]);
-    const [usuario_administrador, set_usuario_administrador] = useState([{ nome: `Administrador`, email: `administrador@gmail.com`, senha: `123` }]);
+    const [usuario_administrador, set_usuario_administrador] = useState([{ nome: `Administrador`, email: `administrador@gmail.com`, senha: `1234567` }]);
+
+    const [tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas] = useState(true);
 
     // informações de marcar consulta
     const [selectedDate, setSelectedDate] = useState(null);
@@ -17,6 +19,9 @@ export const GlobalContextProvider = ({ children }) => {
 
     return (
         <GlobalContext.Provider value={{
+
+            tempo_do_pop_up_de_boas_vindas,
+            set_tempo_do_pop_up_de_boas_vindas,
 
             usuario_logado,
             set_usuario_logado,

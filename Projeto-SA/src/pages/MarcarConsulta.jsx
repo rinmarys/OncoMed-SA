@@ -53,7 +53,6 @@ function MarcarConsulta() {
   useEffect(() => {
 
     fetch_consultas();
-    fecth_paciente_pelo_id();
   }, []);
 
   const fetch_consultas = async () => {
@@ -70,26 +69,20 @@ function MarcarConsulta() {
     };  
   };
 
-  const [paciente_selecionado, set_paciente_selecionado] = useState(null);
-  
-  const fecth_paciente_pelo_id = async (id) => {
-
-    try {
-
-      const response = await axios.get(`http://localhost:3000/pacientes/${id}`);
-
-      set_paciente_selecionado(response.data.id_paciente);
-
-    } catch (error) {
-      
-      set_paciente_selecionado(null);
-      console.error('Erro ao buscar cliente por ID:', error);
-    };
-  };
+  const [id_do_paciente, set_id_do_paciente] = useState();
 
   const handleSubmit = async (e) => {
    
     e.preventDefault();
+    
+    for(let i = 0; i < lista_de_pacientes.length; i++){
+
+      if(lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email){
+
+        set_id_do_paciente(lista_de_pacientes[i].id_paciente);
+      };
+    };
+
   
     const consulta = {
 
@@ -97,7 +90,7 @@ function MarcarConsulta() {
       tipo_consulta: consultaSelecionada,
       horario: horarioSelecionado,
       observacoes: observacaoEscrita,
-      id_do_paciente: paciente_selecionado
+      id_do_paciente: id_do_paciente
     };
   
     try {
