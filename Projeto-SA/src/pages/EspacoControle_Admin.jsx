@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 function EspacoControle_Admin() {
+
     return (
         <div className='alinhamento-espacoControle'>
             <div className="titulo-espacoControle">

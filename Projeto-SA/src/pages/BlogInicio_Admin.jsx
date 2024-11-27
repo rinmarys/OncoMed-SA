@@ -53,7 +53,7 @@ function BlogInicio_Admin() {
                             <div className="alinhamento-texto">
 
                                 <div className="button-container">
-                                    <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
+                                    <button className='button-deletar' id='DeletarButtonInpt' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                                 </div>
 
                                 <div className='texto-artigo'>

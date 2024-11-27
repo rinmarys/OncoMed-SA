@@ -62,7 +62,7 @@ function Perfil_medico() {
       setEditando(false); 
 
     } catch (err) {
-      console.error(error);
+      console.error(err);
       setError('Falha ao atualizar os dados. Tente novamente.');
 
     } finally {
@@ -196,7 +196,7 @@ function Perfil_medico() {
               <button
                 className='button-deletar-perfis'
                 onClick={deletar}
-              >deletar
+              >DELETAR
               </button>
             </div>
           </div>

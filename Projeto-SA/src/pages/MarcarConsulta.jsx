@@ -53,7 +53,6 @@ function MarcarConsulta() {
   useEffect(() => {
 
     fetch_consultas();
-    fecth_paciente_pelo_id();
   }, []);
 
   const fetch_consultas = async () => {
@@ -87,9 +86,20 @@ function MarcarConsulta() {
     };
   };
 
+  const [id_do_paciente, set_id_do_paciente] = useState();
+
   const handleSubmit = async (e) => {
    
     e.preventDefault();
+    
+    for(let i = 0; i < lista_de_pacientes.length; i++){
+
+      if(lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email){
+
+        set_id_do_paciente(lista_de_pacientes[i].id_paciente);
+      };
+    };
+
   
     const consulta = {
 
@@ -97,7 +107,7 @@ function MarcarConsulta() {
       tipo_consulta: consultaSelecionada,
       horario: horarioSelecionado,
       observacoes: observacaoEscrita,
-      id_do_paciente: paciente_selecionado
+      id_do_paciente: id_do_paciente
     };
   
     try {

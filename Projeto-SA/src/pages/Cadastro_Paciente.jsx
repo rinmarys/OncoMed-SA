@@ -164,16 +164,15 @@ function Cadastro_Paciente() {
       try {
         if (selectedCliente) {
 
-          // Atualizar pacientes existente (PUT)
           const response = await axios.put(`http://localhost:3000/pacientes/${selectedCliente.id}`, form);
 
           if (response.status === 200) {
 
-            fetch_pacientes(); // Atualiza a lista de pacientes após a edição
+            fetch_pacientes(); 
 
-            setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+            setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); 
 
-            setSelectedCliente(null); // Reseta o paciente selecionado
+            setSelectedCliente(null); 
 
           };
         } else {
@@ -196,18 +195,28 @@ function Cadastro_Paciente() {
         console.error('Erro ao adicionar/atualizar paciente:', error);
       };
     } else {
-      // Configura a mensagem de erro
+
       if (cpf_ja_cadastrado == true && email_ja_cadastrado == true) {
+  
         set_mensagem_de_erro("CPF e Email já cadastrados!");
+  
       } else if (email_ja_cadastrado == true) {
+  
         set_mensagem_de_erro("Email já cadastrado!");
+  
       } else if (cpf_ja_cadastrado == true) {
+  
         set_mensagem_de_erro("CPF já cadastrado!");
+  
       } else if (senhas_sao_iguais == true) {
+  
         set_mensagem_de_erro("As senhas devem ser iguais!");
+  
       } else if (!valor_checkbox) {
+  
         set_mensagem_de_erro("Favor aceitar os Termos de Uso!");
-      }
+
+      };
     }
 
   };
@@ -268,26 +277,53 @@ function Cadastro_Paciente() {
               <div className='coluna_de_inputs_um_paciente'>
 
                 <div className='input_nome_paciente'>
+                
                   <label>Nome Completo</label>
                   <input type="text" placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
+                
                 </div>
 
                 <div className="input_cpf_paciente">
+                
                   <label>CPF</label>
                   <input type="text" minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
+                
                 </div>
 
                 <div className="input_genero_paciente">
-                  <label>Gênero</label>
-                  <input type="text" placeholder='Digite seu gênero' value={form.genero || ''} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                  
+                  <label className='titulo_label_inpt'>Gênero</label>
+                  
+                  <div className='input_genero_paciente_alinhar_radios'>
+                    
+                    <div className='input_genero_paciente_alinhar_radios_masculino'>
+                    
+                      <input type="radio" name='genero_inpt' value={'Masculino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <label className='input_genero_paciente_alinhar_label'>Masculino</label>
+                    
+                    </div>
+
+                    <div className='input_genero_paciente_alinhar_radios_feminino'>
+                    
+                      <input type="radio" name='genero_inpt' value={'Feminino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <label className='input_genero_paciente_alinhar_label'>Feminino</label>
+                    
+                    </div>
+
+                  </div>
+
                 </div>
 
+
                 <div className="input_senha_paciente">
+                  
                   <label>Senha</label>
 
                   <div className="input_senha_paciente_dv">
+                  
                     <input type={valor_do_olinho_um} minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({ ...form, senha: e.target.value })} />
                     <button type='button' onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)}>{imagem_olinho_um}</button>
+                  
                   </div>
 
                 </div>
@@ -297,26 +333,35 @@ function Cadastro_Paciente() {
               <div className="coluna_de_inputs_dois_paciente">
 
                 <div className="input_cep_paciente">
+                
                   <label>CEP</label>
                   <input type="text" minLength={9} maxLength={9} placeholder='12345-678' value={form.cep || ''} onChange={(e) => setForm({ ...form, cep: e.target.value })} />
+                
                 </div>
 
                 <div className="input_email_paciente">
+                
                   <label>Email</label>
                   <input type="text" placeholder='exemplo@gmail.com' value={form.email || ''} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                
                 </div>
 
                 <div className="input_data_de_nascimento_paciente">
+                
                   <label>Data Nascimento</label>
                   <input type="date" placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
+                
                 </div>
 
                 <div className="input_confirmar_senha_paciente">
+                
                   <label>Confirmar Senha</label>
 
                   <div className="input_confirmar_senha_paciente_dv">
+                
                     <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)} />
                     <button type='button' onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
+                
                   </div>
 
                 </div>
@@ -326,21 +371,28 @@ function Cadastro_Paciente() {
             </div>
 
             <div className='caminho_para_termos_e_politica_paciente'>
+            
               <input type="checkbox" id='checkbox_cadastro_paciente' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)} />
               <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='termos_de_uso_paciente'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='politica_de_privacidade_paciente'>Política de Privacidade</Link></label>
+            
             </div>
 
             <div className='alinhamento_botao_cadastrar_paciente'>
+            
               <button className='botao_cadastrar_paciente' type='submit'>CADASTRAR</button>
 
               <div className="error_paciente">
+            
                 {mensagem_de_erro}
+            
               </div>
 
             </div>
 
             <div className="possui_conta">
+            
               <p>Já possui uma conta? <Link to={`/login`} className='possui_conta_link'>Log-In</Link></p>
+            
             </div>
 
           </div>

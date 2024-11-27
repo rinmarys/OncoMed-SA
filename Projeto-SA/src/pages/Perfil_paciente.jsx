@@ -1,4 +1,3 @@
-// REVISAR CODIGO
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios'
 import './Perfil_paciente.css';
@@ -14,11 +13,14 @@ function Perfil_paciente() {
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [cep, setCep] = useState('');
   const [genero, setGenero] = useState('');
+  const [descricao, setDescricao] = useState('');
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [editando, setEditando] = useState(false);
   const userId = ''
 
+<<<<<<< HEAD
 
   useEffect(() => {
     const fetchUsuarioPaciente = async () => {
@@ -35,6 +37,29 @@ function Perfil_paciente() {
     }
     fetchUsuarioPaciente()
   }, [])
+=======
+  const [mostrarPopDeletarPerfil,setMostrarPopDeletarPerfil]=useState(false)
+  const [mostrarPopUpSalvoPerfil,setMostrarPopUpSalvoPerfil]=useState(false)
+
+  const [mostrarSenha, setMostrarSenha]= useState (false)
+  const [mostrarConfirmarSenha]=useState (false)
+
+ useEffect(() => {
+  const fetchUsuarioPaciente= async() =>{
+    try{
+      const response= await axios.get(`http://localhost:5173/perfil_paciente/${userId}`)
+      const {nome, email, telefone}=response.data
+      setNome(nome)
+      setEmail(email)
+      setTelefone(telefone)
+    }catch (err){
+     console.error(err)
+     setError('Erro ao carregar os dados do usuário')
+    }
+  }
+  fetchUsuarioPaciente()
+ }, [userId])
+>>>>>>> b3e1f67381c7ab3e3d32e13d206500cf67163567
 
   const handleChange = (setter) => (event) => setter(event.target.value);
 
@@ -63,6 +88,7 @@ function Perfil_paciente() {
         telefone,
         senha,
         confirmarSenha,
+<<<<<<< HEAD
 
       };
       localStorage.setItem('userProfile', JSON.stringify(userProfile))
@@ -75,12 +101,28 @@ function Perfil_paciente() {
     } catch (err) {
       console.error(error)
       setError('Falha ao atualizar os dados. Tente novamente.')
+=======
+        cep,
+        genero,
+        descricao
+      }
+      await axios.put(`http://localhost:5173/perfil_paciente/${userId}`,pacientePerfil)
+
+      console.log ("Dados salvos com sucesso!")
+     //Mostrar pop-up salvo com sucesso
+     setMostrarPopUpSalvoPerfil(true)
+     setEditando(true)
+    } catch (err) {
+      console.error(err);
+      setError('Falha ao atualizar os dados. Tente novamente.');
+>>>>>>> b3e1f67381c7ab3e3d32e13d206500cf67163567
 
     } finally {
       setLoading(false)
     }
   };
 
+<<<<<<< HEAD
   const deletar = async () => {
     if (window.confirm('Tem certeza que deseja deletar sua conta?')) {
       try {
@@ -94,8 +136,33 @@ function Perfil_paciente() {
         alert('Falha ao deletar a conta. Tente novamnete')
       }
 
+=======
+  //Função para abir o pop-up de deletar
+  const abrirPopDeletarPerfil=() => {
+    setMostrarPopDeletarPerfil(true)
+  }
+
+  //Função para não deletar perfil
+  const naoDeletarPerfilPaciente=() =>{
+    setMostrarPopDeletarPerfil(false)
+  }
+
+  const deletarPerfilPaciente = async () => {
+      try{
+      await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`)
+      alert('Conta deletada!');
+      navigate('/home')
+      }catch (err){
+      console.error(err)
+      alert('Falha ao deletar a conta. Tente novamente')
+>>>>>>> b3e1f67381c7ab3e3d32e13d206500cf67163567
     }
   };
+
+  //função para fechar o pop up salvo com sucesso
+  const fecharPopUpSalvoPerfil=() => {
+    setMostrarPopUpSalvoPerfil(false)
+  }
 
   return (
     <div className='user-container'>
@@ -168,26 +235,52 @@ function Perfil_paciente() {
         <div className="container-alinhamento-dois">
           <div className="alinhamento-inputs-perfis">
             <label>Senha</label>
+            <div style={{position:'relative'}}></div>
             <input
-              type="password"
+              type={mostrarSenha ? "text":"password"}
               placeholder="Digite a sua senha"
               value={senha}
               onChange={handleChange(setSenha)}
               disabled={!editando}
+              minlenght={7}
+              maxLength={12}
             />
+            <button type='button' onClick={() => setMostrarSenha(!mostrarSenha)}
+            style={{position:'absolute', right:'10px', top:'50%', transform:'translateY(-50%)', border:'none', background:'none', cursor:'pointer'}}>
+            {mostrarSenha ?(
+            <img src='input_olho_aberto.png' alt='Olhinho aberto'/>
+            ) : (
+              <img src='input_olho_fechado.png' alt='olhinho fechado'/>
+            )}
+            </button>
 
             <label>Nova senha</label>
             <input
-              type="password"
-              placeholder="Confirme sua nova senha"
-              value={confirmarSenha}
-              onChange={handleChange(setConfirmarSenha)}
-              disabled={!editando}
+             type={mostrarSenha ? "text":"password"}
+             placeholder="Digite a sua senha"
+             value={senha}
+             onChange={handleChange(setSenha)}
+             disabled={!editando}
+             minlenght={7}
+             maxLength={12}
             />
+            <button type='button' onClick={() => setMostrarSenha(!mostrarSenha)}
+            style={{position:'absolute', left:'900px', top:'15%', width:'80px', height:'80px', border:'none', background:'none', cursor:'pointer'}}>
+            {mostrarSenha ?(
+            <img src='input_olho_aberto.png' alt='Olhinho aberto'
+            className='icone-olihinho-aberto'/>
+            
+            ) : (
+              <img src='input_olho_fechado.png' alt='olhinho fechado'
+              className='icone-olhinho-fechado'/>
+            )}
+            </button>
 
             <label>Descrição breve</label>
             <textarea
               placeholder='Escreva algo sobre você...'
+              value={descricao}
+              onChange={handleChange(setDescricao)}
               className='textArea-perfis'
               disabled={!editando}
             ></textarea>
@@ -208,13 +301,41 @@ function Perfil_paciente() {
                 {editando ? 'SALVAR' : 'EDITAR'}
               </button>
 
+              {/* botão para abrir o pop-up de deletar */}
               <button
                 className='button-deletar-perfis'
+<<<<<<< HEAD
                 onClick={deletar}
               >DELETAR</button>
+=======
+                onClick={abrirPopDeletarPerfil}
+                disabled= {loading}
+              >DELETAR
+              </button>
+>>>>>>> b3e1f67381c7ab3e3d32e13d206500cf67163567
             </div>
           </div>
         </div>
+         {/* Pop up deletar perfil paciente */}
+         {mostrarPopDeletarPerfil && (
+                        <div className='Container-PopPerfilPaciente'>
+                            <h2 className='FontePopPerfilPaciente'>Deseja mesmo deletar sua conta?</h2>
+                            <div className='ButtonsPopPerfilPaciente'>
+                                <button className='buttonNaoDeletarPerfilPaciente' onClick={naoDeletarPerfilPaciente}>NÃO</button>
+                                <button className='buttonDeletarPerfilPaciente' onClick={deletarPerfilPaciente}>SIM</button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* pop up salvar perfil paciente */}
+                    {mostrarPopUpSalvoPerfil &&(
+                    <div className='container-PopSalvarPerfilPaciente'>
+                      <h2 className='FontepPopSalvarPerfilPaciente'>Salvo com sucesso!</h2>
+                      <div className='buttonPopSalvarPerfilPaciente'>
+                        <button className='buttonOkPerfilPaciente' onClick={fecharPopUpSalvoPerfil}>OK</button>
+                        </div>
+                        </div>
+                    )}
       </div>
     </div>
   );

@@ -11,6 +11,11 @@ import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx';
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
+<<<<<<< HEAD
+=======
+import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
+import { useContext } from 'react';
+>>>>>>> b3e1f67381c7ab3e3d32e13d206500cf67163567
 import { GlobalContext } from '../contexts/GlobalContext.jsx';
 
 function Home() {
@@ -35,6 +40,8 @@ function Home() {
   let faq_d_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   
   console.log(lista_de_pacientes)
+
+  const {tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
 
   function evento_faq_a(){
 
@@ -124,20 +131,19 @@ function Home() {
     
   }
 
-  let aparecer_pop_up_de_bemvindo = true;
+    useEffect(() => {
 
-  useEffect(() => {
+      setTimeout(() => {
 
-    setTimeout(() => {
-      
-      aparecer_pop_up_de_bemvindo = false
-
-    }, 5000);
-  }, []);
+        set_tempo_do_pop_up_de_boas_vindas(false);
+      }, 3000);
+    }, []);
 
   return (
 
     <div>
+
+      {tempo_do_pop_up_de_boas_vindas && <Pop_up_de_boas_vindas/>}
 
       <Header/>
 

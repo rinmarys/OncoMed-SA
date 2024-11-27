@@ -217,10 +217,10 @@
 .button-editar-perfis{
     border: none;
     background-color: var(--azul_escuro);
-    color: var(--cor_quase_branco);
+    color: var(--quase_branco);
     width: 15vw;
     height: 5vh;
-    font-weight: 800;
+    font-weight: 800px;
     font-family: 'Nunito', sans-serif;
     border-radius: 0.6vw;
 }
@@ -231,27 +231,27 @@
 }
 
 .button-editar-perfis:not(:hover){
-    background-color: var(--cor_azul_escuro);
+    background-color: var(--azul_escuro);
     transition: 0.4s;
 }
 
 .button-deletar-perfis{
     border: none;
-    background-color: var(--cor_verde_claro);
-    color: var(--cor_quase_branco);
+    background-color: var(--verde_claro);
+    color: var(--branco_gelo);
     width: 15vw;
     height: 5vh;
-    font-weight: 800;
+    font-weight: 800px;
     font-family: 'Nunito', sans-serif;
     border-radius: 0.6vw;
 }
 
 .button-deletar-perfis:hover{
-    background-color: var(--cor_verde_meio_termo);
+    background-color: var(--verde_meio_termo);
     transition: 0.4s;
 }
 
 .button-deletar-perfis:not(:hover){
-    background-color: var(--cor_verde_claro);
+    background-color: var(--verde_claro);
     transition: 0.4s;
 }
