@@ -7,7 +7,7 @@ const pool = new Pool({
     user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
     host: 'localhost',
     database: 'template', // Nome da sua database
-    password: 'senai', // Substitua pela sua senha
+    password: 'postgres', // Substitua pela sua senha
     port: 5432, // Porta padrão do PostgreSQL
 });
 
@@ -272,7 +272,6 @@ app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
 
-<<<<<<< HEAD
 app.get('/blog', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM blog');
@@ -296,18 +295,3 @@ app.post('/blog', async (req, res) => {
         res.status(500).json({ error: 'Erro ao adicionar medicos' });
     }
 });
-=======
-
-//Admin
-
-    // Rota para buscar todos os consultas
-    app.get('/admin', async (req, res) => {
-        try {
-            const result = await pool.query('SELECT * FROM admin');
-            res.json(result.rows);
-        } catch (err) {
-            console.error(err.message);
-            res.status(500).json({ error: 'Erro ao buscar marcarConsulta' });
-        }
-    });
->>>>>>> 18436a007755dedd43ce8fe681e5d7c8d45be7c5

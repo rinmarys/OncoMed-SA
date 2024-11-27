@@ -15,16 +15,10 @@ export const GlobalContextProvider = ({ children }) => {
     // informações de marcar consulta
     const [selectedDate, setSelectedDate] = useState(null);
     const [array_consultas_do_dia, set_array_consultas_do_dia] = useState([]);
-<<<<<<< HEAD
     const [listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta] = useState([])
 
     const [registroBlog, setRegistroBlog] = useState([]);
-    
 
-
-
-=======
->>>>>>> 18436a007755dedd43ce8fe681e5d7c8d45be7c5
     // informações de marcar consulta
 
     return (
@@ -53,7 +47,6 @@ export const GlobalContextProvider = ({ children }) => {
             setSelectedDate,
             //Fecha select
 
-<<<<<<< HEAD
 
             //LISTA BLOG
             registroBlog,
@@ -63,8 +56,6 @@ export const GlobalContextProvider = ({ children }) => {
             listaInformacoesMarcarConsulta,
             setListaInformacoesMarcarConsulta
             // MARCAR CONSULTA INFORMAÇÔES
-=======
->>>>>>> 18436a007755dedd43ce8fe681e5d7c8d45be7c5
         }}>
             {children}
         </GlobalContext.Provider>

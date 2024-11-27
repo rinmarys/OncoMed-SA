@@ -51,8 +51,8 @@ const fetchBlog = async ( ) => {
     try {
         const resposta = await axios.get ('http://localhost:3000/blog')
         setRegistroBlog (resposta.data)
-    } catch (error) {
-        console.error('Erro ao buscar tabela do blog ;(')
+    } catch (err) {
+        console.error('Erro ao buscar tabela do blog ;(', err)
 
     }
 }
@@ -84,8 +84,8 @@ try {
         setValorTitulo('')
     }
 
-} catch (error) {
-    console.error('Erro ao adicionar o blog ;(')
+} catch (err) {
+    console.error('Erro ao adicionar o blog ;(', err)
 
 }
 
@@ -159,15 +159,8 @@ try {
                 </div>
 
                 {/* botões */}
-<<<<<<< HEAD
                 <div className="alinhamento-buttons">
                     <div className="buttons-container">
-                        
-=======
-                <div className="alinhamento-buttons-criarPostagem">
-                    <div className="buttons-container-criarPostagem">
-                        <button className='salvar-rascunho-button'>SALVAR RASCUNHO</button>
->>>>>>> 18436a007755dedd43ce8fe681e5d7c8d45be7c5
 
                         <button className='publicar-button' type = 'submit' id='buttonPublicarBlog'>PUBLICAR</button>
 

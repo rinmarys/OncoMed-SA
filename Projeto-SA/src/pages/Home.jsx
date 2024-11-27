@@ -12,7 +12,7 @@ import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
 import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
-import { useContext } from 'react/index.js';
+import { useContext } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext.jsx';
 
 function Home() {

@@ -17,8 +17,10 @@ function Pop_up_de_boas_vindas() {
   return (
     <div className='Pop_up_de_boas_vindas_container'>
       
-      <h1>Seja bem-vindo(a)! {usuario_logado.email}</h1>
-      <button onClick={() => set_tempo_do_pop_up_de_boas_vindas(false)}>X</button>
+      <div className='Pop_up_de_boas_vindas_container_alinhamento_conteudo'>
+        <h1>Seja bem-vindo(a)! {usuario_logado.nome}</h1>
+        <button onClick={() => set_tempo_do_pop_up_de_boas_vindas(false)}>X</button>
+      </div>
 
     </div>
   )

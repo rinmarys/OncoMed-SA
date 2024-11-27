@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './Login.css';
 import Pop_up from "../components/Pop_up.jsx";
 import { GlobalContext } from "../contexts/GlobalContext";
+import axios from "axios";
 
 function Login() {
 
@@ -11,11 +12,10 @@ function Login() {
   const [valor_inpt_senha, set_valor_inpt_senha] = useState('');
   const [pop_up_aberto, set_pop_aberto] = useState(false);
   const [mensagem_de_erro, set_mensagem_de_erro] = useState('');
-  
-  // Accedemos al contexto de GlobalContext solo una vez
 
-  const { lista_de_pacientes, lista_de_medicos, usuario_administrador, set_usuario_logado } = useContext(GlobalContext);
-  
+  const { lista_de_pacientes, set_lista_de_pacientes, lista_de_medicos, usuario_administrador, set_usuario_logado } = useContext(GlobalContext);
+  const {set_tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
+
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho' />);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
   const [valor_do_olinho, set_valor_do_olinho] = useState('password');
@@ -40,6 +40,40 @@ function Login() {
   
   }, [estado_do_olinho]);
 
+  const fetch_pacientes = async () => {
+
+    try{
+
+      const pegar_lista = await axios.get(`http://localhost:3000/pacientes`);
+      set_lista_de_pacientes(pegar_lista.data);
+
+    } catch(err) {
+
+      console.error(`Erro ao buscar tabela`, err);
+    };
+  };
+
+  const fetch_medicos = async () => {
+
+    try{
+
+      const pegar_lista = await axios.get(`http://localhost:3000/medicos`);
+      set_lista_de_pacientes(pegar_lista.data);
+
+    } catch(err){
+
+      console.error(`Erro ao buscar médicos`, err);
+    };
+  };
+
+  useEffect(() => {
+
+    set_tempo_do_pop_up_de_boas_vindas(true);
+
+    fetch_pacientes();
+    fetch_medicos();
+  }, []);
+
   class Fazer_login{
 
     constructor(nome_do_usuario, email_do_usuario, senha_do_usuario){
@@ -51,7 +85,6 @@ function Login() {
       let pegar_array_medicos = [...lista_de_medicos];
       let pegar_array_pacientes = [...lista_de_pacientes];
       let pegar_array_administrador = [...usuario_administrador];
-      let usuario_existente = false;
     
     if (pegar_array_pacientes != null) {
     
