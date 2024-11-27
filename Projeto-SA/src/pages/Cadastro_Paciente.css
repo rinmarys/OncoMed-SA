@@ -273,7 +273,7 @@ body {
     box-sizing: border-box;
 
     width: 2vw;
-    height: 3.5vh;
+    height: 2.5vh;
     padding-left: 0.5vw;
 
     font-size: 1vw;
@@ -289,6 +289,15 @@ body {
 
     display: flex;
     align-items: center;
+
+}
+
+.input_genero_paciente_alinhar_radios_masculino input{
+    
+    margin: 0px;
+    margin-right: 0.5vw;
+
+    width: 1.5vw;
 }
 
 .input_genero_paciente_alinhar_radios_feminino{
@@ -296,6 +305,15 @@ body {
     display: flex;
     align-items: center;
     
+}
+
+.input_genero_paciente_alinhar_radios_feminino input{
+
+    margin: 0px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+
+    width: 1.5vw;
 }
 
 .input_genero_paciente_alinhar_label{
@@ -368,7 +386,7 @@ body {
     line-height: 2vw;
 
     margin-bottom: 0%;
-    margin-top: 2vh;
+    margin-top: 2.4vh;
 
     color: var(--cor_um);
 }
@@ -382,7 +400,7 @@ body {
 
     position: absolute;
 
-    top: 64vh;
+    top: 62.5vh;
     left: 57vw;
     right: 0vw;
     bottom: 0vh;
@@ -521,6 +539,7 @@ body {
     color: var(--cor_cinco);
 }
 
+
 /* Data de Nascimento Label */
 
 .input_data_de_nascimento_paciente label {
@@ -591,7 +610,7 @@ body {
 
     position: absolute;
 
-    top: 64vh;
+    top: 62.5vh;
     left: 77.5vw;
     right: 0vw;
     bottom: 0vh;

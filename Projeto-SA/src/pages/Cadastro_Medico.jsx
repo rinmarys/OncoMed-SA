@@ -410,7 +410,7 @@ function Cadastro_Medico() {
     
     <input type="checkbox" id='checkbox_cadastro_medico' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)}/>
     
-    <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='termos_de_uso_medico'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='politica_de_privacidade_paciente'>Política de Privacidade</Link></label>
+    <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='termos_de_uso_medico'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='politica_de_privacidade_medico'>Política de Privacidade</Link></label>
   
   </div>
   

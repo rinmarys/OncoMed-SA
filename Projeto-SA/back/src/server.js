@@ -7,7 +7,7 @@ const pool = new Pool({
     user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
     host: 'localhost',
     database: 'template', // Nome da sua database
-    password: 'postgres', // Substitua pela sua senha
+    password: 'senai', // Substitua pela sua senha
     port: 5432, // Porta padrão do PostgreSQL
 });
 

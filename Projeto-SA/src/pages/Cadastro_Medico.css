@@ -256,7 +256,7 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .input_genero_medico_alinhar_radios{
@@ -273,7 +273,7 @@ body{
     box-sizing: border-box;
 
     width: 2vw;
-    height: 3.5vh;
+    height: 2.5vh;
     padding-left: 0.5vw;
 
     font-size: 1vw;
@@ -289,6 +289,15 @@ body{
 
     display: flex;
     align-items: center;
+
+}
+
+.input_genero_medico_alinhar_radios_masculino input{
+    
+    margin: 0px;
+    margin-right: 0.5vw;
+
+    width: 1.5vw;
 }
 
 .input_genero_medico_alinhar_radios_feminino{
@@ -296,6 +305,15 @@ body{
     display: flex;
     align-items: center;
     
+}
+
+.input_genero_medico_alinhar_radios_feminino input{
+
+    margin: 0px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+
+    width: 1.5vw;
 }
 
 .input_genero_medico_alinhar_label{
@@ -368,7 +386,7 @@ body{
     line-height: 2vw;
 
     margin-bottom: 0%;
-    margin-top: 2vh;
+    margin-top: 2.4vh;
     
     color: var(--cor_um);
 }
@@ -382,7 +400,7 @@ body{
 
     position: absolute;
 
-    top: 64vh;
+    top: 62.5vh;
     bottom: 0vw;
     right: 0vw;
     left: 57vw;
@@ -521,6 +539,11 @@ body{
     color: var(--cor_cinco);
 }
 
+.input_data_de_nascimento_medico input[type='date'] ::-webkit-calendar-picker-indicator {
+
+    filter: invert(0.8) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(240deg);
+}
+
 /* Data de Nascimento Label */
 
 .input_data_de_nascimento_medico label{
@@ -591,7 +614,7 @@ body{
 
     position: absolute;
     
-    top: 64vh;
+    top: 62.5vh;
     bottom: 0vw;
     right: 0vw;
     left: 77.5vw;
@@ -676,6 +699,7 @@ body{
 /* Caminho para Termos de Uso & Política de Privacidade */
 
 .caminho_para_termos_e_politica_medico{
+    
     font-family: 'Poppins', sans-serif;
     font-size: 0.9vw;
     
@@ -685,7 +709,7 @@ body{
     color: var(--cor_quatro);
 }
 
-#inpt_checkbox_medico{
+#checkbox_cadastro_medico{
 
     width: 1vw;
     height: 1vw;
@@ -799,6 +823,36 @@ body{
     margin-left: 1%;
 
     width: 35vw;
+}
+
+.politica_de_privacidade_medico{
+
+    font-family: var(--tipografia_primaria);
+    font-weight: 800;
+
+    text-decoration: none;
+
+    color: var(--cor_cinco);
+}
+
+.politica_de_privacidade_medico:hover{
+
+    text-decoration: underline;
+}
+
+.termos_de_uso_medico{
+
+    font-family: var(--tipografia_primaria);
+    font-weight: 800;
+
+    text-decoration: none;
+
+    color: var(--cor_cinco);
+}
+
+.termos_de_uso_medico:hover{
+
+    text-decoration: underline;
 }
 
 /* Já possui uma conta? Log-In */
