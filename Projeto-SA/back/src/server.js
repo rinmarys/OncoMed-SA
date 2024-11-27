@@ -191,6 +191,8 @@ app.delete('/marcarConsulta/:id', async (req, res) => {
     }
 });
 
+// Rota para levar ID do paciente para a consulta que ele marcou
+
 // Médicos
 
 // Rota para buscar todos os medicos

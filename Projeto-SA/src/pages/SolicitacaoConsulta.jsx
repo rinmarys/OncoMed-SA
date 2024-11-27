@@ -20,11 +20,12 @@ function SolicitacaoConsulta() {
 
     const [solicitacoesMarcadas, setSolicitacoesMarcadas] = useState([])
 
-    useEffect( () => {
-        fetch('')
-
-    }
-    )
+    useEffect(() => {
+        fetch('http://localhost:3000/marcarConsulta') // URL do backend
+            .then((response) => response.json()) // Transformar a resposta em JSON
+            .then((data) => setSolicitacoesMarcadas(data)) // Salvar as solicitações no estado
+            .catch((error) => console.error('Erro ao buscar solicitação:', error))
+    }, [])
 
     return (
         <div className='tudo-solicitacao'>

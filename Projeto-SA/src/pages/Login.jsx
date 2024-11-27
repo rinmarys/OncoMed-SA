@@ -78,7 +78,7 @@ function Login() {
           return; 
         };
     
-      };
+      }     
     
     };
     

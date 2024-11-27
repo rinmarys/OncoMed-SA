@@ -78,7 +78,7 @@ function MarcarConsulta() {
 
       const response = await axios.get(`http://localhost:3000/pacientes/${id}`);
 
-      set_paciente_selecionado(response.data.id_paciente);
+      set_paciente_selecionado(response.data.id);
 
     } catch (error) {
       

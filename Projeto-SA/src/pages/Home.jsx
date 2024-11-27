@@ -1,7 +1,7 @@
 import Header from '../components/Header.jsx';
 import './Home.css';
 import Popup from '../components/Pop_up.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Faq_a from '../components/Faq_a.jsx';
 import Faq_b from '../components/Faq_b.jsx';
 import Faq_c from '../components/Faq_c.jsx';
@@ -11,11 +11,13 @@ import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx';
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
+import { GlobalContext } from '../contexts/GlobalContext.jsx';
 
 function Home() {
 
   const [pop_aberto, set_pop_aberto] = useState(false);
   const navegacao_de_pagina = useNavigate(``);
+  const { lista_de_pacientes } = useContext(GlobalContext)
 
   const [faq_a_aberto, set_faq_a_aberto] = useState(false);
   const [faq_b_aberto, set_faq_b_aberto] = useState(false);
@@ -31,6 +33,8 @@ function Home() {
   let faq_b_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_c_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_d_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
+  
+  console.log(lista_de_pacientes)
 
   function evento_faq_a(){
 
