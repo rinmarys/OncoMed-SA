@@ -136,14 +136,15 @@
 }
 
 /* Alinhamentos */
-.container-alinhamento-dois {
+.container-alinhamento-dois-perfil {
     margin-right: 10vw;
     width: 700px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.container-alinhamento-um {
+.container-alinhamento-um-perfil {
     width: 84%;
     margin: 0 auto;
     margin-top: 1vw;
@@ -191,11 +192,10 @@
     height: 20px;
 }
 
-.container-alinhamento-tres {
+.container-alinhamento-tres-perfil {
     display: flex;
     flex-direction: column; 
     margin-top: 1vw;
-    margin-left: 8vw;
 }
 
 .container-foto-usuario label {

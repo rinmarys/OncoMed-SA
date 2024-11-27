@@ -11,11 +11,9 @@ import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx';
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
-<<<<<<< HEAD
-=======
+
 import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
-import { useContext } from 'react';
->>>>>>> b3e1f67381c7ab3e3d32e13d206500cf67163567
+
 import { GlobalContext } from '../contexts/GlobalContext.jsx';
 
 function Home() {
