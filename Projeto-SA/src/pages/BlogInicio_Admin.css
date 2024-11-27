@@ -10,12 +10,12 @@
 .titulo-admin {
     display: flex;
     justify-content: space-between;
-    width: 80.5%;
-
+    width: 75vw;
+    border:1px solid black;
     color: var(--cor-6);
     font-family: 'Nunito', sans-serif;
-    margin-top: 5%;
-    margin-left: 10%;
+    margin-top: 5vw;
+    margin-left: 10vw;
 }
 
 .titulo-admin h1 {
@@ -23,36 +23,34 @@
 }
 
 .line-admin {
-    width: 10%;
-    width: 25%;
-    height: 6px;
-    border-radius: 7px;
+    width: 15vw;
+    height: 0.6vw;
+    border-radius: 0.5vw;
     background-color: var(--cor-3);
-    margin-top: -18px;
+    margin-top: -1vw;
+    border:1px solid black;
 }
 
 .line-admin:hover {
     transition: 0.4s;
-    width: 40%;
+    width: 40vw;
 }
 
 .line-admin:not(:hover) {
-    width: 25%;
+    width: 25vw;
     transition: 0.4s;
 }
 
-/* .button-container{
-    margin-top: -100px;
-    margin-bottom: 60px;
-} */
+
 
 .button-deletar {
-    width: 200px;
+    width: 15vw;
     background-color: transparent;
     border: none;
     height: fit-content;
     margin-left: 75%;
     margin-top: -50%;
+    border:1px solid black;
 }
 
 .alinhamentoTudo-gerenciarPostagens {

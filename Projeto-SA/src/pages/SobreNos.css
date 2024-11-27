@@ -181,3 +181,13 @@ p{
     margin-bottom: 4vw;
     margin-right: 4vw;
 }
+
+.linha-Dois:hover {
+    transition: 0.4s;
+    width: 400vw;
+}
+
+.linha-Dois:not(:hover) {
+    width: 25vw;
+    transition: 0.4s;
+}

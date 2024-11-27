@@ -93,7 +93,6 @@ try {
 
 
 
-
     return (
         <div>
             <form onSubmit={enviarBlog}>
@@ -162,9 +161,9 @@ try {
                 <div className="alinhamento-buttons">
                     <div className="buttons-container">
 
-                        <button className='publicar-button' type = 'submit' id='buttonPublicarBlog'>PUBLICAR</button>
+                        <button className='publicar-button' type = 'submit' >PUBLICAR</button>
 
-                        <button className='cancelar-button' id='buttonCancelarBlog'>CANCELAR</button>
+                        <button className='cancelar-button'>CANCELAR</button>
                     </div>
                 </div>
                 

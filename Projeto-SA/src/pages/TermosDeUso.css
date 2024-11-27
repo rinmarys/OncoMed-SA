@@ -4,3 +4,12 @@
     /* border:1px solid black; */
     width: 65%;
 }
+.link-OutraPag{
+    width: 20vw;
+    height: 3vw;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5vw;
+    color:  #87AECE;
+    text-decoration: none;
+
+}
