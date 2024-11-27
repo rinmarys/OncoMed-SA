@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
 
-  const [gmail_logo, set_gmail_logo] = useState(`Gmail.png`);
+  const [gmail_logo, set_gmail_logo] = useState(`correspondencia.png`);
   const [whatsapp_logo, set_whatsapp_logo] = useState(`Whatsapp.png`);
   const [instagram_logo, set_instagram_logo] = useState(`Instagram.png`);
 
