@@ -69,6 +69,8 @@ function Login() {
     };
   };
 
+  //Adição de ADM
+
   const fetch_admin = async () => {
 
     try{
