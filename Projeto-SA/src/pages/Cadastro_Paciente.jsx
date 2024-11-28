@@ -279,14 +279,14 @@ function Cadastro_Paciente() {
                 <div className='input_nome_paciente'>
                 
                   <label>Nome Completo</label>
-                  <input type="text" placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
+                  <input type="text" required placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
                 
                 </div>
 
                 <div className="input_cpf_paciente">
                 
                   <label>CPF</label>
-                  <input type="text" minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
+                  <input type="text" required minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
                 
                 </div>
 
@@ -321,7 +321,7 @@ function Cadastro_Paciente() {
 
                   <div className="input_senha_paciente_dv">
                   
-                    <input type={valor_do_olinho_um} minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({ ...form, senha: e.target.value })} />
+                    <input type={valor_do_olinho_um} required minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({ ...form, senha: e.target.value })} />
                     <button type='button' onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)}>{imagem_olinho_um}</button>
                   
                   </div>
@@ -335,21 +335,21 @@ function Cadastro_Paciente() {
                 <div className="input_cep_paciente">
                 
                   <label>CEP</label>
-                  <input type="text" minLength={9} maxLength={9} placeholder='12345-678' value={form.cep || ''} onChange={(e) => setForm({ ...form, cep: e.target.value })} />
+                  <input type="text" minLength={9} maxLength={9} required placeholder='12345-678' value={form.cep || ''} onChange={(e) => setForm({ ...form, cep: e.target.value })} />
                 
                 </div>
 
                 <div className="input_email_paciente">
                 
                   <label>Email</label>
-                  <input type="text" placeholder='exemplo@gmail.com' value={form.email || ''} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                  <input type="email" required placeholder='exemplo@gmail.com' re value={form.email || ''} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                 
                 </div>
 
                 <div className="input_data_de_nascimento_paciente">
                 
                   <label>Data Nascimento</label>
-                  <input type="date" placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
+                  <input type="date" required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
                 
                 </div>
 
@@ -359,7 +359,7 @@ function Cadastro_Paciente() {
 
                   <div className="input_confirmar_senha_paciente_dv">
                 
-                    <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)} />
+                    <input type={valor_do_olinho} required minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)} />
                     <button type='button' onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
                 
                   </div>

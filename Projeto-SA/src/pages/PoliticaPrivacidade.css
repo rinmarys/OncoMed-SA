@@ -1,21 +1,65 @@
 
 .Texto-Um{
     margin-top: 15%;
-    }
-    .Texto-Dois{
-        margin-top: 15%;
-    }
-    h2{
-        font-size: 36px;
-        color: #637D4A;
-        font-family: "Nunito", sans-serif;
-    }
-    P.termos{
-        color: #87AECE;
-        font-size: 30px;
-    }.Politica-Privacidade{
-        margin-left: 10%;
-        margin-top: 10%;
-        /* border:1px solid black; */
-        width: 65%;
-    }
+    border:1px solid black; 
+    width: 80vw;
+}
+.Texto-Dois{
+    margin-top: 15%;
+    width: 80vw;
+    border:1px solid black; 
+}
+.Texto-Tres{
+    margin-top: 15%;
+    width: 80vw;
+    border:1px solid black; 
+}
+.Texto-Quatro{
+    margin-top: 15%;
+    width: 80vw;
+    border:1px solid black; 
+}
+.Texto-Cinco{
+    margin-top: 15%;
+    width: 80vw;
+    border:1px solid black; 
+    
+}
+.Texto-Seis{
+    margin-top: 15%;
+    width: 80vw;
+    border:1px solid black; 
+}
+.Texto-Sete{
+    margin-top: 15%;
+    width: 80vw;
+    border:1px solid black; 
+}
+.button-Navigate{
+    width: 20vw;
+    height: 3vw;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5vw;
+    color:  #87AECE;
+    border: none;
+    margin-left: -6%;
+}
+h2{
+    font-size: 2.8vw;
+    color: #637D4A;
+    font-family: "Nunito", sans-serif;
+}
+p{
+    font-family: "Poppins", sans-serif;
+    color: #1D2A62;
+}
+P.termos{
+    color: #87AECE;
+    font-size: 30px;
+}
+.Politica-Privacidade{
+    margin-left: 10%;
+    margin-top: 10%;
+    /* border:1px solid black; */
+    width: 65%;
+}

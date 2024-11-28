@@ -10,7 +10,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [lista_de_consultas, set_lista_de_consultas] = useState([]);
     const [usuario_administrador, set_usuario_administrador] = useState([{ nome: `Administrador`, email: `administrador@gmail.com`, senha: `1234567` }]);
 
-    const [tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas] = useState(true);
+    const [tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas] = useState(false);
 
     // informações de marcar consulta
     const [selectedDate, setSelectedDate] = useState(null);

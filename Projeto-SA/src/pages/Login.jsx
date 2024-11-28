@@ -13,8 +13,8 @@ function Login() {
   const [pop_up_aberto, set_pop_aberto] = useState(false);
   const [mensagem_de_erro, set_mensagem_de_erro] = useState('');
 
-  const { lista_de_pacientes, set_lista_de_pacientes, lista_de_medicos, usuario_administrador, set_usuario_logado } = useContext(GlobalContext);
-  const {set_tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
+  const { lista_de_pacientes, set_lista_de_pacientes, lista_de_medicos, set_lista_de_medicos, usuario_administrador, set_usuario_logado } = useContext(GlobalContext);
+  const {set_tempo_do_pop_up_de_boas_vindas, tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
 
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho' />);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
@@ -58,7 +58,7 @@ function Login() {
     try{
 
       const pegar_lista = await axios.get(`http://localhost:3000/medicos`);
-      set_lista_de_pacientes(pegar_lista.data);
+      set_lista_de_medicos(pegar_lista.data);
 
     } catch(err){
 
@@ -68,7 +68,8 @@ function Login() {
 
   useEffect(() => {
 
-    set_tempo_do_pop_up_de_boas_vindas(true);
+      set_tempo_do_pop_up_de_boas_vindas(true);
+
 
     fetch_pacientes();
     fetch_medicos();
@@ -77,102 +78,69 @@ function Login() {
   class Fazer_login{
 
     constructor(nome_do_usuario, email_do_usuario, senha_do_usuario){
+    
+    this.nome = nome_do_usuario,
+    this.email = email_do_usuario,
+    this.senha = senha_do_usuario
 
-      this.nome = nome_do_usuario,
-      this.email = email_do_usuario,
-      this.senha = senha_do_usuario
-        
-      let pegar_array_medicos = [...lista_de_medicos];
-      let pegar_array_pacientes = [...lista_de_pacientes];
-      let pegar_array_administrador = [...usuario_administrador];
-    
-    if (pegar_array_pacientes != null) {
-    
-      for (let i = 0; i < pegar_array_pacientes.length; i++) {
-    
-        if (pegar_array_pacientes[i].email === this.email && pegar_array_pacientes[i].senha === this.senha) {
-    
-          let usuario_a_logar = {
-            
+      for(let i = 0; i < lista_de_pacientes.length; i++){
+
+        if(lista_de_pacientes[i].nome == this.nome && lista_de_pacientes[i].email == this.email && lista_de_pacientes[i].senha == this.senha){
+
+          set_usuario_logado({
+
+            id_paciente: lista_de_pacientes[i].id_paciente,
             nome: this.nome,
             email: this.email,
             senha: this.senha,
-            data_de_nascimento: pegar_array_pacientes[i].data_de_nascimento,
-            cpf: pegar_array_pacientes[i].cpf,
-            cep: pegar_array_pacientes[i].cep,
-            genero: pegar_array_pacientes[i].genero,
-            minhas_consultas: pegar_array_pacientes[i].minhas_consultas
-          };
-    
-          set_usuario_logado(usuario_a_logar);
-    
-          navegacao_de_pagina('/');
-    
-          return; 
+            cpf: lista_de_pacientes[i].cpf,
+            cep: lista_de_pacientes[i].cep,
+            email: lista_de_pacientes[i].email,
+            genero: lista_de_pacientes[i].genero,
+            data_de_nascimento: lista_de_pacientes[i].data_de_nascimento
+
+          });
+
+          navegacao_de_pagina(`/`);
         };
-    
-      }     
-    
-    };
-    
-    if (pegar_array_medicos != null) {
-    
-      for (let i = 0; i < pegar_array_medicos.length; i++) {
-    
-        if (pegar_array_medicos[i].email === this.email && pegar_array_medicos[i].senha === this.senha) {
-    
-          let usuario_a_logar = {
-            
+      };
+
+      for(let i = 0; i < lista_de_medicos.length; i++){
+
+        if(lista_de_medicos[i].nome == this.nome && lista_de_medicos[i].email == this.email && lista_de_medicos[i].senha == this.senha){
+
+          set_usuario_logado({
+
+            id_medico: lista_de_medicos[i].id_medico,
             nome: this.nome,
             email: this.email,
             senha: this.senha,
-            data_de_nascimento: pegar_array_medicos[i].data_de_nascimento,
-            cpf: pegar_array_medicos[i].cpf,
-            crm: pegar_array_medicos[i].crm,
-            genero: pegar_array_medicos[i].genero
-          };
-    
-          set_usuario_logado(usuario_a_logar);
-    
-          navegacao_de_pagina('/');
-    
-          return; 
-    
-        };
-    
-      };
-    
-    };
-    
-    if (pegar_array_administrador != null) {
-    
-      for (let i = 0; i < pegar_array_administrador.length; i++) {
-    
-        if (pegar_array_administrador[i].email === this.email && pegar_array_administrador[i].senha === this.senha) {
-    
-          let usuario_a_logar = {
-           
-            nome: this.nome,
-            email: this.email,
-            senha: this.senha
-          };
-    
-          set_usuario_logado(usuario_a_logar);
-    
-          navegacao_de_pagina('/espacoDeControleAdmin');
-    
-          return;
-    
-        };
-    
-      };
-    
-    };
+            cpf: lista_de_medicos[i].cpf,
+            crm: lista_de_medicos[i].crm,
+            email: lista_de_medicos[i].email,
+            genero: lista_de_medicos[i].genero,
+            data_de_nascimento: lista_de_medicos[i].data_de_nascimento
 
-    // Se nenhum usuário foi encontrado
-    
-    set_mensagem_de_erro('Usuário ou senha incorreto!');
-  };
+          });
+
+          navegacao_de_pagina(`/`);
+        };
+      };
+
+      if(usuario_administrador.nome == this.nome && usuario_administrador.email == this.email && usuario_administrador.senha){
+
+        set_usuario_logado({
+
+          nome: this.nome,
+          email: this.email,
+          senha: this.senha
+        });
+
+        navegacao_de_pagina(`/`);
+      };
+
+      set_mensagem_de_erro(`Usuário ou senha incorretos!`);
+    };
   };
   return (
     <div className="dv_login">

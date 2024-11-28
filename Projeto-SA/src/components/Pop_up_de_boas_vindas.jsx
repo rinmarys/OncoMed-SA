@@ -9,11 +9,6 @@ function Pop_up_de_boas_vindas() {
   const {usuario_logado} = useContext(GlobalContext);
   const {set_tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
 
-  useEffect(() => {
-
-    console.log(usuario_logado);
-  }, []);
-
   return (
     <div className='Pop_up_de_boas_vindas_container'>
       

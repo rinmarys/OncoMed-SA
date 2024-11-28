@@ -2,6 +2,7 @@ import Header from "../components/Header"
 import React from 'react'
 import Footer from "../components/Footer"
 import './TermosDeUso.css'
+import { Link } from "react-router-dom"
 
 function TermosUso() {
   return (
@@ -9,7 +10,7 @@ function TermosUso() {
     <div className='Termos-Uso'>
     <h1>TERMOS DE USO</h1>
         <div className='Linha-Dois'></div>
-        <p className='termos'>POLITICA DE PRIVACIDADE</p>
+       <Link  className='link-OutraPag'to={'/politicaPrivacidade'}>POLÍTICA DE PRIVACIDADE</Link>
       
 
       <div className='Texto-Um'>
