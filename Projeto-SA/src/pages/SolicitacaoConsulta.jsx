@@ -2,9 +2,14 @@ import './SolicitacaoConsulta.css'
 import React, { useEffect, useState } from 'react';
 import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
 import CancelarConsultaAdmin from '../components/CancelarConsultaAdmin';
+import { response } from 'express';
 
 
 function SolicitacaoConsulta() {
+
+    const [solicitacoesMarcadas, setSolicitacoesMarcadas] = useState([])
+    const [pacientes, setPacientes] = useState([])
+    const [medicos, setMedicos] = useState([])
 
     // POP UP _ SOLICITAÇÕES
     const [isOpen, setIsOpen] = useState(false);
@@ -18,14 +23,6 @@ function SolicitacaoConsulta() {
     };
     // POP UP _ SOLICITAÇÕES
 
-    const [solicitacoesMarcadas, setSolicitacoesMarcadas] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:3000/marcarConsulta') // URL do backend
-            .then((response) => response.json()) // Transformar a resposta em JSON
-            .then((data) => setSolicitacoesMarcadas(data)) // Salvar as solicitações no estado
-            .catch((error) => console.error('Erro ao buscar solicitação:', error))
-    }, [])
 
     return (
         <div className='tudo-solicitacao'>

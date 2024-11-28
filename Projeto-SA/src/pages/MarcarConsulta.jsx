@@ -1,337 +1,221 @@
-import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios'
-import './Perfil_paciente.css';
-import HamburgeMenu from '../components/HamburgerMenu'
+import { useState, useContext, useEffect } from 'react'
+import './MarcarConsulta.css'
+import HamburguerMenu from '../components/HamburgerMenu.jsx'
+import Scheduler from '../components/Scheduler.jsx'
+import { GlobalContext } from '../contexts/GlobalContext'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
+function MarcarConsulta() {
 
-function Perfil_paciente() {
+  const navigate = useNavigate()
+  const { selectedDate } = useContext(GlobalContext)
+  const { lista_de_pacientes, usuario_logado, set_lista_de_consultas } = useContext(GlobalContext);
+  const [consultaSelecionada, setConsultaSelecionada] = useState('')
+  const [horarioSelecionado, setHorarioSelecionado] = useState('')
+  const [observacaoEscrita, setObservacaoEscrita] = useState('')
 
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
-  const [cep, setCep] = useState('');
-  const [genero, setGenero] = useState('');
-  const [descricao, setDescricao] = useState('');
+  const [mensagemErroMarcarConsulta, setMensagemErroMarcarConsulta] = useState('')
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [editando, setEditando] = useState(false);
-  const userId = ''
+  const [mostrarPopUpConfirmar, setMostrarPopUpConfirmar] = useState(false)
+  const [mostrarPopUpCancelar, setMostrarPopUpCancelar] = useState(false)
 
+  function buttonConfirmar() {
 
-
-  useEffect(() => {
-    const fetchUsuarioPaciente = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5173/perfil_paciente/${userId}`)
-        const { nome, email, telefone } = response.data
-        setNome(nome)
-        setEmail(email)
-        setTelefone(telefone)
-      } catch (err) {
-        console.error(err)
-        setError('Erro ao carregar os dados do usuário')
-      }
+    if (!selectedDate || selectedDate == '') {
+      setMensagemErroMarcarConsulta("Por favor, selecione uma data!")
+      return false
     }
-    fetchUsuarioPaciente()
-  }, [])
-  const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil] = useState(false)
-  const [mostrarPopUpSalvoPerfil, setMostrarPopUpSalvoPerfil] = useState(false)
-
-  const [mostrarSenha, setMostrarSenha] = useState(false)
-  const [mostrarConfirmarSenha] = useState(false)
-
-  useEffect(() => {
-    const fetchUsuarioPaciente = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5173/perfil_paciente/${userId}`)
-        const { nome, email, telefone } = response.data
-        setNome(nome)
-        setEmail(email)
-        setTelefone(telefone)
-      } catch (err) {
-        console.error(err)
-        setError('Erro ao carregar os dados do usuário')
-      }
+    if (!consultaSelecionada) {
+      setMensagemErroMarcarConsulta("Por favor, selecione um tipo de consulta ou exame!")
+      return false
     }
-    fetchUsuarioPaciente()
-  }, [userId])
+    if (!horarioSelecionado) {
+      setMensagemErroMarcarConsulta("Por favor, selecione um horário!")
+      return false
+    };
 
-  const handleChange = (setter) => (event) => setter(event.target.value);
+    console.log('Lista de pacientes', lista_de_pacientes);
+    console.log('Usuario logado', usuario_logado);
 
-  const editar = async () => {
-    if (!editando) {
+    setMostrarPopUpConfirmar(true)
+    return true
+  }
 
-      setEditando(true);
+  function buttonCancelar() {
 
-      setEditando(true);
+    setMostrarPopUpCancelar(true)
 
-      return;
-    }
-
-    if (senha !== confirmarSenha) {
-      alert('As duas senhas devem ser iguais!');
-      return;
-    }
-
-    setLoading(true);
-    setError('');
-
-    try {
-      const pacientePerfil = {
-        nome,
-        email,
-        telefone,
-        senha,
-        confirmarSenha,
-
-      };
-      localStorage.setItem('userProfile', JSON.stringify(userProfile))
-
-      await axios.put(`http://localhost:5173/perfil_paciente/${userId}`, pacientePerfil)
-
-      alert('Dados atualizados!');
-      setEditando(false);
-
-    } catch (err) {
-      console.error(error)
-      setError('Falha ao atualizar os dados. Tente novamente.')
-
-      cep,
-        genero,
-        descricao
-    }
-
-    try {
-      await axios.put(`http://localhost:5173/perfil_paciente/${userId}`, pacientePerfil)
-
-      console.log("Dados salvos com sucesso!")
-      //Mostrar pop-up salvo com sucesso
-      setMostrarPopUpSalvoPerfil(true)
-      setEditando(true)
-    } catch (err) {
-      console.error(err);
-      setError('Falha ao atualizar os dados. Tente novamente.');
-
-    } finally {
-      setLoading(false)
-    }
   };
 
-  const deletar = async () => {
-    if (window.confirm('Tem certeza que deseja deletar sua conta?')) {
-      try {
-        await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`)
-        alert('Conta deletada!');
+    // CODIGO DE NICHOLAS
 
-        window.location.href = '/'
+  useEffect(() => {
 
-      } catch (err) {
-        console.error(err)
-        alert('Falha ao deletar a conta. Tente novamnete')
-      }
+    fetch_consultas();
+    fecth_paciente_pelo_id();
+  }, []);
 
-      //Função para abir o pop-up de deletar
-      const abrirPopDeletarPerfil = () => {
-        setMostrarPopDeletarPerfil(true)
-      }
+  const fetch_consultas = async () => {
+    
+    try {
+      
+      const response = await axios.get('http://localhost:3000/marcarConsulta');
+      
+      set_lista_de_consultas(response.data);
+  
+    } catch (error) {
+  
+      console.error('Erro ao buscar consultas:', error);
+    };  
+  };
 
-      //Função para não deletar perfil
-      const naoDeletarPerfilPaciente = () => {
-        setMostrarPopDeletarPerfil(false)
-      }
+  const [paciente_selecionado, set_paciente_selecionado] = useState(null);
+  
+  const fecth_paciente_pelo_id = async (id) => {
 
-      const deletarPerfilPaciente = async () => {
-        try {
-          await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`)
-          alert('Conta deletada!');
-          navigate('/home')
-        } catch (err) {
-          console.error(err)
-          alert('Falha ao deletar a conta. Tente novamente')
-        }
-      };
+    try {
 
-      //função para fechar o pop up salvo com sucesso
-      const fecharPopUpSalvoPerfil = () => {
-        setMostrarPopUpSalvoPerfil(false)
-      }
+      const response = await axios.get(`http://localhost:3000/pacientes/${id}`);
 
-      return (
-        <div className='user-container'>
-          <div className="alinhamento-tituloHamburger">
-            <div className='nav_container'>
-              <h1>MEU PERFIL - PACIENTE</h1>
-              <div className="faixa_verde"></div>
-            </div>
+      set_paciente_selecionado(response.data.id_paciente);
 
-            <div className="alinhamento-hamburger-perfilPaciente">
-              <HamburgeMenu />
-            </div>
-          </div>
+    } catch (error) {
+      
+      set_paciente_selecionado(null);
+      console.error('Erro ao buscar cliente por ID:', error);
+    };
+  };
 
-          <div className="container-alinhamento-um">
-            <div className='info_container'>
+  const handleSubmit = async (e) => {
+   
+    e.preventDefault();
+  
+    const consulta = {
 
-              <div className='posicao_container'>
+      data_agendamento: selectedDate,
+      tipo_consulta: consultaSelecionada,
+      horario: horarioSelecionado,
+      observacoes: observacaoEscrita,
+      id_do_paciente: paciente_selecionado,
+      medico_designado: ""
+    };
+  
+    try {
+          // Adicionar nova consulta (POST)
+          const response = await axios.post('http://localhost:3000/marcarConsulta', consulta);
+          
+          if (response.status === 201) {
+          
+            fetch_consultas(); // Atualiza a lista de consultas após a adição
+          };
 
-                <label>Nome completo</label>
-                <input
-                  placeholder="Digite seu nome"
-                  value={nome}
-                  onChange={handleChange(setNome)}
-
-                  disabled={!editando}
-
-                />
-
-                <label>Email</label>
-                <input
-                  type="email"
-                  placeholder="Digite seu email"
-                  value={email}
-                  onChange={handleChange(setEmail)}
-                  disabled={!editando}
-                />
-
-                <label>Telefone (com DDD)</label>
-                <input
-                  type='text'
-                  placeholder="Digite seu número de telefone"
-                  value={telefone}
-                  onChange={handleChange(setTelefone)}
-                  disabled={!editando}
-                />
-
-                <label>CEP</label>
-                <input
-                  type="text"
-                  placeholder='Digite seu CEP'
-                  value={cep}
-                  onChange={handleChange(setCep)}
-                  disabled={!editando}
-                />
-
-                <label>Gênero</label>
-                <select value={genero}
-                  onChange={handleChange(setGenero)}
-                  disabled={!editando}>
-                  <option>Selecione seu genêro</option>
-                  <option>Feminino</option>
-                  <option>Masculino</option>
-                  <option>Prefiro não informar sobre isso</option>
-                </select>
-              </div>
-
-            </div>
-
-            <div className="container-alinhamento-dois">
-              <div className="alinhamento-inputs-perfis">
-                <label>Senha</label>
-                <div style={{ position: 'relative' }}></div>
-                <input
-                  type={mostrarSenha ? "text" : "password"}
-                  placeholder="Digite a sua senha"
-                  value={senha}
-                  onChange={handleChange(setSenha)}
-                  disabled={!editando}
-                  minlenght={7}
-                  maxLength={12}
-                />
-                <button type='button' onClick={() => setMostrarSenha(!mostrarSenha)}
-                  style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', border: 'none', background: 'none', cursor: 'pointer' }}>
-                  {mostrarSenha ? (
-                    <img src='input_olho_aberto.png' alt='Olhinho aberto' />
-                  ) : (
-                    <img src='input_olho_fechado.png' alt='olhinho fechado' />
-                  )}
-                </button>
-
-                <label>Nova senha</label>
-                <input
-                  type={mostrarSenha ? "text" : "password"}
-                  placeholder="Digite a sua senha"
-                  value={senha}
-                  onChange={handleChange(setSenha)}
-                  disabled={!editando}
-                  minlenght={7}
-                  maxLength={12}
-                />
-                <button type='button' onClick={() => setMostrarSenha(!mostrarSenha)}
-                  style={{ position: 'absolute', left: '900px', top: '15%', width: '80px', height: '80px', border: 'none', background: 'none', cursor: 'pointer' }}>
-                  {mostrarSenha ? (
-                    <img src='input_olho_aberto.png' alt='Olhinho aberto'
-                      className='icone-olihinho-aberto' />
-
-                  ) : (
-                    <img src='input_olho_fechado.png' alt='olhinho fechado'
-                      className='icone-olhinho-fechado' />
-                  )}
-                </button>
-
-                <label>Descrição breve</label>
-                <textarea
-                  placeholder='Escreva algo sobre você...'
-                  value={descricao}
-                  onChange={handleChange(setDescricao)}
-                  className='textArea-perfis'
-                  disabled={!editando}
-                ></textarea>
-              </div>
-
-              <div className="container-alinhamento-tres">
-                <div className="container-foto-usuario">
-                  <label>Escolha sua foto de perfil</label>
-                  <img src="icon_user.png" alt="foto de usuario" />
-                </div>
-
-                <div className="alinhamento-buttons-perfis">
-                  <button
-                    className='button-editar-perfis'
-                    onClick={editar}
-                    disabled={loading}
-                  >
-                    {editando ? 'SALVAR' : 'EDITAR'}
-                  </button>
-
-                  {/* botão para abrir o pop-up de deletar */}
-                  <button
-                    className='button-deletar-perfis'
-                    onClick={abrirPopDeletarPerfil}
-                    disabled={loading}
-                  >DELETAR</button>
-
-                </div>
-              </div>
-            </div>
-            {/* Pop up deletar perfil paciente */}
-            {mostrarPopDeletarPerfil && (
-              <div className='Container-PopPerfilPaciente'>
-                <h2 className='FontePopPerfilPaciente'>Deseja mesmo deletar sua conta?</h2>
-                <div className='ButtonsPopPerfilPaciente'>
-                  <button className='buttonNaoDeletarPerfilPaciente' onClick={naoDeletarPerfilPaciente}>NÃO</button>
-                  <button className='buttonDeletarPerfilPaciente' onClick={deletarPerfilPaciente}>SIM</button>
-                </div>
-              </div>
-            )}
-
-            {/* pop up salvar perfil paciente */}
-            {mostrarPopUpSalvoPerfil && (
-              <div className='container-PopSalvarPerfilPaciente'>
-                <h2 className='FontepPopSalvarPerfilPaciente'>Salvo com sucesso!</h2>
-                <div className='buttonPopSalvarPerfilPaciente'>
-                  <button className='buttonOkPerfilPaciente' onClick={fecharPopUpSalvoPerfil}>OK</button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div >
-      );
-
-    }
+  } catch (error) {
+      
+    console.error('Erro ao adicionar uma consulta:', error);
   }
+  };
+
+
+
+  return (
+
+    <div className='Container-marcarConsulta-alinhamento'>
+      <form onSubmit={handleSubmit}>
+
+        <div className="alinhamento-hamburger">
+          <HamburguerMenu />
+        </div>
+
+        <div className="alinhamento-displayFlex">
+
+          <Scheduler />
+
+          <div className="alinhamento-inputs">
+            <div className='Tres-partes'>
+              <div className='Container-Consulta-Horario'>
+                <div className='Selecionar-Consulta'>
+                  {/* CONSULTAS E EXAMES À REALIZAR */}
+                  <h2>CONSULTAS E EXAMES À REALIZAR</h2>
+                  <select className='Select-Consulta'
+                    value={consultaSelecionada}
+                    onChange={(event) => { setConsultaSelecionada(event.target.value) }}>
+                    <option value="" disabled>Selecione um tipo de consulta</option>
+                    <option value="consulta1">Mamografia</option>
+                    <option value="consulta2">Exame de sangue</option>
+                    <option value="consulta3">Consultas bakanas</option>
+                  </select>
+
+                </div>
+                {/* CONSULTAS E EXAMES À REALIZAR */}
+
+                {/* SELECIONAR HORARIO */}
+                <div className='Selecionar-Horario'>
+                  <h2>HORÁRIO</h2>
+                  <input type='time' className="Select-Horario"
+                    id="opcao-horario"
+                    value={horarioSelecionado}
+                    onChange={(event) => { setHorarioSelecionado(event.target.value) }}
+                  >
+                  </input>
+                </div>
+                {/* SELECIONAR HORARIO */}
+
+              </div>
+              {/* OBSERVAÇÕES */}
+              <div className='Selecionar-Ob'>
+                <h2>OBSERVAÇÕES</h2>
+                <textarea
+                  id='observacao-usuario'
+                  className='Input-Ob'
+                  type="text"
+
+                  value={observacaoEscrita}
+                  onChange={(event) => { setObservacaoEscrita(event.target.value) }} />
+              </div>
+              {/* OBSERVAÇÕES */}
+
+              <div className='Botões'>
+                <button className='Button-cancelar' onClick={buttonCancelar} type='button' >CANCELAR</button>
+                <button className='Button-confirmar' onClick={buttonConfirmar} type='submit' >CONFIRMAR</button>
+              </div>
+
+              <div className="mensagem-erro-marcarConsulta">
+                {mensagemErroMarcarConsulta}
+              </div>
+            </div>
+          </div>
+
+          {/* POP UP */}
+
+          {/* pop up de confirmar */}
+          {mostrarPopUpConfirmar && (
+            <div className="popup-confirmar">
+              <div className="popup-confirmar-conteudo">
+                <h3>Consulta confirmada com sucesso!</h3>
+                <button onClick={() => navigate('/')}>Fechar</button>
+              </div>
+            </div>
+          )}
+          {/* pop up de confirmar */}
+
+          {mostrarPopUpCancelar && (
+            <div className="popup-cancelar">
+              <div className="popup-cancelar-conteudo">
+                <h3>Você tem certeza que quer cancelar a consulta?</h3>
+
+                <div className="buttons-popupCancelar-alinhamento">
+                  <button onClick={() => setMostrarPopUpCancelar(false)} className='popup-cancelar-fechar-button' type='button'>Não quero! Fechar</button>
+                  <button onClick={() => navigate('/')} className='popup-cancelar-confirmar-button' type='button'>Confirmar cancelamento</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      </form>
+    </div>
+  )
 }
-export default Perfil_paciente
-// REVISAR CODIGO
+
+export default MarcarConsulta
