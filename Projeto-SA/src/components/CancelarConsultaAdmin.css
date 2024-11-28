@@ -22,7 +22,7 @@
 .alinhamentoTudo-cancelarConsultaAdmin{
     width: fit-content;
     position: fixed;
-    top: 4.5vw;
+    top: 2.8vw;
     left: 15.6vw;
 }
 
@@ -137,4 +137,13 @@
 .style-button-SairConsultaAdmin:not(:hover) {
     background-color: var(--cor_1);
     transition: 0.4s;
+}
+
+.mensagemErro-CancelarConsultaAdmin{
+    width: fit-content;
+    font-size: 1.2vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ef2828;
+    margin-top: 1vw;
 }

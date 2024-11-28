@@ -207,3 +207,12 @@
     font-weight: bold;
     font-weight: 600;
 }
+
+.semSolicitacoes-texto{
+    width: fit-content;
+    font-size: 2vw;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    margin-left: 11vw;
+    color: #323D70;
+}

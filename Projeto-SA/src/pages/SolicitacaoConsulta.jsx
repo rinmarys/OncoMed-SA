@@ -1,37 +1,47 @@
 import './SolicitacaoConsulta.css'
-import React, { useEffect, useState } from 'react';
-import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
-import CancelarConsultaAdmin from '../components/CancelarConsultaAdmin';
-import { response } from 'express';
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin'
+import CancelarConsultaAdmin from '../components/CancelarConsultaAdmin'
 
 function SolicitacaoConsulta() {
-
     const [solicitacoesMarcadas, setSolicitacoesMarcadas] = useState([])
-    const [pacientes, setPacientes] = useState([])
     const [medicos, setMedicos] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
 
-    // POP UP _ SOLICITAÇÕES
-    const [isOpen, setIsOpen] = useState(false);
+    const handleOpenPopup = () => setIsOpen(true)
+    const handleClosePopup = () => setIsOpen(false)
 
-    const handleOpenPopup = () => {
-        setIsOpen(true);
+    // Busca las consultas que fueron marcadas
+    const fetch_marcarConsulta = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3000/marcarConsulta`)
+            setSolicitacoesMarcadas(response.data)
+        } catch (error) {
+            console.error('Erro ao buscar cliente por ID:', error)
+        }
     };
 
-    const handleClosePopup = () => {
-        setIsOpen(false);
+    // Busca los medicos cadastrados
+    const fetch_medicos = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3000/medicos`)
+            setMedicos(response.data)
+        } catch (error) {
+            console.error('Erro ao buscar médicos:', error)
+        }
     };
-    // POP UP _ SOLICITAÇÕES
 
+    useEffect(() => {
+        fetch_marcarConsulta()
+        fetch_medicos()
+    }, []);
 
     return (
-        <div className='tudo-solicitacao'>
-
+        <div className="tudo-solicitacao">
             <div className="alinhamento-hamburger">
                 <HamburgerMenuAdmin />
             </div>
-
-
             <div className="titulo-solicitacao">
                 <h1>SOLICITAÇÕES DE CONSULTA</h1>
                 <div className="linha-solicitacao"></div>
@@ -39,44 +49,50 @@ function SolicitacaoConsulta() {
             <div className="subtitulo-solicitacao">
                 <p>SOLICITAÇÕES NÃO LIDAS</p>
             </div>
-
             <div className="consultas-solicitacao">
-                <div className="consulta-solicitada">
-                    <div className="alinhamento-solicitacao-nome-horario-tipo-data">
-                        <div className="nome-tipo-solicitacao">
-                            <h1 className='nome-pessoa-solicitacao' >MARILENE JUSSARA PESSOA</h1>
-                            <h2 className='tipo-consulta-solicitacao' >MAMOGRAFIA</h2>
+                {solicitacoesMarcadas.length > 0 ? (
+                    solicitacoesMarcadas.map((consulta) => (
+                        <div className="consulta-solicitada" key={consulta.id}>
+                            <div className="alinhamento-solicitacao-nome-horario-tipo-data">
+                                <div className="nome-tipo-solicitacao">
+                                    <h1 className="nome-pessoa-solicitacao">{consulta.paciente}</h1>
+                                    <h2 className="tipo-consulta-solicitacao">{consulta.tipo_consulta}</h2>
+                                </div>
+                                <div className="data-horario-solicitacao">
+                                    <h2 className="data-solicitacao">{consulta.data_agendamento}</h2>
+                                    <h2 className="horario-consulta-solicitacao">{consulta.horario}</h2>
+                                </div>
+                            </div>
+                            <h2 className="observacao-solicitacao-titulo">OBSERVAÇÃO</h2>
+                            <h3 className="observacao-solicitacao-cliente">{consulta.observacoes}</h3>
+                            <h3 className="designar-profissional-titulo">DESIGNAR PROFISSIONAL</h3>
+                            <div className="designar-botoes-solicitacao">
+                                <select id="escolha-medico" className="designar-profissional-input">
+                                    <option value="" disabled selected>
+                                        Selecione um médico
+                                    </option>
+                                    {medicos.map((medico) => (
+                                        <option key={medico.id} value={medico.id}>
+                                            {medico.nome}
+                                        </option>
+                                    ))}
+                                </select>
+                                <div className="botoes-solicitacao">
+                                    <button className="botao-cancela-solicitacao" onClick={handleOpenPopup}>
+                                        CANCELAR
+                                    </button>
+                                    <button className="botao-confirma-solicitacao">CONFIRMAR</button>
+                                </div>
+                            </div>
                         </div>
-                        <div className="data-horario-solicitacao">
-                            <h2 className='data-solicitacao' >09/12/2024</h2>
-                            <h2 className='horario-consulta-solicitacao' >12:30</h2>
-                        </div>
-                    </div>
-                    <h2 className='observacao-solicitacao-titulo' >OBSERVAÇÃO</h2>
-                    <h3 className='observacao-solicitacao-cliente' >tenho medo mto medo, meu bcacjkjhdsakh socosadjaukjsdhkj a a a  ja aiii</h3>
-                    <h3 className='designar-profissional-titulo' >DESIGNAR PROFISSIONAL</h3>
-                    <div className="designar-botoes-solicitacao">
-                        <select id="escolha-medico" className='designar-profissional-input'>
-                            <option value="" disabled selected></option>
-                            <option value="medico1">WALTER CAMARGO</option>
-                            <option value="medico2">ANGELICA FREITAS</option>
-                            <option value="medico3">GUSTAVO SANTOS</option>
-                        </select>
-                        <div className="botoes-solicitacao">
-                            <button className='botao-cancela-solicitacao' onClick={handleOpenPopup}>CANCELAR</button>
-                            <button className='botao-confirma-solicitacao'>CONFIRMAR</button>
-                        </div>
-                    </div>
-                </div>
-                {/* segunda solicitacao: */}
+                    ))
+                ) : (
+                    <p className='semSolicitacoes-texto'>Sem solicitações...</p>
+                )}
             </div>
-
-            <div>
-                {isOpen && <CancelarConsultaAdmin onClose={handleClosePopup} />}
-            </div>
-
-        </div >
-    )
+            {isOpen && <CancelarConsultaAdmin onClose={handleClosePopup} />}
+        </div>
+    );
 }
 
-export default SolicitacaoConsulta
+export default SolicitacaoConsulta;

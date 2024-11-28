@@ -141,9 +141,9 @@ function MarcarConsulta() {
                     value={consultaSelecionada}
                     onChange={(event) => { setConsultaSelecionada(event.target.value) }}>
                     <option value="" disabled>Selecione um tipo de consulta</option>
-                    <option value="consulta1">Mamografia</option>
-                    <option value="consulta2">Exame de sangue</option>
-                    <option value="consulta3">Consultas bakanas</option>
+                    <option value="MAMOGRAFIA">Mamografia</option>
+                    <option value="EXAME DE SANGUE">Exame de sangue</option>
+                    <option value="CONSULTAS BAKANAS">Consultas bakanas</option>
                   </select>
 
                 </div>

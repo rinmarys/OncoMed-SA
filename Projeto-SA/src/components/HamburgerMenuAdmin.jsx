@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const HamburgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef(null);
+    const [usuario_administrador, set_usuario_administrador] = useState([{ nome: `Administrador`, email: `administrador@gmail.com`, senha: `1234567` }]);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);

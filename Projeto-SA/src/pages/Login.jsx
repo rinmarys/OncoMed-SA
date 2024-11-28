@@ -70,7 +70,6 @@ function Login() {
 
       set_tempo_do_pop_up_de_boas_vindas(true);
 
-
     fetch_pacientes();
     fetch_medicos();
   }, []);
