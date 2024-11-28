@@ -36,10 +36,9 @@ function Home() {
   let faq_b_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_c_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_d_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
-  
-  console.log(lista_de_pacientes)
-
+    
   const {tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
+  const {usuario_logado} = useContext(GlobalContext);
 
   function evento_faq_a(){
 
@@ -123,18 +122,14 @@ function Home() {
     faq_d_botao = <img src='FAQ_aberto.png' className='faq_fechado'></img>;
   };
 
-  function acessarComunidade() {
-
-     window.location.href = 'https://chat.whatsapp.com/Bmql2XCn7eI7Y4IpS2xecT'
-    
-  }
-
     useEffect(() => {
 
-      setTimeout(() => {
+        setTimeout(() => {
+          
+          set_tempo_do_pop_up_de_boas_vindas(false);
 
-        set_tempo_do_pop_up_de_boas_vindas(false);
-      }, 3000);
+        }, 3000);
+
     }, []);
 
   return (
@@ -215,7 +210,7 @@ function Home() {
 
             <p>Conecte-se com outros pacientes e cuidadores para compartilhar expêriencias de apoio.</p>
 
-            <button onClick={acessarComunidade}>ACESSAR</button>
+            <Link className='hyperlink_de_comunidade_conteudo' target={`_blank`} to={`https://chat.whatsapp.com/Bmql2XCn7eI7Y4IpS2xecT`}>ACESSAR</Link>
 
           </div>
 
@@ -368,7 +363,7 @@ function Home() {
 
             <p>Continua com dúvidas?</p>
 
-            <button onClick={acessarComunidade}>CONTATE-NOS</button>
+            <Link target='_blank' to={`https://chat.whatsapp.com/Bmql2XCn7eI7Y4IpS2xecT`}>CONTATE-NOS</Link>
 
           </div>
 

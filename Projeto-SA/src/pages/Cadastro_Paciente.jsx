@@ -3,11 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Cadastro_Paciente.css'
 import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios';
+
 function Cadastro_Paciente() {
 
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
   const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
-  const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' });
+  const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '', imagem_de_perfil: ''});
   const [confirmar_senha, set_confirmar_senha] = useState(``);
   const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
 
@@ -31,7 +32,6 @@ function Cadastro_Paciente() {
 
   let checkbox_selecionado = false;
 
-  // Função para buscar todos os clientes
 
   const fetch_pacientes = async () => {
 
@@ -95,12 +95,6 @@ function Cadastro_Paciente() {
     fetch_medicos();
   }, []);
 
-
-  useEffect(() => {
-    console.log(lista_de_pacientes);
-  }, [lista_de_pacientes]);
-
-  // Função para lidar com o envio do formulário (adicionar ou atualizar)
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -162,34 +156,17 @@ function Cadastro_Paciente() {
     if (email_ja_cadastrado == false && cpf_ja_cadastrado == false && senhas_sao_iguais == true && checkbox_selecionado == true) {
 
       try {
-        if (selectedCliente) {
 
-          const response = await axios.put(`http://localhost:3000/pacientes/${selectedCliente.id}`, form);
-
-          if (response.status === 200) {
-
-            fetch_pacientes(); 
-
-            setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); 
-
-            setSelectedCliente(null); 
-
-          };
-        } else {
-
-          // Adicionar novo cliente (POST)
+        form.genero == `Feminino` ? form.imagem_de_perfil = `a` : form.imagem_de_perfil = `b`;
 
           const response = await axios.post('http://localhost:3000/pacientes', form);
 
           if (response.status === 201) {
 
-            fetch_pacientes(); // Atualiza a lista de pacientes após a adição
-
-            setForm({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
-
+            fetch_pacientes();
             navegacao_de_pagina(`/login`)
           };
-        };
+
       } catch (error) {
 
         console.error('Erro ao adicionar/atualizar paciente:', error);
@@ -219,35 +196,6 @@ function Cadastro_Paciente() {
       };
     }
 
-  };
-
-  // Função para buscar cliente por ID
-  const fetchClienteById = async (id) => {
-
-    try {
-
-      const response = await axios.get(`http://localhost:3000/pacientes/${id}`);
-
-      setSelectedCliente(response.data); // Seleciona o cliente para edição
-      setForm(response.data); // Preenche o formulário com os dados do cliente
-
-    } catch (error) {
-
-      console.error('Erro ao buscar cliente por ID:', error);
-    }
-  };
-
-  // Função para deletar cliente
-  const delete_paciente = async (id) => {
-    try {
-      const response = await axios.delete(`http://localhost:3000/pacientes/${id}`);
-
-      if (response.status === 200) {
-        fetch_pacientes(); // Atualiza a lista de clientes após a exclusão
-      };
-    } catch (error) {
-      console.error('Erro ao deletar cliente:', error);
-    };
   };
   return (
     <div>
@@ -361,7 +309,7 @@ function Cadastro_Paciente() {
                 
                     <input type={valor_do_olinho} required minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)} />
                     <button type='button' onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
-                
+
                   </div>
 
                 </div>

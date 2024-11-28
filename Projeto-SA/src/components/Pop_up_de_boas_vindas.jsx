@@ -13,7 +13,11 @@ function Pop_up_de_boas_vindas() {
     <div className='Pop_up_de_boas_vindas_container'>
       
       <div className='Pop_up_de_boas_vindas_container_alinhamento_conteudo'>
-        <h1>Seja bem-vindo(a)! {usuario_logado.nome}</h1>
+        <div>
+
+        <h1>Seja bem-vindo(a)!</h1>
+        <p>{ usuario_logado == [] ? `Favor fazer o login` : usuario_logado.nome}</p>
+        </div>
         <button onClick={() => set_tempo_do_pop_up_de_boas_vindas(false)}>X</button>
       </div>
 

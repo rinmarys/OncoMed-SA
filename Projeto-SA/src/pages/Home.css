@@ -380,6 +380,7 @@ body{
 .o_que_dizem_nossos_pacientes_carrossel{
 
     margin-top: 2vh;
+    
 
     display: flex;
     align-items: center;
@@ -467,7 +468,7 @@ body{
     width: 30vw;
 
     margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-bottom: 6vh;
 
     font-family: var(--tipografia_secundaria);
     font-weight: 400;
@@ -478,10 +479,12 @@ body{
 
 /* Botão Comunidade Container */
 
-.container_comunidade_conteudo button{
+.hyperlink_de_comunidade_conteudo{
 
-    width: 11vw;
-    height: 5.5vh;
+    padding-top: 0.8vw;
+    padding-bottom: 0.8vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
 
     border: 0.1vw solid var(--cor_um);
     border-radius: 0.8vw;
@@ -492,11 +495,13 @@ body{
     font-weight: bold;
     font-size: 0.8vw;
 
+    text-decoration: none;
+
     color: var(--cor_tres);
     background-color: var(--cor_um);
 }
 
-.container_comunidade_conteudo button:hover{
+.hyperlink_de_comunidade_conteudo:hover{
 
     transition: 0.3s;
 
@@ -506,7 +511,7 @@ body{
     background-color: var(--cor_sete);
 }
 
-.container_comunidade_conteudo button:not(:hover){
+.hyperlink_de_comunidade_conteudo:not(:hover){
 
     transition: 0.3s;
 
@@ -1198,10 +1203,14 @@ body{
 
 /* Container FAQ Botão */
 
-.container_faq_cta button{
+.container_faq_cta a{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     width: 13vw;
-    height: 6.7vh;
+    height: 6vh;
 
     margin-top: 0%;
     margin-left: 3.8vw;
@@ -1215,11 +1224,14 @@ body{
     font-weight: bold;
     font-size: 0.9vw;
 
+    text-decoration: none;
+    text-align: center;
+
     color: var(--cor_tres);
     background-color: var(--cor_um);
 }
 
-.container_faq_cta button:hover{
+.container_faq_cta a:hover{
 
     transition: 0.3s;
 
@@ -1228,7 +1240,7 @@ body{
     background-color: var(--cor_sete);
 }
 
-.container_faq_cta button:not(:hover){
+.container_faq_cta a:not(:hover){
 
     transition: 0.3s;
 

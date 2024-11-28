@@ -13,7 +13,10 @@ function Login() {
   const [pop_up_aberto, set_pop_aberto] = useState(false);
   const [mensagem_de_erro, set_mensagem_de_erro] = useState('');
 
-  const { lista_de_pacientes, set_lista_de_pacientes, lista_de_medicos, set_lista_de_medicos, usuario_administrador, set_usuario_logado } = useContext(GlobalContext);
+  const { lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
+  const { lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
+  const {usuario_administrador, set_usuario_administrador} = useContext(GlobalContext);
+  const { usuario_logado ,set_usuario_logado} = useContext(GlobalContext);
   const {set_tempo_do_pop_up_de_boas_vindas, tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
 
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho' />);
@@ -66,13 +69,28 @@ function Login() {
     };
   };
 
+  const fetch_admin = async () => {
+
+    try{
+
+      const pegar_tabela = await axios.get(`http://localhost:3000/admin`);
+      set_usuario_administrador(pegar_tabela.data);
+    
+    } catch (err){
+
+      console.error(`Erro ao buscar o ADM`, err);
+    };
+  };
+
   useEffect(() => {
 
-      set_tempo_do_pop_up_de_boas_vindas(true);
-
+    set_usuario_logado([]);
+    set_tempo_do_pop_up_de_boas_vindas(true);
 
     fetch_pacientes();
     fetch_medicos();
+    fetch_admin();
+
   }, []);
 
   class Fazer_login{
@@ -82,6 +100,20 @@ function Login() {
     this.nome = nome_do_usuario,
     this.email = email_do_usuario,
     this.senha = senha_do_usuario
+
+
+
+        if(usuario_administrador[0].nome == this.nome && usuario_administrador[0].email == this.email && usuario_administrador[0].senha){
+
+          set_usuario_logado({
+
+            nome: this.nome,
+            email: this.email,
+            senha: this.senha
+          });
+
+          navegacao_de_pagina(`/espacoDeControleAdmin`);
+        };
 
       for(let i = 0; i < lista_de_pacientes.length; i++){
 
@@ -97,7 +129,8 @@ function Login() {
             cep: lista_de_pacientes[i].cep,
             email: lista_de_pacientes[i].email,
             genero: lista_de_pacientes[i].genero,
-            data_de_nascimento: lista_de_pacientes[i].data_de_nascimento
+            data_de_nascimento: lista_de_pacientes[i].data_de_nascimento,
+            imagem_de_perfil: lista_de_pacientes[i].imagem_de_perfil
 
           });
 
@@ -119,7 +152,8 @@ function Login() {
             crm: lista_de_medicos[i].crm,
             email: lista_de_medicos[i].email,
             genero: lista_de_medicos[i].genero,
-            data_de_nascimento: lista_de_medicos[i].data_de_nascimento
+            data_de_nascimento: lista_de_medicos[i].data_de_nascimento,
+            imagem_de_perfil: lista_de_medicos[i].imagem_de_perfil
 
           });
 
@@ -127,21 +161,10 @@ function Login() {
         };
       };
 
-      if(usuario_administrador.nome == this.nome && usuario_administrador.email == this.email && usuario_administrador.senha){
-
-        set_usuario_logado({
-
-          nome: this.nome,
-          email: this.email,
-          senha: this.senha
-        });
-
-        navegacao_de_pagina(`/`);
+      set_mensagem_de_erro(`Usuário ou senha incorretos!`);
       };
 
-      set_mensagem_de_erro(`Usuário ou senha incorretos!`);
     };
-  };
   return (
     <div className="dv_login">
 
