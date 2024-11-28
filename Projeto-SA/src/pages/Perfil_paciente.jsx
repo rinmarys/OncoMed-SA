@@ -10,7 +10,6 @@ function PerfilPaciente() {
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [cep, setCep] = useState('');
-  const [genero, setGenero] = useState('');
   const [descricao, setDescricao] = useState('');
   const [editando, setEditando] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -19,18 +18,18 @@ function PerfilPaciente() {
   const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil] = useState(false);
   const [mostrarPopUpSalvoPerfil, setMostrarPopUpSalvoPerfil] = useState(false);
 
-  const userId = ''; // ID del usuario autenticado.
+ const userId= localStorage.getItem('userId')
 
   useEffect(() => {
     const fetchUsuarioPaciente = async () => {
       try {
         const response = await axios.get(`http://localhost:5173/perfil_paciente/${userId}`);
-        const { nome, email, telefone, cep, genero, descricao } = response.data;
+        const { nome, email, telefone, cep,
+           descricao } = response.data;
         setNome(nome);
         setEmail(email);
         setTelefone(telefone);
         setCep(cep);
-        setGenero(genero);
         setDescricao(descricao);
       } catch (err) {
         console.error(err);
@@ -45,7 +44,7 @@ function PerfilPaciente() {
 
   const editar = async () => {
     if (!editando) {
-      setEditando(true);
+      setEditando(false);
       return;
     }
 
@@ -58,10 +57,12 @@ function PerfilPaciente() {
     setError('');
 
     try {
-      const pacientePerfil = { nome, email, telefone, cep, genero, descricao, senha };
+      const pacientePerfil = { nome, email, telefone, cep, descricao, senha };
       await axios.put(`http://localhost:5173/perfil_paciente/${userId}`, pacientePerfil);
+
       setMostrarPopUpSalvoPerfil(true);
       setEditando(false);
+
     } catch (err) {
       console.error(err);
       setError('Falha ao atualizar os dados. Tente novamente.');
@@ -70,20 +71,31 @@ function PerfilPaciente() {
     }
   };
 
-  const deletar = async () => {
-    if (window.confirm('Tem certeza que deseja deletar sua conta?')) {
+  const confirmarDeletarConta=() =>{
+    setMostrarPopDeletarPerfil(true)
+  }
+
+  const deletarConta = async () => {
       try {
         await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`);
-        alert('Conta deletada!');
-        window.location.href = '/';
+        window.location.href = '/home';
       } catch (err) {
         console.error(err);
         alert('Falha ao deletar a conta. Tente novamente.');
-      }
     }
   };
 
-  const fecharPopUpSalvoPerfil = () => setMostrarPopUpSalvoPerfil(false);
+  const handleConfirmarDeletar=() => {
+    deletarConta()
+    setMostrarPopDeletarPerfil(false)
+  }
+    const handleCancelarDelatar=() =>{
+    setMostrarPopDeletarPerfil(false)
+    }
+
+    const fecharPopUpSalvoPerfil= () =>{
+    setMostrarPopUpSalvoPerfil(false)
+    }
 
   return (
     <div className="user-container">
@@ -178,22 +190,33 @@ function PerfilPaciente() {
             <button className="button-editar-perfis" onClick={editar} disabled={loading}>
               {editando ? 'SALVAR' : 'EDITAR'}
             </button>
-            <button className="button-deletar-perfis" onClick={deletar} disabled={loading}>
+            <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
               DELETAR
             </button>
           </div>
         </div>
       </div>
-
-      {/* Pop-ups */}
+      
       {
         mostrarPopUpSalvoPerfil && (
           <div className="container-PopSalvarPerfilPaciente">
-            <h2>Salvo com sucesso!</h2>
-            <button onClick={fecharPopUpSalvoPerfil}>OK</button>
+            <h2 className='FontePopPerfilPaciente'>Salvo com sucesso!</h2>
+            <button className='buttonOkPerfilPaciente' onClick={fecharPopUpSalvoPerfil}>OK</button>
           </div>
         )
       }
+      
+      {
+      mostrarPopDeletarPerfil &&(
+        <div className='Container-PopPerfilPaciente'>
+          <h3 className='FontePopPerfilPaciente'>Tem certeza que deseja deletar a sua conta?</h3>
+          <div className='.ButtonsPopPerfilPaciente '>
+          <button className='buttonDeletarPerfilPaciente' onClick={handleConfirmarDeletar}>SIM</button>
+          <button className='buttonNaoDeletarPerfilPaciente' onClick={handleCancelarDelatar}>NÃO</button>
+          </div>
+        </div>
+      )
+    }
     </div >
   );
 }
