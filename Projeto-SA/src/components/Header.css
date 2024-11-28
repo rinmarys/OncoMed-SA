@@ -90,7 +90,7 @@
     height: 6vh;
 }
 
-.nav_bar_logo img:hover{
+.nav_bar_link_logo img:hover{
 
     transition: 0.3s;
 
@@ -98,7 +98,7 @@
     height: 7vh;
 }
 
-.nav_bar_logo img:not(:hover){
+.nav_bar_link_logo img:not(:hover){
 
     transition: 0.3s;
 

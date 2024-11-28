@@ -43,9 +43,18 @@
 
 .Pop_up_de_boas_vindas_container h1{
 
-    width: 22vw;
+    width: 25vw;
 
     margin-left: 1vw;
+    margin-bottom: 0px;
+}
+
+.Pop_up_de_boas_vindas_container_alinhamento_conteudo p{
+
+    margin-top: 0px;
+    margin-left: 1vw;
+
+    font-size: 2vw;
 }
 
 .Pop_up_de_boas_vindas_container button{
