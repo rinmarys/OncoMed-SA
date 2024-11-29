@@ -2,7 +2,9 @@ import React from 'react'
 import Footer from '../components/Footer'
 import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin'
 import { Link } from 'react-router-dom'
-
+import { useContext } from 'react'
+import { GlobalContext } from '../contexts/GlobalContext'
+import { useEffect } from 'react'
 import './BlogInicio_Admin.css'
 import { useState } from 'react'
 
@@ -22,6 +24,27 @@ function BlogInicio_Admin() {
     function deletarBlog() {
 
     }
+
+    const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
+    const fetchBlog = async ( ) => {
+
+
+
+        try {
+            const resposta = await axios.get ('http://localhost:3000/blog')
+            setRegistroBlog (resposta.data)
+        } catch (err) {
+            console.error('Erro ao buscar tabela do blog ;(', err)
+    
+        }
+    }
+        useEffect( () => {
+    
+            fetchBlog()
+            
+        }, []) 
+
+
     return (
         <div>
 
@@ -53,7 +76,7 @@ function BlogInicio_Admin() {
                             <div className="alinhamento-texto">
 
                                 <div className="button-container">
-                                    <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
+                                    <button className='button-deletar' id='DeletarButtonInpt' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                                 </div>
 
                                 <div className='texto-artigo'>

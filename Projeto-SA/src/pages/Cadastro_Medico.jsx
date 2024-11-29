@@ -106,12 +106,12 @@ function Cadastro_Medico() {
       console.log(lista_de_medicos);
   }, [lista_de_medicos]);
 
-  // Função para lidar com o envio do formulário (adicionar ou atualizar)
+
   const handleSubmit = async (e) => {
      
     e.preventDefault();
 
-    // EMail já existente
+
 
     for(let i = 0; i < lista_de_medicos.length; i++){
 
@@ -129,7 +129,7 @@ function Cadastro_Medico() {
       };
     };
 
-    // CPF já existente
+
 
     for(let i = 0; i < lista_de_medicos.length; i++){
 
@@ -147,7 +147,7 @@ function Cadastro_Medico() {
       };
     };
 
-    // CRM já existenteee
+
 
     for(let i = 0; i < lista_de_medicos.length; i++){
 
@@ -180,26 +180,26 @@ function Cadastro_Medico() {
 
       try {
           if (selectedCliente) {
-              // Atualizar medico existente (PUT)
+            
               const response = await axios.put(`http://localhost:3000/medicos/${selectedCliente.id}`, form);
               
               if (response.status === 200) {
               
-                fetch_lista_de_medicos(); // Atualiza a lista de medicos após a edição
+                fetch_lista_de_medicos(); 
               
-                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' });
               
-                  setSelectedCliente(null); // Reseta o medico selecionado
+                  setSelectedCliente(null); 
               }
           } else {
-              // Adicionar novo medico (POST)
-              const response = await axios.post('http://localhost:3000/medicos', form);
+
+            const response = await axios.post('http://localhost:3000/medicos', form);
               
               if (response.status === 201) {
                 
-                fetch_lista_de_medicos(); // Atualiza a lista de medicos após a adição
+                fetch_lista_de_medicos(); 
                   
-                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); // Limpa o formulário
+                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); 
 
                   navegacao_de_pagina(`/login`)
                 };
@@ -325,10 +325,26 @@ function Cadastro_Medico() {
         
         <div className="input_genero_medico">
           
-          <label>Gênero</label>
+          <label className='titulo_label_inpt'>Gênero</label>
          
-          <input type="text" placeholder='Digite seu gênero' value={form.genero || ''} onChange={(e) => setForm({...form, genero: e.target.value})}/>
-        
+          <div className='input_genero_medico_alinhar_radios'>
+                    
+                    <div className='input_genero_medico_alinhar_radios_masculino'>
+                    
+                      <input type="radio" name='genero_inpt' value={'Masculino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <label className='input_genero_medico_alinhar_label'>Masculino</label>
+                    
+                    </div>
+
+                    <div className='input_genero_medico_alinhar_radios_feminino'>
+                    
+                      <input type="radio" name='genero_inpt' value={'Feminino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <label className='input_genero_medico_alinhar_label'>Feminino</label>
+                    
+                    </div>
+
+          </div>     
+
         </div>
   
         <div className="input_senha_medico">
@@ -394,7 +410,7 @@ function Cadastro_Medico() {
     
     <input type="checkbox" id='checkbox_cadastro_medico' value={valor_checkbox} onChange={(e) => set_valor_checkbox(e.target.checked)}/>
     
-    <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='termos_de_uso_medico'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='politica_de_privacidade_paciente'>Política de Privacidade</Link></label>
+    <label htmlFor='checkbox'> Leio e concordo com os <Link to={`/termosdeuso`} className='termos_de_uso_medico'>Termos de uso</Link> & <Link to={`/politicadeprivacidade`} className='politica_de_privacidade_medico'>Política de Privacidade</Link></label>
   
   </div>
   

@@ -136,14 +136,15 @@
 }
 
 /* Alinhamentos */
-.container-alinhamento-dois {
+.container-alinhamento-dois-perfil {
     margin-right: 10vw;
     width: 700px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.container-alinhamento-um {
+.container-alinhamento-um-perfil {
     width: 84%;
     margin: 0 auto;
     margin-top: 1vw;
@@ -181,11 +182,20 @@
     border-color: var(--cor_azul_claro);
 }
 
-.container-alinhamento-tres {
+.icone-olhinho-aberto img{
+    width: 20px;
+    height: 20px;
+}
+
+.icone-olhinho-fechado img{
+    width: 20px;
+    height: 20px;
+}
+
+.container-alinhamento-tres-perfil {
     display: flex;
     flex-direction: column; 
     margin-top: 1vw;
-    margin-left: 8vw;
 }
 
 .container-foto-usuario label {
@@ -235,24 +245,137 @@
     transition: 0.4s;
 }
 
+/* Pops ups perfil paciente */
+
+.container-PopSalvarPerfilPaciente {
+    top: 20vw;
+    left: 35vw;
+    position: absolute;
+    background-color: #f1f1f1;
+    height: 10vw;
+    position: fixed;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 2vw;
+}
+
+.FontepPopSalvarPerfilPaciente {
+    color: #1D2A62;
+    font-size: 1.6vw;
+    margin: 1.2vw;
+}
+
+.buttonPopSalvarPerfilPaciente {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonOkPerfilPaciente {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    height: 2.7vw;
+    width: 12vw;
+    border: none;
+    border-radius: 15px;
+    background-color: #437118;
+    color: #F5F5F5;
+}
+
+.buttonOkPerfilPaciente:hover {
+    transition: 0.4s;
+    background-color: #345516;
+    color: #F5F5F5;
+}
+
+.buttonOkPerfilPaciente:not(:hover){
+    transition: 0.4s;
+    background-color: var(--cor_verde_meio_termo);
+}
+
+
+.Container-PopPerfilPaciente {
+    top: 20vw;
+    left: 35vw;
+    position: absolute;
+    background-color: #f1f1f1;
+    height: 10vw;
+    position: fixed;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 2vw;
+}
+
+.FontePopPerfilPaciente {
+    color: #1D2A62;
+    font-size: 1.6vw;
+    margin: 1.2vw;
+}
+
+.ButtonsPopPerfilPaciente {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonNaoDeletarPerfilPaciente {
+    height: 2.7vw;
+    width: 12vw;
+    border-radius: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    background-color: #1D2A62;
+    color: #F1F1F1;
+    border: none;
+}
+
+.buttonNaoDeletarPerfilPaciente:hover{
+    background-color: #323D70;
+    transition: 0.4s;
+}
+
+.buttonNaoDeletar:not(:hover){
+    background-color: var(--cor_azul_escuro);
+    transition: 0.4s;
+}
+
+.buttonDeletarPerfilPaciente {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    height: 2.7vw;
+    width: 12vw;
+    border: none;
+    border-radius: 15px;
+    background-color: #437118;
+    color: #F5F5F5;
+}
+
+.buttonDeletarPerfilPaciente:hover {
+    transition: 0.4s;
+    background-color: #345516;
+    color: #F5F5F5;
+}
+
+.buttonDeletarPerfilPaciente:not(:hover){
+    transition: 0.4s;
+    background-color: var(--cor_verde_meio_termo);
+}
+
+/* estlização do botão deletar perfil */
 .button-deletar-perfis{
     border: none;
-    background-color: #ef2828;
+    background-color: var(--cor_verde_claro);
     color: var(--cor_quase_branco);
     width: 15vw;
     height: 5vh;
-    font-weight: 800;
+    font-weight: bold;
     font-family: 'Nunito', sans-serif;
     border-radius: 0.6vw;
 }
 
 .button-deletar-perfis:hover{
-    background-color: #891c1c;
+    background-color: var(--cor_verde_meio_termo);
     transition: 0.4s;
 }
 
 .button-deletar-perfis:not(:hover){
-    background-color: #ef2828;
+    background-color: var(--cor_verde_claro);
     transition: 0.4s;
 }
 

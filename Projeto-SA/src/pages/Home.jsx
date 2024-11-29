@@ -1,7 +1,7 @@
 import Header from '../components/Header.jsx';
 import './Home.css';
 import Popup from '../components/Pop_up.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Faq_a from '../components/Faq_a.jsx';
 import Faq_b from '../components/Faq_b.jsx';
 import Faq_c from '../components/Faq_c.jsx';
@@ -12,10 +12,15 @@ import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
 
+import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
+
+import { GlobalContext } from '../contexts/GlobalContext.jsx';
+
 function Home() {
 
   const [pop_aberto, set_pop_aberto] = useState(false);
   const navegacao_de_pagina = useNavigate(``);
+  const { lista_de_pacientes } = useContext(GlobalContext)
 
   const [faq_a_aberto, set_faq_a_aberto] = useState(false);
   const [faq_b_aberto, set_faq_b_aberto] = useState(false);
@@ -31,6 +36,9 @@ function Home() {
   let faq_b_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_c_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
   let faq_d_botao = <img src='FAQ_feixado.png' className='faq_aberto'></img>;
+    
+  const {tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas} = useContext(GlobalContext);
+  const {usuario_logado} = useContext(GlobalContext);
 
   function evento_faq_a(){
 
@@ -114,26 +122,21 @@ function Home() {
     faq_d_botao = <img src='FAQ_aberto.png' className='faq_fechado'></img>;
   };
 
-  function acessarComunidade() {
+    useEffect(() => {
 
-     window.location.href = 'https://chat.whatsapp.com/Bmql2XCn7eI7Y4IpS2xecT'
-    
-  }
+        setTimeout(() => {
+          
+          set_tempo_do_pop_up_de_boas_vindas(false);
 
-  let aparecer_pop_up_de_bemvindo = true;
+        }, 3000);
 
-  useEffect(() => {
-
-    setTimeout(() => {
-      
-      aparecer_pop_up_de_bemvindo = false
-
-    }, 5000);
-  }, []);
+    }, []);
 
   return (
 
     <div>
+
+      {tempo_do_pop_up_de_boas_vindas && <Pop_up_de_boas_vindas/>}
 
       <Header/>
 
@@ -207,7 +210,7 @@ function Home() {
 
             <p>Conecte-se com outros pacientes e cuidadores para compartilhar expêriencias de apoio.</p>
 
-            <button onClick={acessarComunidade}>ACESSAR</button>
+            <Link className='hyperlink_de_comunidade_conteudo' target={`_blank`} to={`https://chat.whatsapp.com/Bmql2XCn7eI7Y4IpS2xecT`}>ACESSAR</Link>
 
           </div>
 
@@ -360,7 +363,7 @@ function Home() {
 
             <p>Continua com dúvidas?</p>
 
-            <button onClick={acessarComunidade}>CONTATE-NOS</button>
+            <Link target='_blank' to={`https://chat.whatsapp.com/Bmql2XCn7eI7Y4IpS2xecT`}>CONTATE-NOS</Link>
 
           </div>
 

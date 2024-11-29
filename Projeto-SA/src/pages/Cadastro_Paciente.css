@@ -1,7 +1,7 @@
-:root{
-    
-    --cor_um: #437118 ;
-    --cor_dois: #AFD06E ;
+:root {
+
+    --cor_um: #437118;
+    --cor_dois: #AFD06E;
     --cor_tres: #F5F5F5;
     --cor_quatro: #9fbacf;
     --cor_cinco: #1D2A62;
@@ -15,19 +15,19 @@
     --tipografia_secundaria: 'Poppins', sans-serif;
 }
 
-body{
+body {
 
     margin: 0px;
 }
 
-.dv_cadastro_paciente{
+.dv_cadastro_paciente {
 
     display: flex;
 }
 
 /* Fundo Branco */
 
-.container_informacoes_paciente{
+.container_informacoes_paciente {
 
     background-color: var(--cor_tres);
     width: 60vw;
@@ -35,13 +35,13 @@ body{
 
 /* Fundo imagem */
 
-.container_img_paciente{
-    
+.container_img_paciente {
+
     width: 40vw;
     height: 100vh;
     left: 0px;
     top: 0px;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,13 +49,13 @@ body{
     background-color: var(--cor_quatro);
 }
 
-.container_img_paciente img{
+.container_img_paciente img {
 
     width: 30vw;
     height: 60vh;
 }
 
-.container_img_paciente img:hover{
+.container_img_paciente img:hover {
 
     transition: 0.5s;
 
@@ -63,7 +63,7 @@ body{
     height: 80vh;
 }
 
-.container_img_paciente img:not(:hover){
+.container_img_paciente img:not(:hover) {
 
     transition: 0.5s;
 
@@ -71,7 +71,7 @@ body{
     height: 80vh;
 }
 
-.titulo_paciente{
+.titulo_paciente {
 
     display: flex;
     justify-content: space-around;
@@ -81,7 +81,7 @@ body{
 
 /* Logo SA   */
 
-.container_informacoes_logo_paciente{
+.container_informacoes_logo_paciente {
 
     width: 8vw;
     height: 8vh;
@@ -89,14 +89,14 @@ body{
     margin-left: 2vw;
 }
 
-.container_informacoes_logo_paciente img{
+.container_informacoes_logo_paciente img {
 
     width: 6vw;
     height: 10vw;
     margin-top: 6vh;
 }
 
-.container_informacoes_logo_paciente img:hover{
+.container_informacoes_logo_paciente img:hover {
 
     transition: 0.3s;
 
@@ -104,7 +104,7 @@ body{
     height: 13vh;
 }
 
-.container_informacoes_logo_paciente img:not(:hover){
+.container_informacoes_logo_paciente img:not(:hover) {
 
     transition: 0.3s;
 
@@ -114,23 +114,23 @@ body{
 
 /* Linha verde */
 
-.faixa_verde_paciente{
-    
+.faixa_verde_paciente {
+
     position: absolute;
     width: 3.5vw;
     height: 1vh;
     left: 46vw;
     top: 11vh;
     margin-top: 3vh;
-    
+
     background-color: var(--cor_dois);
     border-radius: 2vw;
 }
 
 /* CADASTRO - PACIENTE */
 
-.titulo_paciente h2{
-    
+.titulo_paciente h2 {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 800;
@@ -138,18 +138,18 @@ body{
 
     margin-top: 6vh;
     margin-right: 3vw;
-    
+
     color: var(--cor_cinco);
 }
 
-.posicao_inputs_paciente{
+.posicao_inputs_paciente {
 
     display: flex;
-    
+
     margin-top: 1vh;
 }
 
-.coluna_de_inputs_um_paciente{
+.coluna_de_inputs_um_paciente {
 
     height: 50vh;
     width: 30vw;
@@ -157,7 +157,7 @@ body{
     margin-left: 6vw;
 }
 
-.coluna_de_inputs_dois_paciente{
+.coluna_de_inputs_dois_paciente {
 
     height: 20vh;
     width: 80vw;
@@ -173,14 +173,14 @@ body{
     flex-direction: column;
 }
 
-.input_nome_paciente input{
-     
+.input_nome_paciente input {
+
     box-sizing: border-box;
-    
+
     width: 13.5vw;
     height: 5.5vh;
     padding-left: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
@@ -193,8 +193,8 @@ body{
 
 /* Nome Label */
 
-.input_nome_paciente label{
-    
+.input_nome_paciente label {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -203,7 +203,7 @@ body{
 
     margin-bottom: 0%;
     margin-top: 5vh;
-    
+
     color: var(--cor_um);
 }
 
@@ -213,17 +213,17 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.input_cpf_paciente input{
-     
+.input_cpf_paciente input {
+
     box-sizing: border-box;
-    
+
     width: 13.5vw;
     height: 5.5vh;
     padding-left: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
@@ -236,8 +236,8 @@ body{
 
 /* CPF Label */
 
-.input_cpf_paciente label{
-    
+.input_cpf_paciente label {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -246,7 +246,7 @@ body{
 
     margin-bottom: 0%;
     margin-top: 2vh;
-    
+
     color: var(--cor_um);
 }
 
@@ -256,31 +256,86 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.input_genero_paciente input{
-     
+.input_genero_paciente_alinhar_radios{
+
+    display: flex;
+    justify-content: space-around;
+
+    margin-top: 1vh;
+    margin-left: -0.4vw;
+}
+
+.input_genero_paciente input {
+
     box-sizing: border-box;
-    
-    width: 13.5vw;
-    height: 5.5vh;
+
+    width: 2vw;
+    height: 2.5vh;
     padding-left: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
-    background: var(--cor_tres);
-    border: 0.1vw solid var(--cor_cinco);
+    border: 1vw solid var(--cor_cinco);
     border-radius: 1vh;
+
+    accent-color: var(--cor_cinco);
+}
+
+.input_genero_paciente_alinhar_radios_masculino{
+
+    display: flex;
+    align-items: center;
+
+}
+
+.input_genero_paciente_alinhar_radios_masculino input{
+    
+    margin: 0px;
+    margin-right: 0.5vw;
+
+    width: 1.5vw;
+}
+
+.input_genero_paciente_alinhar_radios_feminino{
+
+    display: flex;
+    align-items: center;
+    
+}
+
+.input_genero_paciente_alinhar_radios_feminino input{
+
+    margin: 0px;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+
+    width: 1.5vw;
+}
+
+.input_genero_paciente_alinhar_label{
+
+
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1vw;
+    line-height: 2vw;
+
+    margin-bottom: 0%;
+    margin-top: 0vh;
+    margin-left: 0vw;
 
     color: var(--cor_cinco);
 }
 
 /* Genero Label */
 
-.input_genero_paciente label{
-    
+.titulo_label_inpt {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -289,7 +344,7 @@ body{
 
     margin-bottom: 0%;
     margin-top: 2vh;
-    
+
     color: var(--cor_um);
 }
 
@@ -299,17 +354,17 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.input_senha_paciente input{
-     
+.input_senha_paciente input {
+
     box-sizing: border-box;
-    
+
     width: 13.5vw;
     height: 5.5vh;
     padding-left: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
@@ -322,8 +377,8 @@ body{
 
 /* Senha Label */
 
-.input_senha_paciente label{
-    
+.input_senha_paciente label {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -331,35 +386,35 @@ body{
     line-height: 2vw;
 
     margin-bottom: 0%;
-    margin-top: 2vh;
-    
+    margin-top: 2.4vh;
+
     color: var(--cor_um);
 }
 
 /* Confirmar Senha Botão */
 
-.input_senha_paciente img{
+.input_senha_paciente img {
 
     width: 1.8vw;
     height: 4vh;
 
     position: absolute;
 
-    top: 64vh;
+    top: 62.5vh;
     left: 57vw;
     right: 0vw;
     bottom: 0vh;
 }
 
-.input_senha_paciente_dv{
-    
+.input_senha_paciente_dv {
+
     display: flex;
 
     height: 5vh;
     width: 14.5vw;
 }
 
-.input_senha_paciente button{
+.input_senha_paciente button {
 
     margin-left: -3vw;
     margin-bottom: -0.5vw;
@@ -376,17 +431,17 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.input_cep_paciente input{
-     
+.input_cep_paciente input {
+
     box-sizing: border-box;
-    
+
     width: 14.5vw;
     height: 5.5vh;
     padding-left: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
@@ -399,8 +454,8 @@ body{
 
 /* CEP Label */
 
-.input_cep_paciente label{
-    
+.input_cep_paciente label {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -409,7 +464,7 @@ body{
 
     margin-bottom: 0%;
     margin-top: 5vh;
-    
+
     color: var(--cor_um);
 }
 
@@ -419,17 +474,17 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.input_email_paciente input{
-     
+.input_email_paciente input {
+
     box-sizing: border-box;
-    
+
     width: 14.5vw;
     height: 5.5vh;
     padding-left: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
@@ -442,8 +497,8 @@ body{
 
 /* Email Label */
 
-.input_email_paciente label{
-    
+.input_email_paciente label {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -452,7 +507,7 @@ body{
 
     margin-bottom: 0%;
     margin-top: 2vh;
-    
+
     color: var(--cor_um);
 }
 
@@ -462,18 +517,18 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.input_data_de_nascimento_paciente input{
-     
+.input_data_de_nascimento_paciente input {
+
     box-sizing: border-box;
-    
+
     width: 14.5vw;
     height: 5.5vh;
     padding-left: 0.5vw;
     padding-right: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
@@ -484,10 +539,11 @@ body{
     color: var(--cor_cinco);
 }
 
+
 /* Data de Nascimento Label */
 
-.input_data_de_nascimento_paciente label{
-    
+.input_data_de_nascimento_paciente label {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -496,7 +552,7 @@ body{
 
     margin-bottom: 0%;
     margin-top: 2vh;
-    
+
     color: var(--cor_um);
 }
 
@@ -506,17 +562,17 @@ body{
 
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.input_confirmar_senha_paciente input{
-     
+.input_confirmar_senha_paciente input {
+
     box-sizing: border-box;
-    
+
     width: 14.5vw;
     height: 5.5vh;
     padding-left: 0.5vw;
-    
+
     font-size: 1vw;
     font-family: 'Poppins', sans-serif;
 
@@ -529,8 +585,8 @@ body{
 
 /* Senha Label */
 
-.input_confirmar_senha_paciente label{
-    
+.input_confirmar_senha_paciente label {
+
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -539,13 +595,13 @@ body{
 
     margin-bottom: 0%;
     margin-top: 2vh;
-    
+
     color: var(--cor_um);
 }
 
 /* Confirmar Senha Botão */
 
-.input_confirmar_senha_paciente img{
+.input_confirmar_senha_paciente img {
 
     margin-bottom: -0.4vw;
 
@@ -554,21 +610,21 @@ body{
 
     position: absolute;
 
-    top: 64vh;
+    top: 62.5vh;
     left: 77.5vw;
     right: 0vw;
     bottom: 0vh;
 }
 
-.input_confirmar_senha_paciente_dv{
-    
+.input_confirmar_senha_paciente_dv {
+
     display: flex;
 
     height: 5vh;
     width: 13.5vw;
 }
 
-.input_confirmar_senha_paciente button{
+.input_confirmar_senha_paciente button {
 
     margin-left: -3vw;
     margin-top: -0.5vh;
@@ -580,57 +636,58 @@ body{
     border: 0px;
     background-color: transparent;
 }
+
 /* Mudar cor do Input após o clique */
 
-.input_nome_paciente input:focus{
+.input_nome_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_email_paciente input:focus{
+.input_email_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_genero_paciente input:focus{
+.input_genero_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_genero_paciente input:focus{
+.input_genero_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_data_de_nascimento_paciente input:focus{
+.input_data_de_nascimento_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_cep_paciente input:focus{
+.input_cep_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_cpf_paciente input:focus{
+.input_cpf_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_confirmar_senha_paciente input:focus{
+.input_confirmar_senha_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
 }
 
-.input_senha_paciente input:focus{
+.input_senha_paciente input:focus {
 
     border: 0.1vw solid var(--cor_quatro);
     outline: none;
@@ -638,18 +695,18 @@ body{
 
 /* Caminho para Termos de Uso & Política de Privacidade */
 
-.caminho_para_termos_e_politica_paciente{
+.caminho_para_termos_e_politica_paciente {
 
     font-family: 'Poppins', sans-serif;
     font-size: 0.9vw;
-    
+
     margin-left: 6vw;
     margin-top: 3vw;
 
     color: var(--cor_quatro);
 }
 
-#checkbox_cadastro_paciente{
+#checkbox_cadastro_paciente {
 
     width: 1vw;
     height: 1vw;
@@ -675,7 +732,7 @@ body{
     color: var(--cor_cinco);
 }
 
-.termos_de_uso_paciente:hover{
+.termos_de_uso_paciente:hover {
 
     text-decoration: underline;
 }
@@ -690,12 +747,12 @@ body{
     color: var(--cor_cinco);
 }
 
-.politica_de_privacidade_paciente:hover{
+.politica_de_privacidade_paciente:hover {
 
     text-decoration: underline;
 }
 
-.alinhamento_botao_cadastrar_paciente{
+.alinhamento_botao_cadastrar_paciente {
 
     display: flex;
     align-items: end;
@@ -725,7 +782,7 @@ body{
     color: var(--cor_tres);
 }
 
-.botao_cadastrar_paciente:hover{
+.botao_cadastrar_paciente:hover {
 
     transition: 0.3s;
 
@@ -735,7 +792,7 @@ body{
     color: var(--cor_cinco);
 }
 
-.botao_cadastrar_paciente:not(:hover){
+.botao_cadastrar_paciente:not(:hover) {
 
     transition: 0.3s;
 
@@ -746,7 +803,7 @@ body{
 }
 
 
-.caminho_para_termos_e_politica_paciente{
+.caminho_para_termos_e_politica_paciente {
 
     display: flex;
     justify-content: start;
@@ -758,14 +815,14 @@ body{
     height: 2vh;
 }
 
-.caminho_para_termos_e_politica_paciente label{
+.caminho_para_termos_e_politica_paciente label {
 
     margin-left: 1%;
 }
 
 /* Já possui uma conta? Log-In */
 
-.possui_conta{
+.possui_conta {
 
     font-family: 'Poppins', sans-serif;
     font-size: 1vw;
@@ -777,7 +834,7 @@ body{
     color: var(--cor_um);
 }
 
-.possui_conta_link{
+.possui_conta_link {
 
     text-decoration: none;
     font-weight: bold;
@@ -786,22 +843,22 @@ body{
     color: var(--cor_cinco);
 }
 
-.possui_conta p{
+.possui_conta p {
 
     font-size: 1vw;
 
     margin-top: -1px;
     margin-bottom: 0px;
-    
+
     color: var(--cor_sete);
 }
 
-.possui_conta a:hover{
+.possui_conta a:hover {
 
     text-decoration: underline;
 }
 
-.error_paciente{
+.error_paciente {
 
     margin-left: 2vw;
     margin-bottom: 0.7vw;
@@ -811,4 +868,802 @@ body{
     font-size: 1vw;
 
     color: #ef2828;
+}
+
+@media screen and (max-width: 400) {
+
+    .dv_cadastro_paciente {
+
+        display: flex;
+    }
+    
+    /* Fundo Branco */
+    
+    .container_informacoes_paciente {
+    
+        background-color: var(--cor_tres);
+        width: 60vw;
+    }
+    
+    /* Fundo imagem */
+    
+    .container_img_paciente {
+    
+        width: 40vw;
+        height: 100vh;
+        left: 0px;
+        top: 0px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        background-color: var(--cor_quatro);
+    }
+    
+    .container_img_paciente img {
+    
+        width: 30vw;
+        height: 60vh;
+    }
+    
+    .container_img_paciente img:hover {
+    
+        transition: 0.5s;
+    
+        width: 80vw;
+        height: 80vh;
+    }
+    
+    .container_img_paciente img:not(:hover) {
+    
+        transition: 0.5s;
+    
+        width: 50vw;
+        height: 80vh;
+    }
+    
+    .titulo_paciente {
+    
+        display: flex;
+        justify-content: space-around;
+    
+        margin-top: 2vh;
+    }
+    
+    /* Logo SA   */
+    
+    .container_informacoes_logo_paciente {
+    
+        width: 8vw;
+        height: 8vh;
+    
+        margin-left: 2vw;
+    }
+    
+    .container_informacoes_logo_paciente img {
+    
+        width: 6vw;
+        height: 10vw;
+        margin-top: 6vh;
+    }
+    
+    .container_informacoes_logo_paciente img:hover {
+    
+        transition: 0.3s;
+    
+        width: 8vw;
+        height: 13vh;
+    }
+    
+    .container_informacoes_logo_paciente img:not(:hover) {
+    
+        transition: 0.3s;
+    
+        width: 6vw;
+        height: 10vh;
+    }
+    
+    /* Linha verde */
+    
+    .faixa_verde_paciente {
+    
+        position: absolute;
+        width: 3.5vw;
+        height: 1vh;
+        left: 46vw;
+        top: 11vh;
+        margin-top: 3vh;
+    
+        background-color: var(--cor_dois);
+        border-radius: 2vw;
+    }
+    
+    /* CADASTRO - PACIENTE */
+    
+    .titulo_paciente h2 {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 2vw;
+    
+        margin-top: 6vh;
+        margin-right: 3vw;
+    
+        color: var(--cor_cinco);
+    }
+    
+    .posicao_inputs_paciente {
+    
+        display: flex;
+    
+        margin-top: 1vh;
+    }
+    
+    .coluna_de_inputs_um_paciente {
+    
+        height: 50vh;
+        width: 30vw;
+    
+        margin-left: 6vw;
+    }
+    
+    .coluna_de_inputs_dois_paciente {
+    
+        height: 20vh;
+        width: 80vw;
+    
+        margin-left: 5vw;
+    }
+    
+    /* Nome Input */
+    
+    .input_nome_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .input_nome_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 13.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* Nome Label */
+    
+    .input_nome_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 5vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* CPF Input*/
+    
+    .input_cpf_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .input_cpf_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 13.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* CPF Label */
+    
+    .input_cpf_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 2vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* Gênero Input*/
+    
+    .input_genero_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .input_genero_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 13.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* Genero Label */
+    
+    .input_genero_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 2vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* Senha Input*/
+    
+    .input_senha_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .input_senha_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 13.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* Senha Label */
+    
+    .input_senha_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 2vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* Confirmar Senha Botão */
+    
+    .input_senha_paciente img {
+    
+        width: 1.8vw;
+        height: 4vh;
+    
+        position: absolute;
+    
+        top: 64vh;
+        left: 57vw;
+        right: 0vw;
+        bottom: 0vh;
+    }
+    
+    .input_senha_paciente_dv {
+    
+        display: flex;
+    
+        height: 5vh;
+        width: 14.5vw;
+    }
+    
+    .input_senha_paciente button {
+    
+        margin-left: -3vw;
+        margin-bottom: -0.5vw;
+    
+        cursor: pointer;
+    
+        border: 0px;
+        background-color: transparent;
+    }
+    
+    /* CEP Input*/
+    
+    .input_cep_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .input_cep_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 14.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* CEP Label */
+    
+    .input_cep_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 5vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* Email Input*/
+    
+    .input_email_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .input_email_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 14.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* Email Label */
+    
+    .input_email_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 2vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* Data de Nascimento Input*/
+    
+    .input_data_de_nascimento_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .input_data_de_nascimento_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 14.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* Data de Nascimento Label */
+    
+    .input_data_de_nascimento_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 2vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* Confirmar Senha Input*/
+    
+    .input_confirmar_senha_paciente {
+    
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .input_confirmar_senha_paciente input {
+    
+        box-sizing: border-box;
+    
+        width: 14.5vw;
+        height: 5.5vh;
+        padding-left: 0.5vw;
+    
+        font-size: 1vw;
+        font-family: 'Poppins', sans-serif;
+    
+        background: var(--cor_tres);
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 1vh;
+    
+        color: var(--cor_cinco);
+    }
+    
+    /* Senha Label */
+    
+    .input_confirmar_senha_paciente label {
+    
+        font-family: 'Nunito', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.3vw;
+        line-height: 2vw;
+    
+        margin-bottom: 0%;
+        margin-top: 2vh;
+    
+        color: var(--cor_um);
+    }
+    
+    /* Confirmar Senha Botão */
+    
+    .input_confirmar_senha_paciente img {
+    
+        margin-bottom: -0.4vw;
+    
+        width: 1.8vw;
+        height: 4vh;
+    
+        position: absolute;
+    
+        top: 64vh;
+        left: 77.5vw;
+        right: 0vw;
+        bottom: 0vh;
+    }
+    
+    .input_confirmar_senha_paciente_dv {
+    
+        display: flex;
+    
+        height: 5vh;
+        width: 13.5vw;
+    }
+    
+    .input_confirmar_senha_paciente button {
+    
+        margin-left: -3vw;
+        margin-top: -0.5vh;
+    
+        padding: 0px;
+    
+        cursor: pointer;
+    
+        border: 0px;
+        background-color: transparent;
+    }
+    
+    /* Mudar cor do Input após o clique */
+    
+    .input_nome_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_email_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_genero_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_genero_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_data_de_nascimento_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_cep_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_cpf_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_confirmar_senha_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    .input_senha_paciente input:focus {
+    
+        border: 0.1vw solid var(--cor_quatro);
+        outline: none;
+    }
+    
+    /* Caminho para Termos de Uso & Política de Privacidade */
+    
+    .caminho_para_termos_e_politica_paciente {
+    
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9vw;
+    
+        margin-left: 6vw;
+        margin-top: 3vw;
+    
+        color: var(--cor_quatro);
+    }
+    
+    #checkbox_cadastro_paciente {
+    
+        width: 1vw;
+        height: 1vw;
+    
+        border: 0.1vw solid var(--cor_um);
+        border-radius: 1vw;
+    
+        margin: 0vw;
+        margin-left: 0.3vw;
+    
+        accent-color: var(--cor_um);
+    
+        background-color: var(--cor_tres);
+    }
+    
+    /* Link de Termos de Uso */
+    
+    .termos_de_uso_paciente {
+    
+        text-decoration: none;
+    
+        font-weight: 700;
+        color: var(--cor_cinco);
+    }
+    
+    .termos_de_uso_paciente:hover {
+    
+        text-decoration: underline;
+    }
+    
+    /* Link de Política de Privacidade */
+    
+    .politica_de_privacidade_paciente {
+    
+        text-decoration: none;
+    
+        font-weight: 700;
+        color: var(--cor_cinco);
+    }
+    
+    .politica_de_privacidade_paciente:hover {
+    
+        text-decoration: underline;
+    }
+    
+    .alinhamento_botao_cadastrar_paciente {
+    
+        display: flex;
+        align-items: end;
+    }
+    
+    /* Botão */
+    
+    .botao_cadastrar_paciente {
+    
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        font-size: 1vw;
+    
+        height: 6vh;
+        width: 12.5vw;
+    
+        margin-left: 6vw;
+    
+        margin-top: 5vh;
+    
+        border: 0.1vw solid var(--cor_cinco);
+        border-radius: 0.8vw;
+    
+        cursor: pointer;
+    
+        background-color: var(--cor_cinco);
+        color: var(--cor_tres);
+    }
+    
+    .botao_cadastrar_paciente:hover {
+    
+        transition: 0.3s;
+    
+        border: 0.1vw solid var(--cor_quatro);
+    
+        background-color: var(--cor_quatro);
+        color: var(--cor_cinco);
+    }
+    
+    .botao_cadastrar_paciente:not(:hover) {
+    
+        transition: 0.3s;
+    
+        border: 0.1vw solid var(--cor_cinco);
+    
+        background-color: var(--cor_cinco);
+        color: var(--cor_tres);
+    }
+    
+    
+    .caminho_para_termos_e_politica_paciente {
+    
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    
+        margin-left: 6vw;
+    
+        width: 34vw;
+        height: 2vh;
+    }
+    
+    .caminho_para_termos_e_politica_paciente label {
+    
+        margin-left: 1%;
+    }
+    
+    /* Já possui uma conta? Log-In */
+    
+    .possui_conta {
+    
+        font-family: 'Poppins', sans-serif;
+        font-size: 1vw;
+    
+    
+        margin-left: 6vw;
+        margin-top: 3vh;
+    
+        color: var(--cor_um);
+    }
+    
+    .possui_conta_link {
+    
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1vw;
+    
+        color: var(--cor_cinco);
+    }
+    
+    .possui_conta p {
+    
+        font-size: 1vw;
+    
+        margin-top: -1px;
+        margin-bottom: 0px;
+    
+        color: var(--cor_sete);
+    }
+    
+    .possui_conta a:hover {
+    
+        text-decoration: underline;
+    }
+    
+    .error_paciente {
+    
+        margin-left: 2vw;
+        margin-bottom: 0.7vw;
+    
+        font-family: var(--tipografia_primaria);
+        font-weight: bold;
+        font-size: 1vw;
+    
+        color: #ef2828;
+    }
+    
 }

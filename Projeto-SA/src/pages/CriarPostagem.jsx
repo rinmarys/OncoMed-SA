@@ -1,6 +1,11 @@
 import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
 import { useState } from 'react';
 import './CriarPostagem.css'
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
+
 
 
 function CriarPostagem() {
@@ -27,12 +32,70 @@ function CriarPostagem() {
         'Atividades Físicas e Exercícios'
     ];
 
-    const handleChange = (event) => {
-        setCategoria(event.target.value); // Atualiza o estado com a categoria selecionada
-    };
+    
+
+    const [artigo, setArtigo] = useState({titulo: '' });
+
+
+//PARTE DO BLOG PEGAR TABELA NO BANCO DE DADOS
+const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
+
+const [valorTitulo, setValorTitulo] = useState ('')
+const [valorAutor, setValorAutor] = useState ('')
+const [valorConteudo, setValorConteudo] = useState ('')
+
+const fetchBlog = async ( ) => {
+
+
+
+    try {
+        const resposta = await axios.get ('http://localhost:3000/blog')
+        setRegistroBlog (resposta.data)
+    } catch (err) {
+        console.error('Erro ao buscar tabela do blog ;(', err)
+
+    }
+}
+    useEffect( () => {
+
+        fetchBlog()
+
+    }, []) 
+
+//COLOCAR O BLOG NO BANCO   
+const enviarBlog = async (event) => {
+
+event.preventDefault()
+const informacoesBlog = {
+
+    titulo: valorTitulo,
+    autor: valorAutor,
+    conteudo: valorConteudo
+}
+
+//ATUALIZANDO NO BANCO DE DADOS
+try {
+    const enviarInformacoes = await axios.post ('http://localhost:3000/blog', informacoesBlog)
+    if(enviarInformacoes.status == 201){
+
+        fetchBlog()
+        setValorAutor ('')
+        setValorConteudo('')
+        setValorTitulo('')
+    }
+
+} catch (err) {
+    console.error('Erro ao adicionar o blog ;(', err)
+
+}
+
+}
+
+
 
     return (
         <div>
+            <form onSubmit={enviarBlog}>
             <div className="alinhamento-titulo-criarPostagem">
                 <div className="titulo-criarPostagem">
                     <h1>CRIAR NOVA POSTAGEM</h1>
@@ -73,57 +136,39 @@ function CriarPostagem() {
                     </div>
 
                     {/* titulo do post */}
-                    <input type="text"
-                        className='input-titulo-artigo'
-                        placeholder='Título do post' />
-                    {/* titulo do post */}
+                    <input value= {valorTitulo} onChange= {e => setValorTitulo (e.target.value)}  type="text" className='input-titulo-artigo' placeholder='Título do post' />
+                   
 
-                    {/* Conteudo */}
-                    <textarea name="textArea" id="" cols="30" rows="17" placeholder='Conteúdo do artigo' className='text-area'></textarea>
-                    {/* Conteudo */}
+                    {/* // Conteudo  */}
+                    <textarea value= {valorConteudo} onChange= {e => setValorConteudo (e.target.value)} name="textArea" cols="30" rows="17" placeholder='Conteúdo do artigo' className='text-area'></textarea>
+                    
                 </div>
 
-                <div className="alinhamento-categoriaTags">
-                    <div className="alinhamento-container-dois">
-                        <h2 className='titles-categoriaTags'>Categoria</h2>
+             
 
-                        {/* select */}
-                        <select value={categoria} onChange={handleChange} className='select-style'>
-                            <option value="">Selecione uma categoria</option>
-                            {categorias.map((cat, index) => (
-                                <option key={index} value={cat}>
-                                    {cat}
-                                </option>
-                            ))}
-                        </select>
-
-                        {categoria && <p className='select-p'>Categoria selecionada: {categoria}</p>}
-                        {/* select */}
-                    </div>
-
+                   
                     {/* hashtags */}
                     <div className="alinhamento-container-tres">
                         <h2 className="titles-categoriaTags">Hashtags</h2>
 
-                        <textarea name="" id="" placeholder='Agregar hashtags ajudara no engajamento do seu post. Exemplo de hashtags: #Alimentação, #Saúde, #Nutrição.'></textarea>
+                        <textarea  value= {valorAutor} onChange= {e => setValorAutor (e.target.value)} name="" ></textarea>
                     </div>
                     {/* hashtags */}
 
                 </div>
 
                 {/* botões */}
-                <div className="alinhamento-buttons-criarPostagem">
-                    <div className="buttons-container-criarPostagem">
-                        <button className='salvar-rascunho-button'>SALVAR RASCUNHO</button>
+                <div className="alinhamento-buttons">
+                    <div className="buttons-container">
 
-                        <button className='publicar-button'>PUBLICAR</button>
+                        <button className='publicar-button' type = 'submit' >PUBLICAR</button>
 
                         <button className='cancelar-button'>CANCELAR</button>
                     </div>
                 </div>
-                {/* botões */}
-            </div>
-
+                
+         
+            </form>
         </div>
     )
 }

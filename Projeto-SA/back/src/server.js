@@ -51,11 +51,11 @@ app.get('/pacientes/:id', async (req, res) => {
 // Rota para adicionar um paciente
 
 app.post('/pacientes', async (req, res) => {
-    const {  nome, cpf, cep, email,genero, data_de_nascimento, senha} = req.body;
+    const {  nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil} = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO pacientes ( nome, cpf, cep, email, genero, data_de_nascimento, senha) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha]
+            'INSERT INTO pacientes ( nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+            [nome, cpf, cep, email,genero, data_de_nascimento, senha, imagem_de_perfil]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -67,13 +67,13 @@ app.post('/pacientes', async (req, res) => {
 // Rota para atualizar um pacientes
 app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, cep, email,genero, data_de_nascimento, senha} = req.body;
+    const { nome, cpf, cep, email,genero, data_de_nascimento, senha, imagem_de_perfil} = req.body;
     try {
         const result = await pool.query(
 
-            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7 WHERE id_paciente = $1 RETURNING *',
+            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8 WHERE id_paciente = $1 RETURNING *',
 
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha, id]
+            [nome, cpf, cep, email,genero, data_de_nascimento, senha, imagem_de_perfil, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Paciente não encontrado' });
@@ -137,12 +137,12 @@ app.get('/marcarConsulta/:id', async (req, res) => {
 // Rota para adicionar uma consulta
 app.post('/marcarConsulta', async (req, res) => {
     
-    const {  data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente} = req.body;
+    const {  data_agendamento, tipo_consulta, horario, observacoes, id_paciente} = req.body;
     
     try {
         const result = await pool.query(
-            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente]
+            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+            [data_agendamento, tipo_consulta, horario, observacoes, id_paciente]
         );
        
         res.status(201).json(result.rows[0]);
@@ -158,13 +158,13 @@ app.post('/marcarConsulta', async (req, res) => {
 app.put('/marcarConsulta/:id', async (req, res) => {
     
     const { id } = req.params;
-    const { data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente } = req.body;
+    const { data_agendamento, tipo_consulta, horario, observacoes, id_paciente } = req.body;
     
     try {
         const result = await pool.query(
 
-            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, id_do_paciente = $5 WHERE id = $1 RETURNING *',
-            [ data_agendamento, tipo_consulta, horario, observacoes, id_do_paciente, id]
+            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, id_paciente = $5 WHERE id = $1 RETURNING *',
+            [ data_agendamento, tipo_consulta, horario, observacoes, id_paciente, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'marcarConsulta não encontrado' });
@@ -190,6 +190,8 @@ app.delete('/marcarConsulta/:id', async (req, res) => {
         res.status(500).json({ error: 'Erro ao deletar marcarConsulta' });
     }
 });
+
+// Rota para levar ID do paciente para a consulta que ele marcou
 
 // Médicos
 
@@ -270,4 +272,42 @@ app.delete('/medicos/:id', async (req, res) => {
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
+});
+
+//BLOG
+
+app.get('/blog', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM blog');
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao buscar a tabela blog ;(' });
+    }
+});
+
+app.post('/blog', async (req, res) => {
+    const {titulo, conteudo, autor} = req.body;
+    try {
+        const result = await pool.query(
+            'INSERT INTO blog (titulo, conteudo, autor) VALUES ($1, $2, $3) RETURNING *',
+            [titulo, conteudo, autor]
+        );
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao adicionar medicos' });
+    }
+});
+
+//ADMIN
+
+app.get('/admin', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM admin');
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao buscar admin' });
+    }
 });
