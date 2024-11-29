@@ -97,7 +97,8 @@ function MarcarConsulta() {
       tipo_consulta: consultaSelecionada,
       horario: horarioSelecionado,
       observacoes: observacaoEscrita,
-      id_do_paciente: paciente_selecionado
+      id_do_paciente: paciente_selecionado,
+      medico_designado: ""
     };
   
     try {
