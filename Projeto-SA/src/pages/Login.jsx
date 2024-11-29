@@ -39,7 +39,7 @@ function Login() {
 
       set_valor_do_olinho('password');
 
-    }
+    };
 
   }, [estado_do_olinho]);
 
@@ -69,8 +69,6 @@ function Login() {
     };
   };
 
-  //Adição de ADM
-
   const fetch_admin = async () => {
 
     try {
@@ -86,10 +84,6 @@ function Login() {
 
   useEffect(() => {
 
-
-    // set_tempo_do_pop_up_de_boas_vindas(true);
-
-    set_usuario_logado([]);
     set_tempo_do_pop_up_de_boas_vindas(true);
 
     fetch_pacientes();
@@ -105,8 +99,6 @@ function Login() {
       this.nome = nome_do_usuario,
         this.email = email_do_usuario,
         this.senha = senha_do_usuario
-
-
 
       if (usuario_administrador[0].nome == this.nome && usuario_administrador[0].email == this.email && usuario_administrador[0].senha) {
 

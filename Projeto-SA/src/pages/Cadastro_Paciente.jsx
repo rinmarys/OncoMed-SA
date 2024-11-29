@@ -10,7 +10,6 @@ function Cadastro_Paciente() {
   const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
   const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '', imagem_de_perfil: ''});
   const [confirmar_senha, set_confirmar_senha] = useState(``);
-  const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
@@ -99,8 +98,6 @@ function Cadastro_Paciente() {
 
     e.preventDefault();
 
-    // Email ja existente4
-
     for (let i = 0; i < lista_de_pacientes.length; i++) {
 
       if (lista_de_pacientes[i].email == form.email) {
@@ -116,8 +113,6 @@ function Cadastro_Paciente() {
         email_ja_cadastrado = true;
       };
     };
-
-    // CPF já existentee
 
     for (let i = 0; i < lista_de_pacientes.length; i++) {
 
@@ -157,7 +152,7 @@ function Cadastro_Paciente() {
 
       try {
 
-        form.genero == `Feminino` ? form.imagem_de_perfil = `a` : form.imagem_de_perfil = `b`;
+        form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Paciente).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Paciente).svg`;
 
           const response = await axios.post('http://localhost:3000/pacientes', form);
 
@@ -194,7 +189,7 @@ function Cadastro_Paciente() {
         set_mensagem_de_erro("Favor aceitar os Termos de Uso!");
 
       };
-    }
+    };
 
   };
   return (

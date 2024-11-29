@@ -69,8 +69,6 @@ function MarcarConsulta() {
       console.error('Erro ao buscar consultas:', error);
     };  
   };
-
-  const [paciente_selecionado, set_paciente_selecionado] = useState(null);
   
   const fecth_paciente_pelo_id = async (id) => {
 
@@ -97,7 +95,7 @@ function MarcarConsulta() {
       tipo_consulta: consultaSelecionada,
       horario: horarioSelecionado,
       observacoes: observacaoEscrita,
-      id_do_paciente: paciente_selecionado,
+      id_do_paciente: usuario_logado.id_paciente,
       medico_designado: ""
     };
   

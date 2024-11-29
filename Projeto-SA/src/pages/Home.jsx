@@ -124,11 +124,19 @@ function Home() {
 
     useEffect(() => {
 
+      if(usuario_logado.length == 0){
+
+        set_tempo_do_pop_up_de_boas_vindas(false);
+        
+      } else{
+
         setTimeout(() => {
           
           set_tempo_do_pop_up_de_boas_vindas(false);
 
         }, 3000);
+
+      };
 
     }, []);
 

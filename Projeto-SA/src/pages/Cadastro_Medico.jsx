@@ -9,9 +9,8 @@ function Cadastro_Medico() {
  
   const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
   const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
-  const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '', genero: '', data_de_nascimento: '', senha: '' });
+  const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '', genero: '', data_de_nascimento: '', senha: '', imagem_de_perfil: ''});
   const [confirmar_senha, set_confirmar_senha] = useState(``);
-  const [selectedCliente, setSelectedCliente] = useState(null); // Cliente selecionado para update
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
@@ -34,8 +33,6 @@ function Cadastro_Medico() {
    
   let checkbox_selecionado = false;
 
-  // Função para buscar todos os medicos
-
   const fetch_lista_de_medicos = async () => {
       
       try {
@@ -49,8 +46,6 @@ function Cadastro_Medico() {
         console.error('Erro ao buscar medicos:', error);
       };
   };
-
-    // Função para buscar todos os pacientes
 
     const fetch_lista_de_pacientes = async () => {
       
@@ -110,8 +105,6 @@ function Cadastro_Medico() {
   const handleSubmit = async (e) => {
      
     e.preventDefault();
-
-
 
     for(let i = 0; i < lista_de_medicos.length; i++){
 
@@ -179,37 +172,25 @@ function Cadastro_Medico() {
       if(email_ja_cadastrado == false && cpf_ja_cadastrado == false && senhas_sao_iguais == true && checkbox_selecionado == true && crm_ja_cadastrado == false){
 
       try {
-          if (selectedCliente) {
-            
-              const response = await axios.put(`http://localhost:3000/medicos/${selectedCliente.id}`, form);
-              
-              if (response.status === 200) {
-              
-                fetch_lista_de_medicos(); 
-              
-                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' });
-              
-                  setSelectedCliente(null); 
-              }
-          } else {
+          
+        form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Medico).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Medico).svg`;
 
             const response = await axios.post('http://localhost:3000/medicos', form);
               
-              if (response.status === 201) {
+            if (response.status === 201) {
                 
                 fetch_lista_de_medicos(); 
                   
                 setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); 
 
-                  navegacao_de_pagina(`/login`)
-                };
-          };
+                navegacao_de_pagina(`/login`)
+            };
+
       } catch (error) {
-          console.error('Erro ao adicionar/atualizar medico:', error);
+          
+        console.error('Erro ao adicionar/atualizar medico:', error);
       };
     } else {
-
-      // Configura a mensagem de erro
       
       switch(true){
 
@@ -252,33 +233,10 @@ function Cadastro_Medico() {
 
           set_mensagem_de_erro(`Email e CRM já cadastrados!`);
           break;
-      } 
+      };
     };
   };
 
-  // Função para buscar medico por ID
-  const fetchClienteById = async (id) => {
-      try {
-          const response = await axios.get(`http://localhost:3000/medicos/${id}`);
-          setSelectedCliente(response.data); // Seleciona o cliente para edição
-          setForm(response.data); // Preenche o formulário com os dados do medico
-      } catch (error) {
-          console.error('Erro ao buscar cliente por ID:', error);
-      }
-  };
-
-  // Função para deletar medico
-  const deleteCliente = async (id) => {
-      try {
-          const response = await axios.delete(`http://localhost:3000/medicos/${id}`);
-          if (response.status === 200) {
-            fetch_lista_de_medicos(); // Atualiza a lista de medicos após a exclusão
-          }
-      } catch (error) {
-          console.error('Erro ao deletar cliente:', error);
-      }
-  };
-  
     return (
         
       <div>
