@@ -17,7 +17,7 @@ function Login() {
   const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
   const { usuario_administrador, set_usuario_administrador } = useContext(GlobalContext);
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
-  const { set_tempo_do_pop_up_de_boas_vindas, tempo_do_pop_up_de_boas_vindas } = useContext(GlobalContext);
+  const { set_tempo_do_pop_up_de_boas_vindas } = useContext(GlobalContext);
 
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho' />);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
@@ -124,7 +124,6 @@ function Login() {
             senha: this.senha,
             cpf: lista_de_pacientes[i].cpf,
             cep: lista_de_pacientes[i].cep,
-            email: lista_de_pacientes[i].email,
             genero: lista_de_pacientes[i].genero,
             data_de_nascimento: lista_de_pacientes[i].data_de_nascimento,
             imagem_de_perfil: lista_de_pacientes[i].imagem_de_perfil
@@ -147,7 +146,6 @@ function Login() {
             senha: this.senha,
             cpf: lista_de_medicos[i].cpf,
             crm: lista_de_medicos[i].crm,
-            email: lista_de_medicos[i].email,
             genero: lista_de_medicos[i].genero,
             data_de_nascimento: lista_de_medicos[i].data_de_nascimento,
             imagem_de_perfil: lista_de_medicos[i].imagem_de_perfil
