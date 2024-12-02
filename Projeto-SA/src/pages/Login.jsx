@@ -104,6 +104,7 @@ function Login() {
 
         set_usuario_logado({
 
+          id_admin: usuario_administrador[0].id_admin,
           nome: this.nome,
           email: this.email,
           senha: this.senha
