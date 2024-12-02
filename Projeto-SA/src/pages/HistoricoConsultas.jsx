@@ -142,6 +142,7 @@ function HistoricoConsultas() {
         </div>
         <div className="consultas">
           {/* Primeira consulta */}
+          
           <button className='consulta' onClick={handleOpenPopup}>
             <div className='nome-tipo-alinhamento'>
               <p className='nome-pessoa'>MARILENE JUSSARA PESSOA</p>
