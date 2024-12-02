@@ -1,17 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header";
 import './PoliticaPrivacidade.css';
 import Footer from "../components/Footer";
-
+import { Link } from "react-router-dom"
 
 function PoliticaPrivacidade() {
-  const navigate = useNavigate('');  
-  
-  // Função que será chamada ao clicar no botão
-  function outraPag() {
-    navigate('/termosDeUso');  // Redireciona para a página de Termos de Uso
-  }
 
   return (
     <div className='Nav-Bar'>
@@ -20,9 +13,9 @@ function PoliticaPrivacidade() {
       <div className='Politica-Privacidade'>
         <h1>POLITICA DE PRIVACIDADE</h1>
         <div className='Linha-Dois'></div>
-        <button className='button-Navigate' onClick={outraPag}>TERMOS DE USO</button>
+        <Link className='link-termosUso' to='/termosDeUso'>TERMOS DE USO</Link>
 
-        <div className='Texto-Um'> 
+        <div className='Texto-Um'>
           <p>Na Clínica Médica OncoMed, respeitamos sua privacidade e estamos comprometidos
             em proteger suas informações pessoais. Esta Política de Privacidade descreve como coletamos,
             usamos, armazenamos e protegemos seus dados quando você visita nosso site.</p>
@@ -31,12 +24,12 @@ function PoliticaPrivacidade() {
         <div className='Texto-Dois'>
           <h2 className="Title-ColetaInfo">1. Coleta de Informações</h2>
           <p>Coletamos informações pessoais de diversas maneiras, incluindo:</p>
-          <p> Informações que você nos fornece: Ao agendar consultas, preencher 
-            formulários ou entrar em contato conosco, podemos coletar seu nome, 
+          <p> Informações que você nos fornece: Ao agendar consultas, preencher
+            formulários ou entrar em contato conosco, podemos coletar seu nome,
             endereço de e-mail, número de telefone e outras informações relevantes.
-            Informações de navegação: Coletamos dados automaticamente sobre sua 
+            Informações de navegação: Coletamos dados automaticamente sobre sua
             visita ao nosso site, como seu endereço IP, tipo de navegador, páginas
-             visitadas e o tempo gasto em cada página.</p>
+            visitadas e o tempo gasto em cada página.</p>
         </div>
 
         <div className="Texto-Tres">
