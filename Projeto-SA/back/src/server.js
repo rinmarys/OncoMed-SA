@@ -132,7 +132,11 @@ app.post('/marcarConsulta', async (req, res) => {
     
     try {
         const result = await pool.query(
+
             'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+
+            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+
             [data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente]
         );
        
@@ -154,7 +158,11 @@ app.put('/marcarConsulta/:id', async (req, res) => {
         const result = await pool.query(
 
             'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, medico_designado = $5, id_paciente = $6 WHERE id = $1 RETURNING *',
+
             [ data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente, id]
+
+            [ data_agendamento, tipo_consulta, horario, observacoes, id_paciente, id]
+
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'marcarConsulta não encontrado' });
@@ -207,11 +215,11 @@ app.get('/medicos/:id', async (req, res) => {
 });
 
 app.post('/medicos', async (req, res) => {
-    const {  nome, cpf, crm, email,genero, data_de_nascimento, senha } = req.body;
+    const {  nome, cpf, crm, email,genero, data_de_nascimento, senha, imagem_de_perfil } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO medicos (nome, cpf, crm, email,genero, data_de_nascimento, senha) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-            [nome, cpf, crm, email,genero, data_de_nascimento, senha]
+            'INSERT INTO medicos (nome, cpf, crm, email,genero, data_de_nascimento, senha, imagem_de_perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -225,7 +233,7 @@ app.put('/medicos/:id', async (req, res) => {
     const { nome, cpf, crm, email,genero, data_de_nascimento, senha } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7 WHERE id = $5 RETURNING *',
+            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8 WHERE id = $1 RETURNING *',
             [nome, cpf, crm, email,genero, data_de_nascimento, senha, id]
         );
         if (result.rows.length === 0) {
