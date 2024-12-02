@@ -11,9 +11,11 @@ function Perfil_medico() {
   const [confirmarSenhaMedico, setConfirmarSenhaMedico] = useState('');
   const [cepMedico, setCepMedico] = useState('');
   const [descricaoMedico, setDescricaoMedico] = useState('');
+
   const [editandoMedico, setEditandoMedico] = useState(false);
   const [loadingMedico, setLoadingMedico] = useState(false);
   const [errorMed, setErrorMed] = useState('');
+
   const [mostrarSenhaMedico, setMostrarSenhaMedico] = useState(false);
   const [mostrarPopDeletarMedico, setMostrarPopDeletarPerfilMedico] = useState(false);
   const [mostrarPopUpSalvoMedico, setMostrarPopUpSalvoPerfilMedico] = useState(false);
@@ -24,7 +26,7 @@ function Perfil_medico() {
   useEffect(() => {
     const fetchUsuarioMedico = async () => {
       try {
-        const response = await axios.get(`http://localhost:5173/perfil_paciente/${userId}`);
+        const response = await axios.get(`http://localhost:5173/perfil_medico/${userId}`);
         const { nomeMedico, emailMedico, telefoneMedico, cepMedico,
            descricaoMedico } = response.data;
         setNomeMedico(nomeMedico);
@@ -44,8 +46,8 @@ function Perfil_medico() {
   const handleChange = (setter) => (event) => setter(event.target.value);
 
   const editar = async () => {
-    if (!editando) {
-      setEditando(false);
+    if (!editandoMedico) {
+      setEditandoMedico(false);
       return;
     }
 
@@ -54,21 +56,21 @@ function Perfil_medico() {
       return;
     }
 
-    setLoading(true);
-    setError('');
+    setLoadingMedico(true);
+    setErrorMed('');
 
     try {
       const medicoPerfil = { nome, email, telefone, cep, descricao, senha };
-      await axios.put(`http://localhost:5173/perfil_paciente/${userId}`, pacientePerfil);
+      await axios.put(`http://localhost:5173/perfil_medico/${userId}`, medicoPerfil);
 
-      setMostrarPopUpSalvoPerfil(true);
-      setEditando(false);
+      setMostrarPopUpSalvoPerfilMedico(true);
+      setEditandoMedico(false);
 
     } catch (err) {
       console.error(err);
-      setError('Falha ao atualizar os dados. Tente novamente.');
+      setErrorMed('Falha ao atualizar os dados. Tente novamente.');
     } finally {
-      setLoading(false);
+      setLoadingMedico(false);
     }
   };
 
@@ -78,7 +80,7 @@ function Perfil_medico() {
 
   const deletarContaMedico = async () => {
       try {
-        await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`);
+        await axios.delete(`http://localhost:5173/perfil_medico/${userId}`);
         window.location.href = '/home';
       } catch (err) {
         console.error(err);
@@ -88,38 +90,38 @@ function Perfil_medico() {
 
   const handleConfirmarDeletarMedico=() => {
     deletarContaMedico()
-    setMostrarPopDeletarMedico(false)
+    setMostrarPopDeletarPerfilMedico(false)
   }
     const handleCancelarDelatarMedico=() =>{
-    setMostrarPopDeletarMedico(false)
+      setMostrarPopDeletarPerfilMedico(false)
     }
 
     const fecharPopUpSalvoMedico= () =>{
-    setMostrarPopUpSalvoMedico(false)
+    setMostrarPopDeletarPerfilMedico(false)
     }
 
 
   return (
     <div>
-     <div className="alinhamento-tituloHamburger">
-        <div className="nav_container">
+     <div className="alinhamento-tituloHamburgerMedico">
+        <div className="nav_containerMedico">
           <h1>MEU PERFIL - PACIENTE</h1>
-          <div className="faixa_verde"></div>
+          <div className="faixaVerdeMedico"></div>
         </div>
-        <div className="alinhamento-hamburger-perfilPaciente">
-          <HamburgeMenu />
+        <div className="alinhamento-hamburger-perfilMedico">
+        <HamburgerMenu/>
         </div>
       </div>
 
-      <div className="container-alinhamento-um-perfil">
-        <div className="info_container">
-          <div className="posicao_container">
+      <div className="container-alinhamento-um-perfilMedico">
+        <div className="info_containerMedico">
+          <div className="posicao_containerMedico">
             <label>Nome completo</label>
             <input
               placeholder="Digite seu nome"
-              value={nome}
-              onChange={handleChange(setNome)}
-              disabled={!editando}
+              value={nomeMedico}
+              onChange={handleChange(setNomeMedico)}
+              disabled={!editandoMedico}
             />
 
             <label>Email</label>
@@ -127,7 +129,7 @@ function Perfil_medico() {
               type="email"
               placeholder="Digite seu email"
               value={emailMedico}
-              onChange={handleChange(setEmail)}
+              onChange={handleChange(setEmailMedico)}
               disabled={!editandoMedico}
             />
 
@@ -136,7 +138,7 @@ function Perfil_medico() {
               type="text"
               placeholder="Digite seu número de telefone"
               value={telefoneMedico}
-              onChange={handleChange(setTelefone)}
+              onChange={handleChange(setTelefoneMedico)}
               disabled={!editandoMedico}
             />
 
@@ -151,9 +153,9 @@ function Perfil_medico() {
           </div>
         </div>
 
-        <div className="container-alinhamento-dois-perfil">
+        <div className="container-alinhamento-dois-perfilMedico">
 
-          <div className="alinhamento-inputs-perfis">
+          <div className="alinhamento-inputs-medicos">
             <label>Senha</label>
             <input
               type={mostrarSenhaMedico ? 'text' : 'password'}
@@ -182,17 +184,17 @@ function Perfil_medico() {
           </div>
         </div>
 
-        <div className="container-alinhamento-tres-perfil">
-          <div className="container-foto-usuario">
+        <div className="container-alinhamento-tres-medico">
+          <div className="container-foto-usuario-medico">
             <label>Escolha sua foto de perfil</label>
             <img src="icon_user.png" alt="foto de usuario" />
           </div>
 
-          <div className="alinhamento-buttons-perfis">
-            <button className="button-editar-perfis" onClick={editar} disabled={loadingMedico}>
+          <div className="alinhamento-buttons-medicos">
+            <button className="button-editar-medicos" onClick={editar} disabled={loadingMedico}>
               {editandoMedico ? 'SALVAR' : 'EDITAR'}
             </button>
-            <button className="button-deletar-perfis" onClick={confirmarDeletarContaMedico} disabled={loadingMedico}>
+            <button className="button-deletar-medicos" onClick={confirmarDeletarContaMedico} disabled={loadingMedico}>
               DELETAR
             </button>
           </div>
@@ -201,20 +203,20 @@ function Perfil_medico() {
       
       {
         mostrarPopUpSalvoMedico && (
-          <div className="container-PopSalvarPerfilPaciente">
-            <h2 className='FontePopPerfilPaciente'>Salvo com sucesso!</h2>
-            <button className='buttonOkPerfilPaciente' onClick={fecharPopUpSalvoMedico}>OK</button>
+          <div className="container-PopSalvarPerfilMedico">
+            <h2 className='FontePopPerfilMedicoSalvo'>Salvo com sucesso!</h2>
+            <button className='buttonOkPerfilMedico' onClick={fecharPopUpSalvoMedico}>OK</button>
           </div>
         )
       }
       
       {
-      mostrarPopDeletarPerfil &&(
-        <div className='Container-PopPerfilPaciente'>
-          <h3 className='FontePopPerfilPaciente'>Tem certeza que deseja deletar a sua conta?</h3>
-          <div className='.ButtonsPopPerfilPaciente '>
-          <button className='buttonDeletarPerfilPaciente' onClick={handleConfirmarDeletar}>SIM</button>
-          <button className='buttonNaoDeletarPerfilPaciente' onClick={handleCancelarDelatar}>NÃO</button>
+      mostrarPopDeletarMedico &&(
+        <div className='Container-PopPerfilMedico'>
+          <h3 className='FontePopPerfilMedico'>Tem certeza que deseja deletar a sua conta?</h3>
+          <div className='ButtonsPopPerfilMedico'>
+          <button className='buttonDeletarPerfilMedico' onClick={handleConfirmarDeletarMedico}>SIM</button>
+          <button className='buttonNaoDeletarPerfilMedico' onClick={handleCancelarDelatarMedico}>NÃO</button>
           </div>
         </div>
       )

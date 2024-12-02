@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios';
 import './Perfil_paciente.css';
 import HamburgeMenu from '../components/HamburgerMenu';
 
 function PerfilPaciente() {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
-  const [cep, setCep] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [editando, setEditando] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [mostrarSenha, setMostrarSenha] = useState(false);
-  const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil] = useState(false);
-  const [mostrarPopUpSalvoPerfil, setMostrarPopUpSalvoPerfil] = useState(false);
+  const { usuario_logado, set_usuario_logado } = useContext(GlobalContext); const [nome, setNome] = useState(usuario_logado.nome || '')
+  const [email, setEmail] = useState(usuario_logado.email || ''); const [telefone, setTelefone] = useState(usuario_logado.telefone || '') 
+  const [senha, setSenha] = useState('')
+  const [confirmarSenha]= useState('')
+  const [cep, setCep]= useState(usuario_logado.cep || '')
+  const [descricao, setDescricao]= useState('')
 
- const userId= localStorage.getItem('userId')
+ const [editando, setEditando]=useState(false)
+ const [error, setError]= useState('')
+
+ const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil]=useState(false)
+ const userId= usuario_logado.id_paciente
 
   useEffect(() => {
     const fetchUsuarioPaciente = async () => {
@@ -44,7 +42,7 @@ function PerfilPaciente() {
 
   const editar = async () => {
     if (!editando) {
-      setEditando(false);
+      setEditando(true);
       return;
     }
 
@@ -89,7 +87,7 @@ function PerfilPaciente() {
     deletarConta()
     setMostrarPopDeletarPerfil(false)
   }
-    const handleCancelarDelatar=() =>{
+    const handleCancelarDeletar=() =>{
     setMostrarPopDeletarPerfil(false)
     }
 
@@ -200,8 +198,8 @@ function PerfilPaciente() {
       {
         mostrarPopUpSalvoPerfil && (
           <div className="container-PopSalvarPerfilPaciente">
-            <h2 className='FontePopPerfilPaciente'>Salvo com sucesso!</h2>
-            <button className='buttonOkPerfilPaciente' onClick={fecharPopUpSalvoPerfil}>OK</button>
+            <h2 className='FontePopPerfilPacienteSalvo'>Salvo com sucesso!</h2>
+            <button className='buttonOkPerfilPaciente' onClick={() => setMostrarPopUpSalvoPerfil(false)}>OK</button>
           </div>
         )
       }
@@ -212,7 +210,7 @@ function PerfilPaciente() {
           <h3 className='FontePopPerfilPaciente'>Tem certeza que deseja deletar a sua conta?</h3>
           <div className='.ButtonsPopPerfilPaciente '>
           <button className='buttonDeletarPerfilPaciente' onClick={handleConfirmarDeletar}>SIM</button>
-          <button className='buttonNaoDeletarPerfilPaciente' onClick={handleCancelarDelatar}>NÃO</button>
+          <button className='buttonNaoDeletarPerfilPaciente' onClick={handleCancelarDeletar}>NÃO</button>
           </div>
         </div>
       )

@@ -258,8 +258,9 @@
     border-radius: 2vw;
 }
 
-.FontepPopSalvarPerfilPaciente {
+.FontepPopSalvarPerfilPaciente h3{
     color: #1D2A62;
+    font-family: 'nunito', sans-serif ;
     font-size: 1.6vw;
     margin: 1.2vw;
 }
@@ -303,9 +304,10 @@
     border-radius: 2vw;
 }
 
-.FontePopPerfilPaciente {
+.FontePopPerfilPaciente h3{
     color: #1D2A62;
     font-size: 1.6vw;
+    font-family: 'nunito', sans-serif ;
     margin: 1.2vw;
 }
 

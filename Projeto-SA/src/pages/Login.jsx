@@ -130,7 +130,7 @@ function Login() {
 
           });
 
-          navegacao_de_pagina(`/`);
+          navegacao_de_pagina(`/perfil_paciente`);
         };
       };
 

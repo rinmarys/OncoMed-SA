@@ -11,20 +11,20 @@
 }
 
 /* Alinhamento titulo-hamburger */
-.alinhamento-tituloHamburger {
+.alinhamento-tituloHamburgerMedico {
     display: flex;
     justify-content: space-between;
 }
 
 /* Alinhamento hamburger */
-.alinhamento-hamburger-perfilPaciente {
+.alinhamento-hamburger-perfilMedico {
     margin-top: 40px;
     margin-right: 40px;
 }
 
 
 /* Titulo */
-.nav_container {
+.nav_containerMedico {
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -32,7 +32,7 @@
     padding-top: 3%;
 }
 
-.nav_container h1 {
+.nav_containerMedico h1 {
     width: 525px;
     height: 76px;
     font-family: 'Nunito', sans-serif;
@@ -40,7 +40,7 @@
     color: var(--azul_escuro);
 }
 
-.faixa_verde {
+.faixaVerdeMedico {
     width: 70px;
     height: 6px;
     left: 10%;
@@ -136,14 +136,14 @@
 }
 
 /* Alinhamentos */
-.container-alinhamento-dois {
+.container-alinhamento-dois-perfilMedico {
     margin-right: 10vw;
     width: 700px;
     display: flex;
     justify-content: space-between;
 }
 
-.container-alinhamento-um {
+.container-alinhamento-um-perfilMedico {
     width: 84%;
     margin: 0 auto;
     margin-top: 1vw;
@@ -151,13 +151,13 @@
     justify-content: space-between;
 }
 
-.alinhamento-inputs-perfis {
+.alinhamento-inputs-medicos {
     display: flex;
     flex-direction: column;
     width: fit-content;
 }
 
-.alinhamento-inputs-perfis label {
+.alinhamento-inputs-medicos label {
     font-family: "poppins", sans-serif;
     font-size: 20px;
     color: var(--verde_meio_termo);
@@ -166,7 +166,7 @@
     font-weight: 480;
 }
 
-.alinhamento-inputs-perfis input {
+.alinhamento-inputs-medicos input {
     box-sizing: border-box;
     width: 325px;
     height: 40px;
@@ -177,18 +177,18 @@
     margin-top: 1%;
 }
 
-.alinhamento-inputs-perfis input:focus {
+.alinhamento-inputs-medicos input:focus {
     border-color: var(--azul_claro);
 }
 
-.container-alinhamento-tres {
+.container-alinhamento-tres-medico {
     display: flex;
     flex-direction: column; 
     margin-top: 1vw;
     margin-left: 8vw;
 }
 
-.container-foto-usuario label {
+.container-foto-usuario-medico label {
     font-family: "poppins", sans-serif;
     font-size: 20px;
     color: var(--verde_meio_termo);
@@ -197,13 +197,13 @@
     font-weight: 480;
 }
 
-.container-foto-usuario img {
+.container-foto-usuario-medico img {
     width: 19vw;
     height: auto;
     margin-top: -2vw;
 }
 
-.alinhamento-buttons-perfis{
+.alinhamento-buttons-medicos{
     display: flex;
     flex-direction: column;
     height: 14vh;
@@ -214,7 +214,7 @@
     justify-content: space-between; 
 }
 
-.button-editar-perfis{
+.button-editar-medicos{
     border: none;
     background-color: var(--azul_escuro);
     color: var(--quase_branco);
@@ -225,17 +225,17 @@
     border-radius: 0.6vw;
 }
 
-.button-editar-perfis:hover{
+.button-editar-medicos:hover{
     background-color: #455392;
     transition: 0.4s;
 }
 
-.button-editar-perfis:not(:hover){
+.button-editar-medicos:not(:hover){
     background-color: var(--azul_escuro);
     transition: 0.4s;
 }
 
-.button-deletar-perfis{
+.button-deletar-medicos{
     border: none;
     background-color: var(--verde_claro);
     color: var(--branco_gelo);
@@ -246,12 +246,124 @@
     border-radius: 0.6vw;
 }
 
-.button-deletar-perfis:hover{
+.button-deletar-medicos:hover{
     background-color: var(--verde_meio_termo);
     transition: 0.4s;
 }
 
-.button-deletar-perfis:not(:hover){
+.button-deletar-medicos:not(:hover){
     background-color: var(--verde_claro);
     transition: 0.4s;
+}
+
+/* Pops ups perfil paciente */
+
+.Container-PopPerfilMedico {
+    top: 20vw;
+    left: 35vw;
+    position: absolute;
+    background-color: #f1f1f1;
+    height: 10vw;
+    position: fixed;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 2vw;
+}
+
+.FontePopPerfilMedico {
+    color: #1D2A62;
+    font-size: 1.6vw;
+    margin: 1.2vw;
+}
+
+.ButtonsPopPerfilMedico{
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonOkPerfilPaciente {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    height: 2.7vw;
+    width: 12vw;
+    border: none;
+    border-radius: 15px;
+    background-color: #437118;
+    color: #F5F5F5;
+}
+
+.buttonOkPerfilPaciente:hover {
+    transition: 0.4s;
+    background-color: #345516;
+    color: #F5F5F5;
+}
+
+.buttonOkPerfilPaciente:not(:hover){
+    transition: 0.4s;
+    background-color: var(--verde_meio_termo);
+}
+
+
+.Container-PopPerfilPaciente {
+    top: 20vw;
+    left: 35vw;
+    position: absolute;
+    background-color: #f1f1f1;
+    height: 10vw;
+    position: fixed;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 2vw;
+}
+
+.FontePopPerfilPaciente {
+    color: #1D2A62;
+    font-size: 1.6vw;
+    margin: 1.2vw;
+}
+
+.ButtonsPopPerfilPaciente {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonNaoDeletarPerfilMedico {
+    height: 2.7vw;
+    width: 12vw;
+    border-radius: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    background-color: #1D2A62;
+    color: #F1F1F1;
+    border: none;
+}
+
+.buttonNaoDeletarPerfilMedico:hover{
+    background-color: #323D70;
+    transition: 0.4s;
+}
+
+.buttonNaoDeletarPerfilMedico:not(:hover){
+    background-color: var(--azul_escuro);
+    transition: 0.4s;
+}
+
+.buttonDeletarPerfilMedico {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    height: 2.7vw;
+    width: 12vw;
+    border: none;
+    border-radius: 15px;
+    background-color: #437118;
+    color: #F5F5F5;
+}
+
+.buttonDeletarPerfilMedico:hover {
+    transition: 0.4s;
+    background-color: #345516;
+    color: #F5F5F5;
+}
+
+.buttonDeletarPerfilMedico:not(:hover){
+    transition: 0.4s;
+    background-color: var(--verde_meio_termo);
 }
