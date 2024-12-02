@@ -4,18 +4,17 @@ const { Pool } = require('pg');
 
 const app = express();
 const pool = new Pool({
-    user: 'postgres', // Substitua pelo seu usuário do PostgreSQL
+    user: 'postgres', 
     host: 'localhost',
-    database: 'template', // Nome da sua database
-    password: 'senai', // Substitua pela sua senha
-    port: 5432, // Porta padrão do PostgreSQL
+    database: 'template',
+    password: 'postgres',
+    port: 5432,
 });
 
 // Habilitar CORS para todas as rotas
 app.use(cors());
 app.use(express.json());
 
-// Rota para buscar todos os clientes
 app.get('/pacientes', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM pacientes');
@@ -26,7 +25,6 @@ app.get('/pacientes', async (req, res) => {
     }
 });
 
-// Rota para buscar um paciente por ID
 app.get('/pacientes/:id', async (req, res) => {
 
     const { id } = req.params;
@@ -48,8 +46,6 @@ app.get('/pacientes/:id', async (req, res) => {
     };
 });
 
-// Rota para adicionar um paciente
-
 app.post('/pacientes', async (req, res) => {
     const {  nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil} = req.body;
     try {
@@ -64,7 +60,6 @@ app.post('/pacientes', async (req, res) => {
     }
 });
 
-// Rota para atualizar um pacientes
 app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, cpf, cep, email,genero, data_de_nascimento, senha, imagem_de_perfil} = req.body;
@@ -85,7 +80,6 @@ app.put('/pacientes/:id', async (req, res) => {
     }
 });
 
-// Rota para deletar um Paciente
 app.delete('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -102,7 +96,6 @@ app.delete('/pacientes/:id', async (req, res) => {
 
 //Marcar consulta
 
-    // Rota para buscar todos os consultas
 app.get('/marcarConsulta', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM marcarConsulta');
@@ -113,7 +106,6 @@ app.get('/marcarConsulta', async (req, res) => {
     }
 });
 
-// Rota para buscar uma consulta por ID
 app.get('/marcarConsulta/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -134,7 +126,6 @@ app.get('/marcarConsulta/:id', async (req, res) => {
     };
 });
 
-// Rota para adicionar uma consulta
 app.post('/marcarConsulta', async (req, res) => {
     
     const {  data_agendamento, tipo_consulta, horario, observacoes, id_paciente} = req.body;
@@ -154,7 +145,6 @@ app.post('/marcarConsulta', async (req, res) => {
     }
 });
 
-// Rota para atualizar um pacientes
 app.put('/marcarConsulta/:id', async (req, res) => {
     
     const { id } = req.params;
@@ -176,7 +166,6 @@ app.put('/marcarConsulta/:id', async (req, res) => {
     }
 });
 
-// Rota para deletar um Paciente
 app.delete('/marcarConsulta/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -191,11 +180,8 @@ app.delete('/marcarConsulta/:id', async (req, res) => {
     }
 });
 
-// Rota para levar ID do paciente para a consulta que ele marcou
-
 // Médicos
 
-// Rota para buscar todos os medicos
 app.get('/medicos', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM medicos');
@@ -206,7 +192,6 @@ app.get('/medicos', async (req, res) => {
     }
 });
 
-// Rota para buscar um medico por ID
 app.get('/medicos/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -221,7 +206,6 @@ app.get('/medicos/:id', async (req, res) => {
     }
 });
 
-// Rota para adicionar um medico
 app.post('/medicos', async (req, res) => {
     const {  nome, cpf, crm, email,genero, data_de_nascimento, senha } = req.body;
     try {
@@ -236,7 +220,6 @@ app.post('/medicos', async (req, res) => {
     }
 });
 
-// Rota para atualizar um medico
 app.put('/medicos/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, cpf, crm, email,genero, data_de_nascimento, senha } = req.body;
@@ -255,7 +238,6 @@ app.put('/medicos/:id', async (req, res) => {
     }
 });
 
-// Rota para deletar um medico
 app.delete('/medicos/:id', async (req, res) => {
     const { id } = req.params;
     try {
