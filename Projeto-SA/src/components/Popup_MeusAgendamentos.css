@@ -80,6 +80,16 @@
 
 }
 
+.titulo-meusagendamentos-sem-consulta{
+   color: #59595c;
+   font-family: 'Nunito', sans-serif;
+   margin-left: 4%;
+   width: fit-content;
+   margin-bottom: 2vw;
+   font-size: 2vw;
+   font-weight: 500;
+}
+
 .todas-infos-meusagendamentos {
    margin-left: 2%;
 

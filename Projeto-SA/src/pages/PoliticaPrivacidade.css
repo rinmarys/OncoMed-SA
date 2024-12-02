@@ -1,65 +1,69 @@
+.Texto-Um {
+    margin-top: 7vw;
+    width: 80vw;
+}
 
-.Texto-Um{
-    margin-top: 15%;
-    border:1px solid black; 
+.Texto-Dois {
+    margin-top: 7vw;
     width: 80vw;
 }
-.Texto-Dois{
-    margin-top: 15%;
+
+.Texto-Tres {
+    margin-top: 7vw;
     width: 80vw;
-    border:1px solid black; 
 }
-.Texto-Tres{
-    margin-top: 15%;
+
+.Texto-Quatro {
+    margin-top: 7vw;
     width: 80vw;
-    border:1px solid black; 
 }
-.Texto-Quatro{
-    margin-top: 15%;
+
+.Texto-Cinco {
+    margin-top: 7vw;
     width: 80vw;
-    border:1px solid black; 
 }
-.Texto-Cinco{
-    margin-top: 15%;
+
+.Texto-Seis {
+    margin-top: 7vw;
     width: 80vw;
-    border:1px solid black; 
-    
 }
-.Texto-Seis{
-    margin-top: 15%;
+
+.Texto-Sete {
+    margin-top: 7vw;
     width: 80vw;
-    border:1px solid black; 
 }
-.Texto-Sete{
-    margin-top: 15%;
-    width: 80vw;
-    border:1px solid black; 
-}
-.button-Navigate{
+
+.link-termosUso {
+    position: absolute;
     width: 20vw;
     height: 3vw;
     font-family: "Nunito", sans-serif;
     font-size: 1.5vw;
-    color:  #87AECE;
-    border: none;
-    margin-left: -6%;
+    color: #87AECE;
+    text-decoration: none;
+    margin-top: 1vw;
 }
-h2{
-    font-size: 2.8vw;
+
+h2 {
+    font-size: 2.5vw;
     color: #637D4A;
     font-family: "Nunito", sans-serif;
 }
-p{
+
+p {
     font-family: "Poppins", sans-serif;
     color: #1D2A62;
+    font-size: 1.8vw;
 }
-P.termos{
+
+P.termos {
     color: #87AECE;
     font-size: 30px;
 }
-.Politica-Privacidade{
+
+.Politica-Privacidade {
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 5vw;
     /* border:1px solid black; */
     width: 65%;
 }

@@ -1,180 +1,205 @@
-.Container-SobreNos{
+.Container-SobreNos {
     margin-left: 10%;
-    margin-top: 10%;
-    /* border:1px solid black;  */
+    margin-top: 5vw;
     width: 80%;
 }
-h1{
+
+h1 {
     font-family: "Nunito", sans-serif;
     color: #1D2A62;
     font-size: 2.5vw;
 }
-.FonteNossaEquipe{
-   
-}
-.Linha-Dois{
+
+.Linha-Dois {
     background-color: #87AECE;
     border-radius: 10vw;
     height: 0.7vw;
-    width: 15vw;
+    width: 5vw;
     margin-top: -1.5vw;
-   
-    
 }
-.Img-NossaEquipe{
+
+.Linha-Dois:hover {
+    width: 10vw;
+    transition: 0.4s;
+}
+
+.Linha-Dois:not(:hover) {
+    width: 5vw;
+    transition: 0.4s;
+}
+
+.Img-NossaEquipe {
     margin-top: 5vw;
-    
+
 }
-.imagemGrupo{
+
+.imagemGrupo {
     border-radius: 3vw;
-    width: 80vw;
-    height: 50vw;
+    width: 79vw;
+    height: auto;
 }
-.Paragrafo-Um{
-    margin-top: 9vw;
-     /* border:1px solid rgb(163, 73, 73);   */
-    width: 80vw;
-    height: 30vw;
+
+.Paragrafo-Um {
+    margin-top: 10vw;
 }
-.FonteSobreNos{
+
+.FonteSobreNos {
     margin-left: 64vw;
-     /* border:1px solid black;     */
-    width: 100vw;
-    
+    width: 15vw;
 }
-.Linha{
+
+.Linha {
     background-color: #AFD06E;
     border-radius: 10vw;
     height: 0.7vw;
-    width: 10vw;
-    margin-left: 69vw; 
+    width: 6vw;
+    margin-left: 73vw;
     margin-top: -1.7vw;
-    
 }
-.Paragrafo-Um-Texto{
-    margin-left: 30vw;
+
+.Paragrafo-Um-Texto {
+    margin-left: 29vw;
     width: 50vw;
     text-align: right;
-    margin-top: 4vw;
-    /* border:1px solid black;    */
+    margin-top: 4vw;  
 }
-p{
+
+p {
     color: #2F2E43;
     font-family: "Poppins", sans-serif;
-    font-size: 2.5vw;
+    font-size: 2vw;
 }
-.pessoasBalao{
+
+.pessoasBalao {
     position: absolute;
-    margin-top: -25vw;
-    margin-left: -2vw;
-    height: 25vw;
+    margin-top: -26vw;
+    margin-left: -4vw;
+    height: auto;
+}
 
-    
+.pessoasBalao:hover{
+    width: 35vw;
+    transition: 0.4s;
 }
-.Paragrafo-Dois{
-    margin-top: 12vw;
-    /* border:1px solid rgb(73, 86, 163);  */
-}
-.FonteMissao{
 
+.pessoasBalao:not(:hover){
+    width: 30vw;
+    transition: 0.4s;
 }
-.Paragrafo-Tres{
-    /* border:1px solid rgb(163, 73, 118);  */
-    margin-top: 10vw;
+
+.Paragrafo-Dois {
+    margin-top: 11vw;
 }
-.FonteCompromissos{
+
+.Paragrafo-Tres {
+    margin-top: 6vw;
+}
+
+.FonteCompromissos {
     margin-left: 58vw;
 
 }
-.Alinhamento-Containers{
+
+.Alinhamento-Containers {
     /* border:1px solid rgb(255, 96, 176);  */
     display: flex;
     justify-content: space-between
 }
-.Container-Acessibilidade{
+
+.Container-Acessibilidade {
     margin-top: 4vw;
     /* border:1px solid rgb(163, 73, 118);  */
     background-color: #C0CFA4;
     width: 37vw;
     border-radius: 4vw;
 }
-.FonteAcessibilidade{
+
+.FonteAcessibilidade {
     margin-top: 4vw;
     margin-left: 4vw;
     color: #304A18;
-    font-family: "Nunitos",;
+    font-family: "Nunitos", ;
     font-size: 2.5vw;
 }
-.Paragrafo-Acessibilidade{
+
+.Paragrafo-Acessibilidade {
     color: #304A18;
     margin-left: 4vw;
     font-size: 1.8vw;
     margin-bottom: 4vw;
     margin-right: 4vw;
 }
-.Container-EducacaoContinuada{
+
+.Container-EducacaoContinuada {
     margin-top: 4vw;
-    /* border:1px solid rgb(163, 73, 118);  */
     background-color: #87AECE;
     width: 37vw;
     border-radius: 4vw;
 }
-.FonteEducacaoContinuada{
+
+.FonteEducacaoContinuada {
     margin-top: 4vw;
     margin-left: 4vw;
     color: #1D2A62;
-    font-family: "Nunitos",;
+    font-family: "Nunitos", ;
     font-size: 2.5vw;
 }
-.Paragrafo-EducacaoContinuada{
+
+.Paragrafo-EducacaoContinuada {
     color: #1D2A62;
     margin-left: 4vw;
     font-size: 1.8vw;
     margin-bottom: 4vw;
     margin-right: 4vw;
 }
-.Alinhamento-ContainersDois{
+
+.Alinhamento-ContainersDois {
     display: flex;
     justify-content: space-between;
-    border:1px solid rgb(163, 73, 118); 
     margin-bottom: 10vw;
 }
-.Container-EticaTransparencia{
+
+.Container-EticaTransparencia {
     margin-top: 4vw;
     /* border:1px solid rgb(163, 73, 118);  */
     background-color: #67874A;
     width: 37vw;
     border-radius: 4vw;
 }
-.FonteEticaTransparencia{
+
+.FonteEticaTransparencia {
     margin-top: 4vw;
     margin-left: 4vw;
     color: #E9FEBE;
-    font-family: "Nunitos",;
+    font-family: "Nunitos", ;
     font-size: 2.5vw;
 }
-.Paragrafo-EticaTransparencia{
+
+.Paragrafo-EticaTransparencia {
     color: #E9FEBE;
     margin-left: 4vw;
     font-size: 1.8vw;
     margin-bottom: 4vw;
     margin-right: 4vw;
 }
-.Container-Comunidade{
+
+.Container-Comunidade {
     margin-top: 4vw;
     /* border:1px solid rgb(163, 73, 118);  */
     background-color: #D9DFE2;
     width: 37vw;
     border-radius: 4vw;
 }
-.FonteComunidade{
+
+.FonteComunidade {
     margin-top: 4vw;
     margin-left: 4vw;
     color: #496664;
-    font-family: "Nunitos",;
+    font-family: "Nunitos", ;
     font-size: 2.5vw;
 }
-.Paragrafo-Comunidade{
+
+.Paragrafo-Comunidade {
     color: #496664;
     margin-left: 4vw;
     font-size: 1.8vw;

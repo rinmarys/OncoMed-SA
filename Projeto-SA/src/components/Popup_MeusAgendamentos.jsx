@@ -1,85 +1,63 @@
-
-import './Popup_MeusAgendamentos.css'
+import './Popup_MeusAgendamentos.css';
 import CancelarConsulta from '../components/CancelarConsulta';
-import React, { useContext, useState } from 'react';
-import { GlobalContext } from '../contexts/GlobalContext';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Popup_MeusAgendamentos() {
+function Popup_MeusAgendamentos({ selectedDate, agendamentosDoDia }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [consultasDoDia, setConsultasDoDia] = useState([]);
 
-    const [isOpen, setIsOpen] = useState(false);
+  const handleOpenPopup = () => {
+    setIsOpen(true);
+  };
 
-    const handleOpenPopup = () => {
-      setIsOpen(true);
-    };
-  
-    const handleClosePopup = () => {
-      setIsOpen(false);
-    };
-    
-        const [pop_up_agendamento, set_pop_up_agendamento] = useState(false);
-        const {lista_de_pacientes, array_consultas_do_dia} = useContext(GlobalContext);
-    
-    useEffect(() => {
+  const handleClosePopup = () => {
+    setIsOpen(false);
+  };
 
-      
-      for(let i = 0; i < lista_de_pacientes.length; i++){
-  
-       if(lista_de_pacientes[i].minhas_consulstas == Date.now() ){
-        
-        [...array_consultas_do_dia, lista_de_pacientes[i]];
+  useEffect(() => {
+    if (!selectedDate || !agendamentosDoDia) return;
 
-      };
-    };
-    }, [array_consultas_do_dia]);
-    
+    const dataSelecionada = new Date(selectedDate).toISOString().split('T')[0];
+
+    // Filtra consultas do dia
+    const consultasFiltradas = agendamentosDoDia.filter((agendamento) =>
+      new Date(agendamento.data_agendamento).toISOString().split('T')[0] === dataSelecionada
+    );
+
+    setConsultasDoDia(consultasFiltradas);
+  }, [selectedDate, agendamentosDoDia]);
 
   return (
     <div className="lifehak">
-    <div className='tudo-popup-meusagendamentos'>
-      <h1 className='titulo-meusagendamentos-h1' >AGENDAMENTOS DO DIA</h1>
-
-      <div className="cada-agendamento-meusagendamentos">
-        <div className="todas-infos-meusagendamentos">
-          <h1 className='medico-meusagendamentos' >Dr. Jossian Castanho</h1>
-
-          <div className="tipo-horario-meusagendamentos">
-            <h2 className='tipo-consulta-meusagendamentos'>MAMOGRAFIA</h2>
-            <h2 className='horario-meusagendamentos'>12:45</h2>
-          </div>
-
-          <h3 className='titulo-observacao-meusagendamentos'>SUA OBSERVAÇÃO</h3>
-          <h3 className='observacao-meusagendamentos'>isso aquilo aqule outro, paaa amo nuggets</h3>
-
-          <button onClick={handleOpenPopup} className='cancelar-meusagendamentos-popup'>CANCELAR</button>
+      {consultasDoDia.length > 0 ? (
+        <div className="tudo-popup-meusagendamentos">
+          <h1 className="titulo-meusagendamentos-h1">AGENDAMENTOS DO DIA</h1>
+          {consultasDoDia.map((consulta, index) => (
+            <div key={index} className="cada-agendamento-meusagendamentos">
+              <div className="todas-infos-meusagendamentos">
+                <h1 className="medico-meusagendamentos">Dr. {consulta.medico}</h1>
+                <div className="tipo-horario-meusagendamentos">
+                  <h2 className="tipo-consulta-meusagendamentos">{consulta.tipo_consulta}</h2>
+                  <h2 className="horario-meusagendamentos">{consulta.horario}</h2>
+                </div>
+                <h3 className="titulo-observacao-meusagendamentos">SUA OBSERVAÇÃO</h3>
+                <h3 className="observacao-meusagendamentos">{consulta.observacoes}</h3>
+                <button onClick={handleOpenPopup} className="cancelar-meusagendamentos-popup">
+                  CANCELAR
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-
-      {}
-
-      <div className="cada-agendamento-meusagendamentos">
-        <div className="todas-infos-meusagendamentos">
-          <h1 className='medico-meusagendamentos' >Dr. Jossian Castanho</h1>
-
-          <div className="tipo-horario-meusagendamentos">
-            <h2 className='tipo-consulta-meusagendamentos'>MAMOGRAFIA</h2>
-            <h2 className='horario-meusagendamentos'>12:45</h2>
-          </div>
-
-          <h3 className='titulo-observacao-meusagendamentos'>SUA OBSERVAÇÃO</h3>
-          <h3 className='observacao-meusagendamentos'>isso aquilo aqule outro, paaa amo nuggets</h3>
-
-          <button  onClick={handleOpenPopup} className='cancelar-meusagendamentos-popup'>CANCELAR</button>
+      ) : (
+        <div className="tudo-popup-meusagendamentos">
+          <h1 className="titulo-meusagendamentos-h1">AGENDAMENTOS DO DIA</h1>
+          <h1 className="titulo-meusagendamentos-sem-consulta">Nenhuma consulta marcada para a data selecionada.</h1>
         </div>
-      </div>
-
+      )}
+      {isOpen && <CancelarConsulta onClose={handleClosePopup} />}
     </div>
-
-    <div >
-     {isOpen && <CancelarConsulta onClose={handleClosePopup} />}
-     </div>
-    </div>
-  )
+  );
 }
 
-export default Popup_MeusAgendamentos
+export default Popup_MeusAgendamentos;
