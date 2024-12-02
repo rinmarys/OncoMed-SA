@@ -83,8 +83,8 @@ function MarcarConsulta() {
       tipo_consulta: consultaSelecionada,
       horario: horarioSelecionado,
       observacoes: observacaoEscrita,
-      id_paciente: usuario_logado.id_paciente,
-      medico_designado: ""
+      medico_designado: "",
+      id_paciente: usuario_logado.id_paciente
     };
   
     try {

@@ -59,8 +59,8 @@ function SolicitacaoConsulta() {
                                     <h2 className="tipo-consulta-solicitacao">{consulta.tipo_consulta}</h2>
                                 </div>
                                 <div className="data-horario-solicitacao">
-                                    <h2 className="data-solicitacao">{consulta.data_agendamento}</h2>
-                                    <h2 className="horario-consulta-solicitacao">{consulta.horario}</h2>
+                                    <h2 className="data-solicitacao">{consulta.data_agendamento.slice(0, 10)}</h2>
+                                    <h2 className="horario-consulta-solicitacao">{consulta.horario.slice(0,5)}</h2>
                                 </div>
                             </div>
                             <h2 className="observacao-solicitacao-titulo">OBSERVAÇÃO</h2>
