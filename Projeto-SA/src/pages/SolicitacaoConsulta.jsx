@@ -15,26 +15,28 @@ function SolicitacaoConsulta() {
     const [opcoes_de_medicos, set_opcoes_de_medicos] = useState(``);
     const {usuario_logado} = useContext(GlobalContext)
 
-    const handleOpenPopup = () => setIsOpen(true)
-    const handleClosePopup = () => setIsOpen(false)
+    const handleOpenPopup = () => setIsOpen(true);
+    const handleClosePopup = () => setIsOpen(false);
 
     const fetch_marcarConsulta = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/marcarConsulta`)
+            const response = await axios.get(`http://localhost:3000/marcarConsulta`);
             setListaInformacoesMarcarConsulta(response.data)
         } catch (error) {
             console.error('Erro ao buscar cliente por ID:', error)
-        }
+        };
     };
 
     const fetch_medicos = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/medicos`)
+            const response = await axios.get(`http://localhost:3000/medicos`);
             set_lista_de_medicos(response.data)
         } catch (error) {
-            console.error('Erro ao buscar médicos:', error)
-        }
+            console.error('Erro ao buscar médicos:', error);
+        };
     };
+
+    
 
     console.log(usuario_logado);
 
