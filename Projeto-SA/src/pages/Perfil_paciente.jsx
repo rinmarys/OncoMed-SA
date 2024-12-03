@@ -1,42 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios';
 import './Perfil_paciente.css';
 import HamburgeMenu from '../components/HamburgerMenu';
 
 function PerfilPaciente() {
-  const { usuario_logado, set_usuario_logado } = useContext(GlobalContext); const [nome, setNome] = useState(usuario_logado.nome || '')
-  const [email, setEmail] = useState(usuario_logado.email || ''); const [telefone, setTelefone] = useState(usuario_logado.telefone || '') 
+  const { usuario_logado, set_usuario_logado } = useContext(GlobalContext)
+  const [nome, setNome] = useState(usuario_logado.nome || '')
+  const [email, setEmail] = useState(usuario_logado.email || '')
+  const [telefone, setTelefone] = useState(usuario_logado.telefone || '') 
   const [senha, setSenha] = useState('')
-  const [confirmarSenha]= useState('')
+  const [confirmarSenha, setConfirmarSenha]= useState('')
   const [cep, setCep]= useState(usuario_logado.cep || '')
   const [descricao, setDescricao]= useState('')
 
  const [editando, setEditando]=useState(false)
+ const [loading, setLoading]=useState(false)
  const [error, setError]= useState('')
 
  const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil]=useState(false)
- const userId= usuario_logado.id_paciente
+ const [mostrarPopUpSalvoPerfil, setMostrarPopUpSalvoPerfil]= useState(false)
+
+ const [estado_do_olhinho_senha, set_estado_olinho_senha]=useState(false)
+ const [estado_do_olinho_confirmar_senha, set_estado_do_olhinho_confirmar_senha]=useState(false)
+
+ const toggleSenhaVisivel= () => {
+  set_estado_olinho_senha(!estado_do_olhinho_senha)
+ }
+
+ const toggleConfirmarSenhaVisivel= () => {
+  set_estado_do_olhinho_confirmar_senha(!estado_do_olinho_confirmar_senha)
+ }
 
   useEffect(() => {
     const fetchUsuarioPaciente = async () => {
       try {
-        const response = await axios.get(`http://localhost:5173/perfil_paciente/${userId}`);
-        const { nome, email, telefone, cep,
-           descricao } = response.data;
-        setNome(nome);
-        setEmail(email);
-        setTelefone(telefone);
-        setCep(cep);
-        setDescricao(descricao);
-      } catch (err) {
-        console.error(err);
-        setError('Erro ao carregar os dados do usuário');
+        const response = await axios.get(`http://localhost:5173/perfil_paciente/${usuario_logado.id_paciente}`);
+        const { nome, email, telefone, cep, descricao } = response.data;
+
+        set_usuario_logado(prev => ({...prev, nome, email, telefone, cep, descricao}))
+        
+        setNome(nome)
+        setEmail(email)
+        setTelefone(telefone)
+        setCep(cep)
+        setDescricao(descricao)
+      }catch (err){
+      console.error(err)
+      setError('erro ao carregar os dados do usuário')
       }
     };
 
     fetchUsuarioPaciente();
-  }, [userId]);
+  }, [usuario_logado.id_paciente, set_usuario_logado]);
 
   const handleChange = (setter) => (event) => setter(event.target.value);
 
@@ -56,7 +72,9 @@ function PerfilPaciente() {
 
     try {
       const pacientePerfil = { nome, email, telefone, cep, descricao, senha };
-      await axios.put(`http://localhost:5173/perfil_paciente/${userId}`, pacientePerfil);
+      await axios.put(`http://localhost:5173/perfil_paciente/${usuario_logado.id_paciente}`, pacientePerfil );
+
+      set_usuario_logado(prev => ({...prev, nome, email, telefone, cep, descricao}))
 
       setMostrarPopUpSalvoPerfil(true);
       setEditando(false);
@@ -75,7 +93,7 @@ function PerfilPaciente() {
 
   const deletarConta = async () => {
       try {
-        await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`);
+        await axios.delete(`http://localhost:5173/perfil_paciente/${usuario_logado.id_paciente}`);
         window.location.href = '/home';
       } catch (err) {
         console.error(err);
@@ -152,21 +170,33 @@ function PerfilPaciente() {
           <div className="alinhamento-inputs-perfis">
             <label>Senha</label>
             <input
-              type={mostrarSenha ? 'text' : 'password'}
-              placeholder="Digite sua senha"
+              type={estado_do_olhinho_senha ? 'text' : 'password'}
+              placeholder="Digite sua nova senha"
               value={senha}
               onChange={handleChange(setSenha)}
               disabled={!editando}
             />
+            <img
+            src={estado_do_olhinho_senha ? 'input_olho_aberto.png':'input_olho_fechado.png'}
+            alt='olhinhoUm'
+            onClick={toggleSenhaVisivel}
+            style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'233px'}}/>
 
             <label>Confirmar Senha</label>
-            <input
-              type={mostrarSenha ? 'text' : 'password'}
-              placeholder="Confirme sua senha"
-              value={confirmarSenha}
-              onChange={handleChange(setConfirmarSenha)}
-              disabled={!editando}
+              <input
+                type={estado_do_olinho_confirmar_senha ? 'text' : 'password'}
+                placeholder="Confirme sua nova senha"
+                value={confirmarSenha}
+                onChange={handleChange(setConfirmarSenha)}
+                disabled={!editando}
+              />
+              <img
+              src={estado_do_olinho_confirmar_senha ? 'input_olho_aberto.png':'input_olho_fechado.png'}
+              alt='olhinhoDois'
+              onClick={toggleConfirmarSenhaVisivel}
+              style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}
             />
+          
             <label>Descrição breve</label>
             <textarea
               placeholder="Escreva algo sobre você..."
