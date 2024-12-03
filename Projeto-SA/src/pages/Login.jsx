@@ -131,7 +131,7 @@ function Login() {
 
           });
 
-          navegacao_de_pagina(`/perfil_paciente`);
+          navegacao_de_pagina(`/`);
         };
       };
 
