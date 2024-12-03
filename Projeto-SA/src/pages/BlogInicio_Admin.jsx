@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { GlobalContext } from '../contexts/GlobalContext'
 import { useEffect } from 'react'
+import axios from 'axios'
 import './BlogInicio_Admin.css'
 import { useState } from 'react'
 
@@ -24,7 +25,7 @@ function BlogInicio_Admin() {
     function deletarBlog() {
 
     }
-    const {listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta} = useContext(GlobalContext);
+  
     const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
     const fetchBlog = async ( ) => {
 
@@ -90,19 +91,27 @@ function BlogInicio_Admin() {
 
 
                     {/* POP UP NOVO BLOG */}
-                        <div className="container-artigos">
-                            <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
+                    <div className="consultas-solicitacao">
+                {registroBlog.length > 0 ? (
+                   registroBlog.map((informacoesBlog) => (
+                    <div className="container-artigos">
+                    <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
 
-                            <div className='alinhamento-texto'>
+                    <div className='alinhamento-texto'>
 
-                                <div className="button-container">
-                                    <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
-                                </div>
-
-                                <p className='titulos-artigos'>Como a sua alimentação afeta no desenvolvimento contra o câncer?</p>
-                                <p className='doutores-blog'>por Nutricionista Mara Fernandez</p>
-                            </div>
+                        <div className="button-container">
+                            <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                         </div>
+
+                        <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                        <p className='doutores-blog'>{informacoesBlog.autor}</p>
+                    </div>
+                </div>
+                    ))
+                ) : (
+                    <p className='semSolicitacoes-texto'>Sem solicitações...</p>
+                )}
+            </div>
 
                      
 
@@ -123,7 +132,7 @@ function BlogInicio_Admin() {
 
                 </div>
                 {/* Artigos do blog */}
-
+          
                 <Footer />
             </div>
         </div>

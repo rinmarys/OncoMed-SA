@@ -10,17 +10,9 @@ import { GlobalContext } from '../contexts/GlobalContext';
 
 function CriarPostagem() {
 
-    // inserir imagem
-    const [imagem, setImagem] = useState(null);
-
-    const handleImageChange = (event) => {
-        setImagem(event.target.files[0]); // Armazena o primeiro arquivo
-    };
-    // inserir imagem
-
-
-
     
+
+
 
     const [artigo, setArtigo] = useState({titulo: '' });
 
@@ -84,6 +76,7 @@ try {
     return (
         <div>
             <form onSubmit={enviarBlog}>
+                <div className='Container-CriarArtigo'>
             <div className="alinhamento-titulo-criarPostagem">
                 <div className="titulo-criarPostagem">
                     <h1>CRIAR NOVA POSTAGEM</h1>
@@ -96,31 +89,10 @@ try {
 
                 <div className="alinhamento-container-um">
                     <div className="inserirImagem">
-                        {/* Inserir imagem */}
+                 
+               <input type="text" />
 
-                        <label htmlFor="file-upload" className="custom-file-upload">
-                            Inserir imagem  <img src="External Link.svg" alt="Inserir imagem com link externo" />
-                        </label>
-
-                        <input
-                            id='file-upload'
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageChange}
-                            className='input-inserirImagem'
-                        />
-
-                        {imagem && (
-                            <div>
-                                <h3 className='titles-inserirImagem'>Pré-visualização da Imagem:</h3>
-                                <img
-                                    src={URL.createObjectURL(imagem)}
-                                    alt="Pré-visualização"
-                                    style={{ maxWidth: '300px', maxHeight: '300px' }}
-                                />
-                            </div>
-                        )}
-                        {/* Inserir imagem */}
+                 
                     </div>
 
                     {/* titulo do post */}
@@ -128,7 +100,7 @@ try {
                    
 
                     {/* // Conteudo  */}
-                    <textarea value= {valorDescricao} onChange= {e => setValorDescricao (e.target.value)} name="textArea" cols="30" rows="17" placeholder='Conteúdo do artigo' className='text-area'></textarea>
+                    <textarea value= {valorDescricao} onChange= {e => setValorDescricao (e.target.value)} name="textArea" cols="30" rows="17" placeholder='Conteúdo do artigo' className='input-autor-artigo'></textarea>
                     
                 </div>
 
@@ -142,10 +114,6 @@ try {
                         <textarea  value= {valorAutor} onChange= {e => setValorAutor (e.target.value)} name="" ></textarea>
                     </div>
                     {/* hashtags */}
-
-                </div>
-
-                {/* botões */}
                 <div className="alinhamento-buttons">
                     <div className="buttons-container">
 
@@ -154,8 +122,12 @@ try {
                         <button className='cancelar-button'>CANCELAR</button>
                     </div>
                 </div>
+
+                </div>
+
+                {/* botões */}
                 
-         
+                </div>
             </form>
         </div>
     )
