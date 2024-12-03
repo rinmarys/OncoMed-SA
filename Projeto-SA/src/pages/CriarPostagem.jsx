@@ -19,18 +19,6 @@ function CriarPostagem() {
     // inserir imagem
 
 
-    const [categoria, setCategoria] = useState('');
-
-    const categorias = [
-        'Saúde Mental',
-        'Tratamentos Alternativos',
-        'Tratamentos Convencionais',
-        'Nutrição',
-        'Direitos dos Pacientes',
-        'Reabilitação e Recuperação',
-        'Pesquisa e Inovação',
-        'Atividades Físicas e Exercícios'
-    ];
 
     
 
@@ -42,7 +30,7 @@ const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
 
 const [valorTitulo, setValorTitulo] = useState ('')
 const [valorAutor, setValorAutor] = useState ('')
-const [valorConteudo, setValorConteudo] = useState ('')
+const [valorDescricao, setValorDescricao] = useState ('')
 
 const fetchBlog = async ( ) => {
 
@@ -70,7 +58,7 @@ const informacoesBlog = {
 
     titulo: valorTitulo,
     autor: valorAutor,
-    conteudo: valorConteudo
+    descricao: valorDescricao
 }
 
 //ATUALIZANDO NO BANCO DE DADOS
@@ -80,7 +68,7 @@ try {
 
         fetchBlog()
         setValorAutor ('')
-        setValorConteudo('')
+        setValorDescricao('')
         setValorTitulo('')
     }
 
@@ -140,7 +128,7 @@ try {
                    
 
                     {/* // Conteudo  */}
-                    <textarea value= {valorConteudo} onChange= {e => setValorConteudo (e.target.value)} name="textArea" cols="30" rows="17" placeholder='Conteúdo do artigo' className='text-area'></textarea>
+                    <textarea value= {valorDescricao} onChange= {e => setValorDescricao (e.target.value)} name="textArea" cols="30" rows="17" placeholder='Conteúdo do artigo' className='text-area'></textarea>
                     
                 </div>
 

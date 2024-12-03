@@ -24,7 +24,7 @@ function BlogInicio_Admin() {
     function deletarBlog() {
 
     }
-
+    const {listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta} = useContext(GlobalContext);
     const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
     const fetchBlog = async ( ) => {
 
@@ -88,6 +88,8 @@ function BlogInicio_Admin() {
                         </div>
 
 
+
+                    {/* POP UP NOVO BLOG */}
                         <div className="container-artigos">
                             <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
 
@@ -102,35 +104,9 @@ function BlogInicio_Admin() {
                             </div>
                         </div>
 
-                        <div className="container-artigos">
-                            <img src="DireitosLegais.svg" alt="Mantenha-se informado" />
+                     
 
-                            <div className='alinhamento-texto'>
-
-                                <div className="button-container">
-                                    <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
-                                </div>
-
-                                <p className='titulos-artigos'>Por que é tão importante manter-se informado? Direitos legais
-                                    para pacientes oncológicos.</p>
-                                <p className='doutores-blog'>por Porto, Severino e Cunha ADV</p>
-                            </div>
-                        </div>
-
-                        <div className="container-artigos">
-                            <img src="Meditation.svg" alt="Meditação" />
-
-                            <div className="alinhamento-texto">
-
-                                <div className="button-container">
-                                    <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
-                                </div>
-
-                                <p className='titulos-artigos'>O psicologico é importante?
-                                    Veja aqui!</p>
-                                <p className='doutores-blog'>por Psicologa Vannessa Suarez</p>
-                            </div>
-                        </div>
+                      
                     </div>
 
                     {/* POP UP BLOG BUTTON DELETAR */}
