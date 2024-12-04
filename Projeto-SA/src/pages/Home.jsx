@@ -11,7 +11,7 @@ import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx';
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
-import axios from "axios";
+import axios from 'axios';
 
 import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
 
@@ -19,7 +19,7 @@ import { GlobalContext } from '../contexts/GlobalContext.jsx';
 
 function Home() {
 
-  const [pop_aberto, set_pop_aberto] = useState(false);
+  const {pop_aberto, set_pop_aberto} = useContext(GlobalContext);
   const navegacao_de_pagina = useNavigate(``);
 
   const [faq_a_aberto, set_faq_a_aberto] = useState(false);
@@ -123,6 +123,8 @@ function Home() {
   };
 
     useEffect(() => {
+
+      console.log(usuario_logado);
 
       if(usuario_logado.length == 0){
 
@@ -279,7 +281,7 @@ function Home() {
 
             </ul>
 
-            <p>Atendimento disponível de segunda a sexta, das 8h às 18h</p>
+            <p>Atendimento disponível de segunda a sexta, 24Hrs!</p>
 
           </div>
 

@@ -14,6 +14,8 @@ function Cadastro_Medico() {
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
+  const {pop_aberto, set_pop_aberto} = useContext(GlobalContext);
+
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho'/>);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
   const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
@@ -94,6 +96,11 @@ function Cadastro_Medico() {
     
     fetch_lista_de_medicos();
     fetch_lista_de_pacientes();
+
+    if(pop_aberto){
+
+      set_pop_aberto(false);
+    };
   }, []);
 
 
@@ -194,45 +201,50 @@ function Cadastro_Medico() {
       
       switch(true){
 
-        case cpf_ja_cadastrado == true && email_ja_cadastrado == true:
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == false && crm_ja_cadastrado == false:
 
-          set_mensagem_de_erro("CPF e Email já cadastrados!");
-          break;
+        set_mensagem_de_erro(`CPF já cadastrado`);
+        break;
 
-        case email_ja_cadastrado == true:
-      
-          set_mensagem_de_erro("Email já cadastrado!");
-          break;
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == true && crm_ja_cadastrado == false:
 
-        case cpf_ja_cadastrado == true: 
-      
-          set_mensagem_de_erro("CPF já cadastrado!");
-          break;
-
-        case senhas_sao_iguais == true:
-      
-          set_mensagem_de_erro("As senhas devem ser iguais!");
-          break;
-
-        case !valor_checkbox:
-      
-          set_mensagem_de_erro("Favor aceitar os Termos de Uso!");
-          break;
+        set_mensagem_de_erro(`Email já cadastrado!`);
+        break;
 
         case cpf_ja_cadastrado == false && email_ja_cadastrado == false && crm_ja_cadastrado == true:
 
-          set_mensagem_de_erro(`CRM já cadastrado!`);
-          break;
+        set_mensagem_de_erro(`CRM já cadastrado!`);
+        break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == true && crm_ja_cadastrado == false:
+
+        set_mensagem_de_erro(`CPF e Email já cadastrados!`);
+        break;
 
         case cpf_ja_cadastrado == true && email_ja_cadastrado == false && crm_ja_cadastrado == true:
 
-          set_mensagem_de_erro(`CPF e CRM já cadastrados!`);
-          break;
+        set_mensagem_de_erro(`CPF e CRM já cadastrados!`);
+        break;
 
         case cpf_ja_cadastrado == false && email_ja_cadastrado == true && crm_ja_cadastrado == true:
 
-          set_mensagem_de_erro(`Email e CRM já cadastrados!`);
-          break;
+        set_mensagem_de_erro(`Email e CRM já cadastrados`);
+        break;
+        
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == true && crm_ja_cadastrado:
+
+        set_mensagem_de_erro(`CPF, Email e CRM já cadastrados!`);
+        break;
+
+        case senhas_sao_iguais == false:
+
+        set_mensagem_de_erro(`As senhas devem ser iguais!`);
+        break;
+
+        case checkbox_selecionado == false:
+
+        set_mensagem_de_erro(`Favor Aceitar os Termos de Uso!`);
+        break;
       };
     };
   };
@@ -269,7 +281,7 @@ function Cadastro_Medico() {
           
           <label>Nome Completo</label>
           
-          <input type="text" placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({...form, nome: e.target.value})}/>
+          <input type="text" required placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({...form, nome: e.target.value})}/>
         
         </div>
   
@@ -277,7 +289,7 @@ function Cadastro_Medico() {
          
           <label>CPF</label>
           
-          <input type="text" minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
+          <input type="text" required minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
         
         </div>
         
@@ -289,14 +301,14 @@ function Cadastro_Medico() {
                     
                     <div className='input_genero_medico_alinhar_radios_masculino'>
                     
-                      <input type="radio" name='genero_inpt' value={'Masculino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <input type="radio" required name='genero_inpt' value={'Masculino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
                       <label className='input_genero_medico_alinhar_label'>Masculino</label>
                     
                     </div>
 
                     <div className='input_genero_medico_alinhar_radios_feminino'>
                     
-                      <input type="radio" name='genero_inpt' value={'Feminino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <input type="radio" required name='genero_inpt' value={'Feminino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
                       <label className='input_genero_medico_alinhar_label'>Feminino</label>
                     
                     </div>
@@ -311,7 +323,7 @@ function Cadastro_Medico() {
   
           <div className="input_senha_medico_dv">
   
-            <input type={valor_do_olinho_um} minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({...form, senha: e.target.value})}/>
+            <input type={valor_do_olinho_um} required minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({...form, senha: e.target.value})}/>
             
             <button type='button' onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)}>{imagem_olinho_um}</button>
          
@@ -327,7 +339,7 @@ function Cadastro_Medico() {
           
           <label>CRM</label>
           
-          <input type="text" minLength={9} maxLength={9} placeholder='CRM/SP 123456' value={form.crm || ''} onChange={(e) => setForm({...form, crm: e.target.value})}/>
+          <input type="text" required minLength={9} maxLength={9} placeholder='CRM/SP 123456' value={form.crm || ''} onChange={(e) => setForm({...form, crm: e.target.value})}/>
         
         </div>
   
@@ -335,7 +347,7 @@ function Cadastro_Medico() {
   
           <label>Email</label>
           
-          <input type="text" placeholder='exemplo@gmail.com' value={form.email || ''} onChange={(e) => setForm({...form, email: e.target.value})}/>
+          <input type="text" required placeholder='exemplo@gmail.com' value={form.email || ''} onChange={(e) => setForm({...form, email: e.target.value})}/>
         
         </div>
   
@@ -343,7 +355,7 @@ function Cadastro_Medico() {
           
           <label>Data Nascimento</label>
           
-          <input type="date" placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({...form, data_de_nascimento: e.target.value})}/>
+          <input type="date" required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({...form, data_de_nascimento: e.target.value})}/>
         
         </div>
   
@@ -353,7 +365,7 @@ function Cadastro_Medico() {
   
           <div className="input_confirmar_senha_medico_dv">
           
-            <input type={valor_do_olinho} minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)}/>
+            <input type={valor_do_olinho} required minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)}/>
             <button type='button' onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
           
           </div>

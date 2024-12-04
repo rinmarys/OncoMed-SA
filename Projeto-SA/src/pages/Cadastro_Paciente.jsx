@@ -13,6 +13,8 @@ function Cadastro_Paciente() {
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
+  const {pop_aberto, set_pop_aberto} = useContext(GlobalContext);
+
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho' />);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
   const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
@@ -92,6 +94,11 @@ function Cadastro_Paciente() {
 
     fetch_pacientes();
     fetch_medicos();
+
+    if(pop_aberto){
+
+      set_pop_aberto(false);
+    };
   }, []);
 
   const handleSubmit = async (e) => {
@@ -168,26 +175,32 @@ function Cadastro_Paciente() {
       };
     } else {
 
-      if (cpf_ja_cadastrado == true && email_ja_cadastrado == true) {
-  
-        set_mensagem_de_erro("CPF e Email já cadastrados!");
-  
-      } else if (email_ja_cadastrado == true) {
-  
-        set_mensagem_de_erro("Email já cadastrado!");
-  
-      } else if (cpf_ja_cadastrado == true) {
-  
-        set_mensagem_de_erro("CPF já cadastrado!");
-  
-      } else if (senhas_sao_iguais == true) {
-  
-        set_mensagem_de_erro("As senhas devem ser iguais!");
-  
-      } else if (!valor_checkbox) {
-  
-        set_mensagem_de_erro("Favor aceitar os Termos de Uso!");
+      switch(true){
 
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == true:
+
+        set_mensagem_de_erro(`Email já cadastrado!`);
+        break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == false:
+
+        set_mensagem_de_erro(`CPF já cadastrado!`);
+        break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == true:
+
+        set_mensagem_de_erro(`CPF e Email já cadastrado!`);
+        break;
+
+        case senhas_sao_iguais == false:
+
+        set_mensagem_de_erro(`As senhas devem ser iguais!`);
+        break;
+
+        case checkbox_selecionado == false:
+
+        set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+        break;
       };
     };
 
