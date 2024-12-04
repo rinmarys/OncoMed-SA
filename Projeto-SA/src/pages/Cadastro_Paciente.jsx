@@ -13,6 +13,8 @@ function Cadastro_Paciente() {
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);
 
+  const {pop_aberto, set_pop_aberto} = useContext(GlobalContext);
+
   const [imagem_olinho, set_imagem_olinho] = useState(<img src='input_olho_fechado.png' alt='Olinho' />);
   const [estado_do_olinho, set_estado_do_olinho] = useState(false);
   const [valor_do_olinho, set_valor_do_olinho] = useState(`password`);
@@ -92,6 +94,11 @@ function Cadastro_Paciente() {
 
     fetch_pacientes();
     fetch_medicos();
+
+    if(pop_aberto){
+
+      set_pop_aberto(false);
+    };
   }, []);
 
   const handleSubmit = async (e) => {

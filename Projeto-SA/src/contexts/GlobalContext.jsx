@@ -19,10 +19,15 @@ export const GlobalContextProvider = ({ children }) => {
 
     const [registroBlog, setRegistroBlog] = useState([]);
 
+    const [pop_aberto, set_pop_aberto] = useState(false);
+
     // informações de marcar consulta
 
     return (
         <GlobalContext.Provider value={{
+
+            pop_aberto,
+            set_pop_aberto,
 
             tempo_do_pop_up_de_boas_vindas,
             set_tempo_do_pop_up_de_boas_vindas,

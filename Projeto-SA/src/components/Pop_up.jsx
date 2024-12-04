@@ -1,10 +1,14 @@
 import React from 'react'
 import './Pop_up.css'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 function Pop_up() {
 
     const navegacao_de_pagina = useNavigate(``);
   
+    const {pop_aberto, set_pop_aberto} = useContext(GlobalContext);
+
     return (
 
     <div>
@@ -24,7 +28,14 @@ function Pop_up() {
                 <p>Cadastre-se agora e tenha acesso a cuidados médicos personalizados.</p>
             </div>
 
+
             <div className="coluna_medico">
+
+            <div className='botao_de_fechar_pop_up_de_cadastro'>
+
+                <button onClick={() => set_pop_aberto(false)}>X</button>
+
+            </div>
 
             <button onClick={() => navegacao_de_pagina(`/cadastromedico`)}>
                 
