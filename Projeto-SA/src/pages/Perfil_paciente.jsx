@@ -3,6 +3,10 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios';
 import './Perfil_paciente.css';
 import HamburgeMenu from '../components/HamburgerMenu';
+import ConfirmarDeletarPopUp from '../components/ConfirmarDeletarPopUp';
+import ConfirmarSalvoPopUp from '../components/ConfirmarSalvoPopUp';
+import { useNavigate } from 'react-router-dom';
+
 
 function PerfilPaciente() {
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext)
@@ -18,8 +22,9 @@ function PerfilPaciente() {
  const [loading, setLoading]=useState(false)
  const [error, setError]= useState('')
 
+ const navigate= useNavigate()
  const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil]=useState(false)
- const [mostrarPopUpSalvoPerfil, setMostrarPopUpSalvoPerfil]= useState(false)
+ const [mostrarPopSalvoPerfil, setMostrarPopDSalvoPerfil]=useState(false)
 
  const [estado_do_olhinho_senha, set_estado_olinho_senha]=useState(false)
  const [estado_do_olinho_confirmar_senha, set_estado_do_olhinho_confirmar_senha]=useState(false)
@@ -76,7 +81,6 @@ function PerfilPaciente() {
 
       set_usuario_logado(prev => ({...prev, nome, email, telefone, cep, descricao}))
 
-      setMostrarPopUpSalvoPerfil(true);
       setEditando(false);
 
     } catch (err) {
@@ -85,7 +89,10 @@ function PerfilPaciente() {
     } finally {
       setLoading(false);
     }
+    setMostrarPopDSalvoPerfil(true)
   };
+
+  
 
   const confirmarDeletarConta=() =>{
     setMostrarPopDeletarPerfil(true)
@@ -94,24 +101,13 @@ function PerfilPaciente() {
   const deletarConta = async () => {
       try {
         await axios.delete(`http://localhost:5173/perfil_paciente/${usuario_logado.id_paciente}`);
-        window.location.href = '/home';
+        console.log('Conta deletada!')
+        navigate('/')
       } catch (err) {
         console.error(err);
         alert('Falha ao deletar a conta. Tente novamente.');
     }
   };
-
-  const handleConfirmarDeletar=() => {
-    deletarConta()
-    setMostrarPopDeletarPerfil(false)
-  }
-    const handleCancelarDeletar=() =>{
-    setMostrarPopDeletarPerfil(false)
-    }
-
-    const fecharPopUpSalvoPerfil= () =>{
-    setMostrarPopUpSalvoPerfil(false)
-    }
 
   return (
     <div className="user-container">
