@@ -168,26 +168,32 @@ function Cadastro_Paciente() {
       };
     } else {
 
-      if (cpf_ja_cadastrado == true && email_ja_cadastrado == true) {
-  
-        set_mensagem_de_erro("CPF e Email já cadastrados!");
-  
-      } else if (email_ja_cadastrado == true) {
-  
-        set_mensagem_de_erro("Email já cadastrado!");
-  
-      } else if (cpf_ja_cadastrado == true) {
-  
-        set_mensagem_de_erro("CPF já cadastrado!");
-  
-      } else if (senhas_sao_iguais == true) {
-  
-        set_mensagem_de_erro("As senhas devem ser iguais!");
-  
-      } else if (!valor_checkbox) {
-  
-        set_mensagem_de_erro("Favor aceitar os Termos de Uso!");
+      switch(true){
 
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == true:
+
+        set_mensagem_de_erro(`Email já cadastrado!`);
+        break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == false:
+
+        set_mensagem_de_erro(`CPF já cadastrado!`);
+        break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == true:
+
+        set_mensagem_de_erro(`CPF e Email já cadastrado!`);
+        break;
+
+        case senhas_sao_iguais == false:
+
+        set_mensagem_de_erro(`As senhas devem ser iguais!`);
+        break;
+
+        case checkbox_selecionado == false:
+
+        set_mensagem_de_erro(`Favor aceitar os termos de uso!`);
+        break;
       };
     };
 

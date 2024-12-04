@@ -279,7 +279,7 @@ function Home() {
 
             </ul>
 
-            <p>Atendimento disponível de segunda a sexta, das 8h às 18h</p>
+            <p>Atendimento disponível de segunda a sexta, 24Hrs!</p>
 
           </div>
 
