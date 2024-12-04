@@ -47,13 +47,16 @@ function EspacoControle_Admin() {
 
 
                     <div className="style-container-espacoControle">
+                        <Link to='/medicosCadastrados' className='link'>
                         <div className="alinhamento-conteudo-espacoControle">
                             <img className='img-espacoControle' src="medico-controle.svg" alt="Medicos cadastrados" />
                             <h3>Médicos</h3>
                         </div>
-                    </div>
+                        </Link>
+                    
                 </div>
             </div>
+        </div>
         </div >
     )
 }
