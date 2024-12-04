@@ -91,28 +91,27 @@ function BlogInicio_Admin() {
 
 
                     {/* POP UP NOVO BLOG */}
-                    <div className="consultas-solicitacao">
-                {registroBlog.length > 0 ? (
-                   registroBlog.map((informacoesBlog) => (
-                    <div className="container-artigos">
-                    <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
+                   <div className="consultas-solicitacao">
+    {registroBlog.length > 0 ? (
+        registroBlog.map((informacoesBlog) => (
+            <div className="container-artigos" key={informacoesBlog.id}>
+                <img src={informacoesBlog.imagem}alt="Evento especial Nutrição"/>
 
-                    <div className='alinhamento-texto'>
-
-                        <div className="button-container">
-                            <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
-                        </div>
-
-                        <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
-                        <p className='doutores-blog'>{informacoesBlog.autor}</p>
+                <div className='alinhamento-texto'>
+                    <div className="button-container">
+                        <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                     </div>
-                </div>
-                    ))
-                ) : (
-                    <p className='semSolicitacoes-texto'>Sem solicitações...</p>
-                )}
-            </div>
 
+                    <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                    <p className='doutores-blog'>{informacoesBlog.autor}</p>
+                </div>
+            </div>
+        ))
+    ) : (
+        // Não renderiza nada quando registroBlog estiver vazio
+        null
+    )}
+</div>
                      
 
                       
