@@ -11,7 +11,11 @@ import Aritgo_Um_Home from '../components/Aritgo_Um_Home.jsx';
 import Artigo_Dois_Home from '../components/Artigo_Dois_Home.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import axios from "axios";
+>>>>>>> 11ecf992579b9f346faa3d2aab44dc8bfb915f88
 
 import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
 
