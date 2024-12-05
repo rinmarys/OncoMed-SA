@@ -98,8 +98,6 @@ function MarcarConsulta() {
 
   };
 
-
-
   return (
 
     <div className='Container-marcarConsulta-alinhamento'>

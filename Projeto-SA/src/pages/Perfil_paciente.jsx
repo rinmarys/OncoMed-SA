@@ -10,6 +10,9 @@ import HamburgerMenu from '../components/HamburgerMenuAdmin';
 
 
 function PerfilPaciente() {
+<<<<<<< HEAD
+};
+=======
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext)
   const [nome, setNome] = useState(usuario_logado.nome || '')
   const [email, setEmail] = useState(usuario_logado.email || '')
@@ -252,5 +255,6 @@ function PerfilPaciente() {
     </div >
   );
 }
+>>>>>>> 7d14b9a4d15d84ac30ce9235f9e6b27b6abd1428
 
 export default PerfilPaciente;

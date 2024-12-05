@@ -6,9 +6,7 @@ import Pop_up_de_login from './Pop_up_de_login';
 
 function Header() {
 
-
   const {usuario_logado} = useContext(GlobalContext);
-
 
   const [imagem_de_perfil_do_header, set_imagem_de_perfil_do_header] = useState(`Imagem de Perfil (Default).svg`);
   const {pop_up_de_login, set_pop_up_de_login} = useContext(GlobalContext);
@@ -16,8 +14,8 @@ function Header() {
 
   useEffect(() => {
 
-  if(usuario_logado && usuario_logado.imagem_de_perfil_do_header){
-    set_imagem_de_perfil_do_header(usuario_logado.imagem_de_perfil_do_header)
+  if(usuario_logado.length != 0){
+    set_imagem_de_perfil_do_header(usuario_logado.imagem_de_perfil)
 
   }else{
     set_imagem_de_perfil_do_header('Imagem de Perfil (Default).svg')
