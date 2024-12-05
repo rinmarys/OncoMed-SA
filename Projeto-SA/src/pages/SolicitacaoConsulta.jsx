@@ -19,19 +19,27 @@ function SolicitacaoConsulta() {
     const handleClosePopup = () => setIsOpen(false);
 
     const fetch_marcarConsulta = async () => {
+        
         try {
+        
             const response = await axios.get(`http://localhost:3000/marcarConsulta`);
             setListaInformacoesMarcarConsulta(response.data)
+        
         } catch (error) {
+        
             console.error('Erro ao buscar cliente por ID:', error)
         };
     };
 
     const fetch_medicos = async () => {
+        
         try {
+        
             const response = await axios.get(`http://localhost:3000/medicos`);
             set_lista_de_medicos(response.data)
+        
         } catch (error) {
+        
             console.error('Erro ao buscar médicos:', error);
         };
     };
