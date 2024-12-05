@@ -5,7 +5,7 @@ import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin';
 function DadosPessoaisAdmin() {
     return (
         <div>
-            <idiv className="alinhamento-dadosPessoaisAdmin">
+            <div className="alinhamento-dadosPessoaisAdmin">
                 <div className="alinhamento-titulo-hamburger-dadosPessoaisAdmin">
                     <div className="alinhamento-titulo-dadosPessoaisAdmin">
                         <h1>PERFIL ADMINISTRADOR</h1>
@@ -18,18 +18,24 @@ function DadosPessoaisAdmin() {
                 </div>
 
                 <div className="alinhamento-inputs-dadosPessoaisAdmin">
-                    <label>Nome</label>
-                    <input type="text" />
+                    <div className="input-button-dadosPessoais">
+                        <label>Nome</label>
+                        <input type="text" />
 
-                    <label>Email</label>
-                    <input type="text" />
+                        <label>Email</label>
+                        <input type="text" />
 
-                    <label>Senha</label>
-                    <input type="password" />
+                        <label>Senha</label>
+                        <input type="password" />
 
-                    <button>EDITAR</button>
+                        <button>EDITAR</button>
+                    </div>
+
+                    {/* <div className="alinhamento-imagem-conteudo-dadosPessoais">
+                        <img src="DadosPessoaisAdmin-photo.svg" alt="Admin" />
+                    </div> */}
                 </div>
-            </idiv>
+            </div>
         </div>
     )
 }
