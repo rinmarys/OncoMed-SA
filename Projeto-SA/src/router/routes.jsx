@@ -19,44 +19,46 @@ import TermosDeUso from '../pages/TermosDeUso'
 import Convenio from "../pages/Convenio";
 import Perfil_medico from "../pages/Perfil_medico.jsx";
 import MedicosCadastrados from "../pages/MedicosCadastrados";
+import DadosPessoaisAdmin from "../pages/DadosPessoaisAdmin.jsx";
 
 const router = createBrowserRouter([
     // Header
-    {path: "/", element: <Home/>},
-    {path: "/blog", element: <BlogInicio_Paciente />},
-    {path: "/marcarConsulta", element: <MarcarConsulta />},
-    {path: "/perfil_paciente", element: <Perfil_paciente />},
-    {path: "/meusAgendamentos", element: <MeusAgendamentos />},
-    {path: "/historicoConsultas", element: <HistoricoConsultas />},
+    { path: "/", element: <Home /> },
+    { path: "/blog", element: <BlogInicio_Paciente /> },
+    { path: "/marcarConsulta", element: <MarcarConsulta /> },
+    { path: "/perfil_paciente", element: <Perfil_paciente /> },
+    { path: "/meusAgendamentos", element: <MeusAgendamentos /> },
+    { path: "/historicoConsultas", element: <HistoricoConsultas /> },
     // Header
 
     //Cadastro
-    {path: "/cadastropaciente", element: <Cadastro_Paciente/>},
-    {path: "/cadastromedico", element: <Cadastro_Medico/>},
-    {path: "/login", element: <Login/>},
+    { path: "/cadastropaciente", element: <Cadastro_Paciente /> },
+    { path: "/cadastromedico", element: <Cadastro_Medico /> },
+    { path: "/login", element: <Login /> },
     //Cadastro
 
     //Blog pacientes
-    {path: "/conteudoBlog", element: <ConteudoBlog />},
+    { path: "/conteudoBlog", element: <ConteudoBlog /> },
     //Blog pacientes
 
     //Telas Administradores
-    {path: "/espacoDeControleAdmin", element: <EspacoControle_Admin />},
-    {path: "/blogInicioAdmin", element: < BlogInicio_Admin />},
-    {path: "/criarPostagem", element: <CriarPostagem />},
-    {path: "/solicitacaoConsulta", element: <SolicitacaoConsulta/>},
-    {path: "/medicosCadastrados", element: <MedicosCadastrados/>},
+    { path: "/espacoDeControleAdmin", element: <EspacoControle_Admin /> },
+    { path: "/blogInicioAdmin", element: < BlogInicio_Admin /> },
+    { path: "/criarPostagem", element: <CriarPostagem /> },
+    { path: "/solicitacaoConsulta", element: <SolicitacaoConsulta /> },
+    { path: "/medicosCadastrados", element: <MedicosCadastrados /> },
+    { path: "/dadosPessoaisAdmin", element: <DadosPessoaisAdmin /> },
     //Telas Administradores
 
     // Footer
-    {path: "/politicaPrivacidade", element: <PoliticaPrivacidade />},
-    {path: "/termosDeUso", element: <TermosDeUso />},
-    {path: "/convenios", element: <Convenio />},
-    {path: "/sobreNos", element: <SobreNos />},
+    { path: "/politicaPrivacidade", element: <PoliticaPrivacidade /> },
+    { path: "/termosDeUso", element: <TermosDeUso /> },
+    { path: "/convenios", element: <Convenio /> },
+    { path: "/sobreNos", element: <SobreNos /> },
     // Footer
 
     //Medico
-    {path: "/perfilMedico", element: <Perfil_medico />},
+    { path: "/perfilMedico", element: <Perfil_medico /> },
 
 ])
 

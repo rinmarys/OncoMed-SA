@@ -1,0 +1,49 @@
+:root {
+    --green_meio_termo: #437118;
+}
+
+.popUpSalvoComSucesso {
+    top: 20vw;
+    left: 35vw;
+    position: absolute;
+    background-color: #f1f1f1;
+    height: 10vw;
+    position: fixed;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
+    border-radius: 2vw;
+}
+
+.popUp-container-salvo h3{
+    color: #1D2A62;
+    font-size: 1.6vw;
+    font-family: 'nunito', sans-serif ;
+    margin: 1.2vw;
+}
+
+.container-OK button {
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container-OK {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    height: 2.7vw;
+    width: 12vw;
+    border: none;
+    border-radius: 15px;
+    background-color: #437118;
+    color: #F5F5F5;
+}
+
+.container-OK button:hover {
+    transition: 0.4s;
+    background-color: #345516;
+    color: #F5F5F5;
+}
+
+.container-OK button:not(:hover){
+    transition: 0.4s;
+    background-color: var(--green_meio_termo);
+}

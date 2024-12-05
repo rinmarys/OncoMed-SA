@@ -17,7 +17,7 @@ import axios from 'axios';
 
 function Home() {
 
-  const [pop_aberto, set_pop_aberto] = useState(false);
+  const {pop_aberto, set_pop_aberto} = useContext(GlobalContext);
   const navegacao_de_pagina = useNavigate(``);
 
   const [faq_a_aberto, set_faq_a_aberto] = useState(false);
@@ -121,6 +121,8 @@ function Home() {
   };
 
     useEffect(() => {
+
+      console.log(usuario_logado);
 
       if(usuario_logado.length == 0){
 

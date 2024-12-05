@@ -197,3 +197,27 @@
     text-align: center;
 
 }
+
+.botao_de_fechar_pop_up_de_cadastro{
+
+    position: fixed;
+
+    top: 12vh;
+    left: 76vw;
+
+    width: 5vw;
+    height: 5vh;
+}
+
+.botao_de_fechar_pop_up_de_cadastro button{
+
+    width: 1vw;
+    height: 1vh;
+
+    cursor: pointer;
+}
+
+.botao_de_fechar_pop_up_de_cadastro button:hover{
+
+    color: var(--cor_seis);
+}
