@@ -1,0 +1,75 @@
+:root{
+    
+    --cor_um: #437118 ;
+    --cor_dois: #AFD06E ;
+    --cor_tres: #F5F5F5;
+    --cor_quatro: #9fbacf;
+    --cor_cinco: #1D2A62;
+    --cor_seis: #F1F1F1;
+    --cor_sete: #335513;
+    --cor_oito: #87AECE;
+    --cor_nove: #819b4f;
+    --cor_dez: #303c70;
+
+    --tipografia_primaria: 'Nunito', sans-serif;
+    --tipografia_secundaria: 'Poppins', sans-serif;
+}
+
+.Pop_up_de_login_container{
+
+    display: flex;
+
+    position: fixed;
+    left: 30vw;
+
+    width: 40vw;
+    height: 35vh;
+
+    border: 1vw solid var(--cor_oito);
+    border-radius: 2vw;
+
+    color: var(--cor_cinco);
+    background-color: var(--cor_oito);
+}
+
+.Pop_up_de_login_container_alinhamento_conteudo{
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 40vw;
+    height: 15vh;
+}
+
+.Pop_up_de_login_container h1{
+
+    width: 25vw;
+
+    margin-left: 1vw;
+    margin-bottom: 0px;
+}
+
+.Pop_up_de_login_container_alinhamento_conteudo p{
+
+    margin-top: 0px;
+    margin-left: 1vw;
+    margin-top: 4vh;
+
+    font-size: 2vw;
+}
+
+.Pop_up_de_login_container button{
+
+    border: 0px;
+
+    cursor: pointer;
+    
+    margin-right: 1vw;
+
+    font-family: var(--tipografia_primaria);
+    font-size: 1.5vw;
+    font-weight: bolder;
+    
+    color: var(--cor_cinco);
+    background-color: transparent;
+}

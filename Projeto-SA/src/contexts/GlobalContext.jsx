@@ -20,6 +20,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [registroBlog, setRegistroBlog] = useState([]);
 
     const [pop_aberto, set_pop_aberto] = useState(false);
+    const [pop_up_de_login, set_pop_up_de_login] = useState(false);
 
     // informações de marcar consulta
 
@@ -28,6 +29,8 @@ export const GlobalContextProvider = ({ children }) => {
 
             pop_aberto,
             set_pop_aberto,
+            pop_up_de_login,
+            set_pop_up_de_login,
 
             tempo_do_pop_up_de_boas_vindas,
             set_tempo_do_pop_up_de_boas_vindas,
