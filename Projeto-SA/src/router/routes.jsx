@@ -18,6 +18,7 @@ import PoliticaPrivacidade from '../pages/PoliticaPrivacidade'
 import TermosDeUso from '../pages/TermosDeUso'
 import Convenio from "../pages/Convenio";
 import Perfil_medico from "../pages/Perfil_medico.jsx";
+import DadosPessoaisAdmin from "../pages/DadosPessoaisAdmin.jsx";
 
 const router = createBrowserRouter([
     // Header
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
     {path: "/blogInicioAdmin", element: < BlogInicio_Admin />},
     {path: "/criarPostagem", element: <CriarPostagem />},
     {path: "/solicitacaoConsulta", element: <SolicitacaoConsulta/>},
+    {path: "/dadosPessoaisAdmin", element: <DadosPessoaisAdmin/>},
     //Telas Administradores
 
     // Footer

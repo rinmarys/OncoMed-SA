@@ -16,12 +16,12 @@ function EspacoControle_Admin() {
                 <div className="container-um-espacoControle">
 
                     <div className="style-container-espacoControle">
+                        <Link to='/dadosPessoaisAdmin' className='link'>
                         <div className="alinhamento-conteudo-espacoControle">
-
                             <img className='img-espacoControle' src="usuario-controle.svg" alt="Dados pessoais de administrador" />
-
                             <h3>Dados pessoais</h3>
                         </div>
+                        </Link>
                     </div>
 
                     <div className="style-container-espacoControle">
