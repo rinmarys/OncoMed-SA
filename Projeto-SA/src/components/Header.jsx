@@ -9,6 +9,7 @@ function Header() {
 
   const {usuario_logado} = useContext(GlobalContext);
 
+
   const [imagem_de_perfil_do_header, set_imagem_de_perfil_do_header] = useState(`Imagem de Perfil (Default).svg`);
   const {pop_up_de_login, set_pop_up_de_login} = useContext(GlobalContext);
   const navegacao_de_pagina = useNavigate(``);
