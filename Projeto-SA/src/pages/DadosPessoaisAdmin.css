@@ -47,10 +47,14 @@
 /* INPUTS */
 .alinhamento-inputs-dadosPessoaisAdmin{
     display: flex;
-    flex-direction: column;
-    width: 25vw;
     margin-left: 9vw;
     margin-top: 3.5vw;
+}
+
+.input-button-dadosPessoais{
+    width: 26vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .alinhamento-inputs-dadosPessoaisAdmin label{
@@ -96,3 +100,25 @@
     transition: 0.2s;
 }
 /* INPUTS */
+
+.alinhamento-imagem-conteudo-dadosPessoais{
+    margin-left: 15vw;
+    margin-top: -3vw;
+}
+
+.alinhamento-imagem-conteudo-dadosPessoais img{
+    width: 33vw;
+    height: auto;
+}
+
+.alinhamento-imagem-conteudo-dadosPessoais img:hover{
+    width: 35vw;
+    height: auto;
+    transition: 0.4s;
+}
+
+.alinhamento-imagem-conteudo-dadosPessoais img:not(:hover){
+    width: 33vw;
+    height: auto;
+    transition: 0.4s;
+}
