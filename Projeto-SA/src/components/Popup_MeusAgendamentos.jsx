@@ -38,7 +38,7 @@ function Popup_MeusAgendamentos({ selectedDate, agendamentosDoDia }) {
                 <h1 className="medico-meusagendamentos">Dr. {consulta.medico}</h1>
                 <div className="tipo-horario-meusagendamentos">
                   <h2 className="tipo-consulta-meusagendamentos">{consulta.tipo_consulta}</h2>
-                  <h2 className="horario-meusagendamentos">{consulta.horario}</h2>
+                  <h2 className="horario-meusagendamentos">{consulta.horario.slice(0,5)}</h2>
                 </div>
                 <h3 className="titulo-observacao-meusagendamentos">SUA OBSERVAÇÃO</h3>
                 <h3 className="observacao-meusagendamentos">{consulta.observacoes}</h3>

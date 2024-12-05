@@ -6,6 +6,8 @@
     --cor-5: #87AECE;
     --cor-6: #1D2A62;
     --cor-7: #D9E3EB;
+
+    --cor-hover: #D9E3EB;
 }
 
 .alinhamento_nome-imagem-medicoscadastrados {
@@ -22,6 +24,12 @@
     font-family: 'Nunito', sans-serif;
     color: var(--cor-6);
     font-weight: 600;
+
+    white-space: nowrap;     
+    overflow: hidden;       
+    text-overflow: ellipsis;   
+    max-width: 27.6vw; 
+
 }
 
 .foto-do-perfil-medico {
@@ -31,15 +39,16 @@
 }
 
 .ficha_do_medico {
-    margin-top: 5vw;
-  
+    margin-top: 7vw;
+  margin-bottom: -4vw;
     background-color: var(--cor-1);
     width: fit-content;
     height: fit-content;
     padding-top: 2vw;
     padding-left: 2vw;
     padding-right: 2vw;
-    margin-left: 5vw;
+    margin-left: 8vw;
+    margin-right: -2.5vw;
     border-radius: 10px;
     box-shadow: -6px -6px 10px rgba(230, 231, 233, 0.45), 6px 6px 10px rgba(21, 31, 48, 0.3);
 }
@@ -78,6 +87,7 @@
     font-size: large;
     font-weight: 600;
     margin-top: -1vw;
+    margin-left: -0.7vw;
 
 }
 
@@ -85,12 +95,12 @@
     color: var(--cor-6);
     font-size: large;
     font-weight: 600;
-    margin-top: -1vw;
+    margin-top: -3vw;
     margin-left: 14vw;
 }
 
 .ficha_do_medico:hover{
-    background-color: rgb(232, 234, 236);
+    background-color: var(--cor-hover);
     transition: 0.2s;
 }
 
@@ -108,12 +118,23 @@ display: flex;
 flex-direction: column;
 width: fit-content;
 margin-left: 8%;
-margin-top: -2vw;
+margin-top: -3vw;
 }
 
 .alihamento-cards-medicosCadastrados{
 
     width: fit-content;
     height: fit-content;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Exatamente 2 fichas por linha */
+    gap: 16px; /* Espaço entre as fichas */
+    
+}
+
+.cpf_medico_cadastrado{
+    color: var(--cor-6);
+    font-size: medium;
+    font-weight: 600;
+    margin-top: -1vw;
+    margin-left: 14.1vw;
 }
