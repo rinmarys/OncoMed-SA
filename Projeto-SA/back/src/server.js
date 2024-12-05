@@ -277,11 +277,11 @@ app.get('/blog', async (req, res) => {
 });
 
 app.post('/blog', async (req, res) => {
-    const {titulo, descricao, autor} = req.body;
+    const {titulo, descricao, autor, imagem} = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO blog (titulo, descricao, autor) VALUES ($1, $2, $3) RETURNING *',
-            [titulo, descricao, autor]
+            'INSERT INTO blog (titulo, descricao, autor, imagem) VALUES ($1, $2, $3, $4) RETURNING *',
+            [titulo, descricao, autor, imagem]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {

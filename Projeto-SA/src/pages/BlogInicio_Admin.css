@@ -29,6 +29,7 @@
     background-color: var(--cor-3);
     margin-top: -1vw;
     border:1px solid black;
+    
 }
 
 .line-admin:hover {
@@ -122,4 +123,13 @@
 .buttonDeletar:not(:hover){
     transition: 0.4s;
     background-color: var(--cor-2);
+}
+
+.blog-alinhamento{
+    border:1px solid black;
+}
+
+.artigos-alinhamento{
+    border:1px solid black;
+    margin-top: 7vw;
 }

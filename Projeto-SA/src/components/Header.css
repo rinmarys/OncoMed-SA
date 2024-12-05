@@ -117,6 +117,8 @@
 .nav_bar_link_perfil{
 
     height: 6vh;
+
+    border: 0px;
 }
 
 .nav_bar_link_perfil img:not(:hover){

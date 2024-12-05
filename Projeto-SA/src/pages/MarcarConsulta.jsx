@@ -10,7 +10,7 @@ function MarcarConsulta() {
 
   const navigate = useNavigate()
   const { selectedDate } = useContext(GlobalContext)
-  const { lista_de_pacientes, usuario_logado, set_lista_de_consultas } = useContext(GlobalContext);
+  const { usuario_logado, set_lista_de_consultas } = useContext(GlobalContext);
   const [consultaSelecionada, setConsultaSelecionada] = useState('')
   const [horarioSelecionado, setHorarioSelecionado] = useState('')
   const [observacaoEscrita, setObservacaoEscrita] = useState('')
@@ -35,9 +35,6 @@ function MarcarConsulta() {
       return false
     };
 
-    console.log('Lista de pacientes', lista_de_pacientes);
-    console.log('Usuario logado', usuario_logado);
-
     setMostrarPopUpConfirmar(true)
     return true
   }
@@ -54,7 +51,6 @@ function MarcarConsulta() {
 
     fetch_consultas();
 
-    console.log(usuario_logado);
   }, []);
 
   const fetch_consultas = async () => {
@@ -69,14 +65,13 @@ function MarcarConsulta() {
   
       console.error('Erro ao buscar consultas:', error);
     };  
+
   };
 
   const handleSubmit = async (e) => {
    
     e.preventDefault();
   
-    console.log(usuario_logado);
-
     const consulta = {
 
       data_agendamento: selectedDate,
@@ -96,10 +91,11 @@ function MarcarConsulta() {
             fetch_consultas(); // Atualiza a lista de consultas após a adição
           };
 
-  } catch (error) {
-      
-    console.error('Erro ao adicionar uma consulta:', error);
-  }
+    } catch (error) {
+        
+      console.error('Erro ao adicionar uma consulta:', error);
+    };
+
   };
 
 
