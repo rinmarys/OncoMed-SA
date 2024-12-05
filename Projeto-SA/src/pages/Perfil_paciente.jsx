@@ -342,8 +342,6 @@ function PerfilPaciente() {
     setMostrarPopDeletarPerfil(false);
   };
 
-  };
-
   return (
     <div className="user-container">
       <div className="alinhamento-tituloHamburger">
@@ -438,43 +436,44 @@ function PerfilPaciente() {
           </div >
         </div >
 
-    <div className="container-alinhamento-tres-perfil">
-      <div className="container-foto-usuario">
-        <label>Escolha sua foto de perfil</label>
-        <img src="icon_user.png" alt="foto de usuario" />
-      </div>
+        <div className="container-alinhamento-tres-perfil">
+          <div className="container-foto-usuario">
+            <label>Escolha sua foto de perfil</label>
+            <img src="icon_user.png" alt="foto de usuario" />
+          </div>
 
-      <div className="alinhamento-buttons-perfis">
-        <button className="button-editar-perfis" onClick={editar} disabled={loading}>
-          {editando ? 'SALVAR' : 'EDITAR'}
-        </button>
-        <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
-          DELETAR
-        </button>
-      </div>
-    </div>
+          <div className="alinhamento-buttons-perfis">
+            <button className="button-editar-perfis" onClick={editar} disabled={loading}>
+              {editando ? 'SALVAR' : 'EDITAR'}
+            </button>
+            <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
+              DELETAR
+            </button>
+          </div>
+        </div>
       </div >
 
-    { mostrarPopSalvoPerfil && (
-      <div className="container-PopSalvarPerfilPaciente">
-        <h2 className="FontePopPerfilPacienteSalvo">Salvo com sucesso!</h2>
-        <button className="buttonOkPerfilPaciente" onClick={() => setMostrarPopSalvoPerfil(false)}>OK</button>
-      </div>
-    )
-}
+      {mostrarPopSalvoPerfil && (
+        <div className="container-PopSalvarPerfilPaciente">
+          <h2 className="FontePopPerfilPacienteSalvo">Salvo com sucesso!</h2>
+          <button className="buttonOkPerfilPaciente" onClick={() => setMostrarPopSalvoPerfil(false)}>OK</button>
+        </div>
+      )
+      }
 
-{
-  mostrarPopDeletarPerfil && (
-    <div className="Container-PopPerfilPaciente">
-      <h3 className="FontePopPerfilPaciente">Tem certeza que deseja deletar a sua conta?</h3>
-      <div className="ButtonsPopPerfilPaciente">
-        <button className="buttonDeletarPerfilPaciente" onClick={handleConfirmarDeletar}>SIM</button>
-        <button className="buttonNaoDeletarPerfilPaciente" onClick={handleCancelarDeletar}>NÃO</button>
-      </div>
-    </div>
-  )
-}
+      {
+        mostrarPopDeletarPerfil && (
+          <div className="Container-PopPerfilPaciente">
+            <h3 className="FontePopPerfilPaciente">Tem certeza que deseja deletar a sua conta?</h3>
+            <div className="ButtonsPopPerfilPaciente">
+              <button className="buttonDeletarPerfilPaciente" onClick={handleConfirmarDeletar}>SIM</button>
+              <button className="buttonNaoDeletarPerfilPaciente" onClick={handleCancelarDeletar}>NÃO</button>
+            </div>
+          </div>
+        )
+      }
     </div >
   );
+}
 
 export default PerfilPaciente;
