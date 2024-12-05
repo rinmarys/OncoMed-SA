@@ -11,6 +11,7 @@ import HamburgerMenu from '../components/HamburgerMenuAdmin';
 
 function PerfilPaciente() {
 
+
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext)
   const [nome, setNome] = useState(usuario_logado.nome || '')
   const [email, setEmail] = useState(usuario_logado.email || '')

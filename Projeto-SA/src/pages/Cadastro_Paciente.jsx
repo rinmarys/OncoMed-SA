@@ -1,10 +1,13 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './Cadastro_Paciente.css'
 import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios';
+import emailjs from 'emailjs-com';
 
 function Cadastro_Paciente() {
+
+  const formRef = useRef(); 
 
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
   const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
@@ -161,12 +164,16 @@ function Cadastro_Paciente() {
 
         form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Paciente).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Paciente).svg`;
 
+          const enviar_email = await  emailjs.sendForm('service_0eg4zpm', 'template_bmlda01', formRef.current, 'pMLofLFwNCAInJwVH')
+
           const response = await axios.post('http://localhost:3000/pacientes', form);
 
           if (response.status === 201) {
 
             fetch_pacientes();
             navegacao_de_pagina(`/login`)
+
+            formRef.current.reset();
           };
 
       } catch (error) {
@@ -207,7 +214,7 @@ function Cadastro_Paciente() {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={formRef}>
         <div className='dv_cadastro_paciente'>
 
           <div className='container_img_paciente'>
