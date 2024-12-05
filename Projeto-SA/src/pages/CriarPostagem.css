@@ -301,3 +301,15 @@
     background-color: var(--cor-6);
 }
 /* BOTÕES */
+.imagem-selecionada {
+    margin-top: 20px;
+    
+}
+
+.imagem-preview {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
