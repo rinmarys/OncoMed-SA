@@ -3,9 +3,12 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios'
 import './Perfil_medico.css'
 import HamburgerMenu from '../components/HamburgerMenu'
+import ConfirmarDeletarPopUp from '../components/ConfirmarDeletarPopUp';
+import ConfirmarSalvoPopUp from '../components/ConfirmarSalvoPopUp';
+import { useNavigate } from 'react-router-dom';
 
 function Perfil_medico() {
-  const { usuario_logado, set_usuario_logado } = useContext(GlobalContext)
+  const {usuario_logado, set_usuario_logado } = useContext(GlobalContext)
   const [nomeMedico, setNomeMedico] = useState('');
   const [emailMedico, setEmailMedico] = useState('');
   const [telefoneMedico, setTelefoneMedico] = useState('');
@@ -18,6 +21,7 @@ function Perfil_medico() {
   const [loadingMedico, setLoadingMedico] = useState(false);
   const [errorMed, setErrorMed] = useState('');
 
+  const navigate= useNavigate()
   const [mostrarPopDeletarMedico, setMostrarPopDeletarPerfilMedico] = useState(false);
   const [mostrarPopUpSalvoMedico, setMostrarPopUpSalvoPerfilMedico] = useState(false);
 
@@ -25,32 +29,31 @@ function Perfil_medico() {
   const [estado_do_olinho_confirmar_senha, set_estado_do_olhinho_confirmar_senha]=useState(false)
 
   const toggleSenhaVisivel= () => {
-    set_estado_olinho_senha(!estado_do_olhinho_senha)
-   }
+   set_estado_olinho_senha(!estado_do_olhinho_senha)
+  }
   
-   const toggleConfirmarSenhaVisivel= () => {
-    set_estado_do_olhinho_confirmar_senha(!estado_do_olinho_confirmar_senha)
-   }
-
-
+  const toggleConfirmarSenhaVisivel= () => {
+   set_estado_do_olhinho_confirmar_senha(!estado_do_olinho_confirmar_senha)
+  }
  
   useEffect(() => {
-    const fetchUsuarioMedico = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5173/perfil_medico/${usuario_logado.id_medico}`);
-        const { nomeMedico, emailMedico, telefoneMedico, cepMedico, descricaoMedico } = response.data;
+   const fetchUsuarioMedico = async () => {
+    try {
+    const response = await axios.get(`http://localhost:5173/perfil_medico/${usuario_logado.id_medico}`);
+    const { nomeMedico, emailMedico, telefoneMedico, cepMedico, descricaoMedico } = response.data;
 
-        set_usuario_logado(prev => ({...prev, nome, email, telefone, cep, descricao}))
+    set_usuario_logado(prev => ({...prev, nome, email, telefone, cep, descricao}))
 
-        setNomeMedico(nomeMedico);
-        setEmail(emailMedico);
-        setTelefoneMedico(telefoneMedico);
-        setCepMedico(cepMedico);
-        setDescricaoMedico(descricaoMedico);
-      } catch (err) {
-        console.error(err);
-        setError('Erro ao carregar os dados do usuário');
-      }
+    setNomeMedico(nomeMedico);
+    setEmail(emailMedico);
+    setTelefoneMedico(telefoneMedico);
+    setCepMedico(cepMedico);
+    setDescricaoMedico(descricaoMedico);
+
+    } catch (err) {
+    console.error(err);
+    setError('Erro ao carregar os dados do usuário');
+    }
     };
 
     fetchUsuarioMedico();
@@ -79,12 +82,14 @@ function Perfil_medico() {
       setMostrarPopUpSalvoPerfilMedico(true);
       setEditandoMedico(false);
 
-    } catch (err) {
-      console.error(err);
+     } catch (err) {
+     console.error(err);
       setErrorMed('Falha ao atualizar os dados. Tente novamente.');
-    } finally {
+
+     } finally {
       setLoadingMedico(false);
     }
+    setMostrarPopUpSalvoPerfilMedico(true)
   };
 
   const confirmarDeletarContaMedico=() =>{
@@ -94,25 +99,22 @@ function Perfil_medico() {
   const deletarContaMedico = async () => {
       try {
         await axios.delete(`http://localhost:5173/perfil_medico/${usuario_logado.id_medico}`);
-        window.location.href = '/home';
+       console.log('Conta deletada!')
+       navigate('/')
       } catch (err) {
         console.error(err);
         alert('Falha ao deletar a conta. Tente novamente.');
     }
   };
 
-  const handleConfirmarDeletarMedico=() => {
-    deletarContaMedico()
-    setMostrarPopDeletarPerfilMedico(false)
+  const handleConfirmarDeletarMedico= async () => {
+   await deletarContaMedico()
+   setMostrarPopDeletarPerfilMedico(false)
   }
-    const handleCancelarDeletarMedico=() =>{
-      setMostrarPopDeletarPerfilMedico(false)
-    }
 
-    const fecharPopUpSalvoMedico= () =>{
-    setMostrarPopDeletarPerfilMedico(false)
-    }
-
+  const handleCancelarDeletarMedico=() =>{
+   setMostrarPopDeletarPerfilMedico(false)
+  }
 
   return (
     <div>
@@ -156,7 +158,7 @@ function Perfil_medico() {
             />
 
             <label>CEP</label>
-            <input
+             <input
               type="text"
               placeholder="Digite seu CEP"
               value={cepMedico}
@@ -170,7 +172,7 @@ function Perfil_medico() {
 
           <div className="alinhamento-inputs-medicos">
             <label>Senha</label>
-            <input
+             <input
               type={estado_do_olhinho_senha ? 'text' : 'password'}
               placeholder="Digite sua senha"
               value={senhaMedico}
@@ -184,12 +186,12 @@ function Perfil_medico() {
             style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'233px'}}/>
 
             <label>Confirmar Senha</label>
-            <input
-            type={estado_do_olinho_confirmar_senha ? 'text' : 'password'}
-              placeholder="Confirme sua senha"
-              value={confirmarSenhaMedico}
-              onChange={handleChange(setConfirmarSenhaMedico)}
-              disabled={!editandoMedico}
+             <input
+             type={estado_do_olinho_confirmar_senha ? 'text' : 'password'}
+             placeholder="Confirme sua senha"
+             value={confirmarSenhaMedico}
+             onChange={handleChange(setConfirmarSenhaMedico)}
+             disabled={!editandoMedico}
             />
             <img
               src={estado_do_olinho_confirmar_senha ? 'input_olho_aberto.png':'input_olho_fechado.png'}
@@ -199,7 +201,7 @@ function Perfil_medico() {
             />
 
             <label>Descrição breve</label>
-            <textarea
+             <textarea
               placeholder="Escreva algo sobre você..."
               value={descricaoMedico}
               onChange={handleChange(setDescricaoMedico)}
@@ -225,27 +227,15 @@ function Perfil_medico() {
           </div>
         </div>
       </div>
-      
-      {
-        mostrarPopUpSalvoMedico && (
-          <div className="container-PopSalvarPerfilMedico">
-            <h2 className='FontePopPerfilMedicoSalvo'>Salvo com sucesso!</h2>
-            <button className='buttonOkPerfilMedico' onClick={fecharPopUpSalvoMedico}>OK</button>
-          </div>
-        )
-      }
-      
-      {
-      mostrarPopDeletarMedico &&(
-        <div className='Container-PopPerfilMedico'>
-          <h3 className='FontePopPerfilMedico'>Tem certeza que deseja deletar a sua conta?</h3>
-          <div className='ButtonsPopPerfilMedico'>
-          <button className='buttonDeletarPerfilMedico' onClick={handleConfirmarDeletarMedico}>SIM</button>
-          <button className='buttonNaoDeletarPerfilMedico' onClick={handleCancelarDeletarMedico}>NÃO</button>
-          </div>
-        </div>
-      )
-    }
+      <ConfirmarDeletarPopUp
+     show= {mostrarPopDeletarMedico}
+     onConfirmar= {handleConfirmarDeletarMedico} 
+     onCancelar= {handleCancelarDeletarMedico}
+     titulo="tem certeza que deseja deletar sua conta?"/>
+
+     <ConfirmarSalvoPopUp 
+     show= {mostrarPopUpSalvoMedico} onClose={() => setMostrarPopUpSalvoPerfilMedico(false)}
+     mensagem='Dados atualizados!'/>
     </div>
   );
 }

@@ -92,9 +92,7 @@ function PerfilPaciente() {
     setMostrarPopDSalvoPerfil(true)
   };
 
-  
-
-  const confirmarDeletarConta=() =>{
+  const confirmarDeletarConta=() => {
     setMostrarPopDeletarPerfil(true)
   }
 
@@ -108,6 +106,15 @@ function PerfilPaciente() {
         alert('Falha ao deletar a conta. Tente novamente.');
     }
   };
+
+ const handleConfirmarDeletar = async () => {
+ await deletarConta()
+ setMostrarPopDeletarPerfil(false)
+}
+
+const handleCancelarDeletar= () => {
+ setMostrarPopDeletarPerfil(false)
+}
 
   return (
     <div className="user-container">
@@ -220,27 +227,16 @@ function PerfilPaciente() {
           </div>
         </div>
       </div>
-      
-      {
-        mostrarPopUpSalvoPerfil && (
-          <div className="container-PopSalvarPerfilPaciente">
-            <h2 className='FontePopPerfilPacienteSalvo'>Salvo com sucesso!</h2>
-            <button className='buttonOkPerfilPaciente' onClick={() => setMostrarPopUpSalvoPerfil(false)}>OK</button>
-          </div>
-        )
-      }
-      
-      {
-      mostrarPopDeletarPerfil &&(
-        <div className='Container-PopPerfilPaciente'>
-          <h3 className='FontePopPerfilPaciente'>Tem certeza que deseja deletar a sua conta?</h3>
-          <div className='.ButtonsPopPerfilPaciente '>
-          <button className='buttonDeletarPerfilPaciente' onClick={handleConfirmarDeletar}>SIM</button>
-          <button className='buttonNaoDeletarPerfilPaciente' onClick={handleCancelarDeletar}>NÃO</button>
-          </div>
-        </div>
-      )
-    }
+   
+     <ConfirmarDeletarPopUp
+     show= {mostrarPopDeletarPerfil}
+     onConfirmar= {handleConfirmarDeletar} 
+     onCancelar= {handleCancelarDeletar}
+     titulo="tem certeza que deseja deletar sua conta?"/>
+
+     <ConfirmarSalvoPopUp 
+     show= {mostrarPopSalvoPerfil} onClose={() => setMostrarPopDSalvoPerfil(false)}
+     mensagem='Dados atualizados!'/>
     </div >
   );
 }
