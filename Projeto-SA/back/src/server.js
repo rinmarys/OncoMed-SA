@@ -133,7 +133,7 @@ app.post('/marcarConsulta', async (req, res) => {
     try {
         const result = await pool.query(
 
-            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+            // 'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
 
             'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
 

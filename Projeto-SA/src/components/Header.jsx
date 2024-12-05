@@ -6,16 +6,22 @@ import Pop_up_de_login from './Pop_up_de_login';
 
 function Header() {
 
-  const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
+
+  const {usuario_logado} = useContext(GlobalContext);
+
   const [imagem_de_perfil_do_header, set_imagem_de_perfil_do_header] = useState(`Imagem de Perfil (Default).svg`);
   const {pop_up_de_login, set_pop_up_de_login} = useContext(GlobalContext);
   const navegacao_de_pagina = useNavigate(``);
 
   useEffect(() => {
 
-    usuario_logado.length == 0 ? set_imagem_de_perfil_do_header(`Imagem de Perfil (Default).svg`) : set_imagem_de_perfil_do_header(usuario_logado.imagem_de_perfil); 
+  if(usuario_logado && usuario_logado.imagem_de_perfil_do_header){
+    set_imagem_de_perfil_do_header(usuario_logado.imagem_de_perfil_do_header)
 
-  }, []);
+  }else{
+    set_imagem_de_perfil_do_header('Imagem de Perfil (Default).svg')
+  }
+  } , [usuario_logado]);
 
   return (
     <div>
@@ -36,6 +42,7 @@ function Header() {
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina(`/blog`)} className='nav_bar_link'>BLOG</button>
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina('/historicoConsultas')} className='nav_bar_link'>HISTÓRICO DE CONSULTAS</button>
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina(`/perfilPaciente`)} className='nav_bar_link_perfil'><img src={imagem_de_perfil_do_header} alt="perfil de usuario" /></button>
+
         </nav>
 
         </div>
