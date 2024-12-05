@@ -9,6 +9,8 @@ import './CalendarioMeusAgendamentos.css';
 import Popup_MeusAgendamentos from './Popup_MeusAgendamentos';
 
 function CalendarioMeusAgendamentos({ onDateValidation }) {
+
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [agendamentosDoDia, setAgendamentosDoDia] = useState([]);
 
