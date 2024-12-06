@@ -27,7 +27,7 @@ function PerfilPaciente() {
 
   const navigate = useNavigate()
   const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil] = useState(false)
-  const [mostrarPopSalvoPerfil, setMostrarPopDSalvoPerfil] = useState(false)
+  const [mostrarPopSalvoPerfil, setMostrarPopSalvoPerfil] = useState(false)
 
   const [estado_do_olhinho_senha, set_estado_olinho_senha] = useState(false)
   const [estado_do_olinho_confirmar_senha, set_estado_do_olhinho_confirmar_senha] = useState(false)
@@ -94,7 +94,7 @@ function PerfilPaciente() {
     } finally {
       setLoading(false);
     }
-    setMostrarPopDSalvoPerfil(true)
+    setMostrarPopSalvoPerfil(true)
   };
 
   const confirmarDeletarConta=() => {
@@ -104,7 +104,8 @@ function PerfilPaciente() {
   const deletarConta = async () => {
     try {
       await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`);
-      window.location.href = '/home';
+      console.log('Conta deletada!')
+      navigate('/')
     } catch (err) {
       console.error(err);
       alert('Falha ao deletar a conta. Tente novamente.');
@@ -238,7 +239,7 @@ const handleCancelarDeletar= () => {
      titulo="tem certeza que deseja deletar sua conta?"/>
 
      <ConfirmarSalvoPopUp 
-     show= {mostrarPopSalvoPerfil} onClose={() => setMostrarPopDSalvoPerfil(false)}
+     show= {mostrarPopSalvoPerfil} onClose={() => setMostrarPopSalvoPerfil(false)}
      mensagem='Dados atualizados!'/>
     </div >
   );
