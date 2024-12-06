@@ -5,6 +5,7 @@ import { GlobalContext } from '../contexts/GlobalContext'
 import Pop_up_de_login from './Pop_up_de_login';
 
 function Header() {
+  
   const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
   const [imagem_de_perfil_do_header, set_imagem_de_perfil_do_header] = useState(`Imagem de Perfil (Default).svg`);
   const {pop_up_de_login, set_pop_up_de_login} = useContext(GlobalContext);
@@ -32,23 +33,22 @@ function Header() {
             <div className='dv_imagem_logo'>
               
               <Link to={'/'} className='nav_bar_link_logo'><img src="Logo_SA.png" alt="Logo SA"/></Link>
-            
+
             </div>
 
             {/* Rotas para ir nas telas de perfis */}
            
-            {/* {usuario_logado.id_paiente && (<Link to={'/perfil_paciente'}><img src={imagem_de_perfil_do_header} alt="perfil de usuario" /> */}
-            {/* </Link>)} */}
-            {/* {usuario_logado.id_medico && (<Link to={'/perfil_medico'}><img src={imagem_de_perfil_do_header} alt="perfil de usuario" /> */}
-            {/* </Link>)} */}
-           
+            {usuario_logado.id_paiente && (<Link to={'/perfil_paciente'}><img src={imagem_de_perfil_do_header} alt="perfil de usuario" />
+            </Link>)}
+            {usuario_logado.id_medico && (<Link to={'/perfil_medico'}><img src={imagem_de_perfil_do_header} alt="perfil de usuario" />
+            </Link>)}
+
 
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina(`/marcarConsulta`)} className='nav_bar_link'>MARCAR CONSULTA</button>
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina(`/meusAgendamentos`)}className='nav_bar_link'>AGENDAMENTOS</button>
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina(`/blog`)} className='nav_bar_link'>BLOG</button>
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina('/historicoConsultas')} className='nav_bar_link'>HISTÓRICO DE CONSULTAS</button>
             <button onClick={() => usuario_logado.length == 0 ? set_pop_up_de_login(true) : navegacao_de_pagina(`/perfil_paciente`)} className='nav_bar_link_perfil'><img src={imagem_de_perfil_do_header} alt="perfil de usuario" /></button>
-
 
         </nav>
 
