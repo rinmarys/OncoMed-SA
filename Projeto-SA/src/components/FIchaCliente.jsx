@@ -1,67 +1,53 @@
-// import { Link } from "react-router-dom"
-// import './FichaCliente.css'
+// import React from 'react';
+// GTJHUMR4NGTKV
+// import './FichaCliente.css';
 
-// function FichaCliente() {
+// function FichaCliente({ onClose, consulta }) {
+
+  // const [listaHistoricoConsulta, setListaHistoricoConsulta] = useState([])
+
+  // const fetch_marcarConsulta = async () => {
+  //   try {
+  //     const response = await axios.get('http://localhost:3000/marcarconsulta');
+  //     setListaHistoricoConsulta(response.data);
+  //   } catch (error) {
+  //     console.error('Erro ao buscar marcarconsulta:', error);
+  //   }
+  // };
+
+  // useEffect(() => {
+
+  //   fetch_marcarConsulta()
+
+  // })
+
+//   if (!consulta) return null;
 
 //   return (
 //     <div className="fichacliente">
-
-// <div className="consulta-solicitada-ficha">
-//                     <div className="alinhamento-solicitacao-nome-horario-tipo-data-ficha">
-//                         <div className="nome-tipo-solicitacao-ficha">
-//                             <h1 className='nome-pessoa-solicitacao-ficha' >MARILENE JUSSARA PESSOA</h1>
-//                             <h2 className='tipo-consulta-solicitacao-ficha' >MAMOGRAFIA</h2>
-//                         </div>
-//                         <div className="data-horario-solicitacao-ficha">
-//                             <h2 className='data-solicitacao-ficha' >09/12/2024</h2>
-//                             <h2 className='horario-consulta-solicitacao-ficha' >12:30</h2>
-//                         </div>
-//                     </div>
-//                     <h2 className='observacao-solicitacao-titulo-ficha' >OBSERVAÇÃO</h2>
-//                     <h3 className='observacao-solicitacao-cliente-ficha' >tenho medo mto medo, meu bcacjkjhdsakh socosadjaukjsdhkj a a a  ja aiii</h3>
-//                     <div className="designar-botoes-solicitacao-ficha">  {/* tirar dps */}
-//                         <div className="botoes-solicitacao-ficha">
-//                             <button className='botao-cancela-ficha'>CANCELAR</button>
-//                             <button className='botao-ok-ficha' >OK</button>
-//                         </div>
-//                     </div>
-//                 </div>
-
+//       <div className="fichacliente">
+//         <div className="consulta-solicitada-ficha">
+//           <div className="alinhamento-solicitacao-nome-horario-tipo-data-ficha">
+//             <div className="nome-tipo-solicitacao-ficha">
+//               <h1 className='nome-pessoa-solicitacao-ficha'>{consulta.paciente_nome}</h1>
+//               <h2 className='tipo-consulta-solicitacao-ficha'>{consulta.tipo_consulta}</h2>
+//             </div>
+//             <div className="data-horario-solicitacao-ficha">
+//               <h2 className='data-solicitacao-ficha'>{consulta.data_agendamento.slice(0, 10)}</h2>
+//               <h2 className='horario-consulta-solicitacao-ficha'>{consulta.horario.slice(0, 5)}</h2>
+//             </div>
+//           </div>
+//           <h2 className='observacao-solicitacao-titulo-ficha'>OBSERVAÇÃO</h2>
+//           <h3 className='observacao-solicitacao-cliente-ficha'>{consulta.observacao || "Sem observações"}</h3>
+//           <div className="designar-botoes-solicitacao-ficha">
+//             <div className="botoes-solicitacao-ficha">
+//               <button className='botao-ok-ficha' onClick={onClose}>OK</button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
 //     </div>
-//   )
+//   );
 // }
 
-// export default FichaCliente
-
-// FichaCliente.js
-import React from 'react';
-import './FichaCliente.css';
-
-function FichaCliente({ onClose }) {
-  return (
-    <div className="fichacliente">
-      <div className="consulta-solicitada-ficha">
-        <div className="alinhamento-solicitacao-nome-horario-tipo-data-ficha">
-          <div className="nome-tipo-solicitacao-ficha">
-            <h1 className='nome-pessoa-solicitacao-ficha'>MARILENE JUSSARA PESSOA</h1>
-            <h2 className='tipo-consulta-solicitacao-ficha'>MAMOGRAFIA</h2>
-          </div>
-          <div className="data-horario-solicitacao-ficha">
-            <h2 className='data-solicitacao-ficha'>09/12/2024</h2>
-            <h2 className='horario-consulta-solicitacao-ficha'>12:30</h2>
-          </div>
-        </div>
-        <h2 className='observacao-solicitacao-titulo-ficha'>OBSERVAÇÃO</h2>
-        <h3 className='observacao-solicitacao-cliente-ficha'>tenho medo muito medo, meu bcacjkjhdsakh socosadjaukjsdhkj a a a já aiii</h3>
-        <div className="designar-botoes-solicitacao-ficha">
-          <div className="botoes-solicitacao-ficha">
-            {/* <button className='botao-cancela-ficha' onClick={onClose}>CANCELAR</button> */}
-            <button className='botao-ok-ficha' onClick={onClose}>OK</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default FichaCliente;
+// export default FichaCliente;

@@ -143,7 +143,7 @@
 .horario-data-alinhamento {
     display: flex;
     justify-content: space-between;
-    width: 12%;
+    width: 12vw;
     margin-right: 20px;
     align-items: center;
 }

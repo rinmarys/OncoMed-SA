@@ -35,7 +35,7 @@ function Popup_MeusAgendamentos({ selectedDate, agendamentosDoDia }) {
           {consultasDoDia.map((consulta, index) => (
             <div key={index} className="cada-agendamento-meusagendamentos">
               <div className="todas-infos-meusagendamentos">
-                <h1 className="medico-meusagendamentos">Dr. {consulta.medico}</h1>
+                <h1 className="medico-meusagendamentos"> {consulta.medico ? consulta.medico : 'Médico não designado'}</h1>
                 <div className="tipo-horario-meusagendamentos">
                   <h2 className="tipo-consulta-meusagendamentos">{consulta.tipo_consulta}</h2>
                   <h2 className="horario-meusagendamentos">{consulta.horario.slice(0,5)}</h2>
