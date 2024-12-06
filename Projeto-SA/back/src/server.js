@@ -98,13 +98,18 @@ app.delete('/pacientes/:id', async (req, res) => {
 
 app.get('/marcarConsulta', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM marcarConsulta');
+        const result = await pool.query(`
+            SELECT marcarConsulta.*, pacientes.nome AS paciente_nome
+            FROM marcarConsulta
+            JOIN pacientes ON marcarConsulta.id_paciente = pacientes.id_paciente
+        `);
         res.json(result.rows);
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ error: 'Erro ao buscar marcarConsulta' });
     }
 });
+
 
 app.get('/marcarConsulta/:id', async (req, res) => {
     const { id } = req.params;
