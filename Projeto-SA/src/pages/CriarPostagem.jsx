@@ -97,26 +97,26 @@ function CriarPostagem() {
                                     <img src={imagemSelecionada} alt="Imagem escolhida" className="imagem-preview" />
                                 </div>
                             )}
-<div className='Container-InputTitulo'>
-                            {/* Título do post */}
-                            <h2 className="titles-categoriaTags">Titulo</h2>
-                            <input 
-                                value={valorTitulo} 
-                                onChange={e => setValorTitulo(e.target.value)} 
-                                type="text" 
-                                className='input-titulo-artigo' 
-                                
-                            />
-</div>
+                            <div className='Container-InputTitulo'>
+                                {/* Título do post */}
+                                <h2 className="titles-categoriaTags">Titulo</h2>
+                                <input
+                                    value={valorTitulo}
+                                    onChange={e => setValorTitulo(e.target.value)}
+                                    type="text"
+                                    className='input-titulo-artigo'
+
+                                />
+                            </div>
                             {/* Conteúdo */}
                             <h2 className="titles-categoriaTags">Descricao</h2>
-                            <textarea 
-                                value={valorDescricao} 
-                                onChange={e => setValorDescricao(e.target.value)} 
-                                name="textArea" 
-                                cols="30" 
-                                rows="17" 
-                                placeholder='Conteúdo do artigo' 
+                            <textarea
+                                value={valorDescricao}
+                                onChange={e => setValorDescricao(e.target.value)}
+                                name="textArea"
+                                cols="30"
+                                rows="17"
+                                placeholder='Conteúdo do artigo'
                                 className='input-autor-artigo'
                             ></textarea>
                         </div>

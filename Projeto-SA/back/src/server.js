@@ -62,13 +62,13 @@ app.post('/pacientes', async (req, res) => {
 
 app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil } = req.body;
+    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, telefone, imagem_de_perfil } = req.body;
     try {
         const result = await pool.query(
 
-            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8 WHERE id_paciente = $1 RETURNING *',
+            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, telefone = $8, imagem_de_perfil = $9 WHERE id_paciente = $10 RETURNING *',
 
-            [nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, id]
+            [nome, cpf, cep, email, genero, data_de_nascimento, senha, telefone, imagem_de_perfil, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Paciente não encontrado' });
@@ -155,34 +155,52 @@ app.post('/marcarConsulta', async (req, res) => {
 });
 
 app.put('/marcarConsulta/:id', async (req, res) => {
-
     const { id } = req.params;
-    const { data_agendamento, tipo_consulta, horario, observacoes, id_paciente } = req.body;
+    const { medico_designado } = req.body; // Captura el médico asignado
 
     try {
         const result = await pool.query(
-
-            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, medico_designado = $5, id_paciente = $6 WHERE id = $1 RETURNING *',
-
-            [data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente, id]
-
-            [data_agendamento, tipo_consulta, horario, observacoes, id_paciente, id]
-
+            'UPDATE marcarConsulta SET medico_designado = $1 WHERE id_consulta = $2 RETURNING *',
+            [medico_designado, id]
         );
+
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'marcarConsulta não encontrado' });
+            return res.status(404).json({ error: 'Consulta não encontrada' });
         }
+
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ error: 'Erro ao atualizar marcarConsulta' });
+        res.status(500).json({ error: 'Erro ao atualizar consulta' });
     }
 });
+
+// app.put('/marcarConsulta/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const { medico_designado } = req.body; // Captura el médico asignado
+
+//     try {
+//         // Actualizar el médico asignado y marcar la consulta como confirmada (puedes agregar un campo para esto si es necesario)
+//         const result = await pool.query(
+//             'UPDATE marcarConsulta SET medico_designado = $1, status = $2 WHERE id_consulta = $3 RETURNING *',
+//             [medico_designado, 'confirmada', id]  // Suponiendo que 'status' sea un campo para marcar el estado de la consulta
+//         );
+
+//         if (result.rows.length === 0) {
+//             return res.status(404).json({ error: 'Consulta não encontrada' });
+//         }
+
+//         res.json(result.rows[0]);
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).json({ error: 'Erro ao atualizar consulta' });
+//     }
+// });
 
 app.delete('/marcarConsulta/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('DELETE FROM marcarConsulta WHERE id = $1 RETURNING *', [id]);
+        const result = await pool.query('DELETE FROM marcarConsulta WHERE id_consulta = $1 RETURNING *', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Consulta não encontrada' });
         }
@@ -195,7 +213,6 @@ app.delete('/marcarConsulta/:id', async (req, res) => {
         res.status(500).json({ error: 'Erro interno ao deletar consulta' });
     }
 });
-
 
 // Médicos
 
