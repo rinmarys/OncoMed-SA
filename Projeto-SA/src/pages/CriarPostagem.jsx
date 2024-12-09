@@ -97,39 +97,10 @@ function CriarPostagem() {
                                     <img src={imagemSelecionada} alt="Imagem escolhida" className="imagem-preview" />
                                 </div>
                             )}
-<<<<<<< HEAD
-<div className='Container-InputTitulo'>
-                            {/* TÍTULO POST*/}
-                            <h2 className="titles-titleTags">Titulo</h2>
-                            <input 
-                                value={valorTitulo} 
-                                onChange={e => setValorTitulo(e.target.value)} 
-                                type="text" 
-                                className='input-titulo-artigo' 
-                                
-                            />
-</div>
-                        {/* AUTOR */}
-                        <div className="alinhamento-container-tres">
-                            <h2 className="titles-autorTags">Autor</h2>
-                            <textarea value={valorAutor} onChange={e => setValorAutor(e.target.value)}  ></textarea>
-                        </div>
-                        </div>
 
-                            {/* CONTEÚDO */}
-                            <h2 className="titles-descricaoTags">Descricao</h2>
-                            <textarea 
-                                value={valorDescricao} 
-                                onChange={e => setValorDescricao(e.target.value)} 
-                                name="textArea" 
-                                cols="30" 
-                                rows="17" 
-                                placeholder='Conteúdo do artigo' 
-                                className='input-descricao-artigo'
-=======
                             <div className='Container-InputTitulo'>
-                                {/* Título do post */}
-                                <h2 className="titles-categoriaTags">Titulo</h2>
+                                {/* TÍTULO POST*/}
+                                <h2 className="titles-titleTags">Titulo</h2>
                                 <input
                                     value={valorTitulo}
                                     onChange={e => setValorTitulo(e.target.value)}
@@ -138,18 +109,45 @@ function CriarPostagem() {
 
                                 />
                             </div>
-                            {/* Conteúdo */}
-                            <h2 className="titles-categoriaTags">Descricao</h2>
-                            <textarea
-                                value={valorDescricao}
-                                onChange={e => setValorDescricao(e.target.value)}
-                                name="textArea"
-                                cols="30"
-                                rows="17"
-                                placeholder='Conteúdo do artigo'
-                                className='input-autor-artigo'
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
-                            ></textarea>
+                            {/* AUTOR */}
+                            <div className="alinhamento-container-tres">
+                                <h2 className="titles-autorTags">Autor</h2>
+                                <textarea value={valorAutor} onChange={e => setValorAutor(e.target.value)}  ></textarea>
+                            </div>
+                        </div>
+
+                        {/* CONTEÚDO */}
+                        <h2 className="titles-descricaoTags">Descricao</h2>
+                        <textarea
+                            value={valorDescricao}
+                            onChange={e => setValorDescricao(e.target.value)}
+                            name="textArea"
+                            cols="30"
+                            rows="17"
+                            placeholder='Conteúdo do artigo'
+                            className='input-descricao-artigo'></textarea>
+
+                        <div className='Container-InputTitulo'>
+                            {/* Título do post */}
+                            <h2 className="titles-categoriaTags">Titulo</h2>
+                            <input
+                                value={valorTitulo}
+                                onChange={e => setValorTitulo(e.target.value)}
+                                type="text"
+                                className='input-titulo-artigo'
+                            />
+                        </div>
+                        {/* Conteúdo */}
+                        <h2 className="titles-categoriaTags">Descricao</h2>
+                        <textarea>
+                            value={valorDescricao}
+                            onChange={e => setValorDescricao(e.target.value)}
+                            name="textArea"
+                            cols="30"
+                            rows="17"
+                            placeholder='Conteúdo do artigo'
+                            className='input-autor-artigo'
+                        </textarea>
 
                         {/* BOTÕES */}
                         <div className="alinhamento-buttons">

@@ -6,6 +6,12 @@ function Popup_MeusAgendamentos({ selectedDate, agendamentosDoDia }) {
   const [isOpen, setIsOpen] = useState(false);
   const [consultasDoDia, setConsultasDoDia] = useState([]);
   const [consultaId, setConsultaId] = useState('')
+  const onConsultaCancelada = (idCancelada) => {
+    setConsultasDoDia((prevConsultas) =>
+      prevConsultas.filter((consulta) => consulta.id_consulta !== idCancelada)
+    );
+  };
+
 
   const handleOpenPopup = (id) => {
     setConsultaId(id);
@@ -82,6 +88,7 @@ const handleClosePopup = () => {
           onClose={handleClosePopup}
           consultaId={consultaId}
           fetch_marcarConsulta={fetch_marcarConsulta}
+          onConsultaCancelada={onConsultaCancelada}
         />
       )}
     </div>

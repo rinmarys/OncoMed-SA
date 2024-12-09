@@ -75,9 +75,10 @@ function CancelarConsultaAdmin({ onClose, consultaId }) {
                             <label>Confirme sua senha</label>
                             <input
                                 type="password"
-                                placeholder='****'
+                                placeholder='Digite a sua senha'
                                 value={senhaAdministrador}
                                 onChange={(event) => setSenhaAdministrador(event.target.value)}
+                                minLength={7} maxLength={12}
                             />
                         </div>
 

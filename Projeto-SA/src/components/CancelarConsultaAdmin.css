@@ -74,13 +74,20 @@
 }
 
 .inputs input {
-    border: 1.5px solid var(--cor_10);
-    width: 18vw;
-    height: 2.5vw;
-    font-size: 1.2vw;
-    border-radius: 1vh;
-    background-color: var(--cor_6);
-    color: var(--cor_10);
+    box-sizing: border-box;
+    
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
+    
+    font-size: 1vw;
+    font-family: var(--tipografia_secundaria);
+    
+    background: var(--cor_tres);
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
+    
+    color: var(--cor_cinco);
 }
 
 .inputs input:focus {

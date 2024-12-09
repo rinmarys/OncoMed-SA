@@ -181,17 +181,10 @@ function Perfil_paciente() {
     localStorage.removeItem('usuario_logado')
     sessionStorage.removeItem('usuario_logado')
 
-<<<<<<< HEAD
-=======
     navigate('/')
-
-  navigate('/')
-
 }
 
   // Deletar conta
-
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
   return (
     <div>
       <div className="conteudo-perfil">
@@ -252,8 +245,7 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
-<<<<<<< HEAD
-        <div className="container-alinhamento-tres-perfil">
+        {/* <div className="container-alinhamento-tres-perfil">
           <div className="container-foto-usuario">
             <label>Escolha sua foto de perfil</label>
             <img src="icon_user.png" alt="foto de usuario" />
@@ -289,8 +281,8 @@ function Perfil_paciente() {
           </div>
         )
       }
-    </div >
-=======
+    </div > */}
+
             <label>Gênero</label>
             <select disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, genero: e.target.value })}>
@@ -325,7 +317,6 @@ function Perfil_paciente() {
         </div>
       </div>
     </div>
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
   );
 }
 
