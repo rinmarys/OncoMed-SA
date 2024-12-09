@@ -11,13 +11,13 @@
 
 .pop-up-cancelar-consulta {
     width: fit-content;
-    background-color: #eeeeee;
-    padding: 3%;
+    background-color: var(--cor-4);
+    padding: 3.5vw;
     width: 860px;
     border-radius: 15px;
     border: 2px solid var(--cor-6);
-    margin-left: 11%;
-    margin-bottom: 55px;
+    margin-left: 10vw;
+    margin-top: -1vw;
     position: fixed;
     left: 8%;
     top: 11%;
@@ -99,23 +99,23 @@
 }
 
 .botoes-telaCancelarConsulta {
-    margin-top: 30px;
+    margin-top: 5vw; 
 }
 
 .cancelar-consulta-botao-telaCancelarConsulta {
     width: fit-content;
-    font-size: larger;
+    font-size: 1.1vw;
     color: var(--cor-4);
     border-radius: 10px;
     padding: 5px;
     padding-right: 15px;
     padding-left: 15px;
-    width: 180px;
+    width: 15vw;
     height: 45px;
     cursor: pointer;
     border: none;
-    font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
     background-color: var(--cor-6);
 }
 
@@ -137,11 +137,11 @@
     padding: 5px;
     padding-right: 15px;
     padding-left: 15px;
-    width: 180px;
+    width: 8vw;
     height: 45px;
     cursor: pointer;
     border: none;
-    font-size: 13px;
+    font-size: 1.1vw;
     font-weight: bold;
     background-color: var(--cor-2);
     margin-left: 15px;

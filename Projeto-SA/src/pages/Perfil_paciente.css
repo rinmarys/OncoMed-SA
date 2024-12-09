@@ -63,10 +63,10 @@
 }
 
 .button-editar-perfil {
-    border: 1.5px solid var(--azul_escuro);
+    border: none;
     height: 2.5vw;
-    background-color: var(--branco_gelo);
-    color: var(--azul_escuro);
+    background-color: var(--verde_meio_termo);
+    color: var(--branco_gelo);
     font-size: 1vw;
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
@@ -76,14 +76,14 @@
 
 .button-editar-perfil:hover {
     cursor: pointer;
-    background-color: var(--azul_escuro);
+    background-color: var(--verde_escuro);
     color: var(--branco_gelo);
     transition: 0.3s;
 }
 
 .button-editar-perfil:not(:hover) {
-    background-color: var(--branco_gelo);
-    color: var(--azul_escuro);
+    background-color: var(--verde_meio_termo);
+    color: var(--quase_branco);
     transition: 0.3s;
 }
 
