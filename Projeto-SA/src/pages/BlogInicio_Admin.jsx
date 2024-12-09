@@ -1,83 +1,61 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Footer from '../components/Footer'
 import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin'
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
 import { GlobalContext } from '../contexts/GlobalContext'
-import { useEffect } from 'react'
 import axios from 'axios'
 import './BlogInicio_Admin.css'
-import { useState } from 'react'
 
 function BlogInicio_Admin() {
 
     const [mostrarPopDeletar, setMostrarPopDeletar] = useState(false)
-    const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
+    const [blogIdParaDeletar, setBlogIdParaDeletar] = useState(null) // Para armazenar o ID do blog a ser deletado
+    const { registroBlog, setRegistroBlog } = useContext(GlobalContext)
 
-
-    function buttonDeletar() {
-
-        setMostrarPopDeletar(true)
-
+    function buttonDeletar(id) {
+        setBlogIdParaDeletar(id); // Armazenando o ID do blog a ser deletado
+        setMostrarPopDeletar(true);
     }
+
     function naoDeletarBlog() {
-
-        setMostrarPopDeletar(false)
+        setMostrarPopDeletar(false);
+        setBlogIdParaDeletar(null); // Limpando o ID ao cancelar
     }
-   
 
-    let o;
-
-//   for (let i = 0 ; i < registroBlog.length; i++){
-
-//     if (registroBlog[i].id == informacoesBlog.id){
-    
-//         o = registroBlog[i].id;
-//     }
-//   }
-    // FUNÇÃO PARA DELETAR BLOGS
+    // Função para deletar o blog
     const deleteBlog = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:3000/blog/${o}`);
-            // const response = await axios.delete(`http://localhost:3000/blog/${id}`);
+            const response = await axios.delete(`http://localhost:3000/blog/${id}`);
             if (response.status === 200) {
                 fetchBlog(); // Atualiza a lista do blog após a exclusão
+                setMostrarPopDeletar(false);
             }
         } catch (error) {
             console.error('Erro ao deletar Blog:', error);
         }
     };
 
-    const fetchBlog = async ( ) => {
-
-
+    const fetchBlog = async () => {
         try {
-            const resposta = await axios.get ('http://localhost:3000/blog')
-            setRegistroBlog (resposta.data)
+            const resposta = await axios.get('http://localhost:3000/blog')
+            setRegistroBlog(resposta.data)
         } catch (err) {
             console.error('Erro ao buscar tabela do blog ;(', err)
-    
         }
     }
-        useEffect( () => {
-    
-            fetchBlog()
-            
-        }, []) 
 
-
+    useEffect(() => {
+        fetchBlog()
+    }, [])
 
     return (
         <div>
-
             <div className="blog-alinhamento">
-
                 <div className="alinhamento-hamburger">
                     <HamburgerMenuAdmin />
                 </div>
 
                 <div className="alinhamentoTudo-gerenciarPostagens">
-                    {/* Titulo */}
                     <div className="titulo-admin">
                         <div>
                             <h1>GERENCIAR POSTAGENS DO BLOG</h1>
@@ -86,58 +64,43 @@ function BlogInicio_Admin() {
                         <Link to='/criarPostagem' className='link-addNew'> <img src="Add New.svg" alt="Adicionar artigo" /> </Link>
                     </div>
 
-                    {/* Titulo */}
-
-                    {/* Artigos do blog */}
                     <div className="artigos-alinhamento">
 
+                        <div className="consultas-solicitacao">
+                            {registroBlog.length > 0 ? (
+                                registroBlog.map((informacoesBlog) => (
+                                    <div className="container-artigos" key={informacoesBlog.id}>
+                                   <Link to='/criarPostagem'> <img src={informacoesBlog.imagem} alt="Evento especial Nutrição" /> </Link> 
+                                        <div className='alinhamento-texto'>
+                                            <div className="button-container">
+                                                <button className='button-deletar' onClick={() => buttonDeletar(informacoesBlog.id)}>
+                                                    <img src="Trash.svg" alt="Deletar artigo" />
+                                                </button>
+                                            </div>
+                                            <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                                            <p className='doutores-blog'>{informacoesBlog.autor}</p>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Infelizmente ainda não há postagens! :(</p>
+                            )}
+                        </div>
 
-                       
 
-
-
-                    {/* POP UP NOVO BLOG */}
-                   <div className="consultas-solicitacao">
-    {registroBlog.length > 0 ? (
-        registroBlog.map((informacoesBlog) => (
-            <div className="container-artigos" key={informacoesBlog.id}>
-                <img src={informacoesBlog.imagem}alt="Evento especial Nutrição"/>
-
-                <div className='alinhamento-texto'>
-                    <div className="button-container">
-                        <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                     </div>
 
-                    <p className='titulos-artigos' value='valorTitulo'>{informacoesBlog.titulo}</p>
-                    <p className='doutores-blog'>{informacoesBlog.autor}</p>
-                </div>
-            </div>
-        ))
-    ) : (
-        // Não renderiza nada quando registroBlog estiver vazio
-      null
-    )}
-</div>
-                     
-
-                      
-                    </div>
-
-                    {/* POP UP BLOG BUTTON DELETAR */}
-                    {mostrarPopDeletar && (
+                    {/* Pop-up de confirmação de exclusão */}
+                    {mostrarPopDeletar && blogIdParaDeletar && (
                         <div className='Container-PopUpBlog'>
                             <h2 className='FontePopUpBlog'>Deseja mesmo deletar este arquivo?</h2>
                             <div className='ButtonsPopUpBlog'>
                                 <button className='buttonNaoDeletar' onClick={naoDeletarBlog}>NÃO</button>
-                                <button className='buttonDeletar' onClick={() =>deleteBlog (registroBlog.id)}>SIM</button>
+                                <button className='buttonDeletar' onClick={() => deleteBlog(blogIdParaDeletar)}>SIM</button>
                             </div>
                         </div>
                     )}
-
-
                 </div>
-                {/* Artigos do blog */}
-          
                 <Footer />
             </div>
         </div>

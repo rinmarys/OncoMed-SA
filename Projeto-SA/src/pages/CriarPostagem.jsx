@@ -13,12 +13,14 @@ function CriarPostagem() {
 
     // Dados do blog
     const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
+    const {blogRecente, setblogRecente} = useContext(GlobalContext);
 
-    // Lista de imagens disponíveis (exemplo de URLs)
+    // Lista de imagens disponíveis 
     const imagensDisponiveis = [
         { id: 1, nome: 'Imagem 1', caminho: 'breakfast 1.png' },
         { id: 2, nome: 'Imagem 2', caminho: 'Meditation.svg' },
         { id: 3, nome: 'Imagem 3', caminho: 'Alimentacao.svg' },
+        { id: 4, nome: 'imagem 4', caminho: 'Doctor.svg'},
     ];
 
     // Função para buscar blogs do banco de dados
@@ -49,6 +51,7 @@ function CriarPostagem() {
             const enviarInformacoes = await axios.post('http://localhost:3000/blog', informacoesBlog);
             if (enviarInformacoes.status === 201) {
                 fetchBlog();
+                setblogRecente(informacoesBlog)
                 setValorAutor('');
                 setValorDescricao('');
                 setValorTitulo('');
@@ -97,7 +100,7 @@ function CriarPostagem() {
                                     <img src={imagemSelecionada} alt="Imagem escolhida" className="imagem-preview" />
                                 </div>
                             )}
-<<<<<<< HEAD
+
 <div className='Container-InputTitulo'>
                             {/* TÍTULO POST*/}
                             <h2 className="titles-titleTags">Titulo</h2>
@@ -116,8 +119,10 @@ function CriarPostagem() {
                         </div>
                         </div>
 
+<div className='alinhamento-container-2'>
+    <div className=''></div>
                             {/* CONTEÚDO */}
-                            <h2 className="titles-descricaoTags">Descricao</h2>
+                            <h2 className="titles-descricaoTags">Conteúdo</h2>
                             <textarea 
                                 value={valorDescricao} 
                                 onChange={e => setValorDescricao(e.target.value)} 
@@ -126,29 +131,7 @@ function CriarPostagem() {
                                 rows="17" 
                                 placeholder='Conteúdo do artigo' 
                                 className='input-descricao-artigo'
-=======
-                            <div className='Container-InputTitulo'>
-                                {/* Título do post */}
-                                <h2 className="titles-categoriaTags">Titulo</h2>
-                                <input
-                                    value={valorTitulo}
-                                    onChange={e => setValorTitulo(e.target.value)}
-                                    type="text"
-                                    className='input-titulo-artigo'
 
-                                />
-                            </div>
-                            {/* Conteúdo */}
-                            <h2 className="titles-categoriaTags">Descricao</h2>
-                            <textarea
-                                value={valorDescricao}
-                                onChange={e => setValorDescricao(e.target.value)}
-                                name="textArea"
-                                cols="30"
-                                rows="17"
-                                placeholder='Conteúdo do artigo'
-                                className='input-autor-artigo'
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
                             ></textarea>
 
                         {/* BOTÕES */}
@@ -158,6 +141,7 @@ function CriarPostagem() {
                                 <button className='cancelar-button'>CANCELAR</button>
                             </div>
                         </div>
+</div>
                     </div>
                 </div>
             </form>

@@ -96,6 +96,7 @@
     display: flex;
     flex-direction: column;
     border:1px solid rgb(179, 61, 61);
+    width: 40vw;
 }
 
 .alinhamento-categoriaTags {
@@ -112,15 +113,10 @@
     margin-right: 0vw;
     width: 45vw;
 }
-.titles-titleTags {
-    color: var(--cor-2);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    width: fit-content;
-    border:1px solid rgb(179, 61, 61);
+/* .titles-titleTags {
+  
    
-}
+} */
 
 .input-titulo-artigo {
     border: none;
@@ -149,15 +145,18 @@
 /* INPUT AUTOR ARTIGO */
 
 .alinhamento-container-tres{
-    border:1px solid rgb(130, 115, 218);
+    border:1px solid rgb(119, 218, 115);
+    margin-left: 44vw;
     width: 600px;
 }
 
 .alinhamento-container-tres textarea {
     border: 2px solid #48537F;
     background-color: var(--cor-4);
-    width: 100px;
+    width: 40VW;
+    height: 3vw;
     border-radius: 5px;
+    margin-top: -3vw;
    
 }
 
@@ -245,7 +244,9 @@
     align-items: center;
     justify-items: center;
 }
+.input-descricao-artigo{
 
+}
 .salvar-rascunho-button{
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
@@ -331,3 +332,23 @@
     border-radius: 5px;
 }
 
+.alinhamento-container-2{
+    border: 2px solid #797f48;
+}
+.alinhamento-conteudo{
+    border: 2px solid #52487f;
+    width: 79vw;
+    height: 30vw;
+    margin-left: 5vw;
+    
+}
+.input-descricao-artigo{
+    width: 78.8vw;
+    height: 30vw;
+}
+.inserirImagem{
+    border: 2px solid #e782da;
+    width: 30vw;
+   margin-left: 5vw;
+   margin-top: 5vw;
+}

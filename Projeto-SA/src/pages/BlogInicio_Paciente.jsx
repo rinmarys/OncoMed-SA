@@ -1,10 +1,27 @@
-import React from 'react'
-import Header from '../components/Header'
-import './BlogInicio_Paciente.css'
+import React, { useState, useContext, useEffect } from 'react'
+
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../contexts/GlobalContext'
+import axios from 'axios'
 
 function BlogInicio() {
+
+  const { registroBlog, setRegistroBlog } = useContext(GlobalContext)
+
+  const fetchBlog = async () => {
+    try {
+        const resposta = await axios.get('http://localhost:3000/blog')
+        setRegistroBlog(resposta.data)
+    } catch (err) {
+        console.error('Erro ao buscar tabela do blog ;(', err)
+    }
+}
+
+useEffect(() => {
+    fetchBlog()
+}, [])
   return (
     <div>
       <Header />
@@ -21,46 +38,24 @@ function BlogInicio() {
         {/* Artigos do blog */}
         <div className="artigos-alinhamento">
 
-          <Link to="/conteudoBlog" className='link-decoration'>
-            <div className="container-artigos">
-              <img src="Doctor.svg" alt="Doutor" />
-              <div className="alinhamento-texto">
-                <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
-                <p className='doutores-blog'>por Doutor Mauricio Campos</p>
-              </div>
+<div className="consultas-solicitacao">
+    {registroBlog.length > 0 ? (
+        registroBlog.map((informacoesBlog) => (
+            <div className="container-artigos" key={informacoesBlog.id}>
+           <Link to='/conteudoBlog'> <img src={informacoesBlog.imagem} alt="Evento especial Nutrição" /> </Link> 
+                <div className='alinhamento-texto'>
+                    <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                    <p className='doutores-blog'>{informacoesBlog.autor}</p>
+                </div>
             </div>
-          </Link>
+        ))
+    ) : (
+        <p>Infelizmente ainda não há postagens! :(</p>
+    )}
+</div>
 
-          <div className="container-artigos">
-            <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
 
-            <div className='alinhamento-texto'>
-              <p className='titulos-artigos'>Como a sua alimentação afeta no desenvolvimento contra o câncer?</p>
-              <p className='doutores-blog'>por Nutricionista Mara Fernandez</p>
-            </div>
-          </div>
-
-          <div className="container-artigos">
-            <img src="DireitosLegais.svg" alt="Mantenha-se informado" />
-
-            <div className='alinhamento-texto'>
-              <p className='titulos-artigos'>Por que é tão importante manter-se informado? Direitos legais
-                para pacientes oncológicos.</p>
-              <p className='doutores-blog'>por Porto, Severino e Cunha ADV</p>
-            </div>
-          </div>
-
-          <div className="container-artigos">
-            <img src="Meditation.svg" alt="Meditação" />
-
-            <div className="alinhamento-texto">
-              <p className='titulos-artigos'>O psicologico é importante?
-                Veja aqui!</p>
-              <p className='doutores-blog'>por Psicologa Vannessa Suarez</p>
-            </div>
-          </div>
-
-        </div>
+</div>
         {/* Artigos do blog */}
 
         <Footer />
