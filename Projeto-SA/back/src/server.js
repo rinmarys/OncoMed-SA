@@ -252,13 +252,13 @@ app.post('/medicos', async (req, res) => {
     }
 });
 
-app.put('/pacientes/:id', async (req, res) => {
+app.put('/medicos/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
 
-            'UPDATE medicos SET nome = $2, cpf = $3, crm = $4, email = $5, genero = $6, data_de_nascimento = $7, senha = $8, imagem_de_perfil = $9, telefone = $10 WHERE id_medico = $1 RETURNING *',
+            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8, telefone = $9 WHERE id_medico = $10 RETURNING *',
 
             [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, id]
         );
