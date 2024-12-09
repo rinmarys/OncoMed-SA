@@ -150,7 +150,6 @@ function Login() {
             genero: lista_de_medicos[i].genero,
             data_de_nascimento: lista_de_medicos[i].data_de_nascimento,
             imagem_de_perfil: lista_de_medicos[i].imagem_de_perfil
-
           });
 
           navegacao_de_pagina(`/`);

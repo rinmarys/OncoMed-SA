@@ -241,19 +241,13 @@ import HamburgerMenu from '../components/HamburgerMenu';
 import { GlobalContext } from '../contexts/GlobalContext';
 import './Perfil_paciente.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Perfil_paciente() {
   const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
   const [editando, setEditando] = useState(false);
-
-  // useEffect(() => {
-  //   if (usuario_logado.length !== 0) {
-  //     set_imagem_de_perfil_do_header(usuario_logado.imagem_de_perfil);
-  //   } else {
-  //     set_imagem_de_perfil_do_header('Imagem de Perfil (Default).svg');
-  //   }
-  // }, [usuario_logado]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Solo actualiza la imagen cuando `usuario_logado` esté disponible y tenga el valor de género
@@ -267,6 +261,7 @@ function Perfil_paciente() {
   }, [usuario_logado]);
 
   // Función para salvar los datos al backend
+  // Editar dados
   const salvarDados = async () => {
     try {
       const response = await axios.put(
@@ -284,6 +279,40 @@ function Perfil_paciente() {
       alert("Não foi possível atualizar os dados. Tente novamente.");
     }
   };
+  // Editar dados
+
+  // Sair da conta
+  const sairDaConta = () => {
+    set_usuario_logado({})
+
+    localStorage.removeItem('usuario_logado')
+    sessionStorage.removeItem('usuario_logado')
+
+    navigate('/')
+  }
+  // Sair da conta
+
+  // Deletar conta
+  const deletarConta = async () => {
+    try {
+      console.log('Haciendo solicitud DELETE para deletar la cuenta');
+      const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
+      console.log('Respuesta de delete:', response);
+
+  } catch (error) {
+      console.error('Erro ao cancelar consulta:', error);
+  }
+
+  set_usuario_logado({})
+
+    localStorage.removeItem('usuario_logado')
+    sessionStorage.removeItem('usuario_logado')
+
+    navigate('/')
+
+  navigate('/')
+  }
+  // Deletar conta
 
   return (
     <div>
@@ -314,9 +343,11 @@ function Perfil_paciente() {
                 {editando ? "SALVAR" : "EDITAR"}
               </button>
 
-              <button className="button-sair-perfil">SAIR DA CONTA</button>
+              <button className="button-sair-perfil"
+              onClick={sairDaConta}>SAIR DA CONTA</button>
 
-              <button className="button-deletar-perfil">DELETAR CONTA</button>
+              <button className="button-deletar-perfil"
+              onClick={deletarConta}>DELETAR CONTA</button>
             </div>
           </div>
 
