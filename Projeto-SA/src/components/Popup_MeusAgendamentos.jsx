@@ -6,7 +6,6 @@ import { GlobalContext } from "../contexts/GlobalContext";
 
 function Popup_MeusAgendamentos({ selectedDate }) {
   const [consultasDoDia, setConsultasDoDia] = useState([]);
-<<<<<<< HEAD
   const [consultaId, setConsultaId] = useState('')
   const onConsultaCancelada = (idCancelada) => {
     setConsultasDoDia((prevConsultas) =>
@@ -14,11 +13,9 @@ function Popup_MeusAgendamentos({ selectedDate }) {
     );
   };
 
-=======
   const [listaDeMedicos, setListaDeMedicos] = useState([]);
   const [listaDePacientes, setListaDePacientes] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [consultaId, setConsultaId] = useState("");
   const { usuario_logado } = useContext(GlobalContext);
 
   // Função para buscar consultas
@@ -99,7 +96,6 @@ function Popup_MeusAgendamentos({ selectedDate }) {
 
     return false;
   });
->>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
 
   const handleOpenPopup = (id) => {
     setConsultaId(id);
@@ -123,8 +119,8 @@ function Popup_MeusAgendamentos({ selectedDate }) {
                 {/* Renderiza o nome do médico ou paciente */}
                 <h1 className="medico-meusagendamentos">
                   {usuario_logado.id_paciente
-                    ? getMedicoNome(consulta.medico_designado) 
-                    : getPacienteNome(consulta.id_paciente)} 
+                    ? getMedicoNome(consulta.medico_designado)
+                    : getPacienteNome(consulta.id_paciente)}
                 </h1>
                 <div className="tipo-horario-meusagendamentos">
                   <h2 className="tipo-consulta-meusagendamentos">{consulta.tipo_consulta}</h2>

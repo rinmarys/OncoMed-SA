@@ -8,18 +8,18 @@ import { useNavigate } from 'react-router-dom';
 function Perfil_paciente() {
   const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
   const [tipo_do_input_senha, set_tipo_do_senha] = useState(`password`);
-  
+
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
-  const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
-  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
+  const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
+  const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
 
   const [cep_ou_crm, set_cep_ou_crm] = useState(``);
   const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
   const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
 
-  const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
-  const [mostrarPopUpSalvo, setMostrarPopUpSalvoPerfil] = useState(false);
+  // const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
+  // const [mostrarPopUpSalvo, setMostrarPopUpSalvoPerfil] = useState(false);
 
 
   const navigate = useNavigate()
@@ -37,7 +37,7 @@ function Perfil_paciente() {
 
   useEffect(() => {
 
-    editando ? set_tipo_do_senha(`text`) : set_tipo_do_senha(`password`); 
+    editando ? set_tipo_do_senha(`text`) : set_tipo_do_senha(`password`);
   }, [editando]);
 
   useEffect(() => {
@@ -49,9 +49,9 @@ function Perfil_paciente() {
 
   useEffect(() => {
 
-    for(let i = 0; i < lista_de_medicos.length; i ++){
+    for (let i = 0; i < lista_de_medicos.length; i++) {
 
-      if(lista_de_medicos[i].email == usuario_logado.email){
+      if (lista_de_medicos[i].email == usuario_logado.email) {
 
         set_paciente_ou_medico_titulo(`MÉDICO`);
       } else {
@@ -63,9 +63,9 @@ function Perfil_paciente() {
 
   useEffect(() => {
 
-    for(let i = 0; i < lista_de_pacientes.length; i++){
+    for (let i = 0; i < lista_de_pacientes.length; i++) {
 
-      if(lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email){
+      if (lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email) {
 
         set_cep_ou_crm(`CEP`);
         set_valor_inpt_cep_ou_crm(usuario_logado.cep);
@@ -73,9 +73,9 @@ function Perfil_paciente() {
       };
     };
 
-    for(let i = 0; i < lista_de_medicos.length; i++){
+    for (let i = 0; i < lista_de_medicos.length; i++) {
 
-      if(lista_de_medicos[i].nome == usuario_logado.nome && lista_de_medicos[i].email == usuario_logado.email){
+      if (lista_de_medicos[i].nome == usuario_logado.nome && lista_de_medicos[i].email == usuario_logado.email) {
 
         set_cep_ou_crm(`CRM`);
         set_valor_inpt_cep_ou_crm(usuario_logado.crm);
@@ -113,57 +113,57 @@ function Perfil_paciente() {
   const salvarDados = async () => {
     try {
 
-       const usuario_atualizado = await { ...usuario_logado, [usuario_logado.crm ? 'crm' : 'cep'] : valor_inpt_cep_ou_crm };
+      const usuario_atualizado = await { ...usuario_logado, [usuario_logado.crm ? 'crm' : 'cep']: valor_inpt_cep_ou_crm };
 
-      for(let i = 0; i < lista_de_pacientes.length; i++){
+      for (let i = 0; i < lista_de_pacientes.length; i++) {
 
-        if(lista_de_pacientes[i].id_paciente == usuario_atualizado.id_paciente){
+        if (lista_de_pacientes[i].id_paciente == usuario_atualizado.id_paciente) {
 
           const response = await axios.put(
             `http://localhost:3000/pacientes/${usuario_atualizado.id_paciente}`,
             usuario_atualizado
-            );
-            
-            if (response.status === 200) {
-              alert("Dados atualizados com sucesso!");
-              setEditando(false);
+          );
 
-              set_usuario_logado(usuario_atualizado);
-            
-              fetch_pacientes();
-            } else {
-              throw new Error("Erro ao atualizar os dados.");
-            }
-          };
+          if (response.status === 200) {
+            alert("Dados atualizados com sucesso!");
+            setEditando(false);
+
+            set_usuario_logado(usuario_atualizado);
+
+            fetch_pacientes();
+          } else {
+            throw new Error("Erro ao atualizar os dados.");
+          }
         };
+      };
 
-        for(let i = 0; i < lista_de_medicos.length; i++){
+      for (let i = 0; i < lista_de_medicos.length; i++) {
 
-          if(lista_de_medicos[i].id_medico == usuario_atualizado.id_medico){
-  
-            const response = await axios.put(
-              `http://localhost:3000/medicos/${usuario_atualizado.id_medico}`,
-              usuario_atualizado
-              );
-              
-              if (response.status === 200) {
-                alert("Dados atualizados com sucesso!");
-                setEditando(false);
+        if (lista_de_medicos[i].id_medico == usuario_atualizado.id_medico) {
 
-                set_usuario_logado(usuario_atualizado);
+          const response = await axios.put(
+            `http://localhost:3000/medicos/${usuario_atualizado.id_medico}`,
+            usuario_atualizado
+          );
 
-                fetch_medicos();
-              } else {
-                throw new Error("Erro ao atualizar os dados.");
-              }
-            };
-          };
+          if (response.status === 200) {
+            alert("Dados atualizados com sucesso!");
+            setEditando(false);
+
+            set_usuario_logado(usuario_atualizado);
+
+            fetch_medicos();
+          } else {
+            throw new Error("Erro ao atualizar os dados.");
+          }
+        };
+      };
     } catch (error) {
       console.error("Erro ao salvar os dados:", error);
       alert("Não foi possível atualizar os dados. Tente novamente.");
     }
   };
- 
+
   const sairDaConta = () => {
     set_usuario_logado({})
 
@@ -178,24 +178,18 @@ function Perfil_paciente() {
       console.log('Haciendo solicitud DELETE para deletar la cuenta');
       const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
       console.log('Respuesta de delete:', response);
-    
+      navigate('/')
+
     } catch (error) {
       console.error('Erro ao cancelar consulta:', error);
     }
-   } 
+  }
 
-    localStorage.removeItem('usuario_logado')
-    sessionStorage.removeItem('usuario_logado')
-
-<<<<<<< HEAD
-    navigate('/')
-}
+  localStorage.removeItem('usuario_logado')
+  sessionStorage.removeItem('usuario_logado')
 
   // Deletar conta
   return (
-=======
-   return (
->>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
     <div>
       <div className="conteudo-perfil">
         <div className="alinhamento-titulo-perfil">
@@ -226,10 +220,10 @@ function Perfil_paciente() {
               </button>
 
               <button className="button-sair-perfil"
-              onClick={sairDaConta}>SAIR DA CONTA</button>
+                onClick={sairDaConta}>SAIR DA CONTA</button>
 
               <button className="button-deletar-perfil"
-              onClick={deletarConta}>DELETAR CONTA</button>
+                onClick={deletarConta}>DELETAR CONTA</button>
             </div>
           </div>
 
@@ -255,11 +249,10 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
-<<<<<<< HEAD
-        {/* <div className="container-alinhamento-tres-perfil">
-=======
+
+            {/* <div className="container-alinhamento-tres-perfil">
         <div className="container-alinhamento-tres-perfil">
->>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
+        >>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
           <div className="container-foto-usuario">
             <label>Escolha sua foto de perfil</label>
             <img src="icon_user.png" alt="foto de usuario" />
@@ -274,7 +267,6 @@ function Perfil_paciente() {
             </button>
           </div>
         </div>
-<<<<<<< HEAD
       </div >
 
       {mostrarPopSalvoPerfil && (
@@ -330,22 +322,20 @@ function Perfil_paciente() {
               onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
           </div>
         </div>
-=======
->>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
       </div>
 
-      <ConfirmarDeletarPopUp
-     show= {mostrarPopDeletar} onClose={() => setMostrarPopDeletarPerfil(false)}
-     onConfirmar= {handleConfirmarDeletar} 
-     onCancelar= {handleCancelar}
-     titulo="tem certeza que deseja deletar sua conta?"/>
+      {/* <ConfirmarDeletarPopUp
+      show={mostrarPopDeletar} onClose={() => setMostrarPopDeletarPerfil(false)}
+      onConfirmar={handleConfirmarDeletar}
+      onCancelar={handleCancelar}
+      titulo="tem certeza que deseja deletar sua conta?" />
 
-     <ConfirmarSalvoPopUp 
-     show= {mostrarPopUpSalvo} onClose={() => setMostrarPopUpSalvoPerfil(false)}
-     mensagem='Dados atualizados!'/>
+    <ConfirmarSalvoPopUp
+      show={mostrarPopUpSalvo} onClose={() => setMostrarPopUpSalvoPerfil(false)}
+      mensagem='Dados atualizados!' /> */}
     </div>
-    </div>
-    </div>
+
+
   );
 }
 

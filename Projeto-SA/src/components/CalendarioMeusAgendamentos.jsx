@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import FullCalendar from '@fullcalendar/react';
+import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -9,7 +9,6 @@ import './CalendarioMeusAgendamentos.css';
 import Popup_MeusAgendamentos from './Popup_MeusAgendamentos';
 
 function CalendarioMeusAgendamentos({ onDateValidation }) {
-
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [agendamentosDoDia, setAgendamentosDoDia] = useState([]);
