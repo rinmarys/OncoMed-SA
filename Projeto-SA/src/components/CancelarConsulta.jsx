@@ -1,37 +1,87 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import './CancelarConsulta.css'
+import { GlobalContext } from '../contexts/GlobalContext'
+import axios from 'axios'
 
-function CancelarConsulta({ onClose }) {
+function CancelarConsulta({ onClose, consultaId }) {
+
+  const [emailPaciente, setEmailPaciente] = useState('')
+  const [senhaPaciente, setSenhaPaciente] = useState('')
+  const [mensagemErroCancelarConsultaPaciente, setMensagemErroCancelarConsultaPaciente] = useState('')
+  const { usuario_logado } = useContext(GlobalContext);
+  const [consultaCancelada, setConsultaCancelada] = useState(false);
+
+  const cancelarConsultaPaciente = async () => {
+    if (!emailPaciente || !senhaPaciente) {
+      setMensagemErroCancelarConsultaPaciente("Por favor, preencha todos os dados!");
+      return;
+    }
+    if (emailPaciente !== usuario_logado.email || senhaPaciente !== usuario_logado.senha) {
+      setMensagemErroCancelarConsultaPaciente('Dados incorretos, tente novamente!');
+      return;
+    }
+    try {
+      console.log('Haciendo solicitud DELETE para cancelar la consulta');
+      const response = await axios.delete(`http://localhost:3000/marcarConsulta/${consultaId}`);
+      console.log('Respuesta de la cancelación:', response);
+
+      // Si la respuesta es exitosa
+      if (response.status === 200) {
+        setConsultaCancelada(true);
+        setMensagemErroCancelarConsultaPaciente('Consulta cancelada com sucesso!');
+        onClose(); // Cerrar el popup
+      } else {
+        setMensagemErroCancelarConsultaPaciente('Erro ao cancelar consulta, tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro ao cancelar consulta:', error);
+      setMensagemErroCancelarConsultaPaciente('Erro ao cancelar consulta, tente novamente.');
+    }
+  };
+
   return (
     <div className='pop-up-cancelar-consulta'>
 
       <h1 className='cancelar-consulta-titulo'>CANCELAR CONSULTA</h1>
 
       <div className="alinhar-imagem-telaCancelarConsulta">
-        <div className="inputs-cancelar-div">
-          <div className="input-cancelar-consulta">
-            <label htmlFor="">Confirme seu CPF</label>
-            <input placeholder='000.000.000-00' type="text" />
+        <div className="inputs-cancelarConsultaAdmin">
+          <h3>Você tem certeza de que deseja cancelar esta consulta?</h3>
+
+          <div className="inputs">
+            <label>Confirme seu Email</label>
+            <input
+              type="text"
+              placeholder='email@gmail.com'
+              value={emailPaciente}
+              onChange={(event) => setEmailPaciente(event.target.value)}
+            />
           </div>
 
-          <div className="input-cancelar-consulta">
-            <label htmlFor="">Confirme seu Email</label>
-            <input placeholder='seuemail@gmail.com' type="text" />
-          </div>
-
-          <div className="input-cancelar-consulta">
-            <label htmlFor="">Confirme sua Senha</label>
-            <input placeholder='suasenha123' type="text" />
+          <div className="inputs">
+            <label>Confirme sua senha</label>
+            <input
+              type="password"
+              placeholder='Digite a sua senha'
+              value={senhaPaciente}
+              onChange={(event) => setSenhaPaciente(event.target.value)}
+            />
           </div>
 
           <div className='botoes-telaCancelarConsulta'>
-            <button className='cancelar-consulta-botao-telaCancelarConsulta'>CANCELAR CONSULTA</button>
+            <button className='cancelar-consulta-botao-telaCancelarConsulta' onClick={cancelarConsultaPaciente}>CANCELAR CONSULTA</button>
             <button className='sair-botao-telaCancelarConsulta' onClick={onClose} >SAIR</button>
           </div>
+
+        </div>
+        <div className="alinhamento-img-cancelarConsultaAdmin">
+          <img src="imagem-cancelar-consulta.svg" alt="Imagem de cancelar consulta" />
         </div>
       </div>
 
-      <img className='imagem-cancelar-consulta' src="bonequinho-cancela.svg" alt="" />
+      <div className="mensagemErro-CancelarConsultaAdmin">
+        {mensagemErroCancelarConsultaPaciente}
+      </div>
 
     </div>
 
