@@ -1,33 +1,54 @@
-import React, { useState, useContext } from 'react'
-import './CancelarConsultaAdmin.css'
-import { GlobalContext } from "../contexts/GlobalContext";
+import React, { useState, useEffect } from 'react';
+import './CancelarConsultaAdmin.css';
+import axios from 'axios';
 
+function CancelarConsultaAdmin({ onClose, consultaId }) {
+    const [usuario_administrador, set_usuario_administrador] = useState({});
+    const [emailAdministrador, setEmailAdministrador] = useState('');
+    const [senhaAdministrador, setSenhaAdministrador] = useState('');
+    const [mensagemErroCancelarConsultaAdmin, setMensagemErroCancelarConsultaAdmin] = useState('');
+    const [consultaCanceladaAdmin, setConsultaCanceladaAdmin] = useState(false);
 
-function CancelarConsultaAdmin({ onClose }) {
-    const { usuario_administrador } = useContext(GlobalContext)
-    const [emailAdministrador, setEmailAdministrador] = useState()
-    const [senhaAdministrador, setSenhaAdministrador] = useState()
+    useEffect(() => {
+        const fetch_admin = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/admin');
+                set_usuario_administrador(response.data[0]); // Asume que hay un único administrador
+            } catch (error) {
+                console.error('Erro ao buscar administrador:', error);
+            }
+        };
+        fetch_admin();
+    }, []);
 
-    const [mensagemErroCancelarConsultaAdmin, setMensagemErroCancelarConsultaAdmin] = useState('')
-
-    const [consultaCanceladaAdmin, setConsultaCanceladaAdmin] = useState(false)
-
-    function CancelarConsultaAdmin_popUp() {
-
-        if (!emailAdministrador) {
-            setMensagemErroCancelarConsultaAdmin("Por favor, insira seu email!")
-
+    const cancelarConsulta = async () => {
+        if (!emailAdministrador || !senhaAdministrador) {
+            setMensagemErroCancelarConsultaAdmin("Por favor, preencha todos os dados!");
+            return;
         }
-        if (!senhaAdministrador) {
-            setMensagemErroCancelarConsultaAdmin("Por favor, insira sua senha!")
-
-        } if (emailAdministrador != usuario_administrador.email && senhaAdministrador != usuario_administrador.senha) {
-            setMensagemErroCancelarConsultaAdmin('Dados incorretos, tente novamente!')
-
-        } else {
-            setConsultaCanceladaAdmin(true)
+        if (emailAdministrador !== usuario_administrador.email || senhaAdministrador !== usuario_administrador.senha) {
+            setMensagemErroCancelarConsultaAdmin('Dados incorretos, tente novamente!');
+            return;
         }
-    }
+        try {
+            console.log('Haciendo solicitud DELETE para cancelar la consulta');
+            const response = await axios.delete(`http://localhost:3000/marcarConsulta/${consultaId}`);
+            console.log('Respuesta de la cancelación:', response);
+
+            // Si la respuesta es exitosa
+            if (response.status === 200) {
+                setConsultaCanceladaAdmin(true);
+                setMensagemErroCancelarConsultaAdmin('Consulta cancelada com sucesso!');
+                onClose(); // Cerrar el popup
+            } else {
+                setMensagemErroCancelarConsultaAdmin('Erro ao cancelar consulta, tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro ao cancelar consulta:', error);
+            setMensagemErroCancelarConsultaAdmin('Erro ao cancelar consulta, tente novamente.');
+        }
+    };
+    
 
     return (
         <div className='alinhamentoTudo-cancelarConsultaAdmin'>
@@ -42,24 +63,26 @@ function CancelarConsultaAdmin({ onClose }) {
 
                         <div className="inputs">
                             <label>Confirme seu Email</label>
-                            <input type="text"
+                            <input
+                                type="text"
                                 placeholder='email@gmail.com'
                                 value={emailAdministrador}
-                                onChange={(event) => { setEmailAdministrador(event.target.value) }}
+                                onChange={(event) => setEmailAdministrador(event.target.value)}
                             />
                         </div>
 
                         <div className="inputs">
                             <label>Confirme sua senha</label>
-                            <input type="password"
-                                placeholder='********'
+                            <input
+                                type="password"
+                                placeholder='****'
                                 value={senhaAdministrador}
-                                onChange={(event) => { setSenhaAdministrador(event.target.value) }}
+                                onChange={(event) => setSenhaAdministrador(event.target.value)}
                             />
                         </div>
 
                         <div className="alinhamento-buttons">
-                            <button className='style-button-CancelarConsultaAdmin' onClick={CancelarConsultaAdmin_popUp}>CANCELAR CONSULTA</button>
+                            <button className='style-button-CancelarConsultaAdmin' onClick={cancelarConsulta} type='button'>CANCELAR CONSULTA</button>
                             <button className='style-button-SairConsultaAdmin' onClick={onClose}>SAIR</button>
                         </div>
                     </div>
@@ -74,7 +97,7 @@ function CancelarConsultaAdmin({ onClose }) {
 
             </div>
         </div>
-    )
+    );
 }
 
-export default CancelarConsultaAdmin
+export default CancelarConsultaAdmin;

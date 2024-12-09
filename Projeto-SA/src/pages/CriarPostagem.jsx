@@ -97,6 +97,7 @@ function CriarPostagem() {
                                     <img src={imagemSelecionada} alt="Imagem escolhida" className="imagem-preview" />
                                 </div>
                             )}
+<<<<<<< HEAD
 <div className='Container-InputTitulo'>
                             {/* TÍTULO POST*/}
                             <h2 className="titles-titleTags">Titulo</h2>
@@ -125,6 +126,29 @@ function CriarPostagem() {
                                 rows="17" 
                                 placeholder='Conteúdo do artigo' 
                                 className='input-descricao-artigo'
+=======
+                            <div className='Container-InputTitulo'>
+                                {/* Título do post */}
+                                <h2 className="titles-categoriaTags">Titulo</h2>
+                                <input
+                                    value={valorTitulo}
+                                    onChange={e => setValorTitulo(e.target.value)}
+                                    type="text"
+                                    className='input-titulo-artigo'
+
+                                />
+                            </div>
+                            {/* Conteúdo */}
+                            <h2 className="titles-categoriaTags">Descricao</h2>
+                            <textarea
+                                value={valorDescricao}
+                                onChange={e => setValorDescricao(e.target.value)}
+                                name="textArea"
+                                cols="30"
+                                rows="17"
+                                placeholder='Conteúdo do artigo'
+                                className='input-autor-artigo'
+>>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
                             ></textarea>
 
                         {/* BOTÕES */}

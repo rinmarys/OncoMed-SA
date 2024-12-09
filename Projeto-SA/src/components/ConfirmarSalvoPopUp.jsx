@@ -1,14 +1,14 @@
 import React from 'react'
 
-function ConfirmarSalvoPopUp() {
-const popUpSalvo =({mensagem, onClose, show}) => {
-    if(!show) return null
-}
+function ConfirmarSalvoPopUp ({
+ mensagem, onClose, show 
+}){
+  if(!show) return null
+
   return (
     <div className='popUpSalvoComSucesso'>
         <div className='popUp-container-salvo'>
-        <h3>Salvo com sucesso!</h3>
-        <p>{mensagem}</p>
+        <h3>{mensagem}</h3>
         <button className='container-OK' onClick={onClose}>OK</button>
         </div>
     </div>

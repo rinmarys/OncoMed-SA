@@ -10,9 +10,9 @@ function Login() {
   const [valor_inpt_nome, set_valor_inpt_nome] = useState('');
   const [valor_inpt_email, set_valor_inpt_email] = useState('');
   const [valor_inpt_senha, set_valor_inpt_senha] = useState('');
-  const [pop_up_aberto, set_pop_aberto] = useState(false);
   const [mensagem_de_erro, set_mensagem_de_erro] = useState('');
-
+  
+  const { pop_aberto, set_pop_aberto } = useContext(GlobalContext);
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
   const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
   const { usuario_administrador, set_usuario_administrador } = useContext(GlobalContext);
@@ -96,7 +96,7 @@ function Login() {
 
     constructor(nome_do_usuario, email_do_usuario, senha_do_usuario) {
 
-      this.nome = nome_do_usuario,
+        this.nome = nome_do_usuario,
         this.email = email_do_usuario,
         this.senha = senha_do_usuario
 
@@ -127,7 +127,8 @@ function Login() {
             cep: lista_de_pacientes[i].cep,
             genero: lista_de_pacientes[i].genero,
             data_de_nascimento: lista_de_pacientes[i].data_de_nascimento,
-            imagem_de_perfil: lista_de_pacientes[i].imagem_de_perfil
+            imagem_de_perfil: lista_de_pacientes[i].imagem_de_perfil,
+            telefone: lista_de_pacientes[i].telefone
 
           });
 
@@ -141,7 +142,7 @@ function Login() {
 
           set_usuario_logado({
 
-            id_medico: lista_de_medicos[i].id,
+            id_medico: lista_de_medicos[i].id_medico,
             nome: this.nome,
             email: this.email,
             senha: this.senha,
@@ -149,13 +150,18 @@ function Login() {
             crm: lista_de_medicos[i].crm,
             genero: lista_de_medicos[i].genero,
             data_de_nascimento: lista_de_medicos[i].data_de_nascimento,
-            imagem_de_perfil: lista_de_medicos[i].imagem_de_perfil
-
+            imagem_de_perfil: lista_de_medicos[i].imagem_de_perfil,
+            telefone: lista_de_medicos[i].telefone
           });
 
           navegacao_de_pagina(`/`);
         };
       };
+
+      useEffect(() => {
+
+        pop_aberto ? set_imagem_olinho(``) : set_imagem_olinho(`input_olho_fechado.png`)
+      }, []);
 
       set_mensagem_de_erro(`Usuário ou senha incorretos!`);
     };
@@ -172,7 +178,7 @@ function Login() {
 
       <div className="container_informacoes_login">
 
-        {pop_up_aberto && <Pop_up />}
+        {pop_aberto && <Pop_up />}
 
         <div className="titulo_login">
 

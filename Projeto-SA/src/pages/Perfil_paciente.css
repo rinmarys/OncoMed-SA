@@ -1,384 +1,196 @@
 :root {
-    --cor_azul_escuro: #1D2A62;
-    --cor_azul_claro: #87AECE;
-    --cor_quase_branco: #fdfdfd;
-    --cor_verde_meio_termo: #437118;
-    --cor_verde_claro: #AFD06E;
-    --cor_azul_meio_termo: #3b4fa7;
-    --cor_branco_gelo: #F5F5F5;
-    --cor_verde_escuro: #629136;
-    --cor_verde_escurao: #2e500e;
+    --azul_escuro: #1D2A62;
+    --azul_claro: #87AECE;
+    --quase_branco: #fdfdfd;
+    --verde_meio_termo: #437118;
+    --verde_claro: #AFD06E;
+    --azul_meio_termo: #3b4fa7;
+    --branco_gelo: #F5F5F5;
+    --verde_escuro: #629136;
+    --verde_escurao: #2e500e;
 }
 
-/* Alinhamento titulo-hamburger */
-.alinhamento-tituloHamburger {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Alinhamento hamburger */
-.alinhamento-hamburger-perfilPaciente {
-    margin-top: 40px;
-    margin-right: 40px;
-}
-
-
-/* Titulo */
-.nav_container {
-    display: flex;
-    flex-direction: column;
+.titulo-perfil {
     width: fit-content;
-    margin-left: 8%;
-    padding-top: 3%;
+    margin-top: 4vw;
+    margin-left: 6vw;
 }
 
-.nav_container h1 {
-    width: 525px;
-    height: 76px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 38px;
-    color: var(--cor_azul_escuro);
+.line-perfil {
+    width: 5vw;
+    height: 0.7vw;
+    background-color: var(--verde_claro);
+    border-radius: 2vw;
+    margin-top: -1.2vw;
 }
 
-.faixa_verde {
-    width: 70px;
-    height: 6px;
-    left: 10%;
-    margin-top: -10%;
-    background-color: var(--cor_verde_claro);
-    border-radius: 5px;
+.line-perfil:hover {
+    width: 9vw;
+    transition: 0.4s;
 }
 
-/* estilizações e posições das informações do usuário */
-.name_user p {
-    font-family: "poppins", sans-serif;
-    color: var(--cor_verde_escurao);
-    font-weight: bold;
-    font-size: 25px;
-
-    margin-left: 70%;
-    margin-top: 4%;
+.line-perfil:not(:hover) {
+    width: 5vw;
+    transition: 0.4s;
 }
 
-.posicao_container {
-    display: block;
-    margin-top: 6%;
-    width: 500px;
+.hamburger-alinhamento {
+    margin-top: -5.6vw;
+    margin-right: 3vw;
 }
 
-.info_container input {
-    box-sizing: border-box;
-    width: 325px;
-    height: 40px;
-    border-radius: 7px;
-    border: 1px solid var(--cor_azul_escuro);
-    background-color: var(--cor_branco_gelo);
-    outline: none;
-    margin-top: 1%;
-}
-
-.info_container input:focus {
-    border-color: var(--cor_azul_claro);
-}
-
-.info_container label {
-    font-family: "poppins", sans-serif;
-    font-size: 20px;
-    color: var(--cor_verde_meio_termo);
-    margin-top: 8%;
-    display: block;
-    font-weight: 480;
-}
-
-.info_container select {
-    box-sizing: border-box;
-    width: 325px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid var(--cor_azul_escuro);
-    color: var(--cor_verde_escuro);
-    background-color: var(--cor_branco_gelo);
-    outline: none;
-    margin-top: 1%;
-}
-
-.info_container select:focus {
-    border-color: var(--cor_azul_claro);
-
-}
-
-/* Caixinha de texto/biografia */
-.textArea-perfis {
-    width: 25vw;
-    height: 10.4vw;
-    background: var(--cor_branco_gelo);
-    border: 1px solid var(--cor_azul_escuro);
-    outline: none;
-    border-radius: 5px;
-}
-
-.textArea-perfis:focus {
-    border-color: var(--cor_azul_claro);
-}
-
-/* posicao placehober */
-#placeholder_text::placeholder {
-    top: 9%;
-    left: 3%;
-    font-size: medium;
-}
-
-
-.estilizacao_icon img {
-    width: 300px;
-    height: auto;
-    margin-top: -5%;
-}
-
-
-/* Alinhamentos */
-.container-alinhamento-dois-perfil {
-    margin-right: 10vw;
-    width: 700px;
+.alinhamento-containers-perfil {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-.container-alinhamento-um-perfil {
-    width: 84%;
-    margin: 0 auto;
-    margin-top: 1vw;
-    display: flex;
-    justify-content: space-between;
-}
-
-.alinhamento-inputs-perfis {
-    display: flex;
-    flex-direction: column;
+.container-um-perfil {
     width: fit-content;
-}
-
-.alinhamento-inputs-perfis label {
-    font-family: "poppins", sans-serif;
-    font-size: 20px;
-    color: var(--cor_verde_meio_termo);
-    margin-top: 2.7vw;
-    display: block;
-    font-weight: 480;
-}
-
-.alinhamento-inputs-perfis input {
-    box-sizing: border-box;
-    width: 325px;
-    height: 40px;
-    border-radius: 7px;
-    border: 1px solid var(--cor_azul_escuro);
-    background-color: var(--cor_branco_gelo);
-    outline: none;
-    margin-top: 1%;
-}
-
-.alinhamento-inputs-perfis input:focus {
-    border-color: var(--cor_azul_claro);
-}
-
-.icone-olhinho-aberto img{
-    width: 20px;
-    height: 20px;
-}
-
-.icone-olhinho-fechado img{
-    width: 20px;
-    height: 20px;
-}
-
-.container-alinhamento-tres-perfil {
-    display: flex;
-    flex-direction: column; 
-    margin-top: 1vw;
-}
-
-.container-foto-usuario label {
-    font-family: "poppins", sans-serif;
-    font-size: 20px;
-    color: var(--cor_verde_meio_termo);
-    margin-top: 8%;
-    display: block;
-    font-weight: 480;
-}
-
-.container-foto-usuario img {
-    width: 19vw;
-    height: auto;
-    margin-top: -2vw;
-}
-
-.alinhamento-buttons-perfis{
     display: flex;
     flex-direction: column;
-    height: 14vh;
-    
-    justify-content: center;
-    align-items: center;
-
-    justify-content: space-between; 
+    margin-left: 12.6vw;
+    margin-top: 4vw;
 }
 
-.button-editar-perfis{
-    border: none;
-    background-color: var(--cor_azul_escuro);
-    color: var(--cor_quase_branco);
+.container-um-perfil img {
     width: 15vw;
-    height: 5vh;
-    font-weight: 800;
-    font-family: 'Nunito', sans-serif;
-    border-radius: 0.6vw;
+    height: auto;
 }
 
-.button-editar-perfis:hover{
-    background-color: #455392;
-    transition: 0.4s;
-}
-
-.button-editar-perfis:not(:hover){
-    background-color: var(--cor_azul_escuro);
-    transition: 0.4s;
-}
-
-/* Pops ups perfil paciente */
-
-.container-PopSalvarPerfilPaciente {
-    top: 20vw;
-    left: 35vw;
-    position: absolute;
-    background-color: #f1f1f1;
-    height: 10vw;
-    position: fixed;
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    border-radius: 2vw;
-}
-
-.FontepPopSalvarPerfilPaciente h3{
-    color: #1D2A62;
-    font-family: 'nunito', sans-serif ;
-    font-size: 1.6vw;
-    margin: 1.2vw;
-}
-
-.buttonPopSalvarPerfilPaciente {
+.buttons-alinhamento {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 2vw;
 }
 
-.buttonOkPerfilPaciente {
+.button-editar-perfil {
+    border: none;
+    height: 2.5vw;
+    background-color: var(--verde_meio_termo);
+    color: var(--branco_gelo);
+    font-size: 1vw;
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    height: 2.7vw;
-    width: 12vw;
-    border: none;
-    border-radius: 15px;
-    background-color: #437118;
-    color: #F5F5F5;
-}
-
-.buttonOkPerfilPaciente:hover {
-    transition: 0.4s;
-    background-color: #345516;
-    color: #F5F5F5;
-}
-
-.buttonOkPerfilPaciente:not(:hover){
-    transition: 0.4s;
-    background-color: var(--cor_verde_meio_termo);
-}
-
-
-.Container-PopPerfilPaciente {
-    top: 20vw;
-    left: 35vw;
-    position: absolute;
-    background-color: #f1f1f1;
-    height: 10vw;
-    position: fixed;
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    border-radius: 2vw;
-}
-
-.FontePopPerfilPaciente h3{
-    color: #1D2A62;
-    font-size: 1.6vw;
-    font-family: 'nunito', sans-serif ;
-    margin: 1.2vw;
-}
-
-.ButtonsPopPerfilPaciente {
-    display: flex;
-    justify-content: space-around;
-}
-
-.buttonNaoDeletarPerfilPaciente {
-    height: 2.7vw;
-    width: 12vw;
-    border-radius: 15px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    background-color: #1D2A62;
-    color: #F1F1F1;
-    border: none;
-}
-
-.buttonNaoDeletarPerfilPaciente:hover{
-    background-color: #323D70;
-    transition: 0.4s;
-}
-
-.buttonNaoDeletar:not(:hover){
-    background-color: var(--cor_azul_escuro);
-    transition: 0.4s;
-}
-
-.buttonDeletarPerfilPaciente {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    height: 2.7vw;
-    width: 12vw;
-    border: none;
-    border-radius: 15px;
-    background-color: #437118;
-    color: #F5F5F5;
-}
-
-.buttonDeletarPerfilPaciente:hover {
-    transition: 0.4s;
-    background-color: #345516;
-    color: #F5F5F5;
-}
-
-.buttonDeletarPerfilPaciente:not(:hover){
-    transition: 0.4s;
-    background-color: var(--cor_verde_meio_termo);
-}
-
-/* estlização do botão deletar perfil */
-.button-deletar-perfis{
-    border: none;
-    background-color: var(--cor_verde_claro);
-    color: var(--cor_quase_branco);
-    width: 15vw;
-    height: 5vh;
-    font-weight: bold;
-    font-family: 'Nunito', sans-serif;
     border-radius: 0.6vw;
+    margin-bottom: 1.5vw;
 }
 
-.button-deletar-perfis:hover{
-    background-color: var(--cor_verde_meio_termo);
-    transition: 0.4s;
+.button-editar-perfil:hover {
+    cursor: pointer;
+    background-color: var(--verde_escuro);
+    color: var(--branco_gelo);
+    transition: 0.3s;
 }
 
-.button-deletar-perfis:not(:hover){
-    background-color: var(--cor_verde_claro);
-    transition: 0.4s;
+.button-editar-perfil:not(:hover) {
+    background-color: var(--verde_meio_termo);
+    color: var(--quase_branco);
+    transition: 0.3s;
 }
 
+.button-sair-perfil {
+    height: 2.5vw;
+    border: none;
+    background-color: var(--azul_escuro);
+    color: var(--branco_gelo);
+    font-size: 1vw;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    border-radius: 0.6vw;
+    margin-bottom: 1.5vw;
+}
+
+.button-sair-perfil:hover {
+    background-color: var(--azul_meio_termo);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.button-sair-perfil:not(:hover) {
+    background-color: var(--azul_escuro);
+    transition: 0.3s;
+}
+
+.button-deletar-perfil {
+    height: 2.5vw;
+    border: none;
+    background-color: #ef2828;
+    color: var(--branco_gelo);
+    font-size: 1vw;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    border-radius: 0.6vw;
+    margin-bottom: 1.5vw;
+}
+
+.button-deletar-perfil:hover {
+    background-color: #cc2323;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button-deletar-perfil:not(:hover) {
+    background-color: #ef2828;
+    transition: 0.3s;
+}
+
+.container-dois-perfil {
+    margin-top: 5vw;
+    margin-left: 6vw;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.container-dois-perfil label{
+    color: var(--verde_meio_termo);
+    font-size: 1.5vw;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 0.2vw;
+}
+
+.container-dois-perfil input{
+    border: 1px solid var(--azul_escuro);
+    background-color: var(--branco_gelo);
+    color: var(--azul_escuro);
+    padding: 0.3vw;
+    border-radius: 0.2vw;
+    width: 22vw;
+    height: 2vw;
+    margin-bottom: 2vw;
+}
+
+.container-dois-perfil select{
+    border: 1px solid var(--azul_escuro);
+    background-color: var(--branco_gelo);
+    color: var(--azul_escuro);
+    padding: 0.3vw;
+    border-radius: 0.2vw;
+    width: 22.7vw;
+    height: 3vw;
+    margin-bottom: 2vw;
+}
+
+.container-tres-perfil {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vw;
+    margin-left: 6vw;
+}
+
+.container-tres-perfil label{
+    color: var(--verde_meio_termo);
+    font-size: 1.5vw;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 0.2vw;
+}
+
+.container-tres-perfil input{
+    border: 1px solid var(--azul_escuro);
+    background-color: var(--branco_gelo);
+    color: var(--azul_escuro);
+    padding: 0.3vw;
+    border-radius: 0.2vw;
+    width: 22vw;
+    height: 2vw;
+    margin-bottom: 2vw;
+}

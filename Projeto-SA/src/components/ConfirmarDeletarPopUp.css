@@ -4,14 +4,22 @@
 }
 
 .poUp-container {
-    top: 20vw;
+    top: 12vw;
     left: 35vw;
     position: absolute;
-    background-color: #f1f1f1;
-    height: 10vw;
+    background-color: #fcfcfc;
+    height: 30vw;
+    width: 34vw;
     position: fixed;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     border-radius: 2vw;
+}
+
+.popUp-deletar img{
+    width: 320px;
+    height: 320px;
+    margin: auto;
+    align-items: center;
 }
 
 .popUp-deletar h3{
@@ -21,14 +29,15 @@
     margin: 1.2vw;
 }
 
-.popUp-deletar button {
-    display: flex;
-    justify-content: space-around;
+.alinhamentoButtons button {
+   justify-content: center;
+   margin: auto;
+   margin-right: 20px;
 }
 
-.naoDeletar button {
-    height: 2.7vw;
-    width: 12vw;
+.naoDeletar {
+    height: 42px;
+    width: 296px;
     border-radius: 15px;
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
@@ -37,34 +46,35 @@
     border: none;
 }
 
-.naoDeletar button:hover{
-    background-color: #323D70;
+.naoDeletar:hover{
+    background-color: #495691;
     transition: 0.4s;
 }
 
-.naoDeletar button:not(:hover){
+.naoDeletar:not(:hover){
     background-color: var(--azulzinho_escuro);
     transition: 0.4s;
 }
 
-.confirmarDeletar {
+.confirmarDeletar{
+    align-items: center;
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    height: 2.7vw;
-    width: 12vw;
+    height: 42px;
+    width: 180px;
     border: none;
     border-radius: 15px;
     background-color: #437118;
     color: #F5F5F5;
 }
 
-.confirmarDeletar button:hover {
+.confirmarDeletar:hover {
     transition: 0.4s;
     background-color: #345516;
     color: #F5F5F5;
 }
 
-.confirmarDeletar button:not(:hover){
+.confirmarDeletar:not(:hover){
     transition: 0.4s;
     background-color: var(--verdinho_meio_termo);
 }

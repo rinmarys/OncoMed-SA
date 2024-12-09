@@ -1,441 +1,258 @@
-// import React, { useState, useEffect, useContext } from 'react';
-// import { GlobalContext } from '../contexts/GlobalContext';
-// import axios from 'axios';
-// import './Perfil_paciente.css';
-// import HamburgeMenu from '../components/HamburgerMenu';
-
-// function PerfilPaciente() {
-//   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext); const [nome, setNome] = useState(usuario_logado.nome || '')
-//   const [email, setEmail] = useState(usuario_logado.email || ''); const [telefone, setTelefone] = useState(usuario_logado.telefone || '')
-//   const [senha, setSenha] = useState('')
-//   const [confirmarSenha, setConfirmarSenha] = useState('')
-//   const [cep, setCep] = useState(usuario_logado.cep || '')
-//   const [descricao, setDescricao] = useState('')
-//   const [mostrarSenha, setMostrarSenha] = useState()
-
-//   const [editando, setEditando] = useState(false)
-//   const [error, setError] = useState('')
-
-//   const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil] = useState(false)
-//   const [mostrarPopSalvoPerfil, setMostrarPopUpSalvoPerfil] = useState(false)
-//   const userId = usuario_logado.id_paciente
-
-//   useEffect(() => {
-//     const fetchUsuarioPaciente = async () => {
-//       try {
-//         const response = await axios.get(`http://localhost:5173/perfil_paciente/${userId}`);
-//         const { nome, email, telefone, cep,
-//           descricao } = response.data;
-//         setNome(nome);
-//         setEmail(email);
-//         setTelefone(telefone);
-//         setCep(cep);
-//         setDescricao(descricao);
-//       } catch (err) {
-//         console.error(err);
-//         setError('Erro ao carregar os dados do usuário');
-//       }
-//     };
-
-//     fetchUsuarioPaciente();
-//   }, [userId]);
-
-//   const handleChange = (setter) => (event) => setter(event.target.value);
-
-//   const editar = async () => {
-//     if (!editando) {
-//       setEditando(true);
-//       return;
-//     }
-
-//     if (senha !== confirmarSenha) {
-//       alert('As duas senhas devem ser iguais!');
-//       return;
-//     }
-
-//     setLoading(true);
-//     setError('');
-
-//     try {
-//       const pacientePerfil = { nome, email, telefone, cep, descricao, senha };
-//       await axios.put(`http://localhost:5173/perfil_paciente/${userId}`, pacientePerfil);
-
-//       setMostrarPopUpSalvoPerfil(true);
-//       setEditando(false);
-
-//     } catch (err) {
-//       console.error(err);
-//       setError('Falha ao atualizar os dados. Tente novamente.');
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const confirmarDeletarConta = () => {
-//     setMostrarPopDeletarPerfil(true)
-//   }
-
-//   const deletarConta = async () => {
-//     try {
-//       await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`);
-//       window.location.href = '/home';
-//     } catch (err) {
-//       console.error(err);
-//       alert('Falha ao deletar a conta. Tente novamente.');
-//     }
-//   };
-
-//   const handleConfirmarDeletar = () => {
-//     deletarConta()
-//     setMostrarPopDeletarPerfil(false)
-//   }
-//   const handleCancelarDeletar = () => {
-//     setMostrarPopDeletarPerfil(false)
-//   }
-
-//   const fecharPopUpSalvoPerfil = () => {
-//     setMostrarPopUpSalvoPerfil(false)
-//   }
-
-//   return (
-//     <div className="user-container">
-//       <div className="alinhamento-tituloHamburger">
-//         <div className="nav_container">
-//           <h1>MEU PERFIL - PACIENTE</h1>
-//           <div className="faixa_verde"></div>
-//         </div>
-//         <div className="alinhamento-hamburger-perfilPaciente">
-//           <HamburgeMenu />
-//         </div>
-//       </div>
-
-//       <div className="container-alinhamento-um-perfil">
-//         <div className="info_container">
-//           <div className="posicao_container">
-//             <label>Nome completo</label>
-//             <input
-//               placeholder="Digite seu nome"
-//               value={nome}
-//               onChange={handleChange(setNome)}
-//               disabled={!editando}
-//             />
-
-//             <label>Email</label>
-//             <input
-//               type="email"
-//               placeholder="Digite seu email"
-//               value={email}
-//               onChange={handleChange(setEmail)}
-//               disabled={!editando}
-//             />
-
-//             <label>Telefone (com DDD)</label>
-//             <input
-//               type="text"
-//               placeholder="Digite seu número de telefone"
-//               value={telefone}
-//               onChange={handleChange(setTelefone)}
-//               disabled={!editando}
-//             />
-
-//             <label>CEP</label>
-//             <input
-//               type="text"
-//               placeholder="Digite seu CEP"
-//               value={cep}
-//               onChange={handleChange(setCep)}
-//               disabled={!editando}
-//             />
-//           </div>
-//         </div>
-
-//         <div className="container-alinhamento-dois-perfil">
-
-//           <div className="alinhamento-inputs-perfis">
-//             <label>Senha</label>
-//             <input
-//               type={mostrarSenha ? 'text' : 'password'}
-//               placeholder="Digite sua senha"
-//               value={senha}
-//               onChange={handleChange(setSenha)}
-//               disabled={!editando}
-//             />
-
-//             <label>Confirmar Senha</label>
-//             <input
-//               type={mostrarSenha ? 'text' : 'password'}
-//               placeholder="Confirme sua senha"
-//               value={confirmarSenha}
-//               onChange={handleChange(setConfirmarSenha)}
-//               disabled={!editando}
-//             />
-//             <label>Descrição breve</label>
-//             <textarea
-//               placeholder="Escreva algo sobre você..."
-//               value={descricao}
-//               onChange={handleChange(setDescricao)}
-//               disabled={!editando}
-//               className='textArea-perfis'
-//             ></textarea>
-//           </div>
-//         </div>
-
-//         <div className="container-alinhamento-tres-perfil">
-//           <div className="container-foto-usuario">
-//             <label>Escolha sua foto de perfil</label>
-//             <img src="icon_user.png" alt="foto de usuario" />
-//           </div>
-
-//           <div className="alinhamento-buttons-perfis">
-//             <button className="button-editar-perfis" onClick={editar} disabled={loading}>
-//               {editando ? 'SALVAR' : 'EDITAR'}
-//             </button>
-//             <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
-//               DELETAR
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {
-//         fecharPopUpSalvoPerfil && (
-//           <div className="container-PopSalvarPerfilPaciente">
-//             <h2 className='FontePopPerfilPacienteSalvo'>Salvo com sucesso!</h2>
-//             <button className='buttonOkPerfilPaciente' onClick={() => setMostrarPopUpSalvoPerfil(false)}>OK</button>
-//           </div>
-//         )
-//       }
-
-//       {
-//         mostrarPopDeletarPerfil && (
-//           <div className='Container-PopPerfilPaciente'>
-//             <h3 className='FontePopPerfilPaciente'>Tem certeza que deseja deletar a sua conta?</h3>
-//             <div className='.ButtonsPopPerfilPaciente '>
-//               <button className='buttonDeletarPerfilPaciente' onClick={handleConfirmarDeletar}>SIM</button>
-//               <button className='buttonNaoDeletarPerfilPaciente' onClick={handleCancelarDeletar}>NÃO</button>
-//             </div>
-//           </div>
-//         )
-//       }
-//     </div >
-//   );
-// }
-
-// export default PerfilPaciente;
-
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import HamburgerMenu from '../components/HamburgerMenu';
 import { GlobalContext } from '../contexts/GlobalContext';
-import axios from 'axios';
 import './Perfil_paciente.css';
-import HamburgeMenu from '../components/HamburgerMenu';
-import ConfirmarDeletarPopUp from '../components/ConfirmarDeletarPopUp';
-import ConfirmarSalvoPopUp from '../components/ConfirmarSalvoPopUp';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+function Perfil_paciente() {
+  const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
+  const [tipo_do_input_senha, set_tipo_do_senha] = useState(`password`);
+  
+  const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
+  const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
+  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
 
-function PerfilPaciente() {
-  const { usuario_logado, set_usuario_logado } = useContext(GlobalContext)
-  const [nome, setNome] = useState(usuario_logado.nome || '')
-  const [email, setEmail] = useState(usuario_logado.email || '')
-  const [telefone, setTelefone] = useState(usuario_logado.telefone || '')
-  const [senha, setSenha] = useState('')
-  const [confirmarSenha, setConfirmarSenha] = useState('')
-  const [cep, setCep] = useState(usuario_logado.cep || '')
-  const [descricao, setDescricao] = useState('')
-
-  const [editando, setEditando] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-
+  const [cep_ou_crm, set_cep_ou_crm] = useState(``);
+  const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
+  const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
+  const [editando, setEditando] = useState(false);
   const navigate = useNavigate()
-  const [mostrarPopDeletarPerfil, setMostrarPopDeletarPerfil] = useState(false)
-  const [mostrarPopSalvoPerfil, setMostrarPopDSalvoPerfil] = useState(false)
-
-  const [estado_do_olhinho_senha, set_estado_olinho_senha] = useState(false)
-  const [estado_do_olinho_confirmar_senha, set_estado_do_olhinho_confirmar_senha] = useState(false)
-
-  const toggleSenhaVisivel = () => {
-    set_estado_olinho_senha(!estado_do_olhinho_senha)
-  }
-
-  const toggleConfirmarSenhaVisivel = () => {
-    set_estado_do_olhinho_confirmar_senha(!estado_do_olinho_confirmar_senha)
-  }
 
   useEffect(() => {
-    if (!userId) return;
 
-    const fetchUsuarioPaciente = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5173/perfil_paciente/${usuario_logado.id_paciente}`);
-        const { nome, email, telefone, cep, descricao } = response.data;
-
-        set_usuario_logado(prev => ({ ...prev, nome, email, telefone, cep, descricao }))
-
-        setNome(nome)
-        setEmail(email)
-        setTelefone(telefone)
-        setCep(cep)
-        setDescricao(descricao)
-      } catch (err) {
-        console.error(err)
-        setError('erro ao carregar os dados do usuário')
+    if (usuario_logado && usuario_logado.genero) {
+      if (usuario_logado.genero === 'Feminino') {
+        setImagemPerfilPaciente('./imagemPerfilFemale.svg');
+      } else if (usuario_logado.genero === 'Masculino') {
+        setImagemPerfilPaciente('./imagemPerfilMale.svg');
       }
+    }
+  }, [usuario_logado]);
+
+  useEffect(() => {
+
+    editando ? set_tipo_do_senha(`text`) : set_tipo_do_senha(`password`); 
+  }, [editando]);
+
+  useEffect(() => {
+
+    fetch_pacientes();
+    fetch_medicos();
+
+  }, []);
+
+  useEffect(() => {
+
+    for(let i = 0; i < lista_de_medicos.length; i ++){
+
+      if(lista_de_medicos[i].email == usuario_logado.email){
+
+        set_paciente_ou_medico_titulo(`MÉDICO`);
+      } else {
+
+        set_paciente_ou_medico_titulo(`PACIENTE`);
+      };
+    };
+  }, []);
+
+  useEffect(() => {
+
+    for(let i = 0; i < lista_de_pacientes.length; i++){
+
+      if(lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email){
+
+        set_cep_ou_crm(`CEP`);
+        set_valor_inpt_cep_ou_crm(usuario_logado.cep);
+
+      };
     };
 
-    fetchUsuarioPaciente();
-  }, [usuario_logado.id_paciente, set_usuario_logado]);
+    for(let i = 0; i < lista_de_medicos.length; i++){
 
-  const handleChange = (setter) => (event) => setter(event.target.value);
+      if(lista_de_medicos[i].nome == usuario_logado.nome && lista_de_medicos[i].email == usuario_logado.email){
 
-  const editar = async () => {
-    if (!editando) {
-      setEditando(true);
-      return;
-    }
+        set_cep_ou_crm(`CRM`);
+        set_valor_inpt_cep_ou_crm(usuario_logado.crm);
 
-    if (senha && senha !== confirmarSenha) {
-      alert('As duas senhas devem ser iguais!');
-      return;
-    }
+      };
+    };
+  }, [cep_ou_crm]);
 
-    setLoading(true);
-    setError('');
+  const fetch_pacientes = async () => {
 
     try {
-      const pacientePerfil = { nome, email, telefone, cep, descricao, senha };
-      await axios.put(`http://localhost:5173/perfil_paciente/${usuario_logado.id_paciente}`, pacientePerfil);
 
-      set_usuario_logado(prev => ({ ...prev, nome, email, telefone, cep, descricao }))
+      const pegar_lista = await axios.get(`http://localhost:3000/pacientes`);
+      set_lista_de_pacientes(pegar_lista.data);
 
-      setMostrarPopSalvoPerfil(true);
-      setEditando(false);
     } catch (err) {
-      console.error(err);
-      setError('Falha ao atualizar os dados. Tente novamente.');
-    } finally {
-      setLoading(false);
-    }
-    setMostrarPopDSalvoPerfil(true)
+
+      console.error(`Erro ao buscar tabela`, err);
+    };
   };
 
-  const confirmarDeletarConta = () => {
-    setMostrarPopDeletarPerfil(true);
+  const fetch_medicos = async () => {
+
+    try {
+
+      const pegar_lista = await axios.get(`http://localhost:3000/medicos`);
+      set_lista_de_medicos(pegar_lista.data);
+
+    } catch (err) {
+
+      console.error(`Erro ao buscar médicos`, err);
+    };
   };
+
+  const salvarDados = async () => {
+    try {
+
+       const usuario_atualizado = await { ...usuario_logado, [usuario_logado.crm ? 'crm' : 'cep'] : valor_inpt_cep_ou_crm };
+
+      for(let i = 0; i < lista_de_pacientes.length; i++){
+
+        if(lista_de_pacientes[i].id_paciente == usuario_atualizado.id_paciente){
+
+          const response = await axios.put(
+            `http://localhost:3000/pacientes/${usuario_atualizado.id_paciente}`,
+            usuario_atualizado
+            );
+            
+            if (response.status === 200) {
+              alert("Dados atualizados com sucesso!");
+              setEditando(false);
+
+              set_usuario_logado(usuario_atualizado);
+            
+              fetch_pacientes();
+            } else {
+              throw new Error("Erro ao atualizar os dados.");
+            }
+          };
+        };
+
+        for(let i = 0; i < lista_de_medicos.length; i++){
+
+          if(lista_de_medicos[i].id_medico == usuario_atualizado.id_medico){
+  
+            const response = await axios.put(
+              `http://localhost:3000/medicos/${usuario_atualizado.id_medico}`,
+              usuario_atualizado
+              );
+              
+              if (response.status === 200) {
+                alert("Dados atualizados com sucesso!");
+                setEditando(false);
+
+                set_usuario_logado(usuario_atualizado);
+
+                fetch_medicos();
+              } else {
+                throw new Error("Erro ao atualizar os dados.");
+              }
+            };
+          };
+    } catch (error) {
+      console.error("Erro ao salvar os dados:", error);
+      alert("Não foi possível atualizar os dados. Tente novamente.");
+    }
+  };
+ 
+  const sairDaConta = () => {
+    set_usuario_logado({})
+
+    localStorage.removeItem('usuario_logado')
+    sessionStorage.removeItem('usuario_logado')
+
+    navigate('/login')
+  }
 
   const deletarConta = async () => {
     try {
-      await axios.delete(`http://localhost:5173/perfil_paciente/${userId}`);
-      window.location.href = '/home';
-    } catch (err) {
-      console.error(err);
-      alert('Falha ao deletar a conta. Tente novamente.');
-    }
-  };
+      console.log('Haciendo solicitud DELETE para deletar la cuenta');
+      const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
+      console.log('Respuesta de delete:', response);
 
-  const handleConfirmarDeletar = () => {
-    deletarConta();
-    setMostrarPopDeletarPerfil(false);
-  };
+  } catch (error) {
+      console.error('Erro ao cancelar consulta:', error);
+  }
 
-  const handleCancelarDeletar = () => {
-    setMostrarPopDeletarPerfil(false);
-  };
+    localStorage.removeItem('usuario_logado')
+    sessionStorage.removeItem('usuario_logado')
 
+<<<<<<< HEAD
+=======
+    navigate('/')
+
+  navigate('/')
+
+}
+
+  // Deletar conta
+
+>>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
   return (
-    <div className="user-container">
-      <div className="alinhamento-tituloHamburger">
-        <div className="nav_container">
-          <h1>MEU PERFIL - PACIENTE</h1>
-          <div className="faixa_verde"></div>
-        </div>
-        <div className="alinhamento-hamburger-perfilPaciente">
-          <HamburgerMenu />
-        </div>
-      </div>
+    <div>
+      <div className="conteudo-perfil">
+        <div className="alinhamento-titulo-perfil">
+          <div className="titulo-perfil">
+            <h1>PERFIL {paciente_ou_medico_titulo}</h1>
+            <div className="line-perfil"></div>
+          </div>
 
-      <div className="container-alinhamento-um-perfil">
-        <div className="info_container">
-          <div className="posicao_container">
-            <label>Nome completo</label>
-            <input
-              placeholder="Digite seu nome"
-              value={nome}
-              onChange={handleChange(setNome)}
-              disabled={!editando}
-            />
-
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Digite seu email"
-              value={email}
-              onChange={handleChange(setEmail)}
-              disabled={!editando}
-            />
-
-            <label>Telefone (com DDD)</label>
-            <input
-              type="text"
-              placeholder="Digite seu número de telefone"
-              value={telefone}
-              onChange={handleChange(setTelefone)}
-              disabled={!editando}
-            />
-
-            <label>CEP</label>
-            <input
-              type="text"
-              placeholder="Digite seu CEP"
-              value={cep}
-              onChange={handleChange(setCep)}
-              disabled={!editando}
-            />
+          <div className="hamburger-alinhamento">
+            <HamburgerMenu />
           </div>
         </div>
 
-        <div className="container-alinhamento-dois-perfil">
-          <div className="alinhamento-inputs-perfis">
-            <label>Senha</label>
-            <input
-              type={estado_do_olhinho_senha ? 'text' : 'password'}
-              placeholder="Digite sua nova senha"
-              value={senha}
-              onChange={handleChange(setSenha)}
-              disabled={!editando}
-            />
-            <img
-              src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'}
-              alt='olhinhoUm'
-              onClick={toggleSenhaVisivel}
-              style={{ cursor: 'pointer', width: '30px', height: '30px', marginLeft: '278px', position: 'absolute', top: '233px' }} />
+        <div className="alinhamento-containers-perfil">
+          <div className="container-um-perfil">
+            <img src={imagemPerfilPaciente} alt="imagem de perfil" />
 
-            <label>Confirmar Senha</label>
-            <input
-              type={estado_do_olinho_confirmar_senha ? 'text' : 'password'}
-              placeholder="Confirme sua nova senha"
-              value={confirmarSenha}
-              onChange={handleChange(setConfirmarSenha)}
-              disabled={!editando}
-            />
-            <img
-              src={estado_do_olinho_confirmar_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'}
-              alt='olhinhoDois'
-              onClick={toggleConfirmarSenhaVisivel}
-              style={{ cursor: 'pointer', width: '30px', height: '30px', marginLeft: '278px', position: 'absolute', top: '350px' }}
-            />
+            <div className="buttons-alinhamento">
+              <button className="button-editar-perfil"
+                onClick={() => {
+                  if (editando) {
+                    salvarDados(); // Guarda los cambios cuando se presiona "SALVAR"
+                  } else {
+                  }
+                  setEditando(!editando);
+                }}>
+                {editando ? "SALVAR" : "EDITAR"}
+              </button>
 
-            <label>Descrição breve</label>
-            <textarea
-              placeholder="Escreva algo sobre você..."
-              value={descricao}
-              onChange={handleChange(setDescricao)}
-              disabled={!editando}
-              className="textArea-perfis"
-            ></textarea>
-          </div >
-        </div >
+              <button className="button-sair-perfil"
+              onClick={sairDaConta}>SAIR DA CONTA</button>
 
+              <button className="button-deletar-perfil"
+              onClick={deletarConta}>DELETAR CONTA</button>
+            </div>
+          </div>
+
+          <div className="container-dois-perfil">
+            <label>Nome</label>
+            <input type="text"
+              placeholder="Digite seu nome"
+              value={usuario_logado.nome}
+              disabled={!editando}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, nome: e.target.value })} />
+
+            <label>Email</label>
+            <input type="text"
+              placeholder="email@gmail.com"
+              value={usuario_logado.email}
+              disabled={!editando}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, email: e.target.value })} />
+
+            <label>Telefone (com DDD)</label>
+            <input type="text"
+              placeholder="+00 (00) 0000-0000"
+              value={usuario_logado.telefone}
+              disabled={!editando}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
+
+<<<<<<< HEAD
         <div className="container-alinhamento-tres-perfil">
           <div className="container-foto-usuario">
             <label>Escolha sua foto de perfil</label>
@@ -473,7 +290,43 @@ function PerfilPaciente() {
         )
       }
     </div >
+=======
+            <label>Gênero</label>
+            <select disabled={!editando}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, genero: e.target.value })}>
+              <option disabled selected>{usuario_logado.genero}</option>
+              <option>Feminino</option>
+              <option>Masculino</option>
+            </select>
+          </div>
+
+          <div className="container-tres-perfil">
+            <label>CPF</label>
+            <input type="text"
+              placeholder="000.000.000-00"
+              value={usuario_logado.cpf}
+              disabled={!editando}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })} />
+
+            <label>{cep_ou_crm}</label>
+            <input type="text"
+              placeholder="00000-000"
+              value={valor_inpt_cep_ou_crm}
+              disabled={!editando}
+              onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)} />
+
+            <label>Senha atual</label>
+            <input type={tipo_do_input_senha}
+              placeholder="digite sua senha atual"
+              value={usuario_logado.senha}
+              disabled={!editando}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
+          </div>
+        </div>
+      </div>
+    </div>
+>>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
   );
 }
 
-export default PerfilPaciente;
+export default Perfil_paciente;

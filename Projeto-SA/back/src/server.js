@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 
 const app = express();
 const pool = new Pool({
-    user: 'postgres', 
+    user: 'postgres',
     host: 'localhost',
     database: 'template',
     password: 'senai',
@@ -47,11 +47,11 @@ app.get('/pacientes/:id', async (req, res) => {
 });
 
 app.post('/pacientes', async (req, res) => {
-    const {  nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil} = req.body;
+    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO pacientes ( nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha, imagem_de_perfil]
+            'INSERT INTO pacientes ( nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+            [nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -62,13 +62,13 @@ app.post('/pacientes', async (req, res) => {
 
 app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, cep, email,genero, data_de_nascimento, senha, imagem_de_perfil} = req.body;
+    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
 
-            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8 WHERE id_paciente = $1 RETURNING *',
+            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8, telefone = $9 WHERE id_paciente = $10 RETURNING *',
 
-            [nome, cpf, cep, email,genero, data_de_nascimento, senha, imagem_de_perfil, id]
+            [nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Paciente não encontrado' });
@@ -98,7 +98,11 @@ app.delete('/pacientes/:id', async (req, res) => {
 
 app.get('/marcarConsulta', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM marcarConsulta');
+        const result = await pool.query(`
+            SELECT marcarConsulta.*, pacientes.nome AS paciente_nome
+            FROM marcarConsulta
+            JOIN pacientes ON marcarConsulta.id_paciente = pacientes.id_paciente
+        `);
         res.json(result.rows);
     } catch (err) {
         console.error(err.message);
@@ -106,85 +110,105 @@ app.get('/marcarConsulta', async (req, res) => {
     }
 });
 
+
 app.get('/marcarConsulta/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        
+
         const result = await pool.query('SELECT * FROM marcarConsulta WHERE id = $1', [id]);
-        
+
         if (result.rows.length === 0) {
-        
+
             return res.status(404).json({ error: 'marcarConsulta não encontrado' });
         };
-        
+
         res.json(result.rows[0]);
-    
+
     } catch (err) {
-    
+
         console.error(err.message);
         res.status(500).json({ error: 'Erro ao buscar marcarConsulta' });
     };
 });
 
 app.post('/marcarConsulta', async (req, res) => {
-    
-    const {  data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente} = req.body;
-    
+
+    const { data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente } = req.body;
+
     try {
         const result = await pool.query(
-
-            'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
 
             'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
 
             [data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente]
         );
-       
+
         res.status(201).json(result.rows[0]);
-    
+
     } catch (err) {
-       
+
         console.error(err.message);
         res.status(500).json({ error: 'Erro ao adicionar marcarConsulta' });
     }
 });
 
 app.put('/marcarConsulta/:id', async (req, res) => {
-    
     const { id } = req.params;
-    const { data_agendamento, tipo_consulta, horario, observacoes, id_paciente } = req.body;
-    
+    const { medico_designado } = req.body; // Captura el médico asignado
+
     try {
         const result = await pool.query(
-
-            'UPDATE marcarConsulta SET data_agendamento = $1, tipo_consulta = $2, horario = $3, observacoes = $4, medico_designado = $5, id_paciente = $6 WHERE id = $1 RETURNING *',
-
-            [ data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente, id]
-
-            [ data_agendamento, tipo_consulta, horario, observacoes, id_paciente, id]
-
+            'UPDATE marcarConsulta SET medico_designado = $1 WHERE id_consulta = $2 RETURNING *',
+            [medico_designado, id]
         );
+
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'marcarConsulta não encontrado' });
+            return res.status(404).json({ error: 'Consulta não encontrada' });
         }
+
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ error: 'Erro ao atualizar marcarConsulta' });
+        res.status(500).json({ error: 'Erro ao atualizar consulta' });
     }
 });
+
+// app.put('/marcarConsulta/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const { medico_designado } = req.body; // Captura el médico asignado
+
+//     try {
+//         // Actualizar el médico asignado y marcar la consulta como confirmada (puedes agregar un campo para esto si es necesario)
+//         const result = await pool.query(
+//             'UPDATE marcarConsulta SET medico_designado = $1, status = $2 WHERE id_consulta = $3 RETURNING *',
+//             [medico_designado, 'confirmada', id]  // Suponiendo que 'status' sea un campo para marcar el estado de la consulta
+//         );
+
+//         if (result.rows.length === 0) {
+//             return res.status(404).json({ error: 'Consulta não encontrada' });
+//         }
+
+//         res.json(result.rows[0]);
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).json({ error: 'Erro ao atualizar consulta' });
+//     }
+// });
 
 app.delete('/marcarConsulta/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('DELETE FROM marcarConsulta WHERE id = $1 RETURNING *', [id]);
+        const result = await pool.query('DELETE FROM marcarConsulta WHERE id_consulta = $1 RETURNING *', [id]);
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'marcarConsulta não encontrado' });
+            return res.status(404).json({ error: 'Consulta não encontrada' });
         }
-        res.json({ message: 'marcarConsulta deletado com sucesso' });
+        res.status(200).json({ 
+            message: 'Consulta deletada com sucesso', 
+            consulta: result.rows[0] 
+        });
     } catch (err) {
-        console.error(err.message);
-        res.status(500).json({ error: 'Erro ao deletar marcarConsulta' });
+        console.error('Erro ao deletar consulta:', err.message);
+        res.status(500).json({ error: 'Erro interno ao deletar consulta' });
     }
 });
 
@@ -215,11 +239,11 @@ app.get('/medicos/:id', async (req, res) => {
 });
 
 app.post('/medicos', async (req, res) => {
-    const {  nome, cpf, crm, email,genero, data_de_nascimento, senha, imagem_de_perfil } = req.body;
+    const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO medicos (nome, cpf, crm, email,genero, data_de_nascimento, senha, imagem_de_perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil]
+            'INSERT INTO medicos (nome, cpf, crm, email,genero, data_de_nascimento, senha, imagem_de_perfil, telefone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -230,19 +254,21 @@ app.post('/medicos', async (req, res) => {
 
 app.put('/medicos/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, crm, email,genero, data_de_nascimento, senha } = req.body;
+    const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8 WHERE id = $1 RETURNING *',
-            [nome, cpf, crm, email,genero, data_de_nascimento, senha, id]
+
+            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8, telefone = $9 WHERE id_medico = $10 RETURNING *',
+
+            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, id]
         );
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Medico não encontrado' });
+            return res.status(404).json({ error: 'Médico não encontrado' });
         }
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ error: 'Erro ao atualizar medico' });
+        res.status(500).json({ error: 'Erro ao atualizar médico' });
     }
 });
 
@@ -277,7 +303,7 @@ app.get('/blog', async (req, res) => {
 });
 
 app.post('/blog', async (req, res) => {
-    const {titulo, descricao, autor, imagem} = req.body;
+    const { titulo, descricao, autor, imagem } = req.body;
     try {
         const result = await pool.query(
             'INSERT INTO blog (titulo, descricao, autor, imagem) VALUES ($1, $2, $3, $4) RETURNING *',

@@ -1,14 +1,17 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './Cadastro_Paciente.css'
 import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios';
+import emailjs from 'emailjs-com';
 
 function Cadastro_Paciente() {
 
+  const formRef = useRef(); 
+
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
   const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
-  const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '', imagem_de_perfil: ''});
+  const [form, setForm] = useState({ nome: '', cpf: '', cep: '', email: '', genero: '', data_de_nascimento: '', senha: '', imagem_de_perfil: '', telefone: ''});
   const [confirmar_senha, set_confirmar_senha] = useState(``);
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);
@@ -101,6 +104,11 @@ function Cadastro_Paciente() {
     };
   }, []);
 
+  useEffect(() => {
+    
+    emailjs.init('pMLofLFwNCAInJwVH');
+  }, []);
+
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -161,12 +169,18 @@ function Cadastro_Paciente() {
 
         form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Paciente).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Paciente).svg`;
 
+          const enviar_email = await  emailjs.sendForm('service_0eg4zpm', 'template_bmlda01', formRef.current, 'pMLofLFwNCAInJwVH')
+
           const response = await axios.post('http://localhost:3000/pacientes', form);
+
+          console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
 
           if (response.status === 201) {
 
             fetch_pacientes();
-            navegacao_de_pagina(`/login`)
+            navegacao_de_pagina(`/login`);
+
+            formRef.current.reset();
           };
 
       } catch (error) {
@@ -207,7 +221,7 @@ function Cadastro_Paciente() {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={formRef}>
         <div className='dv_cadastro_paciente'>
 
           <div className='container_img_paciente'>
@@ -235,14 +249,14 @@ function Cadastro_Paciente() {
                 <div className='input_nome_paciente'>
                 
                   <label>Nome Completo</label>
-                  <input type="text" required placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
+                  <input type="text" name='nome' required placeholder='Digite seu nome' value={form.nome || ''} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
                 
                 </div>
 
                 <div className="input_cpf_paciente">
                 
                   <label>CPF</label>
-                  <input type="text" required minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
+                  <input type="text" name='cpf' required minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
                 
                 </div>
 
@@ -254,14 +268,14 @@ function Cadastro_Paciente() {
                     
                     <div className='input_genero_paciente_alinhar_radios_masculino'>
                     
-                      <input type="radio" name='genero_inpt' value={'Masculino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <input type="radio" name='genero' value={'Masculino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
                       <label className='input_genero_paciente_alinhar_label'>Masculino</label>
                     
                     </div>
 
                     <div className='input_genero_paciente_alinhar_radios_feminino'>
                     
-                      <input type="radio" name='genero_inpt' value={'Feminino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
+                      <input type="radio" name='genero' value={'Feminino'} onChange={(e) => setForm({ ...form, genero: e.target.value })} />
                       <label className='input_genero_paciente_alinhar_label'>Feminino</label>
                     
                     </div>
@@ -277,7 +291,7 @@ function Cadastro_Paciente() {
 
                   <div className="input_senha_paciente_dv">
                   
-                    <input type={valor_do_olinho_um} required minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({ ...form, senha: e.target.value })} />
+                    <input type={valor_do_olinho_um} name='senha' required minLength={7} maxLength={12} placeholder='Digite sua senha' value={form.senha || ''} onChange={(e) => setForm({ ...form, senha: e.target.value })} />
                     <button type='button' onClick={() => set_estado_do_olinho_um(!estado_do_olinho_um)}>{imagem_olinho_um}</button>
                   
                   </div>
@@ -291,21 +305,21 @@ function Cadastro_Paciente() {
                 <div className="input_cep_paciente">
                 
                   <label>CEP</label>
-                  <input type="text" minLength={9} maxLength={9} required placeholder='12345-678' value={form.cep || ''} onChange={(e) => setForm({ ...form, cep: e.target.value })} />
+                  <input type="text" name='cep' minLength={9} maxLength={9} required placeholder='12345-678' value={form.cep || ''} onChange={(e) => setForm({ ...form, cep: e.target.value })} />
                 
                 </div>
 
                 <div className="input_email_paciente">
                 
                   <label>Email</label>
-                  <input type="email" required placeholder='exemplo@gmail.com' re value={form.email || ''} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                  <input type="email" name='email' required placeholder='exemplo@gmail.com' re value={form.email || ''} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                 
                 </div>
 
                 <div className="input_data_de_nascimento_paciente">
                 
                   <label>Data Nascimento</label>
-                  <input type="date" required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
+                  <input type="date" name='data_de_nascimento' required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
                 
                 </div>
 
@@ -315,7 +329,7 @@ function Cadastro_Paciente() {
 
                   <div className="input_confirmar_senha_paciente_dv">
                 
-                    <input type={valor_do_olinho} required minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)} />
+                    <input type={valor_do_olinho} name='confirmar_senha' required minLength={7} maxLength={12} placeholder='Confirme sua senha' value={confirmar_senha} onChange={(e) => set_confirmar_senha(e.target.value)} />
                     <button type='button' onClick={() => set_estado_do_olinho(!estado_do_olinho)}>{imagem_olinho}</button>
 
                   </div>
