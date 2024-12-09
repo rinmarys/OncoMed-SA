@@ -150,7 +150,8 @@ function Login() {
             crm: lista_de_medicos[i].crm,
             genero: lista_de_medicos[i].genero,
             data_de_nascimento: lista_de_medicos[i].data_de_nascimento,
-            imagem_de_perfil: lista_de_medicos[i].imagem_de_perfil
+            imagem_de_perfil: lista_de_medicos[i].imagem_de_perfil,
+            telefone: lista_de_medicos[i].telefone
           });
 
           navegacao_de_pagina(`/`);

@@ -12,10 +12,10 @@ function Perfil_paciente() {
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
   const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
   const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
-  const [cep, set_cep] = useState(usuario_logado.cep);
 
   const [cep_ou_crm, set_cep_ou_crm] = useState(``);
   const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
+  const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
   const navigate = useNavigate()
 
@@ -40,6 +40,20 @@ function Perfil_paciente() {
     fetch_pacientes();
     fetch_medicos();
 
+  }, []);
+
+  useEffect(() => {
+
+    for(let i = 0; i < lista_de_medicos.length; i ++){
+
+      if(lista_de_medicos[i].email == usuario_logado.email){
+
+        set_paciente_ou_medico_titulo(`MÉDICO`);
+      } else {
+
+        set_paciente_ou_medico_titulo(`PACIENTE`);
+      };
+    };
   }, []);
 
   useEffect(() => {
@@ -186,7 +200,7 @@ function Perfil_paciente() {
       <div className="conteudo-perfil">
         <div className="alinhamento-titulo-perfil">
           <div className="titulo-perfil">
-            <h1>PERFIL PACIENTE</h1>
+            <h1>PERFIL {paciente_ou_medico_titulo}</h1>
             <div className="line-perfil"></div>
           </div>
 
