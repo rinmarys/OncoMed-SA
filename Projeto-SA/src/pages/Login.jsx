@@ -10,9 +10,9 @@ function Login() {
   const [valor_inpt_nome, set_valor_inpt_nome] = useState('');
   const [valor_inpt_email, set_valor_inpt_email] = useState('');
   const [valor_inpt_senha, set_valor_inpt_senha] = useState('');
-  const [pop_up_aberto, set_pop_aberto] = useState(false);
   const [mensagem_de_erro, set_mensagem_de_erro] = useState('');
-
+  
+  const { pop_aberto, set_pop_aberto } = useContext(GlobalContext);
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
   const { lista_de_medicos, set_lista_de_medicos } = useContext(GlobalContext);
   const { usuario_administrador, set_usuario_administrador } = useContext(GlobalContext);
@@ -96,7 +96,7 @@ function Login() {
 
     constructor(nome_do_usuario, email_do_usuario, senha_do_usuario) {
 
-      this.nome = nome_do_usuario,
+        this.nome = nome_do_usuario,
         this.email = email_do_usuario,
         this.senha = senha_do_usuario
 
@@ -157,6 +157,11 @@ function Login() {
         };
       };
 
+      useEffect(() => {
+
+        pop_aberto ? set_imagem_olinho(``) : set_imagem_olinho(`input_olho_fechado.png`)
+      }, []);
+
       set_mensagem_de_erro(`Usuário ou senha incorretos!`);
     };
 
@@ -172,7 +177,7 @@ function Login() {
 
       <div className="container_informacoes_login">
 
-        {pop_up_aberto && <Pop_up />}
+        {pop_aberto && <Pop_up />}
 
         <div className="titulo_login">
 

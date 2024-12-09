@@ -292,9 +292,9 @@ body{
     width: 1.8vw;
     height: 4vh;
 
-    position: absolute;
+    position: fixed;
 
-    top: 61vh;
+    top: 60vh;
     bottom: 0vw;
     left: 68.5vw;
     right: 0vw;
