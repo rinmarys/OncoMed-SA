@@ -182,7 +182,7 @@ function Cadastro_Medico() {
     } else {
 
       senhas_sao_iguais = false;
-      console.log(senhas_sao_iguais);
+      console.log(senhas_sao_iguais);''
     };
 
       if(email_ja_cadastrado == false && cpf_ja_cadastrado == false && senhas_sao_iguais == true && checkbox_selecionado == true && crm_ja_cadastrado == false){

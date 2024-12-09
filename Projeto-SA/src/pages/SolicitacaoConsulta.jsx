@@ -296,7 +296,7 @@ function SolicitacaoConsulta() {
                                                 Selecione um médico
                                             </option>
                                             {lista_de_medicos.map((medico) => (
-                                                <option key={medico.nome} value={medico.id}>
+                                                <option key={medico.nome} value={medico.id_medico}>
                                                     {medico.nome}
                                                 </option>
                                             ))}

@@ -20,7 +20,7 @@ function Perfil_paciente() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // Solo actualiza la imagen cuando `usuario_logado` esté disponible y tenga el valor de género
+
     if (usuario_logado && usuario_logado.genero) {
       if (usuario_logado.genero === 'Feminino') {
         setImagemPerfilPaciente('./imagemPerfilFemale.svg');
@@ -105,8 +105,6 @@ function Perfil_paciente() {
     };
   };
 
-  // Función para salvar los datos al backend
-  // Editar dados
   const salvarDados = async () => {
     try {
 
@@ -160,20 +158,16 @@ function Perfil_paciente() {
       alert("Não foi possível atualizar os dados. Tente novamente.");
     }
   };
-  // Editar dados
-
-  // Sair da conta
+ 
   const sairDaConta = () => {
     set_usuario_logado({})
 
     localStorage.removeItem('usuario_logado')
     sessionStorage.removeItem('usuario_logado')
 
-    navigate('/')
+    navigate('/login')
   }
-  // Sair da conta
 
-  // Deletar conta
   const deletarConta = async () => {
     try {
       console.log('Haciendo solicitud DELETE para deletar la cuenta');
