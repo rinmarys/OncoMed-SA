@@ -138,8 +138,6 @@ app.post('/marcarConsulta', async (req, res) => {
     try {
         const result = await pool.query(
 
-            // 'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-
             'INSERT INTO marcarConsulta ( data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
 
             [data_agendamento, tipo_consulta, horario, observacoes, medico_designado, id_paciente]
@@ -241,11 +239,11 @@ app.get('/medicos/:id', async (req, res) => {
 });
 
 app.post('/medicos', async (req, res) => {
-    const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil } = req.body;
+    const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO medicos (nome, cpf, crm, email,genero, data_de_nascimento, senha, imagem_de_perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil]
+            'INSERT INTO medicos (nome, cpf, crm, email,genero, data_de_nascimento, senha, imagem_de_perfil, telefone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -254,21 +252,23 @@ app.post('/medicos', async (req, res) => {
     }
 });
 
-app.put('/medicos/:id', async (req, res) => {
+app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, crm, email, genero, data_de_nascimento, senha } = req.body;
+    const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8 WHERE id = $1 RETURNING *',
-            [nome, cpf, crm, email, genero, data_de_nascimento, senha, id]
+
+            'UPDATE medicos SET nome = $2, cpf = $3, crm = $4, email = $5, genero = $6, data_de_nascimento = $7, senha = $8, imagem_de_perfil = $9, telefone = $10 WHERE id_medico = $1 RETURNING *',
+
+            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, id]
         );
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Medico não encontrado' });
+            return res.status(404).json({ error: 'Médico não encontrado' });
         }
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ error: 'Erro ao atualizar medico' });
+        res.status(500).json({ error: 'Erro ao atualizar médico' });
     }
 });
 

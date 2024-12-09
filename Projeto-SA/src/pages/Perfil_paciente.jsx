@@ -8,7 +8,14 @@ import { useNavigate } from 'react-router-dom';
 function Perfil_paciente() {
   const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
   const [tipo_do_input_senha, set_tipo_do_senha] = useState(`password`);
+  
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
+  const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
+  const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
+  const [cep, set_cep] = useState(usuario_logado.cep);
+
+  const [cep_ou_crm, set_cep_ou_crm] = useState(``);
+  const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
   const [editando, setEditando] = useState(false);
   const navigate = useNavigate()
 
@@ -28,20 +35,112 @@ function Perfil_paciente() {
     editando ? set_tipo_do_senha(`text`) : set_tipo_do_senha(`password`); 
   }, [editando]);
 
+  useEffect(() => {
+
+    fetch_pacientes();
+    fetch_medicos();
+
+  }, []);
+
+  useEffect(() => {
+
+    for(let i = 0; i < lista_de_pacientes.length; i++){
+
+      if(lista_de_pacientes[i].nome == usuario_logado.nome && lista_de_pacientes[i].email == usuario_logado.email){
+
+        set_cep_ou_crm(`CEP`);
+        set_valor_inpt_cep_ou_crm(usuario_logado.cep);
+
+      };
+    };
+
+    for(let i = 0; i < lista_de_medicos.length; i++){
+
+      if(lista_de_medicos[i].nome == usuario_logado.nome && lista_de_medicos[i].email == usuario_logado.email){
+
+        set_cep_ou_crm(`CRM`);
+        set_valor_inpt_cep_ou_crm(usuario_logado.crm);
+
+      };
+    };
+  }, [cep_ou_crm]);
+
+  const fetch_pacientes = async () => {
+
+    try {
+
+      const pegar_lista = await axios.get(`http://localhost:3000/pacientes`);
+      set_lista_de_pacientes(pegar_lista.data);
+
+    } catch (err) {
+
+      console.error(`Erro ao buscar tabela`, err);
+    };
+  };
+
+  const fetch_medicos = async () => {
+
+    try {
+
+      const pegar_lista = await axios.get(`http://localhost:3000/medicos`);
+      set_lista_de_medicos(pegar_lista.data);
+
+    } catch (err) {
+
+      console.error(`Erro ao buscar médicos`, err);
+    };
+  };
+
   // Función para salvar los datos al backend
   // Editar dados
   const salvarDados = async () => {
     try {
-      const response = await axios.put(
-        `http://localhost:3000/pacientes/${usuario_logado.id_paciente}`,
-        usuario_logado
-      );
-      if (response.status === 200) {
-        alert("Dados atualizados com sucesso!");
-        setEditando(false);
-      } else {
-        throw new Error("Erro ao atualizar os dados.");
-      }
+
+       const usuario_atualizado = await { ...usuario_logado, [usuario_logado.crm ? 'crm' : 'cep'] : valor_inpt_cep_ou_crm };
+
+      for(let i = 0; i < lista_de_pacientes.length; i++){
+
+        if(lista_de_pacientes[i].id_paciente == usuario_atualizado.id_paciente){
+
+          const response = await axios.put(
+            `http://localhost:3000/pacientes/${usuario_atualizado.id_paciente}`,
+            usuario_atualizado
+            );
+            
+            if (response.status === 200) {
+              alert("Dados atualizados com sucesso!");
+              setEditando(false);
+
+              set_usuario_logado(usuario_atualizado);
+            
+              fetch_pacientes();
+            } else {
+              throw new Error("Erro ao atualizar os dados.");
+            }
+          };
+        };
+
+        for(let i = 0; i < lista_de_medicos.length; i++){
+
+          if(lista_de_medicos[i].id_medico == usuario_atualizado.id_medico){
+  
+            const response = await axios.put(
+              `http://localhost:3000/medicos/${usuario_atualizado.id_medico}`,
+              usuario_atualizado
+              );
+              
+              if (response.status === 200) {
+                alert("Dados atualizados com sucesso!");
+                setEditando(false);
+
+                set_usuario_logado(usuario_atualizado);
+
+                fetch_medicos();
+              } else {
+                throw new Error("Erro ao atualizar os dados.");
+              }
+            };
+          };
     } catch (error) {
       console.error("Erro ao salvar os dados:", error);
       alert("Não foi possível atualizar os dados. Tente novamente.");
@@ -71,15 +170,15 @@ function Perfil_paciente() {
       console.error('Erro ao cancelar consulta:', error);
   }
 
-  set_usuario_logado({})
-
     localStorage.removeItem('usuario_logado')
     sessionStorage.removeItem('usuario_logado')
 
     navigate('/')
 
   navigate('/')
-  }
+
+}
+
   // Deletar conta
 
   return (
@@ -159,12 +258,12 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })} />
 
-            <label>CEP</label>
+            <label>{cep_ou_crm}</label>
             <input type="text"
               placeholder="00000-000"
-              value={usuario_logado.cep}
+              value={valor_inpt_cep_ou_crm}
               disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, cep: e.target.value })} />
+              onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)} />
 
             <label>Senha atual</label>
             <input type={tipo_do_input_senha}

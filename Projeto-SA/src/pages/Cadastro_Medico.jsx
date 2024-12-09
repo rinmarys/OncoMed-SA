@@ -14,7 +14,7 @@ function Cadastro_Medico() {
  
   const {lista_de_pacientes, set_lista_de_pacientes} = useContext(GlobalContext);
   const {lista_de_medicos, set_lista_de_medicos} = useContext(GlobalContext);
-  const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '', genero: '', data_de_nascimento: '', senha: '', imagem_de_perfil: ''});
+  const [form, setForm] = useState({ nome: '', cpf: '', crm: '', email: '', genero: '', data_de_nascimento: '', senha: '', imagem_de_perfil: '', telefone: ''});
   const [confirmar_senha, set_confirmar_senha] = useState(``);
 
   const [valor_checkbox, set_valor_checkbox] = useState(``);

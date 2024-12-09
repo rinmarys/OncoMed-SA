@@ -142,7 +142,7 @@ function Login() {
 
           set_usuario_logado({
 
-            id_medico: lista_de_medicos[i].id,
+            id_medico: lista_de_medicos[i].id_medico,
             nome: this.nome,
             email: this.email,
             senha: this.senha,
