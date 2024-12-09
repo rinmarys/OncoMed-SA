@@ -181,14 +181,7 @@ function Perfil_paciente() {
     localStorage.removeItem('usuario_logado')
     sessionStorage.removeItem('usuario_logado')
 
-    navigate('/')
-
-  navigate('/')
-
-}
-
-  // Deletar conta
-
+};
   return (
     <div>
       <div className="conteudo-perfil">

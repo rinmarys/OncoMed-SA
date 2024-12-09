@@ -327,3 +327,20 @@ app.get('/admin', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar admin' });
     }
 });
+
+
+// ROTA PARA DELETAR BLOG 
+app.delete('/blog/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query('DELETE FROM blog WHERE id = $1 RETURNING *', [id]);
+        // if (result.rows.length === 0) {
+        //     return res.status(404).json({ error: 'Blog não encontrado' });
+        // }
+        res.json({ message: 'Blog deletado com sucesso' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao deletar blog:(' });
+    }
+});
+

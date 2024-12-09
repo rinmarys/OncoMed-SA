@@ -74,7 +74,7 @@ function CriarPostagem() {
                     <div className="alinhamento-pagina">
                         <div className="alinhamento-container-um">
                             <div className="inserirImagem">
-                                {/* Select para escolher a imagem */}
+                                {/* SELECT ESCOLHER IMG*/}
                                 <label htmlFor="imagem">Escolha uma imagem:</label>
                                 <select
                                     id="imagem"
@@ -90,44 +90,44 @@ function CriarPostagem() {
                                 </select>
                             </div>
 
-                            {/* Mostrar a imagem selecionada */}
+                            {/* MOSTRA IMG */}
                             {imagemSelecionada && (
                                 <div className="imagem-selecionada">
                                     <h3>Imagem Selecionada:</h3>
                                     <img src={imagemSelecionada} alt="Imagem escolhida" className="imagem-preview" />
                                 </div>
                             )}
-                            <div className='Container-InputTitulo'>
-                                {/* Título do post */}
-                                <h2 className="titles-categoriaTags">Titulo</h2>
-                                <input
-                                    value={valorTitulo}
-                                    onChange={e => setValorTitulo(e.target.value)}
-                                    type="text"
-                                    className='input-titulo-artigo'
-
-                                />
-                            </div>
-                            {/* Conteúdo */}
-                            <h2 className="titles-categoriaTags">Descricao</h2>
-                            <textarea
-                                value={valorDescricao}
-                                onChange={e => setValorDescricao(e.target.value)}
-                                name="textArea"
-                                cols="30"
-                                rows="17"
-                                placeholder='Conteúdo do artigo'
-                                className='input-autor-artigo'
-                            ></textarea>
-                        </div>
-
-                        {/* Hashtags */}
+<div className='Container-InputTitulo'>
+                            {/* TÍTULO POST*/}
+                            <h2 className="titles-titleTags">Titulo</h2>
+                            <input 
+                                value={valorTitulo} 
+                                onChange={e => setValorTitulo(e.target.value)} 
+                                type="text" 
+                                className='input-titulo-artigo' 
+                                
+                            />
+</div>
+                        {/* AUTOR */}
                         <div className="alinhamento-container-tres">
-                            <h2 className="titles-categoriaTags">Autor</h2>
-                            <textarea value={valorAutor} onChange={e => setValorAutor(e.target.value)} name="" ></textarea>
+                            <h2 className="titles-autorTags">Autor</h2>
+                            <textarea value={valorAutor} onChange={e => setValorAutor(e.target.value)}  ></textarea>
+                        </div>
                         </div>
 
-                        {/* Botões */}
+                            {/* CONTEÚDO */}
+                            <h2 className="titles-descricaoTags">Descricao</h2>
+                            <textarea 
+                                value={valorDescricao} 
+                                onChange={e => setValorDescricao(e.target.value)} 
+                                name="textArea" 
+                                cols="30" 
+                                rows="17" 
+                                placeholder='Conteúdo do artigo' 
+                                className='input-descricao-artigo'
+                            ></textarea>
+
+                        {/* BOTÕES */}
                         <div className="alinhamento-buttons">
                             <div className="buttons-container">
                                 <button className='publicar-button' type='submit'>PUBLICAR</button>

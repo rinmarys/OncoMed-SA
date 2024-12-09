@@ -12,6 +12,8 @@ import { useState } from 'react'
 function BlogInicio_Admin() {
 
     const [mostrarPopDeletar, setMostrarPopDeletar] = useState(false)
+    const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
+
 
     function buttonDeletar() {
 
@@ -22,13 +24,31 @@ function BlogInicio_Admin() {
 
         setMostrarPopDeletar(false)
     }
-    function deletarBlog() {
+   
 
-    }
-  
-    const {registroBlog, setRegistroBlog} = useContext (GlobalContext)
+    let o;
+
+//   for (let i = 0 ; i < registroBlog.length; i++){
+
+//     if (registroBlog[i].id == informacoesBlog.id){
+    
+//         o = registroBlog[i].id;
+//     }
+//   }
+    // FUNÇÃO PARA DELETAR BLOGS
+    const deleteBlog = async (id) => {
+        try {
+            const response = await axios.delete(`http://localhost:3000/blog/${o}`);
+            // const response = await axios.delete(`http://localhost:3000/blog/${id}`);
+            if (response.status === 200) {
+                fetchBlog(); // Atualiza a lista do blog após a exclusão
+            }
+        } catch (error) {
+            console.error('Erro ao deletar Blog:', error);
+        }
+    };
+
     const fetchBlog = async ( ) => {
-
 
 
         try {
@@ -44,6 +64,7 @@ function BlogInicio_Admin() {
             fetchBlog()
             
         }, []) 
+
 
 
     return (
@@ -71,22 +92,7 @@ function BlogInicio_Admin() {
                     <div className="artigos-alinhamento">
 
 
-                        <div className="container-artigos">
-                            <img src="Doctor.svg" alt="Doutor" />
-
-                            <div className="alinhamento-texto">
-
-                                <div className="button-container">
-                                    <button className='button-deletar' id='DeletarButtonInpt' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
-                                </div>
-
-                                <div className='texto-artigo'>
-                                    <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
-                                    <p className='doutores-blog'>por Doutor Mauricio Campos</p>
-                                </div>
-
-                            </div>
-                        </div>
+                       
 
 
 
@@ -102,14 +108,14 @@ function BlogInicio_Admin() {
                         <button className='button-deletar' onClick={buttonDeletar}><img src="Trash.svg" alt="Deletar artigo" /></button>
                     </div>
 
-                    <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                    <p className='titulos-artigos' value='valorTitulo'>{informacoesBlog.titulo}</p>
                     <p className='doutores-blog'>{informacoesBlog.autor}</p>
                 </div>
             </div>
         ))
     ) : (
         // Não renderiza nada quando registroBlog estiver vazio
-        null
+      null
     )}
 </div>
                      
@@ -123,7 +129,7 @@ function BlogInicio_Admin() {
                             <h2 className='FontePopUpBlog'>Deseja mesmo deletar este arquivo?</h2>
                             <div className='ButtonsPopUpBlog'>
                                 <button className='buttonNaoDeletar' onClick={naoDeletarBlog}>NÃO</button>
-                                <button className='buttonDeletar' onClick={deletarBlog}>SIM</button>
+                                <button className='buttonDeletar' onClick={() =>deleteBlog (registroBlog.id)}>SIM</button>
                             </div>
                         </div>
                     )}

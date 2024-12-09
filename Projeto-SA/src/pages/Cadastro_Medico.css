@@ -754,10 +754,22 @@ body{
     text-decoration: underline;
 }
 
-.alinhamento_botao_cadastro_medico{
+.alinhamento_botao_cadastrar_medico{
 
     display: flex;
-    align-items: end;
+    align-items: center;
+
+}
+
+.error_medico{
+
+    margin-top: 5vh;
+    margin-left: 1vw;
+
+    font-family: var(--tipografia_primaria);
+    font-weight: bold;
+
+    color: red;
 }
 
 /* Botão */
