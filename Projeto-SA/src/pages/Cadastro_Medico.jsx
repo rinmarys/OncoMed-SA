@@ -402,7 +402,7 @@ function Cadastro_Medico() {
   
         <button className='botao_cadastrar_medico' type='submit'>CADASTRAR</button>
   
-        <div className="error_paciente">
+        <div className="error_medico">
   
           {mensagem_de_erro}
   
