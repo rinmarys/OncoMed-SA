@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 import emailjs from 'emailjs-com';
+import InputMask from 'react-input-mask';
 
 function Cadastro_Medico() {
 
@@ -182,7 +183,7 @@ function Cadastro_Medico() {
     } else {
 
       senhas_sao_iguais = false;
-      console.log(senhas_sao_iguais);''
+      console.log(senhas_sao_iguais);
     };
 
       if(email_ja_cadastrado == false && cpf_ja_cadastrado == false && senhas_sao_iguais == true && checkbox_selecionado == true && crm_ja_cadastrado == false){
@@ -302,7 +303,7 @@ function Cadastro_Medico() {
          
           <label>CPF</label>
           
-          <input type="text" name='cpf' required minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
+          <InputMask mask='999.999.999-99' placeholder='012.345.678-91' required value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
         
         </div>
         
@@ -352,7 +353,7 @@ function Cadastro_Medico() {
           
           <label>CRM</label>
           
-          <input type="text" name='crm' required minLength={9} maxLength={9} placeholder='CRM/SP 123456' value={form.crm || ''} onChange={(e) => setForm({...form, crm: e.target.value})}/>
+          <InputMask mask='aaa/aa 999999' placeholder='CRM/SP 123456' required value={form.crm || ''} onChange={(e) => setForm({...form, crm: e.target.value})}/>
         
         </div>
   
@@ -401,7 +402,7 @@ function Cadastro_Medico() {
   
         <button className='botao_cadastrar_medico' type='submit'>CADASTRAR</button>
   
-        <div className="error_paciente">
+        <div className="error_medico">
   
           {mensagem_de_erro}
   

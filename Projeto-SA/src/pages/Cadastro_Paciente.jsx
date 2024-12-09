@@ -4,6 +4,7 @@ import './Cadastro_Paciente.css'
 import { GlobalContext } from '../contexts/GlobalContext';
 import axios from 'axios';
 import emailjs from 'emailjs-com';
+import InputMask from 'react-input-mask';
 
 function Cadastro_Paciente() {
 
@@ -256,7 +257,7 @@ function Cadastro_Paciente() {
                 <div className="input_cpf_paciente">
                 
                   <label>CPF</label>
-                  <input type="text" name='cpf' required minLength={14} maxLength={14} placeholder='012.234.567-89' value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
+                 <InputMask mask='999.999.999-99' placeholder='012.345.678-91' required value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
                 
                 </div>
 
@@ -305,14 +306,14 @@ function Cadastro_Paciente() {
                 <div className="input_cep_paciente">
                 
                   <label>CEP</label>
-                  <input type="text" name='cep' minLength={9} maxLength={9} required placeholder='12345-678' value={form.cep || ''} onChange={(e) => setForm({ ...form, cep: e.target.value })} />
-                
+                  <InputMask mask='99999-999' placeholder='012345-789' required value={form.cep || ''} onChange={(e) => setForm({...form, cep: e.target.value})}/>
+
                 </div>
 
                 <div className="input_email_paciente">
                 
                   <label>Email</label>
-                  <input type="email" name='email' required placeholder='exemplo@gmail.com' re value={form.email || ''} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                  <input type="email" name='email' required placeholder='exemplo@gmail.com' value={form.email || ''} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                 
                 </div>
 

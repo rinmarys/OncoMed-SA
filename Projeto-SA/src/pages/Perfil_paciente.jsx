@@ -17,6 +17,11 @@ function Perfil_paciente() {
   const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
   const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
+
+  const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
+  const [mostrarPopUpSalvo, setMostrarPopUpSalvoPerfil] = useState(false);
+
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -173,19 +178,24 @@ function Perfil_paciente() {
       console.log('Haciendo solicitud DELETE para deletar la cuenta');
       const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
       console.log('Respuesta de delete:', response);
-
-  } catch (error) {
+    
+    } catch (error) {
       console.error('Erro ao cancelar consulta:', error);
-  }
+    }
+   } 
 
     localStorage.removeItem('usuario_logado')
     sessionStorage.removeItem('usuario_logado')
 
+<<<<<<< HEAD
     navigate('/')
 }
 
   // Deletar conta
   return (
+=======
+   return (
+>>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
     <div>
       <div className="conteudo-perfil">
         <div className="alinhamento-titulo-perfil">
@@ -245,21 +255,26 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
+<<<<<<< HEAD
         {/* <div className="container-alinhamento-tres-perfil">
+=======
+        <div className="container-alinhamento-tres-perfil">
+>>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
           <div className="container-foto-usuario">
             <label>Escolha sua foto de perfil</label>
             <img src="icon_user.png" alt="foto de usuario" />
           </div>
 
           <div className="alinhamento-buttons-perfis">
-            <button className="button-editar-perfis" onClick={editar} disabled={loading}>
+            <button className="button-editar-perfis" onClick={editando}>
               {editando ? 'SALVAR' : 'EDITAR'}
             </button>
-            <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
+            <button className="button-deletar-perfis" onClick={deletarConta}>
               DELETAR
             </button>
           </div>
         </div>
+<<<<<<< HEAD
       </div >
 
       {mostrarPopSalvoPerfil && (
@@ -315,7 +330,21 @@ function Perfil_paciente() {
               onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
           </div>
         </div>
+=======
+>>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
       </div>
+
+      <ConfirmarDeletarPopUp
+     show= {mostrarPopDeletar} onClose={() => setMostrarPopDeletarPerfil(false)}
+     onConfirmar= {handleConfirmarDeletar} 
+     onCancelar= {handleCancelar}
+     titulo="tem certeza que deseja deletar sua conta?"/>
+
+     <ConfirmarSalvoPopUp 
+     show= {mostrarPopUpSalvo} onClose={() => setMostrarPopUpSalvoPerfil(false)}
+     mensagem='Dados atualizados!'/>
+    </div>
+    </div>
     </div>
   );
 }
