@@ -17,6 +17,11 @@ function Perfil_paciente() {
   const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
   const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
+
+  const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
+  const [mostrarPopUpSalvo, setMostrarPopUpSalvoPerfil] = useState(false);
+
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -173,26 +178,16 @@ function Perfil_paciente() {
       console.log('Haciendo solicitud DELETE para deletar la cuenta');
       const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
       console.log('Respuesta de delete:', response);
-
-  } catch (error) {
+    
+    } catch (error) {
       console.error('Erro ao cancelar consulta:', error);
-  }
+    }
+   } 
 
     localStorage.removeItem('usuario_logado')
     sessionStorage.removeItem('usuario_logado')
 
-<<<<<<< HEAD
-=======
-    navigate('/')
-
-  navigate('/')
-
-}
-
-  // Deletar conta
-
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
-  return (
+   return (
     <div>
       <div className="conteudo-perfil">
         <div className="alinhamento-titulo-perfil">
@@ -252,7 +247,6 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
-<<<<<<< HEAD
         <div className="container-alinhamento-tres-perfil">
           <div className="container-foto-usuario">
             <label>Escolha sua foto de perfil</label>
@@ -260,72 +254,28 @@ function Perfil_paciente() {
           </div>
 
           <div className="alinhamento-buttons-perfis">
-            <button className="button-editar-perfis" onClick={editar} disabled={loading}>
+            <button className="button-editar-perfis" onClick={editando}>
               {editando ? 'SALVAR' : 'EDITAR'}
             </button>
-            <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
+            <button className="button-deletar-perfis" onClick={deletarConta}>
               DELETAR
             </button>
           </div>
         </div>
-      </div >
-
-      {mostrarPopSalvoPerfil && (
-        <div className="container-PopSalvarPerfilPaciente">
-          <h2 className="FontePopPerfilPacienteSalvo">Salvo com sucesso!</h2>
-          <button className="buttonOkPerfilPaciente" onClick={() => setMostrarPopSalvoPerfil(false)}>OK</button>
-        </div>
-      )
-      }
-
-      {
-        mostrarPopDeletarPerfil && (
-          <div className="Container-PopPerfilPaciente">
-            <h3 className="FontePopPerfilPaciente">Tem certeza que deseja deletar a sua conta?</h3>
-            <div className="ButtonsPopPerfilPaciente">
-              <button className="buttonDeletarPerfilPaciente" onClick={handleConfirmarDeletar}>SIM</button>
-              <button className="buttonNaoDeletarPerfilPaciente" onClick={handleCancelarDeletar}>NÃO</button>
-            </div>
-          </div>
-        )
-      }
-    </div >
-=======
-            <label>Gênero</label>
-            <select disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, genero: e.target.value })}>
-              <option disabled selected>{usuario_logado.genero}</option>
-              <option>Feminino</option>
-              <option>Masculino</option>
-            </select>
-          </div>
-
-          <div className="container-tres-perfil">
-            <label>CPF</label>
-            <input type="text"
-              placeholder="000.000.000-00"
-              value={usuario_logado.cpf}
-              disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })} />
-
-            <label>{cep_ou_crm}</label>
-            <input type="text"
-              placeholder="00000-000"
-              value={valor_inpt_cep_ou_crm}
-              disabled={!editando}
-              onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)} />
-
-            <label>Senha atual</label>
-            <input type={tipo_do_input_senha}
-              placeholder="digite sua senha atual"
-              value={usuario_logado.senha}
-              disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
-          </div>
-        </div>
       </div>
+
+      <ConfirmarDeletarPopUp
+     show= {mostrarPopDeletar} onClose={() => setMostrarPopDeletarPerfil(false)}
+     onConfirmar= {handleConfirmarDeletar} 
+     onCancelar= {handleCancelar}
+     titulo="tem certeza que deseja deletar sua conta?"/>
+
+     <ConfirmarSalvoPopUp 
+     show= {mostrarPopUpSalvo} onClose={() => setMostrarPopUpSalvoPerfil(false)}
+     mensagem='Dados atualizados!'/>
     </div>
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
+    </div>
+    </div>
   );
 }
 
