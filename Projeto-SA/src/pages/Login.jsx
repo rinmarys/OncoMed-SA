@@ -127,7 +127,8 @@ function Login() {
             cep: lista_de_pacientes[i].cep,
             genero: lista_de_pacientes[i].genero,
             data_de_nascimento: lista_de_pacientes[i].data_de_nascimento,
-            imagem_de_perfil: lista_de_pacientes[i].imagem_de_perfil
+            imagem_de_perfil: lista_de_pacientes[i].imagem_de_perfil,
+            telefone: lista_de_pacientes[i].telefone
 
           });
 

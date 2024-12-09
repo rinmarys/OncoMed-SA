@@ -47,11 +47,11 @@ app.get('/pacientes/:id', async (req, res) => {
 });
 
 app.post('/pacientes', async (req, res) => {
-    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil } = req.body;
+    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO pacientes ( nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-            [nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil]
+            'INSERT INTO pacientes ( nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+            [nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -62,13 +62,13 @@ app.post('/pacientes', async (req, res) => {
 
 app.put('/pacientes/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, telefone, imagem_de_perfil } = req.body;
+    const { nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
     try {
         const result = await pool.query(
 
-            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, telefone = $8, imagem_de_perfil = $9 WHERE id_paciente = $10 RETURNING *',
+            'UPDATE pacientes SET nome = $1, cpf = $2, cep = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8, telefone = $9 WHERE id_paciente = $10 RETURNING *',
 
-            [nome, cpf, cep, email, genero, data_de_nascimento, senha, telefone, imagem_de_perfil, id]
+            [nome, cpf, cep, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Paciente não encontrado' });
