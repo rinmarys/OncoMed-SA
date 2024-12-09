@@ -181,17 +181,7 @@ function Perfil_paciente() {
     localStorage.removeItem('usuario_logado')
     sessionStorage.removeItem('usuario_logado')
 
-<<<<<<< HEAD
-=======
-    navigate('/')
-
-  navigate('/')
-
-}
-
-  // Deletar conta
-
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
+};
   return (
     <div>
       <div className="conteudo-perfil">
@@ -252,45 +242,6 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
-<<<<<<< HEAD
-        <div className="container-alinhamento-tres-perfil">
-          <div className="container-foto-usuario">
-            <label>Escolha sua foto de perfil</label>
-            <img src="icon_user.png" alt="foto de usuario" />
-          </div>
-
-          <div className="alinhamento-buttons-perfis">
-            <button className="button-editar-perfis" onClick={editar} disabled={loading}>
-              {editando ? 'SALVAR' : 'EDITAR'}
-            </button>
-            <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
-              DELETAR
-            </button>
-          </div>
-        </div>
-      </div >
-
-      {mostrarPopSalvoPerfil && (
-        <div className="container-PopSalvarPerfilPaciente">
-          <h2 className="FontePopPerfilPacienteSalvo">Salvo com sucesso!</h2>
-          <button className="buttonOkPerfilPaciente" onClick={() => setMostrarPopSalvoPerfil(false)}>OK</button>
-        </div>
-      )
-      }
-
-      {
-        mostrarPopDeletarPerfil && (
-          <div className="Container-PopPerfilPaciente">
-            <h3 className="FontePopPerfilPaciente">Tem certeza que deseja deletar a sua conta?</h3>
-            <div className="ButtonsPopPerfilPaciente">
-              <button className="buttonDeletarPerfilPaciente" onClick={handleConfirmarDeletar}>SIM</button>
-              <button className="buttonNaoDeletarPerfilPaciente" onClick={handleCancelarDeletar}>NÃO</button>
-            </div>
-          </div>
-        )
-      }
-    </div >
-=======
             <label>Gênero</label>
             <select disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, genero: e.target.value })}>
@@ -325,7 +276,6 @@ function Perfil_paciente() {
         </div>
       </div>
     </div>
->>>>>>> 94adc41da4501c05021aad5be1a64d75fdc4b996
   );
 }
 
