@@ -16,59 +16,75 @@
 }
 
 .Pop_up_de_boas_vindas_container{
-
     display: flex;
-
     position: fixed;
     left: 30vw;
-
-    width: 40vw;
-    height: 35vh;
-
-    border: 1vw solid var(--cor_oito);
+    width: 35vw;
+    height: 19vh;
+    border: var(--cor_nove) solid 2vw;
     border-radius: 2vw;
-
-    color: var(--cor_cinco);
-    background-color: var(--cor_oito);
+    background-color: var(--cor_nove);
+    top: 8vw;
 }
 
 .Pop_up_de_boas_vindas_container_alinhamento_conteudo{
 
     display: flex;
     justify-content: space-between;
-
-    width: 40vw;
-    height: 15vh;
+    /* width: 40vw;
+    height: 15vh; */
 }
 
 .Pop_up_de_boas_vindas_container h1{
 
-    width: 25vw;
-
+    color: var(--cor_seis);
+    margin-top: 0px;
     margin-left: 1vw;
-    margin-bottom: 0px;
+    margin-top: 2vh;
+    font-size: 2vw;
+    font-family: var(--tipografia_primaria);
+    font-weight: bolder;
 }
 
-.Pop_up_de_boas_vindas_container_alinhamento_conteudo p{
+/* .Pop_up_de_boas_vindas_container_alinhamento_conteudo p{
 
     margin-top: 0px;
     margin-left: 1vw;
 
     font-size: 2vw;
-}
+} */
 
 .Pop_up_de_boas_vindas_container button{
 
     border: 0px;
-
     cursor: pointer;
-    
-    margin-right: 1vw;
-
+    margin-left: 1.3vw;
     font-family: var(--tipografia_primaria);
     font-size: 1.5vw;
     font-weight: bolder;
-    
-    color: var(--cor_cinco);
+    color: var(--cor_seis);
     background-color: transparent;
+    margin-top: -8vw;
+}
+
+.imagem_jade_boas-vindas{
+
+    width: 10.9vw;
+    height: 8.6vw;
+  
+    margin-top: 0vw;
+    margin-right: 0.5vw;
+margin-left: 2vw;
+
+}
+
+.nome-pessoa-boasvindas{
+    color: var(--cor_seis);
+    margin-top: -1vw;
+    margin-left: 2vw;
+
+    white-space: normal;    /* Permite quebra de linha */
+    word-wrap: break-word;  /* Quebra palavras longas para ajustar ao espaço */
+    overflow-wrap: break-word; /* Compatível com navegadores modernos */
+    max-width: 25vw;
 }

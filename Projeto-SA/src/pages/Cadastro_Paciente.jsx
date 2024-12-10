@@ -105,10 +105,10 @@ function Cadastro_Paciente() {
     };
   }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    emailjs.init('pMLofLFwNCAInJwVH');
-  }, []);
+  //   emailjs.init('pMLofLFwNCAInJwVH');
+  // }, []);
 
   const handleSubmit = async (e) => {
 
@@ -170,11 +170,11 @@ function Cadastro_Paciente() {
 
         form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Paciente).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Paciente).svg`;
 
-          const enviar_email = await  emailjs.sendForm('service_0eg4zpm', 'template_bmlda01', formRef.current, 'pMLofLFwNCAInJwVH')
+          // const enviar_email = await  emailjs.sendForm('service_0eg4zpm', 'template_bmlda01', formRef.current, 'pMLofLFwNCAInJwVH')
 
           const response = await axios.post('http://localhost:3000/pacientes', form);
 
-          console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
+          // console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
 
           if (response.status === 201) {
 

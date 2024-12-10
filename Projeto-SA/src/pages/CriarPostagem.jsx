@@ -19,7 +19,11 @@ function CriarPostagem() {
     const imagensDisponiveis = [
         { id: 1, nome: 'Imagem 1', caminho: 'breakfast 1.png' },
         { id: 2, nome: 'Imagem 2', caminho: 'Meditation.svg' },
+<<<<<<< HEAD
         { id: 3, nome: 'Imagem 3', caminho: 'carinha 1.svg' },
+=======
+        { id: 3, nome: 'Imagem 3', caminho: 'Alimentacao.svg' },
+>>>>>>> 87383ed79d1f236d27894e376ce0fc94e0ec393b
         { id: 4, nome: 'imagem 4', caminho: 'Doctor.svg' },
     ];
 
@@ -155,11 +159,40 @@ function CriarPostagem() {
                        
 
                     </div>
+                </div>
 
+<<<<<<< HEAD
 
                  </div> *
+=======
+                <div className='alinhamento-container-2'>
+                    <div className=''></div>
+                    {/* CONTEÚDO */}
+                    <h2 className="titles-descricaoTags">Conteúdo</h2>
+                    <textarea
+                        value={valorDescricao}
+                        onChange={e => setValorDescricao(e.target.value)}
+                        name="textArea"
+                        cols="30"
+                        rows="17"
+                        placeholder='Conteúdo do artigo'
+                        className='input-descricao-artigo'
+                    ></textarea>
+
+
+
+                    {/* BOTÕES */}
+                    <div className="alinhamento-buttons">
+                        <div className="buttons-container">
+                            <button className='publicar-button' type='submit'>PUBLICAR</button>
+                            <button className='cancelar-button'>CANCELAR</button>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> 87383ed79d1f236d27894e376ce0fc94e0ec393b
             </form>
         </div>
+
     );
 }
 
