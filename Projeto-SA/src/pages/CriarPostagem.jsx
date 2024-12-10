@@ -100,7 +100,6 @@ function CriarPostagem() {
                                     <img src={imagemSelecionada} alt="Imagem escolhida" className="imagem-preview" />
                                 </div>
                             )}
-
 <div className='Container-InputTitulo'>
                             {/* TÍTULO POST*/}
                             <h2 className="titles-titleTags">Titulo</h2>
@@ -131,7 +130,6 @@ function CriarPostagem() {
                                 rows="17" 
                                 placeholder='Conteúdo do artigo' 
                                 className='input-descricao-artigo'
-
                             ></textarea>
 
                         {/* BOTÕES */}
