@@ -5,15 +5,13 @@ import './Perfil_paciente.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ConfirmarDeletarPopUp from '../components/ConfirmarDeletarPopUp';
-import { h } from '@fullcalendar/core/preact.js';
 import ConfimarContaExcluidaPopUp from '../components/ConfimarContaExcluidaPopUp';
-import emailjs from 'emailjs-com';
 import InputMask from 'react-input-mask';
 
 function Perfil_paciente() {
   const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
   const [tipo_do_input_senha, set_tipo_do_senha] = useState(`password`);
-  const [estado_do_olhinho_senha, set_estado_olinho_senha]=useState(false)
+  const [estado_do_olhinho_senha, set_estado_olinho_senha] = useState(false)
 
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
@@ -21,6 +19,7 @@ function Perfil_paciente() {
 
   const [cep_ou_crm, set_cep_ou_crm] = useState(``);
   const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
+  const [mascara_do_inpt, set_mascara_do_inpt] = useState(``);
   const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
   const [especializacao, setEspecializacao]=useState('')
@@ -95,6 +94,11 @@ function Perfil_paciente() {
       };
     };
   }, [cep_ou_crm]);
+
+  useEffect(() => {
+
+    cep_ou_crm == `CRM` ? set_mascara_do_inpt(`aaa/aa 999999`) : set_mascara_do_inpt(`99999-999`);
+  }, [cep_ou_crm])
 
   const fetch_pacientes = async () => {
 
@@ -201,19 +205,18 @@ function Perfil_paciente() {
   localStorage.removeItem('usuario_logado')
   sessionStorage.removeItem('usuario_logado')
 
-  const handleConfirmarDeletar= async () => {
-  await deletarConta();
-  setMostrarPopDeletarPerfil(false);
+  const handleConfirmarDeletar = async () => {
+    await deletarConta();
+    setMostrarPopDeletarPerfil(false);
   }
 
- const handleCancelarDeletar= () =>{
-  setMostrarPopDeletarPerfil(false)
+  const handleCancelarDeletar = () => {
+    setMostrarPopDeletarPerfil(false)
   }
 
-  const toggleSenhaVisivel=() => {
+  const toggleSenhaVisivel = () => {
     set_estado_olinho_senha(!estado_do_olhinho_senha)
   };
-
 
   return (
     <div>
@@ -249,10 +252,11 @@ function Perfil_paciente() {
                 onClick={sairDaConta}>SAIR DA CONTA</button>
 
               <button className="button-deletar-perfil"
-                onClick={ () => setMostrarPopDeletarPerfil(true)}>DELETAR CONTA</button>
+                onClick={() => setMostrarPopDeletarPerfil(true)}>DELETAR CONTA</button>
             </div>
           </div>
           <ConfirmarDeletarPopUp
+
           show={mostrarPopDeletar} 
           onConfirmar={handleConfirmarDeletar}
           onCancelar={handleCancelarDeletar}
@@ -261,7 +265,7 @@ function Perfil_paciente() {
           <ConfimarContaExcluidaPopUp
           show={mostrarPopUpExcluir}
           onClose={() => {setMostrarPopUpExcluirPerfil(false)
-           navigate('/')}}
+          navigate('/')}}
           mensagem='Conta Deletada com sucesso!'/>
 
           <div className="container-dois-perfil">
@@ -292,43 +296,33 @@ function Perfil_paciente() {
             )}
 
             <label>Telefone (com DDD)</label>
-            <input type="text"
-              placeholder="+00 (00) 0000-0000"
-              value={usuario_logado.telefone}
-              disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
+            <InputMask mask='+99 (99) 99999-9999' placeholder='+55 (55) 55555-5555' disabled={!editando} value={usuario_logado.telefone} onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })}/>
 
-        <div className="container-alinhamento-tres-perfil">
-          <div className="container-foto-usuario">
-            <label>Escolha sua foto de perfil</label>
-            <img src="icon_user.png" alt="foto de usuario" />
+          <div className="container-alinhamento-tres-perfil">
+             <div className="container-foto-usuario">
+             <label>Escolha sua foto de perfil</label>
+             <img src="icon_user.png" alt="foto de usuario" />
+            </div>
+
           </div>
-      </div >
 
-            <label>Gênero</label>
+           <label>Gênero</label>
             <select disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, genero: e.target.value })}>
               <option disabled selected>{usuario_logado.genero}</option>
               <option>Feminino</option>
               <option>Masculino</option>
             </select>
-          </div>
+            </div>
 
           <div className="container-tres-perfil">
             <label>CPF</label>
-            <input type="text"
-              placeholder="000.000.000-00"
-              value={usuario_logado.cpf}
-              disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })} />
+
+            <InputMask mask='999.999.999-99' placeholder='012.345.678-91' disabled={!editando} value={usuario_logado.cpf} onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })}/>
 
             <label>{cep_ou_crm}</label>
-            <input type="text"
-              placeholder="00000-000"
-              value={valor_inpt_cep_ou_crm}
-              disabled={!editando}
-              onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)} />
 
+            <InputMask mask={mascara_do_inpt} placeholder='Insira seu CEP ou CRM' disabled={!editando} value={valor_inpt_cep_ou_crm} onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)}/>
 
             <label>Senha atual</label>
             <input type={estado_do_olhinho_senha ? 'text' : 'password'}
@@ -336,21 +330,38 @@ function Perfil_paciente() {
               value={usuario_logado.senha}
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
-              <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'} 
+            <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'}
               alt='olinho' onClick={toggleSenhaVisivel}
-              style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}/>
+            style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}/>
 
-            {mensagem && (
-            <div className='mensagem' 
+            {usuario_logado.crm && (
+             <>
+             <label>Especialidade</label>
+             <input type="text"
+              placeholder="Informe sua especialidade"
+              value={especializacao}
+              disabled={!editando}
+              onChange={(e) => {
+              setEspecializacao(e.target.value)
+
+              set_usuario_logado({
+              ...usuario_logado, especializacao:e.target.value})
+              }}/>
+             </>
+            )}
+            
+          </div>
+
+          {mensagem && (
+           <div className='mensagem' 
             style={{color:'#ef2828', textAlign:'center', fontFamily: 'Poppins, sans-serif', fontWeight: 'bold', fontSize: '1vw'}}>
             {mensagem}
-            </div>
-            )}
-        
+           </div>
+          )}
+
         </div>
        </div>
        </div>
-    </div>
 
   );
 }

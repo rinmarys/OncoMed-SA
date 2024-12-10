@@ -114,10 +114,10 @@ function Cadastro_Medico() {
       console.log(lista_de_medicos);
   }, [lista_de_medicos]);
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    emailjs.init('pMLofLFwNCAInJwVH');
-  }, []);
+  //   emailjs.init('pMLofLFwNCAInJwVH');
+  // }, []);
 
   const handleSubmit = async (e) => {
      
@@ -192,11 +192,11 @@ function Cadastro_Medico() {
           
         form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Medico).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Medico).svg`;
 
-            const enviar_email = await  emailjs.sendForm('service_kioo933', 'template_sutb3ub', formRef.current, 'pMLofLFwNCAInJwVH')
+            // const enviar_email = await  emailjs.sendForm('service_kioo933', 'template_sutb3ub', formRef.current, 'pMLofLFwNCAInJwVH')
 
-            const response = await axios.post('http://localhost:3000/medicos', form);
+             const response = await axios.post('http://localhost:3000/medicos', form);
 
-            console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
+            // console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
               
             if (response.status === 201) {
                 

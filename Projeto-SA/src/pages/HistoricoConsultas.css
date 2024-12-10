@@ -84,7 +84,7 @@
     color: #1D2A62;
 }
 
-.situacao-ainda-nao-realizado {
+/* .situacao-ainda-nao-realizado {
     font-size: medium;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -109,6 +109,29 @@
 
 }
 
+.situacao-consulta {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+  } */
+  
+  .situacao-consulta.realizado {
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #437118;
+  }
+  
+  .situacao-consulta.nao-realizado {
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #5B678F;
+  }
+  
+  
 .horario-consulta {
     padding: 7px;
     background-color: #EDF0F2;

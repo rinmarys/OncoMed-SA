@@ -5,10 +5,18 @@ import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../contexts/GlobalContext'
 import axios from 'axios'
+import {  useNavigate } from 'react-router-dom';
 
 function BlogInicio() {
 
   const { registroBlog, setRegistroBlog } = useContext(GlobalContext)
+  const { blogRecente, setblogRecente } = useContext(GlobalContext);
+
+  const mudarPag = useNavigate(blogRecente.valorDescricao)
+  
+  const handleRedirect = () => {
+    
+  }
 
   const fetchBlog = async () => {
     try {
@@ -41,13 +49,13 @@ useEffect(() => {
 <div className="consultas-solicitacao">
     {registroBlog.length > 0 ? (
         registroBlog.map((informacoesBlog) => (
-            <div className="container-artigos" key={informacoesBlog.id}>
-           <Link to='/conteudoBlog'> <img src={informacoesBlog.imagem} alt="Evento especial Nutrição" /> </Link> 
+          <Link to={informacoesBlog.valorDescricao} target="_blank"> <div className="container-artigos" key={informacoesBlog.id} >
+           <img src={informacoesBlog.imagem} alt="Evento especial Nutrição" />
                 <div className='alinhamento-texto'>
                     <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
                     <p className='doutores-blog'>{informacoesBlog.autor}</p>
                 </div>
-            </div>
+            </div></Link>
         ))
     ) : (
         <p>Infelizmente ainda não há postagens! :(</p>
