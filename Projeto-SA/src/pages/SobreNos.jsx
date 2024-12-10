@@ -14,7 +14,7 @@ function SobreNos() {
        <div className='Linha-Dois'></div>
 
        <div className='Img-NossaEquipe'>
-        <img src="imagemGrupo.png" height="700" width="1200" alt="" className="imagemGrupo" />
+        <img src="fotoGrupo.jpg" height="700" width="1200" alt="" className="imagemGrupo" />
        </div>
 
             <div className="Paragrafo-Um">

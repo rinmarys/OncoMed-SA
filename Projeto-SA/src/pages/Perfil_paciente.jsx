@@ -207,14 +207,11 @@ function Perfil_paciente() {
     set_estado_olinho_senha(!estado_do_olhinho_senha)
   };
 
-<<<<<<< HEAD
   navigate('/')
 
-}
+
 
   // Deletar conta
-=======
->>>>>>> dadb5572caaa5f9df0cc61f051c6c5336148e2d4
   return (
     <div>
       <div className="conteudo-perfil">

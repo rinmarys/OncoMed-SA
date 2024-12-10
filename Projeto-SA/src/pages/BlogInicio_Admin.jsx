@@ -70,20 +70,25 @@ function BlogInicio_Admin() {
                             {registroBlog.length > 0 ? (
                                 registroBlog.map((informacoesBlog) => (
                                     <div className="container-artigos" key={informacoesBlog.id}>
-                                   <Link to='/criarPostagem'> <img src={informacoesBlog.imagem} alt="Evento especial Nutrição" /> </Link> 
+                                   <Link to='/criarPostagem'> <img  className="Img-ReviwBlogADM" src={informacoesBlog.imagem} alt="Evento especial Nutrição" /> </Link> 
                                         <div className='alinhamento-texto'>
+
+
+                                            <div className='Descricao-ReviwBlogADM'>
+                                                <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                                                <p className='doutores-blog'>{informacoesBlog.autor}</p>
                                             <div className="button-container">
                                                 <button className='button-deletar' onClick={() => buttonDeletar(informacoesBlog.id)}>
                                                     <img src="Trash.svg" alt="Deletar artigo" />
                                                 </button>
                                             </div>
-                                            <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
-                                            <p className='doutores-blog'>{informacoesBlog.autor}</p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 ))
                             ) : (
-                                <p>Infelizmente ainda não há postagens! :(</p>
+                               null
                             )}
                         </div>
 
