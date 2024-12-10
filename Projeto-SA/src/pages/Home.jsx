@@ -140,6 +140,8 @@ function Home() {
 
     }, []);    
 
+    const notify = () => toast("Favor fazer o login!");
+
   return (
 
     <div>

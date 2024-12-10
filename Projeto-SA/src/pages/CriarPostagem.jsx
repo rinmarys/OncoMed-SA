@@ -170,10 +170,12 @@ function CriarPostagem() {
                             <textarea value={valorAutor} onChange={e => setValorAutor(e.target.value)}  ></textarea>
                         </div>
                     </div>
+                </div>
 
-
+                <div className='alinhamento-container-2'>
+                    <div className=''></div>
                     {/* CONTEÚDO */}
-                    <h2 className="titles-descricaoTags">Descricao</h2>
+                    <h2 className="titles-descricaoTags">Conteúdo</h2>
                     <textarea
                         value={valorDescricao}
                         onChange={e => setValorDescricao(e.target.value)}
