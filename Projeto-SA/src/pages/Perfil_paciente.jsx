@@ -4,10 +4,14 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import './Perfil_paciente.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ConfirmarDeletarPopUp from '../components/ConfirmarDeletarPopUp';
+import { h } from '@fullcalendar/core/preact.js';
+import ConfirmarSalvoPopUp from '../components/ConfirmarSalvoPopUp';
 
 function Perfil_paciente() {
   const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
   const [tipo_do_input_senha, set_tipo_do_senha] = useState(`password`);
+  const [estado_do_olhinho_senha, set_estado_olinho_senha]=useState(false)
 
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
@@ -18,8 +22,8 @@ function Perfil_paciente() {
   const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
 
-  // const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
-  // const [mostrarPopUpSalvo, setMostrarPopUpSalvoPerfil] = useState(false);
+  const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
+  const [mostrarPopUpSalvo, setMostrarPopUpSalvoPerfil] = useState(false);
 
 
   const navigate = useNavigate()
@@ -158,6 +162,7 @@ function Perfil_paciente() {
           }
         };
       };
+      setMostrarPopUpSalvoPerfil(true)
     } catch (error) {
       console.error("Erro ao salvar os dados:", error);
       alert("Não foi possível atualizar os dados. Tente novamente.");
@@ -188,7 +193,20 @@ function Perfil_paciente() {
   localStorage.removeItem('usuario_logado')
   sessionStorage.removeItem('usuario_logado')
 
+  const handleConfirmarDeletar= async () => {
+  await deletarConta();
+  setMostrarPopDeletarPerfil(false);
+  }
+
+ const handleCancelarDeletar= () =>{
+  setMostrarPopDeletarPerfil(false)
+  }
   // Deletar conta
+
+  const toggleSenhaVisivel=() => {
+    set_estado_olinho_senha(!estado_do_olhinho_senha)
+  };
+
   return (
     <div>
       <div className="conteudo-perfil">
@@ -223,9 +241,20 @@ function Perfil_paciente() {
                 onClick={sairDaConta}>SAIR DA CONTA</button>
 
               <button className="button-deletar-perfil"
-                onClick={deletarConta}>DELETAR CONTA</button>
+                onClick={ () => setMostrarPopDeletarPerfil(true)}>DELETAR CONTA</button>
             </div>
           </div>
+          <ConfirmarDeletarPopUp
+          show={mostrarPopDeletar} 
+          onConfirmar={handleConfirmarDeletar}
+          onCancelar={handleCancelarDeletar}
+          titulo='Tem certeza que deseja deletar a sua conta?'
+          />
+
+          <ConfirmarSalvoPopUp
+          show={mostrarPopUpSalvo}
+          onClose={() => setMostrarPopUpSalvoPerfil(false)}
+          mensagem='Dados atualizados com sucesso!'/>
 
           <div className="container-dois-perfil">
             <label>Nome</label>
@@ -248,47 +277,6 @@ function Perfil_paciente() {
               value={usuario_logado.telefone}
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
-
-
-            {/* <div className="container-alinhamento-tres-perfil">
-        <div className="container-alinhamento-tres-perfil">
-        >>>>>>> 82b08292ef724ad75ea43072ad5af432789a3226
-          <div className="container-foto-usuario">
-            <label>Escolha sua foto de perfil</label>
-            <img src="icon_user.png" alt="foto de usuario" />
-          </div>
-
-          <div className="alinhamento-buttons-perfis">
-            <button className="button-editar-perfis" onClick={editando}>
-              {editando ? 'SALVAR' : 'EDITAR'}
-            </button>
-            <button className="button-deletar-perfis" onClick={deletarConta}>
-              DELETAR
-            </button>
-          </div>
-        </div>
-      </div >
-
-      {mostrarPopSalvoPerfil && (
-        <div className="container-PopSalvarPerfilPaciente">
-          <h2 className="FontePopPerfilPacienteSalvo">Salvo com sucesso!</h2>
-          <button className="buttonOkPerfilPaciente" onClick={() => setMostrarPopSalvoPerfil(false)}>OK</button>
-        </div>
-      )
-      }
-
-      {
-        mostrarPopDeletarPerfil && (
-          <div className="Container-PopPerfilPaciente">
-            <h3 className="FontePopPerfilPaciente">Tem certeza que deseja deletar a sua conta?</h3>
-            <div className="ButtonsPopPerfilPaciente">
-              <button className="buttonDeletarPerfilPaciente" onClick={handleConfirmarDeletar}>SIM</button>
-              <button className="buttonNaoDeletarPerfilPaciente" onClick={handleCancelarDeletar}>NÃO</button>
-            </div>
-          </div>
-        )
-      }
-    </div > */}
 
             <label>Gênero</label>
             <select disabled={!editando}
@@ -315,25 +303,18 @@ function Perfil_paciente() {
               onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)} />
 
             <label>Senha atual</label>
-            <input type={tipo_do_input_senha}
+            <input type={estado_do_olhinho_senha ? 'text' : 'password'}
               placeholder="digite sua senha atual"
               value={usuario_logado.senha}
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
+              <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'} 
+              alt='olinho' onClick={toggleSenhaVisivel}
+              style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}/>
           </div>
         </div>
       </div>
-
-      {/* <ConfirmarDeletarPopUp
-      show={mostrarPopDeletar} onClose={() => setMostrarPopDeletarPerfil(false)}
-      onConfirmar={handleConfirmarDeletar}
-      onCancelar={handleCancelar}
-      titulo="tem certeza que deseja deletar sua conta?" />
-
-    <ConfirmarSalvoPopUp
-      show={mostrarPopUpSalvo} onClose={() => setMostrarPopUpSalvoPerfil(false)}
-      mensagem='Dados atualizados!' /> */}
-    </div>
+      </div>
 
 
   );
