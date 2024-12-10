@@ -11,7 +11,7 @@ function ConfirmarDeletarPopUp({
     <div className='poUp-container'>
         <div className='popUp-deletar'>
           <h3>{titulo}</h3>
-          <img src='/public/img_deletar_conta.png'></img>
+          <img src='jade_duvida.png'></img>
           <div className='alinhamentoButtons'>
            <button className='confirmarDeletar' onClick={onConfirmar}>SIM</button>
            <button className='naoDeletar' onClick={onCancelar}>NÃO</button>

@@ -171,7 +171,6 @@ function CriarPostagem() {
                         </div>
                     </div>
 
-<<<<<<< HEAD
 <div className='alinhamento-container-2'>
     <div className=''></div>
                             {/* CONTEÚDO */}
@@ -185,19 +184,6 @@ function CriarPostagem() {
                                 placeholder='Conteúdo do artigo' 
                                 className='input-descricao-artigo'
                             ></textarea>
-=======
-                    {/* CONTEÚDO */}
-                    <h2 className="titles-descricaoTags">Descricao</h2>
-                    <textarea
-                        value={valorDescricao}
-                        onChange={e => setValorDescricao(e.target.value)}
-                        name="textArea"
-                        cols="30"
-                        rows="17"
-                        placeholder='Conteúdo do artigo'
-                        className='input-descricao-artigo'
-                    ></textarea>
->>>>>>> dadb5572caaa5f9df0cc61f051c6c5336148e2d4
 
 
                     {/* BOTÕES */}

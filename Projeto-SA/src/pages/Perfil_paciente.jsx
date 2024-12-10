@@ -6,7 +6,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ConfirmarDeletarPopUp from '../components/ConfirmarDeletarPopUp';
 import { h } from '@fullcalendar/core/preact.js';
-import ConfirmarSalvoPopUp from '../components/ConfirmarSalvoPopUp';
+import ConfimarContaExcluidaPopUp from '../components/ConfimarContaExcluidaPopUp';
+import emailjs from 'emailjs-com';
+import InputMask from 'react-input-mask';
 
 function Perfil_paciente() {
   const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
@@ -21,9 +23,11 @@ function Perfil_paciente() {
   const [valor_inpt_cep_ou_crm, set_valor_inpt_cep_ou_crm] = useState(``);
   const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
+  const [especializacao, setEspecializacao]=useState('')
+  const [mensagem, setMensagem]=useState('')
 
   const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
-  const [mostrarPopUpSalvo, setMostrarPopUpSalvoPerfil] = useState(false);
+  const [mostrarPopUpExcluir, setMostrarPopUpExcluirPerfil] = useState(false);
 
 
   const navigate = useNavigate()
@@ -36,6 +40,10 @@ function Perfil_paciente() {
       } else if (usuario_logado.genero === 'Masculino') {
         setImagemPerfilPaciente('./imagemPerfilMale.svg');
       }
+    }
+
+    if (usuario_logado.crm){
+      setEspecializacao(usuario_logado.especializacao || '')
     }
   }, [usuario_logado]);
 
@@ -129,7 +137,7 @@ function Perfil_paciente() {
           );
 
           if (response.status === 200) {
-            alert("Dados atualizados com sucesso!");
+            setMensagem('Dados atualizados com sucesso!')
             setEditando(false);
 
             set_usuario_logado(usuario_atualizado);
@@ -151,7 +159,7 @@ function Perfil_paciente() {
           );
 
           if (response.status === 200) {
-            alert("Dados atualizados com sucesso!");
+            setMensagem("Dados atualizados com sucesso!");
             setEditando(false);
 
             set_usuario_logado(usuario_atualizado);
@@ -162,10 +170,10 @@ function Perfil_paciente() {
           }
         };
       };
-      setMostrarPopUpSalvoPerfil(true)
+      setMostrarPopUpExcluirPerfil(true)
     } catch (error) {
       console.error("Erro ao salvar os dados:", error);
-      alert("Não foi possível atualizar os dados. Tente novamente.");
+      setMensagem("Não foi possível atualizar os dados. Tente novamente.");
     }
   };
 
@@ -183,7 +191,7 @@ function Perfil_paciente() {
       console.log('Haciendo solicitud DELETE para deletar la cuenta');
       const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
       console.log('Respuesta de delete:', response);
-      navigate('/')
+     setMostrarPopUpExcluirPerfil(true)
 
     } catch (error) {
       console.error('Erro ao cancelar consulta:', error);
@@ -201,20 +209,12 @@ function Perfil_paciente() {
  const handleCancelarDeletar= () =>{
   setMostrarPopDeletarPerfil(false)
   }
-  // Deletar conta
 
   const toggleSenhaVisivel=() => {
     set_estado_olinho_senha(!estado_do_olhinho_senha)
   };
 
-<<<<<<< HEAD
-  navigate('/')
 
-}
-
-  // Deletar conta
-=======
->>>>>>> dadb5572caaa5f9df0cc61f051c6c5336148e2d4
   return (
     <div>
       <div className="conteudo-perfil">
@@ -225,7 +225,7 @@ function Perfil_paciente() {
           </div>
 
           <div className="hamburger-alinhamento">
-            <HamburgerMenu />
+            <HamburgerMenu/>
           </div>
         </div>
 
@@ -256,13 +256,13 @@ function Perfil_paciente() {
           show={mostrarPopDeletar} 
           onConfirmar={handleConfirmarDeletar}
           onCancelar={handleCancelarDeletar}
-          titulo='Tem certeza que deseja deletar a sua conta?'
-          />
+          titulo='Tem certeza que deseja deletar a sua conta?'/>
 
-          <ConfirmarSalvoPopUp
-          show={mostrarPopUpSalvo}
-          onClose={() => setMostrarPopUpSalvoPerfil(false)}
-          mensagem='Dados atualizados com sucesso!'/>
+          <ConfimarContaExcluidaPopUp
+          show={mostrarPopUpExcluir}
+          onClose={() => {setMostrarPopUpExcluirPerfil(false)
+           navigate('/')}}
+          mensagem='Conta Deletada com sucesso!'/>
 
           <div className="container-dois-perfil">
             <label>Nome</label>
@@ -279,6 +279,18 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, email: e.target.value })} />
 
+            {usuario_logado.crm && (
+              <>
+               <label>Especialização</label>
+               <input type='text' placeholder='Digite sua especialização' 
+               value={especializacao} 
+               disabled={!editando} 
+               onChange={(e) => { setEspecializacao(e.target.value)
+               set_usuario_logado({
+               ...usuario_logado, especializacao:e.target.value}) }}/>
+              </>
+            )}
+
             <label>Telefone (com DDD)</label>
             <input type="text"
               placeholder="+00 (00) 0000-0000"
@@ -286,45 +298,13 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
-{/* <<<<<<< HEAD
         <div className="container-alinhamento-tres-perfil">
           <div className="container-foto-usuario">
             <label>Escolha sua foto de perfil</label>
             <img src="icon_user.png" alt="foto de usuario" />
           </div>
-
-          <div className="alinhamento-buttons-perfis">
-            <button className="button-editar-perfis" onClick={editar} disabled={loading}>
-              {editando ? 'SALVAR' : 'EDITAR'}
-            </button>
-            <button className="button-deletar-perfis" onClick={confirmarDeletarConta} disabled={loading}>
-              DELETAR
-            </button>
-          </div>
-        </div>
       </div >
 
-      {mostrarPopSalvoPerfil && (
-        <div className="container-PopSalvarPerfilPaciente">
-          <h2 className="FontePopPerfilPacienteSalvo">Salvo com sucesso!</h2>
-          <button className="buttonOkPerfilPaciente" onClick={() => setMostrarPopSalvoPerfil(false)}>OK</button>
-        </div>
-      )
-      }
-
-      {
-        mostrarPopDeletarPerfil && (
-          <div className="Container-PopPerfilPaciente">
-            <h3 className="FontePopPerfilPaciente">Tem certeza que deseja deletar a sua conta?</h3>
-            <div className="ButtonsPopPerfilPaciente">
-              <button className="buttonDeletarPerfilPaciente" onClick={handleConfirmarDeletar}>SIM</button>
-              <button className="buttonNaoDeletarPerfilPaciente" onClick={handleCancelarDeletar}>NÃO</button>
-            </div>
-          </div>
-        )
-      }
-    </div >
-======= */}
             <label>Gênero</label>
             <select disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, genero: e.target.value })}>
@@ -349,6 +329,7 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)} />
 
+
             <label>Senha atual</label>
             <input type={estado_do_olhinho_senha ? 'text' : 'password'}
               placeholder="digite sua senha atual"
@@ -358,11 +339,18 @@ function Perfil_paciente() {
               <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'} 
               alt='olinho' onClick={toggleSenhaVisivel}
               style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}/>
-          </div>
-        </div>
-      </div>
-      </div>
 
+            {mensagem && (
+            <div className='mensagem' 
+            style={{color:'#ef2828', textAlign:'center', fontFamily: 'Poppins, sans-serif', fontWeight: 'bold', fontSize: '1vw'}}>
+            {mensagem}
+            </div>
+            )}
+        
+        </div>
+       </div>
+       </div>
+    </div>
 
   );
 }
