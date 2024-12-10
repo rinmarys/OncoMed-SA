@@ -5,14 +5,11 @@ import { GlobalContext } from '../contexts/GlobalContext'
 import Pop_up_de_login from './Pop_up_de_login';
 
 function Header() {
-<<<<<<< HEAD
+
   
   const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
 
-=======
 
-  const { usuario_logado } = useContext(GlobalContext);
->>>>>>> dadb5572caaa5f9df0cc61f051c6c5336148e2d4
   const [imagem_de_perfil_do_header, set_imagem_de_perfil_do_header] = useState(`Imagem de Perfil (Default).svg`);
   const { pop_up_de_login, set_pop_up_de_login } = useContext(GlobalContext);
   const navegacao_de_pagina = useNavigate(``);

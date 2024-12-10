@@ -18,58 +18,68 @@
 .Pop_up_de_login_container{
 
     display: flex;
-
     position: fixed;
     left: 30vw;
-
-    width: 40vw;
-    height: 35vh;
-
-    border: 1vw solid var(--cor_oito);
+    width: 35vw;
+    height: 21.5vh;
+    border: var(--cor_nove) solid 2vw;
     border-radius: 2vw;
-
-    color: var(--cor_cinco);
-    background-color: var(--cor_oito);
+    background-color: var(--cor_nove);
 }
 
 .Pop_up_de_login_container_alinhamento_conteudo{
 
     display: flex;
     justify-content: space-between;
-
-    width: 40vw;
-    height: 15vh;
+   
 }
 
-.Pop_up_de_login_container h1{
+/* .Pop_up_de_login_container h1{
 
     width: 25vw;
-
     margin-left: 1vw;
     margin-bottom: 0px;
-}
+} */
 
-.Pop_up_de_login_container_alinhamento_conteudo p{
+/* .Pop_up_de_login_container_alinhamento_conteudo p{
 
     margin-top: 0px;
     margin-left: 1vw;
-    margin-top: 4vh;
-
+    margin-top: 2vh;
     font-size: 2vw;
-}
+} */
 
 .Pop_up_de_login_container button{
 
     border: 0px;
-
     cursor: pointer;
-    
-    margin-right: 1vw;
-
+    margin-right: 0vw;
     font-family: var(--tipografia_primaria);
     font-size: 1.5vw;
     font-weight: bolder;
-    
-    color: var(--cor_cinco);
+    color: var(--cor_seis);
     background-color: transparent;
+    margin-top: -8vw;
+}
+.mensagem-login-popup{
+
+    color: var(--cor_seis);
+    margin-top: 0px;
+    margin-left: 1vw;
+    margin-top: 2vh;
+    font-size: 2vw;
+    font-family: var(--tipografia_primaria);
+    font-weight: bolder;
+}
+
+.imagem_jade_login{
+
+    width: 12vw;
+    height: 8.8vw;
+  
+    margin-top: 0.5vw;
+    margin-right: 0.5vw;
+
+
+
 }

@@ -11,7 +11,7 @@ import ConfirmarSalvoPopUp from '../components/ConfirmarSalvoPopUp';
 function Perfil_paciente() {
   const [imagemPerfilPaciente, setImagemPerfilPaciente] = useState('icon_user.png');
   const [tipo_do_input_senha, set_tipo_do_senha] = useState(`password`);
-  const [estado_do_olhinho_senha, set_estado_olinho_senha]=useState(false)
+  const [estado_do_olhinho_senha, set_estado_olinho_senha] = useState(false)
 
   const { usuario_logado, set_usuario_logado } = useContext(GlobalContext);
   const { lista_de_pacientes, set_lista_de_pacientes } = useContext(GlobalContext);
@@ -193,28 +193,25 @@ function Perfil_paciente() {
   localStorage.removeItem('usuario_logado')
   sessionStorage.removeItem('usuario_logado')
 
-  const handleConfirmarDeletar= async () => {
-  await deletarConta();
-  setMostrarPopDeletarPerfil(false);
+  const handleConfirmarDeletar = async () => {
+    await deletarConta();
+    setMostrarPopDeletarPerfil(false);
   }
 
- const handleCancelarDeletar= () =>{
-  setMostrarPopDeletarPerfil(false)
+  const handleCancelarDeletar = () => {
+    setMostrarPopDeletarPerfil(false)
   }
   // Deletar conta
 
-  const toggleSenhaVisivel=() => {
+  const toggleSenhaVisivel = () => {
     set_estado_olinho_senha(!estado_do_olhinho_senha)
   };
 
-<<<<<<< HEAD
-  navigate('/')
 
-}
 
-  // Deletar conta
-=======
->>>>>>> dadb5572caaa5f9df0cc61f051c6c5336148e2d4
+
+
+
   return (
     <div>
       <div className="conteudo-perfil">
@@ -249,20 +246,20 @@ function Perfil_paciente() {
                 onClick={sairDaConta}>SAIR DA CONTA</button>
 
               <button className="button-deletar-perfil"
-                onClick={ () => setMostrarPopDeletarPerfil(true)}>DELETAR CONTA</button>
+                onClick={() => setMostrarPopDeletarPerfil(true)}>DELETAR CONTA</button>
             </div>
           </div>
           <ConfirmarDeletarPopUp
-          show={mostrarPopDeletar} 
-          onConfirmar={handleConfirmarDeletar}
-          onCancelar={handleCancelarDeletar}
-          titulo='Tem certeza que deseja deletar a sua conta?'
+            show={mostrarPopDeletar}
+            onConfirmar={handleConfirmarDeletar}
+            onCancelar={handleCancelarDeletar}
+            titulo='Tem certeza que deseja deletar a sua conta?'
           />
 
           <ConfirmarSalvoPopUp
-          show={mostrarPopUpSalvo}
-          onClose={() => setMostrarPopUpSalvoPerfil(false)}
-          mensagem='Dados atualizados com sucesso!'/>
+            show={mostrarPopUpSalvo}
+            onClose={() => setMostrarPopUpSalvoPerfil(false)}
+            mensagem='Dados atualizados com sucesso!' />
 
           <div className="container-dois-perfil">
             <label>Nome</label>
@@ -286,7 +283,7 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
-{/* <<<<<<< HEAD
+            {/* <<<<<<< HEAD
         <div className="container-alinhamento-tres-perfil">
           <div className="container-foto-usuario">
             <label>Escolha sua foto de perfil</label>
@@ -355,13 +352,22 @@ function Perfil_paciente() {
               value={usuario_logado.senha}
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
-              <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'} 
+            <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'}
               alt='olinho' onClick={toggleSenhaVisivel}
-              style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}/>
+              style={{ cursor: 'pointer', width: '30px', height: '30px', marginLeft: '278px', position: 'absolute', top: '350px' }} />
+
+{/* 
+            <label>Especialidade</label>
+            <input type="text"
+              placeholder="Informe sua especialidade"
+              value={usuario_logado.telefone}
+              disabled={!editando}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} /> */}
+
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
 
   );

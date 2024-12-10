@@ -13,14 +13,14 @@ function CriarPostagem() {
 
     // Dados do blog
     const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
-    const {blogRecente, setblogRecente} = useContext(GlobalContext);
+    const { blogRecente, setblogRecente } = useContext(GlobalContext);
 
     // Lista de imagens disponíveis 
     const imagensDisponiveis = [
         { id: 1, nome: 'Imagem 1', caminho: 'breakfast 1.png' },
         { id: 2, nome: 'Imagem 2', caminho: 'Meditation.svg' },
         { id: 3, nome: 'Imagem 3', caminho: 'Alimentacao.svg' },
-        { id: 4, nome: 'imagem 4', caminho: 'Doctor.svg'},
+        { id: 4, nome: 'imagem 4', caminho: 'Doctor.svg' },
     ];
 
     // Função para buscar blogs do banco de dados
@@ -171,21 +171,7 @@ function CriarPostagem() {
                         </div>
                     </div>
 
-<<<<<<< HEAD
-<div className='alinhamento-container-2'>
-    <div className=''></div>
-                            {/* CONTEÚDO */}
-                            <h2 className="titles-descricaoTags">Conteúdo</h2>
-                            <textarea 
-                                value={valorDescricao} 
-                                onChange={e => setValorDescricao(e.target.value)} 
-                                name="textArea" 
-                                cols="30" 
-                                rows="17" 
-                                placeholder='Conteúdo do artigo' 
-                                className='input-descricao-artigo'
-                            ></textarea>
-=======
+
                     {/* CONTEÚDO */}
                     <h2 className="titles-descricaoTags">Descricao</h2>
                     <textarea
@@ -197,7 +183,7 @@ function CriarPostagem() {
                         placeholder='Conteúdo do artigo'
                         className='input-descricao-artigo'
                     ></textarea>
->>>>>>> dadb5572caaa5f9df0cc61f051c6c5336148e2d4
+
 
 
                     {/* BOTÕES */}
@@ -206,11 +192,11 @@ function CriarPostagem() {
                             <button className='publicar-button' type='submit'>PUBLICAR</button>
                             <button className='cancelar-button'>CANCELAR</button>
                         </div>
-</div>
                     </div>
                 </div>
             </form>
         </div>
+
     );
 }
 
