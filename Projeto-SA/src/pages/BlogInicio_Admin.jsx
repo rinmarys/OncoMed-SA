@@ -11,7 +11,8 @@ function BlogInicio_Admin() {
 
     const [mostrarPopDeletar, setMostrarPopDeletar] = useState(false)
     const [blogIdParaDeletar, setBlogIdParaDeletar] = useState(null) // Para armazenar o ID do blog a ser deletado
-    const { registroBlog, setRegistroBlog } = useContext(GlobalContext)
+    const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
+    const {objeto_a_armazenar_informacoes_do_blog, set_objeto_a_armazenar_informacoes_do_blog} = useContext(GlobalContext);
 
     function buttonDeletar(id) {
         setBlogIdParaDeletar(id); // Armazenando o ID do blog a ser deletado
@@ -50,10 +51,22 @@ function BlogInicio_Admin() {
     }, [])
 
     const navigate = useNavigate ('')
-    const handleEditClick = (informacoesBlog) => {
-        // Ao clicar no blog, navega para a página de edição e passa os dados
-        navigate('/EditarBlog', { state: { blogData: informacoesBlog } });
-        console.log(registroBlog)
+    
+    const pegar_informacoes_do_blog = (blog) => {
+
+        set_objeto_a_armazenar_informacoes_do_blog({
+
+            id: blog.id,
+            autor: blog.autor,
+            imagem: blog.imagem,
+            titulo: blog.titulo,
+            descricao: blog.descricao
+        });
+
+        console.log(`Blog a editar`, objeto_a_armazenar_informacoes_do_blog);
+
+        navigate(`/editarBlog`);
+
     };
     
     return (
@@ -77,13 +90,14 @@ function BlogInicio_Admin() {
                         <div className="consultas-solicitacao">
                             {registroBlog.length > 0 ? (
                                 registroBlog.map((informacoesBlog) => (
-                                    <div className="container-artigos"   key={informacoesBlog.id}>
+                                    <div className="container-artigos"  key={informacoesBlog.id}>
                                         
                                         <img
+                                            onClick={() => pegar_informacoes_do_blog(informacoesBlog)} 
                                             className="Img-ReviwBlogADM"
                                             src={informacoesBlog.imagem}
                                             alt="Evento especial Nutrição"
-                                            onClick={() => handleEditClick(informacoesBlog)}
+                                            
                                             
                                         /> 
                                         <div className='alinhamento-texto'>

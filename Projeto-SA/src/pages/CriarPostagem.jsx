@@ -13,7 +13,7 @@ function CriarPostagem() {
 
     // Dados do blog
     const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
-    const { blogRecente, setblogRecente } = useContext(GlobalContext);
+   
 
     // Lista de imagens disponíveis 
     const imagensDisponiveis = [
@@ -51,7 +51,7 @@ function CriarPostagem() {
             const enviarInformacoes = await axios.post('http://localhost:3000/blog', informacoesBlog);
             if (enviarInformacoes.status === 201) {
                 fetchBlog();
-                setblogRecente(informacoesBlog)
+                
                 setValorAutor('');
                 setValorDescricao('');
                 setValorTitulo('');
