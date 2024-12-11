@@ -4,6 +4,7 @@ import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../contexts/GlobalContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import './BlogInicio_Admin.css'
 
 function BlogInicio_Admin() {
@@ -48,6 +49,13 @@ function BlogInicio_Admin() {
         fetchBlog()
     }, [])
 
+    const navigate = useNavigate ('')
+    const handleEditClick = (informacoesBlog) => {
+        // Ao clicar no blog, navega para a página de edição e passa os dados
+        navigate('/EditarBlog', { state: { blogData: informacoesBlog } });
+        console.log(registroBlog)
+    };
+    
     return (
         <div>
             <div className="blog-alinhamento">
@@ -69,10 +77,15 @@ function BlogInicio_Admin() {
                         <div className="consultas-solicitacao">
                             {registroBlog.length > 0 ? (
                                 registroBlog.map((informacoesBlog) => (
-                                    <div className="container-artigos" key={informacoesBlog.id}>
-                                   <Link to='/criarPostagem'> <img  className="Img-ReviwBlogADM" src={informacoesBlog.imagem} alt="Evento especial Nutrição" /> </Link> 
+                                    <div className="container-artigos" onClick={() => handleEditClick(informacoesBlog)}  key={informacoesBlog.id}>
+                                        
+                                        <img
+                                            className="Img-ReviwBlogADM"
+                                            src={informacoesBlog.imagem}
+                                            alt="Evento especial Nutrição"
+                                            
+                                        /> 
                                         <div className='alinhamento-texto'>
-
 
                                             <div className='Descricao-ReviwBlogADM'>
                                                 <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
@@ -88,7 +101,7 @@ function BlogInicio_Admin() {
                                     </div>
                                 ))
                             ) : (
-                               null
+                               <p className='msg-NaoPostagem'>Ainda não à postagens! :( </p>
                             )}
                         </div>
 

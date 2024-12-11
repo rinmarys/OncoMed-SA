@@ -8,15 +8,6 @@ function Header() {
   
   const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
 
-<<<<<<< HEAD
-=======
-=======
-
-  const {usuario_logado, set_usuario_logado} = useContext(GlobalContext);
-
-
->>>>>>> 87383ed79d1f236d27894e376ce0fc94e0ec393b
->>>>>>> a93a98d9190584b10070e0d7d3570997d55cca3b
   const [imagem_de_perfil_do_header, set_imagem_de_perfil_do_header] = useState(`Imagem de Perfil (Default).svg`);
   const { pop_up_de_login, set_pop_up_de_login } = useContext(GlobalContext);
   const navegacao_de_pagina = useNavigate(``);

@@ -19,11 +19,7 @@ function CriarPostagem() {
     const imagensDisponiveis = [
         { id: 1, nome: 'Imagem 1', caminho: 'breakfast 1.png' },
         { id: 2, nome: 'Imagem 2', caminho: 'Meditation.svg' },
-<<<<<<< HEAD
         { id: 3, nome: 'Imagem 3', caminho: 'carinha 1.svg' },
-=======
-        { id: 3, nome: 'Imagem 3', caminho: 'Alimentacao.svg' },
->>>>>>> 87383ed79d1f236d27894e376ce0fc94e0ec393b
         { id: 4, nome: 'imagem 4', caminho: 'Doctor.svg' },
     ];
 
@@ -91,11 +87,9 @@ function CriarPostagem() {
                                       value={imagemSelecionada}
                                       onChange={e => setImagemSelecionada(e.target.value)}
                                     >
-                                        <option cvalue="">Selecione uma imagem</option>
+                                        <option value="">Selecione uma imagem</option>
                                           {imagensDisponiveis.map(imagem => (
-                                          <option key={imagem.id} value={imagem.caminho}>
-                                            {imagem.nome}
-                                          </option>
+                                          <option key={imagem.id} value={imagem.caminho}> {imagem.nome}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -119,7 +113,7 @@ function CriarPostagem() {
                                     onChange={e => setValorTitulo(e.target.value)}
                                     type="text"
                                     className='input-titulo-artigo'
-
+                                    
                                 />
                             </div>
                             {/* AUTOR */}
@@ -161,51 +155,9 @@ function CriarPostagem() {
                     </div>
                 </div>
 
-<<<<<<< HEAD
-<div className='alinhamento-container-2'>
-    <div className=''></div>
-                            {/* CONTEÚDO */}
-                            <h2 className="titles-descricaoTags">Conteúdo</h2>
-                            <textarea 
-                                value={valorDescricao} 
-                                onChange={e => setValorDescricao(e.target.value)} 
-                                name="textArea" 
-                                cols="30" 
-                                rows="17" 
-                                placeholder='Conteúdo do artigo' 
-                                className='input-descricao-artigo'
-                            ></textarea>
-=======
-<<<<<<< HEAD
-
-                 </div> *
-=======
-                <div className='alinhamento-container-2'>
-                    <div className=''></div>
-                    {/* CONTEÚDO */}
-                    <h2 className="titles-descricaoTags">Conteúdo</h2>
-                    <textarea
-                        value={valorDescricao}
-                        onChange={e => setValorDescricao(e.target.value)}
-                        name="textArea"
-                        cols="30"
-                        rows="17"
-                        placeholder='Conteúdo do artigo'
-                        className='input-descricao-artigo'
-                    ></textarea>
-
->>>>>>> a93a98d9190584b10070e0d7d3570997d55cca3b
 
 
-                    {/* BOTÕES */}
-                    <div className="alinhamento-buttons">
-                        <div className="buttons-container">
-                            <button className='publicar-button' type='submit'>PUBLICAR</button>
-                            <button className='cancelar-button'>CANCELAR</button>
-                        </div>
-                    </div>
-                </div>
->>>>>>> 87383ed79d1f236d27894e376ce0fc94e0ec393b
+
             </form>
         </div>
 

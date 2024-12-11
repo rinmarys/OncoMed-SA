@@ -1,0 +1,27 @@
+:root {
+    --azul_escuro: #1D2A62;
+    --azul_claro: #87AECE;
+    --quase_branco: #fdfdfd;
+    --verde_meio_termo: #437118;
+    --verde_claro: #AFD06E;
+    --azul_meio_termo: #3b4fa7;
+    --branco_gelo: #F5F5F5;
+    --verde_escuro: #629136;
+    --verde_escurao: #2e500e;
+}
+
+.titulo_editar_blog h1{
+
+    
+
+    color: var(--azul_escuro);
+}
+
+.editar_blog_titulo_underline{
+
+
+    width: 10vw;
+    height: 1.5vh;
+
+    background-color: var(--verde_escuro);
+}
