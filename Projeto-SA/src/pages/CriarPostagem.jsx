@@ -62,6 +62,14 @@ function CriarPostagem() {
         }
     }
 
+    const CancelarBlog = () => {
+        setValorAutor('');
+        setValorDescricao('');
+        setValorTitulo('');
+        setImagemSelecionada('');  // Resetando a imagem
+       
+    }
+
     return (
         <div>
             <form onSubmit={enviarBlog}>
@@ -146,7 +154,7 @@ function CriarPostagem() {
 
                                 <div className="buttons-container">
                                     <button className='publicar-button' type='submit'>PUBLICAR</button>
-                                    <button className='cancelar-button'>CANCELAR</button>
+                                    <button className='cancelar-button' onClick={CancelarBlog}>CANCELAR</button>
                                 </div>
 
                             

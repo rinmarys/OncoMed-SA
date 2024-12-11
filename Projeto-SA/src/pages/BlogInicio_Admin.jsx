@@ -77,12 +77,13 @@ function BlogInicio_Admin() {
                         <div className="consultas-solicitacao">
                             {registroBlog.length > 0 ? (
                                 registroBlog.map((informacoesBlog) => (
-                                    <div className="container-artigos" onClick={() => handleEditClick(informacoesBlog)}  key={informacoesBlog.id}>
+                                    <div className="container-artigos"   key={informacoesBlog.id}>
                                         
                                         <img
                                             className="Img-ReviwBlogADM"
                                             src={informacoesBlog.imagem}
                                             alt="Evento especial Nutrição"
+                                            onClick={() => handleEditClick(informacoesBlog)}
                                             
                                         /> 
                                         <div className='alinhamento-texto'>

@@ -36,11 +36,19 @@
 }
 /* DENTRO DO BLOG */
 .container-artigos{
-     box-shadow: -1vw -1vw 2vw rgba(255,255,255,0.45), 0.4vw 0.4vw 0.9vw rgba(94,104,121,0.3);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0.26vw 0.78125vw;
     margin-bottom: 10vw;
     border-radius: 2vw;
-    /* border:1px solid black;  */
+    /* border:1px solid black;   */
     height: 20vw;
+}
+.container-artigos:hover{
+    transition: 0.3s;
+
+    padding: 0.52vw;
+
+
+    background-color: #DAE4EC;
 }
 .Img-ReviwBlogADM{
     width: 20vw;
