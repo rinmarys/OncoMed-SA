@@ -18,6 +18,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta] = useState([])
 
     const [registroBlog, setRegistroBlog] = useState([]);
+    const [blogRecente, setblogRecente] = useState('')
 
     const [pop_aberto, set_pop_aberto] = useState(false);
     const [pop_up_de_login, set_pop_up_de_login] = useState(false);
@@ -59,6 +60,10 @@ export const GlobalContextProvider = ({ children }) => {
             //LISTA BLOG
             registroBlog,
             setRegistroBlog,
+
+            //LISTA BLOG RECENTE
+            blogRecente,
+            setblogRecente,
             
             // MARCAR CONSULTA INFORMAÇÔES
             listaInformacoesMarcarConsulta,

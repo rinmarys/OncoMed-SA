@@ -13,12 +13,14 @@ function CriarPostagem() {
 
     // Dados do blog
     const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
+    const { blogRecente, setblogRecente } = useContext(GlobalContext);
 
-    // Lista de imagens disponíveis (exemplo de URLs)
+    // Lista de imagens disponíveis 
     const imagensDisponiveis = [
         { id: 1, nome: 'Imagem 1', caminho: 'breakfast 1.png' },
         { id: 2, nome: 'Imagem 2', caminho: 'Meditation.svg' },
-        { id: 3, nome: 'Imagem 3', caminho: 'Alimentacao.svg' },
+        { id: 3, nome: 'Imagem 3', caminho: 'carinha 1.svg' },
+        { id: 4, nome: 'imagem 4', caminho: 'Doctor.svg' },
     ];
 
     // Função para buscar blogs do banco de dados
@@ -49,6 +51,7 @@ function CriarPostagem() {
             const enviarInformacoes = await axios.post('http://localhost:3000/blog', informacoesBlog);
             if (enviarInformacoes.status === 201) {
                 fetchBlog();
+                setblogRecente(informacoesBlog)
                 setValorAutor('');
                 setValorDescricao('');
                 setValorTitulo('');
@@ -62,82 +65,102 @@ function CriarPostagem() {
     return (
         <div>
             <form onSubmit={enviarBlog}>
-                <div className='Container-CriarArtigo'>
-                    <div className="alinhamento-titulo-criarPostagem">
-                        <div className="titulo-criarPostagem">
-                            <h1>CRIAR NOVA POSTAGEM</h1>
-                            <div className='line-criarPostagem'></div>
-                        </div>
-                        <HamburgerMenuAdmin />
-                    </div>
+                 <div className='Container-CriarArtigo'> 
 
+                          <div className="alinhamento-titulo-criarPostagem">
+                               <div className="titulo-criarPostagem">
+                               <h1>CRIAR NOVA POSTAGEM</h1>
+                               <div className='line-criarPostagem'></div>
+                          </div>
+
+                               <HamburgerMenuAdmin />
+                         </div>
+ 
                     <div className="alinhamento-pagina">
                         <div className="alinhamento-container-um">
-                            <div className="inserirImagem">
-                                {/* SELECT ESCOLHER IMG*/}
-                                <label htmlFor="imagem">Escolha uma imagem:</label>
-                                <select
-                                    id="imagem"
-                                    value={imagemSelecionada}
-                                    onChange={e => setImagemSelecionada(e.target.value)}
-                                >
-                                    <option value="">Selecione uma imagem</option>
-                                    {imagensDisponiveis.map(imagem => (
-                                        <option key={imagem.id} value={imagem.caminho}>
-                                            {imagem.nome}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
+                                <div className="inserirImagem">
+                                 {/* SELECT ESCOLHER IMG*/}
+                                   <h2 className="Label-EscolhaIMG" htmlFor="imagem">Escolha uma imagem:</h2>
+                                   <select
+                                      className="Select-IMGLabel"
+                                      id="imagem"
+                                      value={imagemSelecionada}
+                                      onChange={e => setImagemSelecionada(e.target.value)}
+                                    >
+                                        <option value="">Selecione uma imagem</option>
+                                          {imagensDisponiveis.map(imagem => (
+                                          <option key={imagem.id} value={imagem.caminho}> {imagem.nome}</option>
+                                        ))}
+                                    </select>
+                                </div>
 
                             {/* MOSTRA IMG */}
                             {imagemSelecionada && (
                                 <div className="imagem-selecionada">
-                                    <h3>Imagem Selecionada:</h3>
+                                    <h2 className='title-IMGSelect'>Imagem Selecionada:</h2>
                                     <img src={imagemSelecionada} alt="Imagem escolhida" className="imagem-preview" />
                                 </div>
                             )}
-<div className='Container-InputTitulo'>
-                            {/* TÍTULO POST*/}
-                            <h2 className="titles-titleTags">Titulo</h2>
-                            <input 
-                                value={valorTitulo} 
-                                onChange={e => setValorTitulo(e.target.value)} 
-                                type="text" 
-                                className='input-titulo-artigo' 
-                                
-                            />
-</div>
-                        {/* AUTOR */}
-                        <div className="alinhamento-container-tres">
-                            <h2 className="titles-autorTags">Autor</h2>
-                            <textarea value={valorAutor} onChange={e => setValorAutor(e.target.value)}  ></textarea>
-                        </div>
                         </div>
 
-                            {/* CONTEÚDO */}
-                            <h2 className="titles-descricaoTags">Descricao</h2>
-                            <textarea 
-                                value={valorDescricao} 
-                                onChange={e => setValorDescricao(e.target.value)} 
-                                name="textArea" 
-                                cols="30" 
-                                rows="17" 
-                                placeholder='Conteúdo do artigo' 
-                                className='input-descricao-artigo'
-                            ></textarea>
 
-                        {/* BOTÕES */}
-                        <div className="alinhamento-buttons">
-                            <div className="buttons-container">
-                                <button className='publicar-button' type='submit'>PUBLICAR</button>
-                                <button className='cancelar-button'>CANCELAR</button>
+                   <div className="alinhamento-container-dois">
+                            <div className='Container-InputTitulo'>
+                                {/* TÍTULO POST*/}
+                                <h2 className="titles-titleTags">Titulo</h2>
+                                <input
+                                    value={valorTitulo}
+                                    onChange={e => setValorTitulo(e.target.value)}
+                                    type="text"
+                                    className='input-titulo-artigo'
+                                    
+                                />
                             </div>
-                        </div>
+                            {/* AUTOR */}
+                            <div className="alinhamento-container-tres">
+                                <h2 className="titles-autorTags">Autor</h2>
+                                <input
+                                    value={valorAutor}
+                                    onChange={e => setValorAutor(e.target.value)}
+                                    className='inpt-textAutor'
+                                />
+                            </div>
+
+                      
+                            <div className='alinhamento-linkInpt'>
+                                {/* CONTEÚDO */}
+                                <h2 className="titles-descricaoTags">Link Externo</h2>
+                                <input
+                                    value={valorDescricao}
+                                    onChange={e => setValorDescricao(e.target.value)}
+                                    name="textArea"
+                                    cols="30"
+                                    rows="17"
+                                    className='input-descricao-artigo'
+                                    />
+                            </div>
+                        
+                   </div>
+
+                                {/* BOTÕES */}
+
+                                <div className="buttons-container">
+                                    <button className='publicar-button' type='submit'>PUBLICAR</button>
+                                    <button className='cancelar-button'>CANCELAR</button>
+                                </div>
+
+                            
+                       
+
                     </div>
                 </div>
+
+
+
+
             </form>
         </div>
+
     );
 }
 

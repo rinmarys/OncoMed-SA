@@ -43,6 +43,12 @@ function Login() {
 
   }, [estado_do_olinho]);
 
+  useEffect(() => {
+
+    pop_aberto ? set_imagem_olinho(``) : set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho' />);
+  
+  }, [pop_aberto]);
+
   const fetch_pacientes = async () => {
 
     try {

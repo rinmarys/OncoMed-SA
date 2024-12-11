@@ -23,9 +23,9 @@ function Pop_up_de_login() {
       
     <div className='Pop_up_de_login_container_alinhamento_conteudo'>
       <div>
-
-      <p>Favor fazer o Login</p>
+      <p className='mensagem-login-popup'>Olá! Por favor, faça o login para ativar essa função!</p>
       </div>
+      <img className='imagem_jade_login' src="jade_felizinha.png" alt="" />
       <button onClick={() => set_pop_up_de_login(false)}>X</button>
     </div>
 

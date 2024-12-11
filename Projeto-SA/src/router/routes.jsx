@@ -17,9 +17,9 @@ import EspacoControle_Admin from '../pages/EspacoControle_Admin.jsx'
 import PoliticaPrivacidade from '../pages/PoliticaPrivacidade'
 import TermosDeUso from '../pages/TermosDeUso'
 import Convenio from "../pages/Convenio";
-import Perfil_medico from "../pages/Perfil_medico.jsx";
 import MedicosCadastrados from "../pages/MedicosCadastrados";
 import DadosPessoaisAdmin from "../pages/DadosPessoaisAdmin.jsx";
+import EditarBlog from "../pages/EditarBlog";
 
 const router = createBrowserRouter([
     // Header
@@ -48,6 +48,7 @@ const router = createBrowserRouter([
     { path: "/solicitacaoConsulta", element: <SolicitacaoConsulta /> },
     { path: "/medicosCadastrados", element: <MedicosCadastrados /> },
     { path: "/dadosPessoaisAdmin", element: <DadosPessoaisAdmin /> },
+    { path: "/editarBlog", element: <EditarBlog />},
     //Telas Administradores
 
     // Footer
@@ -56,10 +57,6 @@ const router = createBrowserRouter([
     { path: "/convenios", element: <Convenio /> },
     { path: "/sobreNos", element: <SobreNos /> },
     // Footer
-
-    //Medico
-    { path: "/perfilMedico", element: <Perfil_medico /> },
-
 ])
 
 export default router;

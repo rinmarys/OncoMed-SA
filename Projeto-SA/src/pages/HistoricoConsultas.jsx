@@ -1,51 +1,90 @@
-import React, { useEffect, useState } from 'react';
-import HamburgerMenu from '../components/HamburgerMenu';
-import './HistoricoConsultas.css';
-import axios from 'axios';
+import React, { useEffect, useState, useContext } from "react";
+import HamburgerMenu from "../components/HamburgerMenu";
+import "./HistoricoConsultas.css";
+import axios from "axios";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 function HistoricoConsultas() {
-  // const [isOpen, setIsOpen] = useState(false);
-  const [lista_de_marcarconsulta, set_lista_de_marcarconsulta] = useState([])
-
-  // const handleOpenPopup = () => {
-  //   setIsOpen(true);
-  // };
-
-  // const handleClosePopup = () => {
-  //   setIsOpen(false);
-  // };
+  const [lista_de_marcarconsulta, set_lista_de_marcarconsulta] = useState([]);
+  const [lista_de_medicos, set_Lista_de_medicos] = useState([]);
+  const [lista_de_pacientes, set_Lista_de_pacientes] = useState([]);
+  const { usuario_logado } = useContext(GlobalContext);
 
   const fetch_marcarConsulta = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/marcarconsulta');
+      const response = await axios.get("http://localhost:3000/marcarconsulta");
       set_lista_de_marcarconsulta(response.data);
     } catch (error) {
-      console.error('Erro ao buscar marcarconsulta:', error);
+      console.error("Erro ao buscar marcarconsulta:", error);
     }
   };
 
+  const fetch_medicos = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/medicos");
+      set_Lista_de_medicos(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar médicos:", error);
+    }
+  };
+
+  const fetch_pacientes = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/pacientes");
+      set_Lista_de_pacientes(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar pacientes:", error);
+    }
+  };
+
+  // Função para determinar a situação da consulta
+  const getSituacaoConsulta = (dataAgendamento, horarioConsulta) => {
+    const dataAtual = new Date();
+    const [hora, minutos] = horarioConsulta.split(':');
+    const dataConsulta = new Date(dataAgendamento);
+    dataConsulta.setHours(hora);
+    dataConsulta.setMinutes(minutos);
+
+    if (dataAtual > dataConsulta) {
+      return "REALIZADO";
+    } else {
+      return "AINDA NÃO REALIZADO";
+    }
+  };
+
+  // Encontrar nome do médico designado
+  const getMedicoNome = (id_medico) => {
+    const medico = lista_de_medicos.find((med) => med.id_medico === Number(id_medico));
+    return medico ? medico.nome : "Médico não encontrado";
+  };
+
+  // Encontrar nome do paciente
+  const getPacienteNome = (id_paciente) => {
+    const paciente = lista_de_pacientes.find((pac) => pac.id_paciente === Number(id_paciente));
+    return paciente ? paciente.nome : "Paciente não encontrado";
+  };
+
+  // Filtrar as consultas que pertencem ao usuário logado
+  const consultasFiltradas = lista_de_marcarconsulta.filter((consulta) => {
+    if (usuario_logado.id_paciente) {
+      // Verifica se a consulta é do paciente logado e confirmada
+      return consulta.id_paciente == Number(usuario_logado.id_paciente) && consulta.medico_designado;
+    }
+    if (usuario_logado.id_medico) {
+      // Verifica se a consulta é do médico logado e confirmada
+      return consulta.medico_designado == Number(usuario_logado.id_medico);
+    }
+    return false;
+  });
+
   useEffect(() => {
-
-    fetch_marcarConsulta()
-
-  })
-
-  // useEffect(() => {
-  //   if (!selectedDate || !agendamentosDoDia) return;
-
-  //   const dataSelecionada = new Date(selectedDate).toISOString().split('T')[0];
-
-  //   // Filtra consultas do dia
-  //   const consultasFiltradas = agendamentosDoDia.filter((agendamento) =>
-  //     new Date(agendamento.data_agendamento).toISOString().split('T')[0] === dataSelecionada
-  //   );
-
-  //   setConsultasDoDia(consultasFiltradas);
-  // }, [selectedDate, agendamentosDoDia]);
-
+    fetch_marcarConsulta();
+    fetch_medicos();
+    fetch_pacientes();
+  }, []);
 
   return (
-    <div className='tudo'>
+    <div className="tudo">
       <div className="alinhamento-hamburger">
         <HamburgerMenu />
       </div>
@@ -56,30 +95,36 @@ function HistoricoConsultas() {
           <div className="linha"></div>
         </div>
         <div className="consultas">
-          {/* Primeira consulta */}
-
-          {lista_de_marcarconsulta.length > 0 ? (
-            lista_de_marcarconsulta.map((historicoConsulta) => (
-              <div className='consulta'>
-                <div className='nome-tipo-alinhamento'>
-                  <p className='nome-pessoa'>{historicoConsulta.medico_designado}</p>
+          {consultasFiltradas.length > 0 ? (
+            consultasFiltradas.map((consulta) => (
+              <div key={consulta.id_consulta} className="consulta">
+                <div className="nome-tipo-alinhamento">
+                  {/* Renderiza o nome do médico ou paciente */}
+                  <p className="nome-pessoa">
+                    {usuario_logado.id_paciente
+                      ? getMedicoNome(consulta.medico_designado)
+                      : getPacienteNome(consulta.id_paciente)}
+                  </p>
                   <div>
-                    <p className='tipo-consulta'>{historicoConsulta.tipo_consulta}</p>
+                    <p className="tipo-consulta">{consulta.tipo_consulta}</p>
                   </div>
                 </div>
-                <p className='situacao-ainda-nao-realizado'>AINDA NÃO REALIZADO</p>
-                <div className='horario-data-alinhamento'>
-                  <p className='horario-consulta'>{historicoConsulta.horario.slice(0, 5)}</p>
-                  <p className='data-consulta'>{historicoConsulta.data_agendamento.slice(0, 10)}</p>
+                {/* Exibe a situação da consulta com base na data e horário */}
+                <p className={`situacao-consulta ${getSituacaoConsulta(consulta.data_agendamento, consulta.horario) === "REALIZADO" ? "realizado" : "nao-realizado"}`}>
+  {getSituacaoConsulta(consulta.data_agendamento, consulta.horario)}
+</p>
+
+                <div className="horario-data-alinhamento">
+                  <p className="horario-consulta">{consulta.horario.slice(0, 5)}</p>
+                  <p className="data-consulta">{consulta.data_agendamento.slice(0, 10)}</p>
                 </div>
               </div>
             ))
           ) : (
-            <p className='semSolicitacoes-texto'>Sem historicos...</p>
+            <p className="semSolicitacoes-texto">Sem históricos...</p>
           )}
         </div>
       </div>
-      {/* {isOpen && <FichaCliente onClose={handleClosePopup} />} */}
     </div>
   );
 }

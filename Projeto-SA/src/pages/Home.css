@@ -1248,3 +1248,8 @@ body{
 
     background-color: var(--cor_um);
 }
+
+.Toastify__progress-bar--animated{
+
+    animation: red linear 1 forwards;
+}

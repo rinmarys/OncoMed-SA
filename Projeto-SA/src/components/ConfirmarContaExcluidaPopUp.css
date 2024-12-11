@@ -1,0 +1,49 @@
+.PopUpContaExcluida {
+    top: 19vw;
+    left: 40vw;
+    position: absolute;
+    background-color:#b9cf91;
+    height: 16vw;
+    width: 26vw;
+    position: absolute;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.425), 6px 6px 10px rgba(138, 148, 167, 0.418);
+    border-radius: 1vw;
+}
+
+.PopUp-containerContaExcluida h3{
+    color:#f5f5f5;
+    font-size: 1.6vw;
+    font-family: 'nunito', sans-serif ;
+    margin: 1.2vw;
+    margin-top: 8%;
+    margin-left: 26%;
+}
+
+.PopUp-containerContaExcluida img{
+    width: 420px;
+    height: auto;
+    display: block;
+    margin-left: 8%;
+    margin-top: -20%;
+    align-items: center;
+}
+
+.container-X  {
+  justify-content: center;
+  position: absolute;
+  height: 40px;
+  width: 80px;
+  font-size: 25px;
+  left: 86%;
+  margin-top: -81%;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #f5f5f5;
+}
+
+
+.container-X:hover{
+ transition: 0.4s;
+ color: #43632e;
+}

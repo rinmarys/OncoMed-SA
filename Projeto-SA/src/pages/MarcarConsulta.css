@@ -45,6 +45,11 @@
     font-size: 20px;
 }
 
+.Selecionar-Ob textarea:focus{
+    border: 2px solid var(--cor-5);
+    outline: none;
+}
+
 .Selecionar-Ob h2 {
     font-family: 'Nunito', sans-serif;
     color: var(--cor-2);
@@ -56,24 +61,31 @@
     width: 800px;
     font-size: 24px;
     font-family: "Poppins", sans-serif;
-    border-radius: 5px;
+    border-radius: 0.8vw;
     border: 1.5px solid var(--cor-6);
     background-color: #f5f5f5;
+    color: var(--cor-6);
 }
 
-.Input-Ob:focus {
-    border: 2px solid var(--cor-5);
+.Input-Ob:focus{
+    border: 1px solid red;
 }
 
 .Select-Consulta {
-    width: 400px;
-    height: 40px;
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-    color: #757575;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    border: 1.5px solid var(--cor-6);
+    box-sizing: border-box;
+    
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
+    
+    font-size: 1vw;
+    font-family: var(--tipografia_secundaria);
+    
+    background: var(--cor_tres);
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
+    
+    color: var(--cor_cinco);
 }
 
 .Select-Consulta:focus {
@@ -81,14 +93,20 @@
 }
 
 .Select-Horario {
-    width: 300px;
-    height: 40px;
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-    color: #757575;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    border: 1.5px solid var(--cor-6);
+    box-sizing: border-box;
+    
+    width: 20vw;
+    height: 6vh;
+    padding-left: 0.8vw;
+    
+    font-size: 1vw;
+    font-family: var(--tipografia_secundaria);
+    
+    background: var(--cor_tres);
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
+    
+    color: var(--cor_cinco);
 }
 
 .Select-Horario:focus {
@@ -292,5 +310,10 @@
     display: flex;
     justify-content: space-between;
     width: 23vw;
+}
+
+.jade_duvida_popup{
+    border: 1px solid red;
+    width: 35vw;
 }
 /* POP UPS LEGAISSS */

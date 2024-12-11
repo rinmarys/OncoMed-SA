@@ -1,67 +1,103 @@
-import React from 'react'
-import Header from '../components/Header'
-import './BlogInicio_Paciente.css'
+import React, { useState, useContext, useEffect } from 'react'
+
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../contexts/GlobalContext'
+import axios from 'axios'
+
+import './BlogInicio_Paciente.css'
 
 function BlogInicio() {
+
+  const { registroBlog, setRegistroBlog } = useContext(GlobalContext)
+  // const { blogRecente, setblogRecente } = useContext(GlobalContext);
+
+  // const mudarPag = useNavigate(blogRecente.valorDescricao)
+  
+  // const handleRedirect = () => {
+    
+  // }
+
+  const fetchBlog = async () => {
+    try {
+        const resposta = await axios.get('http://localhost:3000/blog')
+        setRegistroBlog(resposta.data)
+    } catch (err) {
+        console.error('Erro ao buscar tabela do blog ;(', err)
+    }
+}
+
+useEffect(() => {
+
+    fetchBlog()
+}, []
+)
   return (
     <div>
       <Header />
 
-      <div className="blog-alinhamento">
+      <div className="alinhamentoPostagens">
 
-        {/* Titulo */}
-        <div className="titulo">
+        {/* TITULO DO BLOG*/}
+        <div className="titulo-blog">
           <h1>MANTENHA-SE INFORMADO</h1>
-          <div></div>
+          <div className='LinhaBlog'></div>
         </div>
-        {/* Titulo */}
+        
 
         {/* Artigos do blog */}
         <div className="artigos-alinhamento">
 
-          <Link to="/conteudoBlog" className='link-decoration'>
-            <div className="container-artigos">
-              <img src="Doctor.svg" alt="Doutor" />
-              <div className="alinhamento-texto">
-                <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
-                <p className='doutores-blog'>por Doutor Mauricio Campos</p>
-              </div>
-            </div>
-          </Link>
+<div className="artigos-blog">
 
-          <div className="container-artigos">
-            <img src="Alimentacao.svg" alt="Evento especial Nutrição" />
+                                   <div className="container-artigos" >
+                                    <Link to='/ConteudoBlog'>
+                                        <img
+                                            className="Img-ReviwBlogADM"
+                                            src='Doctor.svg'
+                                            alt="Evento especial Nutrição"
+                                        /> 
+                                        <div className='alinhamento-texto'>
 
-            <div className='alinhamento-texto'>
-              <p className='titulos-artigos'>Como a sua alimentação afeta no desenvolvimento contra o câncer?</p>
-              <p className='doutores-blog'>por Nutricionista Mara Fernandez</p>
-            </div>
-          </div>
+                                            <div className='Descricao-ReviwBlogADM'>
+                                                <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
+                                                <p className='doutores-blog'>por Doutor Mauricio Campos</p>
+                                           
+                                            </div>
 
-          <div className="container-artigos">
-            <img src="DireitosLegais.svg" alt="Mantenha-se informado" />
+                                        </div>
+                                        </Link>
+                                    </div>
 
-            <div className='alinhamento-texto'>
-              <p className='titulos-artigos'>Por que é tão importante manter-se informado? Direitos legais
-                para pacientes oncológicos.</p>
-              <p className='doutores-blog'>por Porto, Severino e Cunha ADV</p>
-            </div>
-          </div>
+                              {registroBlog.length > 0 ? (
+                                registroBlog.map((informacoesBlog) => (
+                                        <a href={informacoesBlog.descricao} target="_blank" rel="noopener noreferrer">
+                                    <div className="container-artigos" key={informacoesBlog.id}>
+                                        <img
+                                            className="Img-ReviwBlogADM"
+                                            src={informacoesBlog.imagem}
+                                            alt="Evento especial Nutrição"
+                                        /> 
+                                        <div className='alinhamento-texto'>
 
-          <div className="container-artigos">
-            <img src="Meditation.svg" alt="Meditação" />
+                                            <div className='Descricao-ReviwBlogADM'>
+                                                <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                                                <p className='doutores-blog'>{informacoesBlog.autor}</p>
+                                           
+                                            </div>
 
-            <div className="alinhamento-texto">
-              <p className='titulos-artigos'>O psicologico é importante?
-                Veja aqui!</p>
-              <p className='doutores-blog'>por Psicologa Vannessa Suarez</p>
-            </div>
-          </div>
+                                        </div>
+                                    </div></a>
+                                ))
+                            ) : (
+                               null
+                            )}
+</div>
 
-        </div>
-        {/* Artigos do blog */}
+
+       </div>
+       
 
         <Footer />
 
