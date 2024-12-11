@@ -92,6 +92,18 @@ function Login() {
 
   }, []);
 
+  useEffect(() => {
+
+    if(pop_aberto){
+
+      set_imagem_olinho(``);
+
+    } else {
+
+      set_imagem_olinho(<img src='input_olho_fechado.png' alt='Olinho' />);
+    }
+  }, [pop_aberto]);
+
   class Fazer_login {
 
     constructor(nome_do_usuario, email_do_usuario, senha_do_usuario) {
@@ -157,11 +169,6 @@ function Login() {
           navegacao_de_pagina(`/`);
         };
       };
-
-      useEffect(() => {
-
-        pop_aberto ? set_imagem_olinho(``) : set_imagem_olinho(`input_olho_fechado.png`)
-      }, []);
 
       set_mensagem_de_erro(`Usuário ou senha incorretos!`);
     };
