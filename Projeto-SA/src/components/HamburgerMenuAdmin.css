@@ -45,8 +45,13 @@
 
     background-color: var(--cor-4);
     right: 0;
+<<<<<<< HEAD
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
     width: 20vw;
+=======
+    box-shadow: -6px -6px 10px transparent, 6px 6px 10px rgba(94, 104, 121, 0.3);
+    width: 15vw;
+>>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
     border-radius: 10px;
     z-index: 2;
 }

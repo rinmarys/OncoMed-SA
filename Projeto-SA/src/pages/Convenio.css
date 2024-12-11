@@ -1,110 +1,172 @@
+:root{
+    
+    --cor_um: #437118 ;
+    --cor_dois: #AFD06E ;
+    --cor_tres: #F5F5F5;
+    --cor_quatro: #9fbacf;
+    --cor_cinco: #1D2A62;
+    --cor_seis: #F1F1F1;
+    --cor_sete: #335513;
+    --cor_oito: #87AECE;
+    --cor_nove: #819b4f;
+    --cor_dez: #303c70;
+
+    --cor_dezoito: #7ab60c;
+    --cor_dezenove: #5b8808;
+
+
+    --tipografia_primaria: 'Nunito', sans-serif;
+    --tipografia_secundaria: 'Poppins', sans-serif;
+}
+
 body {
     background-color: #F5F5F5;
 }
 
-.Convenio-Container {
-    margin-left: 10%;
-    margin-top: 5%;
-    align-items: center;
-    display: flex;
-}
-
 .Titulo-Convenio-Container {
-    margin-left: 10%;
-    margin-top: 10%;
-    position: relative;
+    margin-left: 9vw;
+    margin-top: 9vw;
+
 }
 
 .TituloConvenio {
-    font-size: 35px;
+    font-size: 2.5vw;
+}
+
+.TituloConvenios-disponiveis{
+    font-size: 2.5vw;
+    margin-left: 9vw;
+    margin-top: 4vw;
 }
 
 .Paragrafo-Um {
-    width: 65%;
-    margin-right: 200px;
+    width: 50%;
+    margin-left: 8vw;
+    margin-top: 8.8vw;
 }
 
-.ImagemQuatro {
-    flex-shrink: 0; /* Impede que a imagem encolha */
-    position: relative;
-}
-
-.ImagemDois{
-    position: absolute; /* Para sobrepor a imagem em cima da outra */
-    right: 15px;
-    top: 370px;
-}
-.Titulo-Convenio-Disponivel-Container {
-    /* border: 1px solid black; */
-    margin-left: 10%;
-    margin-top: 10%;
-    position: relative;
-}
-.Container-Convenio-Completo{
-    /* border: 1px solid black; */
-    position: relative;
-    margin-top: 0px;
-}
-
-.Container-Convenio-Completo img{ 
-   
-    margin-top: -150px;
-}
-
-.imagemTres{
-   width: 100%;
-   position: absolute;
-}
-.Convenio-Disponivel-Container{
-    margin-left: 55%;
-    width: 35%;
+.fundo-verde-convenios{
+    background-color: #CCE0A7;
+    width: 30vw;
+    height: 23vw;
+margin-left: 69vw;
+border-radius: 2vw;
+margin-top: -20vw;
     
-    position: relative;
-    
+}
+
+.imagemUMconvenios{
+
+    width: 26vw;
+    margin-top: -2.2vw;
+    margin-left: -3vw;
+}
+
+.linha-convenios-um{
+    background-color: var(--cor_dois);
+    width: 14vw;
+    height: 0.6vw;
+    border-radius: 7vw;
+    margin-top: -1.1vw;
+    margin-left: -1vw;
+}
+
+.linha-convenios-dois{
+    background-color: var(--cor_dois);
+    width: 14vw;
+    height: 0.6vw;
+    border-radius: 7vw;
+    margin-top: -1.1vw;
+    margin-left: 8vw;
+}
+.TituloConvenio{
+    margin-top: -3vw;
+}
+.imagemAna-Paula{
+    /* border: 1px solid red; */
+    margin-top: 7vw;
+    margin-left: 12vw;
+}
+.especialidade-convenios{
+    margin-top: -2vw;
 }
 .Titulo-Azul{
     color: #1D2A62;
-    position: relative;
 }
+.Segunda-Frase-email{
+    margin-top: -1vw;
 
-.imagemUm{
-    /* border: 1px solid black; */
-    margin-left: 200px;
-    position: relative;
-    top: -290px;
+}
+.Segunda-Frase-site{
+    margin-top: -1vw;
+}
+.Container-Convenio-Completo-Segundo{
+    margin-left: 6vw;
+    width: 44%;
 }
 .imagemCinco{
-    
-    top: -500px;
-    margin-left: 950px;
-    position: relative;
+ height: 30vw;
+margin-left: 5vw;
+    margin-top: 7vw;
 }
+
+.Titulo-Azul-dois{
+    color: #1D2A62;
+    margin-top: 6vw;
+}
+.alinhando-imagem-convenios{
+    display: flex;
+}
+
+.Titulo-Azul-tres{
+    color: #1D2A62;
+    margin-top: 6vw;
+}
+
+.servicos-convenios{
+    margin-top: -2vw;
+}
+.imagemSeis{
+    height: 30vw;
+    margin-left: 5vw;
+        margin-top: 7vw;
+}
+
+
+.alinhar-imagem-dois-convenios{
+    display: flex;
+}
+
+
+
+
+
+
+
+.Container-Convenio-Completo{
+    /* border: 1px solid black; */
+
+    margin-top: 0px;
+}
+
+.Convenio-Disponivel-Container{
+    margin-left: 55%;
+    width: 35%;
+    margin-top: -30vw;
+}
+
+
+
 .Convenio-Disponivel-Container-Segundo{
     margin-left: 10%;
     width: 35%;
-    position: relative;
+
     
 }
-.Container-Convenio-Completo-Terceiro{
-    
-     margin-top: -500px;
-}
+
 .Convenio-Disponivel-Container-Terceiro{
-    margin-left: 55%;
-    width: 35%;
-    margin-top: 350px;
-    position: relative;
-    
-    
-}
-.imagemSeis{
-    margin-left: 200px;
-    position: relative;
-    top: -500px;
-}
-.imagemSete{
-    width: 100%;
-    position: absolute;
-    margin-top: -200px;
+
+  margin-left: 15vw ;
+  width: 40vw;
 
 }

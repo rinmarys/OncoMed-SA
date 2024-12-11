@@ -4,21 +4,23 @@
 }
 
 .poUp-container {
-    top: 12vw;
+    top: 10vw;
     left: 35vw;
     position: absolute;
     background-color: #fcfcfc;
-    height: 30vw;
-    width: 34vw;
-    position: fixed;
+    height: 27vw;
+    width: 33vw;
+    position: absolute;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    border-radius: 2vw;
+    border-radius: 1vw;
 }
 
 .popUp-deletar img{
-    width: 320px;
-    height: 320px;
-    margin: auto;
+    width: 420px;
+    height: auto;
+    display: block;
+    margin-left: 13%;
+    margin-top: -5%;
     align-items: center;
 }
 
@@ -27,32 +29,33 @@
     font-size: 1.6vw;
     font-family: 'nunito', sans-serif ;
     margin: 1.2vw;
+    margin-top: 4%;
 }
 
 .alinhamentoButtons button {
-   justify-content: center;
-   margin: auto;
-   margin-right: 20px;
+  justify-content: center;
+  margin-top: -3%; 
+  margin-right: 15px;
 }
 
 .naoDeletar {
     height: 42px;
-    width: 296px;
+    width: 375px;
     border-radius: 15px;
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
-    background-color: #1D2A62;
+    background-color:   #437118;
     color: #F1F1F1;
     border: none;
 }
 
 .naoDeletar:hover{
-    background-color: #495691;
+    background-color: #8bb860;
     transition: 0.4s;
 }
 
 .naoDeletar:not(:hover){
-    background-color: var(--azulzinho_escuro);
+    background-color: #437118;
     transition: 0.4s;
 }
 
@@ -61,20 +64,22 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     height: 42px;
-    width: 180px;
+    width: 199px;
     border: none;
     border-radius: 15px;
-    background-color: #437118;
+    background-color: #1D2A62 ;
     color: #F5F5F5;
 }
 
 .confirmarDeletar:hover {
     transition: 0.4s;
-    background-color: #345516;
+    background-color:#495691;
     color: #F5F5F5;
 }
 
 .confirmarDeletar:not(:hover){
     transition: 0.4s;
-    background-color: var(--verdinho_meio_termo);
+    background-color:#1D2A62 ;
 }
+
+
