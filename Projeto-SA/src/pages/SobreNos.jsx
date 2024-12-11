@@ -42,7 +42,7 @@ function SobreNos() {
 
                        <div className="Paragrafo-Tres">
                        <h1 className="FonteCompromissos">COMPROMISSOS</h1>
-                       <div className='Linha'></div>
+                       <div className='Linha-compromissos'></div>
                        </div>
 
                         <div className="Alinhamento-Containers">

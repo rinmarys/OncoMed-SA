@@ -22,6 +22,7 @@ export const GlobalContextProvider = ({ children }) => {
 
     const [pop_aberto, set_pop_aberto] = useState(false);
     const [pop_up_de_login, set_pop_up_de_login] = useState(false);
+    const [showDeletarSucessoPopup, setShowDeletarSucessoPopup] = useState(false);
 
     // informações de marcar consulta
 
@@ -67,8 +68,11 @@ export const GlobalContextProvider = ({ children }) => {
             
             // MARCAR CONSULTA INFORMAÇÔES
             listaInformacoesMarcarConsulta,
-            setListaInformacoesMarcarConsulta
+            setListaInformacoesMarcarConsulta,
             // MARCAR CONSULTA INFORMAÇÔES
+
+            showDeletarSucessoPopup,
+            setShowDeletarSucessoPopup
         }}>
             {children}
         </GlobalContext.Provider>

@@ -17,17 +17,10 @@ function CriarPostagem() {
 
     // Lista de imagens disponíveis 
     const imagensDisponiveis = [
-        { id: 1, nome: 'Imagem 1', caminho: 'breakfast 1.png' },
-        { id: 2, nome: 'Imagem 2', caminho: 'Meditation.svg' },
-<<<<<<< HEAD
-        { id: 3, nome: 'Imagem 3', caminho: 'carinha 1.svg' },
-=======
-        { id: 3, nome: 'Imagem 3', caminho: 'Alimentacao.svg' },
-<<<<<<< HEAD
-=======
->>>>>>> 87383ed79d1f236d27894e376ce0fc94e0ec393b
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
-        { id: 4, nome: 'imagem 4', caminho: 'Doctor.svg' },
+        { id: 1, nome: 'Nutrição', caminho: 'breakfast 1.png' },
+        { id: 2, nome: 'Psicologia', caminho: 'Meditation.svg' },
+        { id: 3, nome: 'Companhia', caminho: 'Alimentacao.svg' },
+        { id: 4, nome: 'Medicina', caminho: 'Doctor.svg' },
     ];
 
     // Função para buscar blogs do banco de dados
@@ -72,36 +65,36 @@ function CriarPostagem() {
     return (
         <div>
             <form onSubmit={enviarBlog}>
-                 <div className='Container-CriarArtigo'> 
+                <div className='Container-CriarArtigo'>
 
-                          <div className="alinhamento-titulo-criarPostagem">
-                               <div className="titulo-criarPostagem">
-                               <h1>CRIAR NOVA POSTAGEM</h1>
-                               <div className='line-criarPostagem'></div>
-                          </div>
+                    <div className="alinhamento-titulo-criarPostagem">
+                        <div className="titulo-criarPostagem">
+                            <h1>CRIAR NOVA POSTAGEM</h1>
+                            <div className='line-criarPostagem'></div>
+                        </div>
 
-                               <HamburgerMenuAdmin />
-                         </div>
- 
+                        <HamburgerMenuAdmin />
+                    </div>
+
                     <div className="alinhamento-pagina">
                         <div className="alinhamento-container-um">
-                                <div className="inserirImagem">
-                                 {/* SELECT ESCOLHER IMG*/}
-                                   <h2 className="Label-EscolhaIMG" htmlFor="imagem">Escolha uma imagem:</h2>
-                                   <select
-                                      className="Select-IMGLabel"
-                                      id="imagem"
-                                      value={imagemSelecionada}
-                                      onChange={e => setImagemSelecionada(e.target.value)}
-                                    >
-                                        <option cvalue="">Selecione uma imagem</option>
-                                          {imagensDisponiveis.map(imagem => (
-                                          <option key={imagem.id} value={imagem.caminho}>
+                            <div className="inserirImagem">
+                                {/* SELECT ESCOLHER IMG*/}
+                                <h2 className="Label-EscolhaIMG" htmlFor="imagem">Escolha uma imagem:</h2>
+                                <select
+                                    className="Select-IMGLabel"
+                                    id="imagem"
+                                    value={imagemSelecionada}
+                                    onChange={e => setImagemSelecionada(e.target.value)}
+                                >
+                                    <option cvalue="">Selecione uma imagem</option>
+                                    {imagensDisponiveis.map(imagem => (
+                                        <option key={imagem.id} value={imagem.caminho}>
                                             {imagem.nome}
-                                          </option>
-                                        ))}
-                                    </select>
-                                </div>
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
 
                             {/* MOSTRA IMG */}
                             {imagemSelecionada && (
@@ -113,7 +106,7 @@ function CriarPostagem() {
                         </div>
 
 
-                   <div className="alinhamento-container-dois">
+                        <div className="alinhamento-container-dois">
                             <div className='Container-InputTitulo'>
                                 {/* TÍTULO POST*/}
                                 <h2 className="titles-titleTags">Titulo</h2>
@@ -135,7 +128,7 @@ function CriarPostagem() {
                                 />
                             </div>
 
-                      
+
                             <div className='alinhamento-linkInpt'>
                                 {/* CONTEÚDO */}
                                 <h2 className="titles-descricaoTags">Link Externo</h2>
@@ -146,86 +139,23 @@ function CriarPostagem() {
                                     cols="30"
                                     rows="17"
                                     className='input-descricao-artigo'
-                                    />
+                                />
                             </div>
-                        
-                   </div>
 
-                                {/* BOTÕES */}
+                        </div>
 
-                                <div className="buttons-container">
-                                    <button className='publicar-button' type='submit'>PUBLICAR</button>
-                                    <button className='cancelar-button'>CANCELAR</button>
-                                </div>
+                        {/* BOTÕES */}
 
-                            
-                       
-
-                    </div>
-                </div>
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<div className='alinhamento-container-2'>
-    <div className=''></div>
-                            {/* CONTEÚDO */}
-                            <h2 className="titles-descricaoTags">Conteúdo</h2>
-                            <textarea 
-                                value={valorDescricao} 
-                                onChange={e => setValorDescricao(e.target.value)} 
-                                name="textArea" 
-                                cols="30" 
-                                rows="17" 
-                                placeholder='Conteúdo do artigo' 
-                                className='input-descricao-artigo'
-                            ></textarea>
-=======
-<<<<<<< HEAD
-
-                 </div> *
-=======
-                <div className='alinhamento-container-2'>
-                    <div className=''></div>
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
-                    {/* CONTEÚDO */}
-                    <h2 className="titles-descricaoTags">Conteúdo</h2>
-                    <textarea
-                        value={valorDescricao}
-                        onChange={e => setValorDescricao(e.target.value)}
-                        name="textArea"
-                        cols="30"
-                        rows="17"
-                        placeholder='Conteúdo do artigo'
-                        className='input-descricao-artigo'
-                    ></textarea>
-<<<<<<< HEAD
-=======
-
->>>>>>> a93a98d9190584b10070e0d7d3570997d55cca3b
-
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
-
-                    {/* BOTÕES */}
-                    <div className="alinhamento-buttons">
                         <div className="buttons-container">
-                            <button className='publicar-button' type='submit'>PUBLICAR</button>
+                            <button className='publicar-button' type='button'>PUBLICAR</button>
                             <button className='cancelar-button'>CANCELAR</button>
                         </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
                     </div>
                 </div>
->>>>>>> 87383ed79d1f236d27894e376ce0fc94e0ec393b
+
             </form>
         </div>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
     );
 }
 

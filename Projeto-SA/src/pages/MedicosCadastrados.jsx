@@ -27,8 +27,6 @@ function MedicosCadastrados() {
       console.error('Erro ao adicionar médico:', error);
     }
   };
-  
-
 
   console.log(usuario_logado);
 
@@ -40,13 +38,15 @@ function MedicosCadastrados() {
   return (
     <div>
 
-      <div className="alinhamento-hamburger-perfilMedico">
+      <div className="alinhamento-hamburger">
         {/* mudar isso dps */}
         <HamburgerMenuAdmin />
       </div>
 
-      <h1 className='titulo-medicoscadastrados'>MÉDICOS CADASTRADOS</h1>
-      <div className="faixaVerdeMedicosCadastrados"></div>
+      <div className="alinhamento-titulo-medicoCadastrado">
+        <h1 className='titulo-medicoscadastrados'>MÉDICOS CADASTRADOS</h1>
+        <div className="faixaVerdeMedicosCadastrados"></div>
+      </div>
 
       <div className="alihamento-cards-medicosCadastrados">
         {lista_de_medicos.length > 0 ? (
@@ -77,9 +77,9 @@ function MedicosCadastrados() {
         )}
 
       </div>
-      </div>
-      )
+    </div>
+  )
 }
 
-      export default MedicosCadastrados
+export default MedicosCadastrados
 

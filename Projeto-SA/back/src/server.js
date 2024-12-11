@@ -275,7 +275,7 @@ app.put('/medicos/:id', async (req, res) => {
 app.delete('/medicos/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('DELETE FROM medicos WHERE id = $1 RETURNING *', [id]);
+        const result = await pool.query('DELETE FROM medicos WHERE id_medico = $1 RETURNING *', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Medico não encontrado' });
         }

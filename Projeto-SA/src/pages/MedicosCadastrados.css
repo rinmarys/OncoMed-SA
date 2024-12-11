@@ -25,10 +25,10 @@
     color: var(--cor-6);
     font-weight: 600;
 
-    white-space: nowrap;     
-    overflow: hidden;       
-    text-overflow: ellipsis;   
-    max-width: 27.6vw; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 27.6vw;
 
 }
 
@@ -40,7 +40,7 @@
 
 .ficha_do_medico {
     margin-top: 7vw;
-  margin-bottom: -4vw;
+    margin-bottom: -4vw;
     background-color: var(--cor-1);
     width: fit-content;
     height: fit-content;
@@ -77,11 +77,11 @@
     font-size: x-large;
 }
 
-.alinhamento-numero-crm-medicocadastrado{
+.alinhamento-numero-crm-medicocadastrado {
     display: flex;
 }
 
-.numero_medico_cadastrado{
+.numero_medico_cadastrado {
 
     color: var(--cor-6);
     font-size: large;
@@ -91,7 +91,7 @@
 
 }
 
-.crm_medico_cadastrado{
+.crm_medico_cadastrado {
     color: var(--cor-6);
     font-size: large;
     font-weight: 600;
@@ -99,42 +99,58 @@
     margin-left: 14vw;
 }
 
-.ficha_do_medico:hover{
+.ficha_do_medico:hover {
     background-color: var(--cor-hover);
     transition: 0.2s;
 }
 
-.faixaVerdeMedicosCadastrados{
-width: 9vw;
-height: 0.44vw;
-margin-left: 8vw;
-margin-top: -2vw;
-background-color: var(--cor-3);
-border-radius: 5px;
+.faixaVerdeMedicosCadastrados {
+    width: 9vw;
+    height: 0.6vw;
+    margin-left: 8vw;
+    margin-top: -2vw;
+    background-color: var(--cor-3);
+    border-radius: 5px;
 }
 
-.titulo-medicoscadastrados{
-display: flex;
-flex-direction: column;
-width: fit-content;
-margin-left: 8%;
-margin-top: -3vw;
+.faixaVerdeMedicosCadastrados:hover{
+    width: 13vw;
+    transition: 0.4s;
 }
 
-.alihamento-cards-medicosCadastrados{
+.faixaVerdeMedicosCadastrados:not(:hover){
+    width: 9vw;
+    transition: 0.4s;
+}
+
+.titulo-medicoscadastrados {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-left: 8%;
+    margin-bottom: 2.1vw;
+}
+
+.alihamento-cards-medicosCadastrados {
 
     width: fit-content;
     height: fit-content;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Exatamente 2 fichas por linha */
-    gap: 16px; /* Espaço entre as fichas */
-    
+    grid-template-columns: repeat(2, 1fr);
+    /* Exatamente 2 fichas por linha */
+    gap: 16px;
+    /* Espaço entre as fichas */
+
 }
 
-.cpf_medico_cadastrado{
+.cpf_medico_cadastrado {
     color: var(--cor-6);
     font-size: medium;
     font-weight: 600;
     margin-top: -1vw;
     margin-left: 14.1vw;
+}
+
+.alinhamento-titulo-medicoCadastrado{
+    margin-top: -5vw;
 }

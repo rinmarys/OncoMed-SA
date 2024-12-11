@@ -115,11 +115,6 @@ function Cadastro_Medico() {
   }, [lista_de_medicos]);
 
   // useEffect(() => {
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
   //   emailjs.init('pMLofLFwNCAInJwVH');
   // }, []);
 
@@ -196,25 +191,14 @@ function Cadastro_Medico() {
 
         form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Medico).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Medico).svg`;
 
-<<<<<<< HEAD
+        // const enviar_email = await  emailjs.sendForm('service_kioo933', 'template_sutb3ub', formRef.current, 'pMLofLFwNCAInJwVH'
+        // console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
+
         // const enviar_email = await  emailjs.sendForm('service_kioo933', 'template_sutb3ub', formRef.current, 'pMLofLFwNCAInJwVH')
 
         const response = await axios.post('http://localhost:3000/medicos', form);
 
         // console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
-=======
-            // const enviar_email = await  emailjs.sendForm('service_kioo933', 'template_sutb3ub', formRef.current, 'pMLofLFwNCAInJwVH')
-
-             const response = await axios.post('http://localhost:3000/medicos', form);
-
-            // console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
-              
-            if (response.status === 201) {
-                
-                fetch_lista_de_medicos(); 
-                  
-                setForm({ nome: '', cpf: '', crm: '', email: '',genero: '', data_de_nascimento: '', senha: '' }); 
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
 
         if (response.status === 201) {
 
@@ -222,9 +206,16 @@ function Cadastro_Medico() {
 
           setForm({ nome: '', cpf: '', crm: '', email: '', genero: '', data_de_nascimento: '', senha: '' });
 
-          navegacao_de_pagina(`/login`)
-        };
+          if (response.status === 201) {
 
+            fetch_lista_de_medicos();
+
+            setForm({ nome: '', cpf: '', crm: '', email: '', genero: '', data_de_nascimento: '', senha: '' });
+
+            navegacao_de_pagina(`/login`)
+          };
+
+        }
       } catch (error) {
 
         console.error('Erro ao adicionar/atualizar medico:', error);

@@ -88,7 +88,7 @@ function BlogInicio_Admin() {
                                     </div>
                                 ))
                             ) : (
-                               null
+                                <p className='p-semPostagens'>Ainda não há postagens no blog!</p>
                             )}
                         </div>
 
@@ -106,7 +106,6 @@ function BlogInicio_Admin() {
                         </div>
                     )}
                 </div>
-                <Footer />
             </div>
         </div>
     )

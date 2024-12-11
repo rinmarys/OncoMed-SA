@@ -1,7 +1,7 @@
-:root{
-    
-    --cor_um: #437118 ;
-    --cor_dois: #AFD06E ;
+:root {
+
+    --cor_um: #437118;
+    --cor_dois: #AFD06E;
     --cor_tres: #F5F5F5;
     --cor_quatro: #9fbacf;
     --cor_cinco: #1D2A62;
@@ -33,7 +33,7 @@ body {
     font-size: 2.5vw;
 }
 
-.TituloConvenios-disponiveis{
+.TituloConvenios-disponiveis {
     font-size: 2.5vw;
     margin-left: 9vw;
     margin-top: 4vw;
@@ -45,24 +45,24 @@ body {
     margin-top: 8.8vw;
 }
 
-.fundo-verde-convenios{
+.fundo-verde-convenios {
     background-color: #CCE0A7;
     width: 30vw;
     height: 23vw;
-margin-left: 69vw;
-border-radius: 2vw;
-margin-top: -20vw;
-    
+    margin-left: 68.9vw;
+    border-radius: 2vw;
+    margin-top: -20vw;
+
 }
 
-.imagemUMconvenios{
+.imagemUMconvenios {
 
     width: 26vw;
     margin-top: -2.2vw;
     margin-left: -3vw;
 }
 
-.linha-convenios-um{
+.linha-convenios-um {
     background-color: var(--cor_dois);
     width: 14vw;
     height: 0.6vw;
@@ -71,7 +71,7 @@ margin-top: -20vw;
     margin-left: -1vw;
 }
 
-.linha-convenios-dois{
+.linha-convenios-dois {
     background-color: var(--cor_dois);
     width: 14vw;
     height: 0.6vw;
@@ -79,61 +79,71 @@ margin-top: -20vw;
     margin-top: -1.1vw;
     margin-left: 8vw;
 }
-.TituloConvenio{
+
+.TituloConvenio {
     margin-top: -3vw;
 }
-.imagemAna-Paula{
+
+.imagemAna-Paula {
     /* border: 1px solid red; */
     margin-top: 7vw;
     margin-left: 12vw;
 }
-.especialidade-convenios{
+
+.especialidade-convenios {
     margin-top: -2vw;
 }
-.Titulo-Azul{
+
+.Titulo-Azul {
     color: #1D2A62;
 }
-.Segunda-Frase-email{
+
+.Segunda-Frase-email {
     margin-top: -1vw;
 
 }
-.Segunda-Frase-site{
+
+.Segunda-Frase-site {
     margin-top: -1vw;
 }
-.Container-Convenio-Completo-Segundo{
+
+.Container-Convenio-Completo-Segundo {
     margin-left: 6vw;
     width: 44%;
 }
-.imagemCinco{
- height: 30vw;
-margin-left: 5vw;
+
+.imagemCinco {
+    height: 30vw;
+    margin-left: 5vw;
     margin-top: 7vw;
 }
 
-.Titulo-Azul-dois{
+.Titulo-Azul-dois {
     color: #1D2A62;
     margin-top: 6vw;
 }
-.alinhando-imagem-convenios{
+
+.alinhando-imagem-convenios {
     display: flex;
 }
 
-.Titulo-Azul-tres{
+.Titulo-Azul-tres {
     color: #1D2A62;
     margin-top: 6vw;
 }
 
-.servicos-convenios{
+.servicos-convenios {
     margin-top: -2vw;
 }
-.imagemSeis{
+
+.imagemSeis {
     height: 30vw;
     margin-left: 5vw;
-        margin-top: 7vw;
+    margin-top: 7vw;
 }
 
 
-.alinhar-imagem-dois-convenios{
+.alinhar-imagem-dois-convenios {
     display: flex;
 }
 
@@ -143,13 +153,13 @@ margin-left: 5vw;
 
 
 
-.Container-Convenio-Completo{
+.Container-Convenio-Completo {
     /* border: 1px solid black; */
 
     margin-top: 0px;
 }
 
-.Convenio-Disponivel-Container{
+.Convenio-Disponivel-Container {
     margin-left: 55%;
     width: 35%;
     margin-top: -30vw;
@@ -157,16 +167,16 @@ margin-left: 5vw;
 
 
 
-.Convenio-Disponivel-Container-Segundo{
+.Convenio-Disponivel-Container-Segundo {
     margin-left: 10%;
     width: 35%;
 
-    
+
 }
 
-.Convenio-Disponivel-Container-Terceiro{
+.Convenio-Disponivel-Container-Terceiro {
 
-  margin-left: 15vw ;
-  width: 40vw;
+    margin-left: 15vw;
+    width: 40vw;
 
 }

@@ -14,10 +14,12 @@ import Footer from '../components/Footer.jsx';
 import Pop_up_de_boas_vindas from '../components/Pop_up_de_boas_vindas.jsx';
 import { GlobalContext } from '../contexts/GlobalContext.jsx';
 import axios from 'axios';
+import PopUpDeletarSucesso from '../components/PopUpDeletarSucesso.jsx';
 
 function Home() {
 
   const {pop_aberto, set_pop_aberto} = useContext(GlobalContext);
+  const { showDeletarSucessoPopup, setShowDeletarSucessoPopup } = useContext(GlobalContext);
   const navegacao_de_pagina = useNavigate(``);
 
   const [faq_a_aberto, set_faq_a_aberto] = useState(false);
@@ -147,6 +149,7 @@ function Home() {
     <div>
 
       {tempo_do_pop_up_de_boas_vindas && <Pop_up_de_boas_vindas/>}
+      {showDeletarSucessoPopup && <PopUpDeletarSucesso />}
 
       <Header/>
 

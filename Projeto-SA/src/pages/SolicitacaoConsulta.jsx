@@ -12,6 +12,9 @@ function SolicitacaoConsulta() {
     const [consultaId, setConsultaId] = useState('');
     const [medicoId, setMedicoId] = useState(null); // Estado para el médico seleccionado
     const { usuario_logado } = useContext(GlobalContext);
+    const [showConfirmPopup, setShowConfirmPopup] = useState(false);
+    const [showCancelPopup, setShowCancelPopup] = useState(false);
+    const [showMedicoPopup, setShowMedicoPopup] = useState(false);
 
     useEffect(() => {
         fetch_marcarConsulta();
@@ -27,6 +30,11 @@ function SolicitacaoConsulta() {
         setIsOpen(false);
         setConsultaId(null);
         fetch_marcarConsulta();
+    };
+
+    const closePopup = () => {
+        setShowConfirmPopup(false);
+        setShowCancelPopup(false);
     };
 
     const fetch_marcarConsulta = async () => {
@@ -50,7 +58,7 @@ function SolicitacaoConsulta() {
     const handleConfirmarConsulta = async (consultaId, medicoId) => {
         try {
             if (!medicoId) {
-                alert('Por favor, selecione um médico');
+                setShowMedicoPopup(true)
                 return;
             }
 
@@ -64,7 +72,7 @@ function SolicitacaoConsulta() {
                 setListaInformacoesMarcarConsulta((prevList) =>
                     prevList.filter((consulta) => consulta.id_consulta !== consultaId)
                 );
-                alert('Consulta confirmada com sucesso!');
+                setShowConfirmPopup(true);
             } else {
                 alert('Erro ao confirmar a consulta');
             }
@@ -83,7 +91,7 @@ function SolicitacaoConsulta() {
                 setListaInformacoesMarcarConsulta((prevList) =>
                     prevList.filter((consulta) => consulta.id_consulta !== consultaId)
                 );
-                alert('Consulta cancelada com sucesso!');
+                setShowCancelPopup(true);
             } else {
                 alert('Erro ao cancelar a consulta');
             }
@@ -172,10 +180,47 @@ function SolicitacaoConsulta() {
                         handleCancelarConsulta={handleCancelarConsulta}
                     />
                 )}
+
+                {/* Popup de Confirmación */}
+                {showConfirmPopup && (
+                    <div className="popup-confirmar">
+                        <div className="popup-confirmar-conteudo">
+                            <div className="titulo-cancelarConsulta-popup">
+                                <h3>Consulta confirmada com sucesso!</h3>
+                                <img src="jade-feliz.png" alt="jade feliz" className='jade-feliz-popup' />
+                            </div>
+                            <button  type="button" onClick={() => setShowConfirmPopup(false)}>Fechar</button>
+                        </div>
+                    </div>
+                )}
+
+                {/* Popup de Cancelación */}
+                {showCancelPopup && (
+                    <div className="popup-confirmar">
+                    <div className="popup-confirmar-conteudo">
+                        <div className="titulo-cancelarConsulta-popup">
+                            <h3>Cosulta cancelada com sucesso!</h3>
+                            <img src="jade-feliz.png" alt="jade feliz" className='jade-feliz-popup' />
+                        </div>
+                        <button type="button" onClick={() => setShowCancelPopup(false)}>Fechar</button>
+                    </div>
+                </div>
+                )}
+
+                {showMedicoPopup && (
+                    <div className="popup-confirmar">
+                        <div className="popup-confirmar-conteudo">
+                            <div className="titulo-cancelarConsulta-popup">
+                                <h3>Ei! escolha um médico antes de confirmar!</h3>
+                                <img src="jade-feliz.png" alt="jade feliz" className='jade-feliz-popup' />
+                            </div>
+                            <button type="button" onClick={() => setShowMedicoPopup(false)}>Fechar</button>
+                        </div>
+                    </div>
+                )}
             </div>
         </form>
     );
 }
 
 export default SolicitacaoConsulta;
-

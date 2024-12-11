@@ -1,0 +1,70 @@
+:root {
+    --cor-1: #F1F1F1;
+    --cor-2: #437118;
+    --cor-3: #AFD06E;
+    --cor-4: #F5F5F5;
+    --cor-5: #87AECE;
+    --cor-6: #1D2A62;
+    --cor-7: #D9E3EB;
+}
+
+.popup-deletarSucesso{
+    height: fit-content;
+    position: fixed;
+    background-color: var(--cor-4);
+    padding: 3vw;
+    border-radius: 1vw;
+    box-shadow: rgba(44, 44, 44, 0.35) 0px 0.26vw 0.78vw;
+    width: 25vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    align-items: center;
+}
+
+.popup-deletarSucesso-conteudo h3{
+    font-family: 'Nunito', sans-serif;
+    color: var(--cor-6);
+    font-weight: 800;
+    font-size: 1.8vw;
+    width: 30vw;
+    margin-top: 1vw;
+}
+
+.jade-feliz-popup-deletarSucesso{
+    height: auto;
+    width: 15vw;
+    margin-left: 4.5vw;
+}
+
+.popUp-button-deletarSucesso{
+    border: none;
+    height: fit-content;
+    background-color: transparent;
+    border-radius: 0.8vh;
+    color: var(--cor-6);
+    padding: 0.4vw;
+    font-size: 1.8vw;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    margin-bottom: 4vw;
+    margin-top: -2.5vw;
+    margin-left: -5.5vw;
+}
+
+.popUp-button-deletarSucesso:hover{
+    color: #0e1430;
+    transition: 0.4s;
+}
+
+.popUp-button-deletarSucesso:not(:hover){
+    color: var(--cor-6);
+    transition: 0.4s;
+}
+
+.alinhamento-button-deletarSucesso{
+    display: flex;
+    width: fit-content;
+    height: 4vw;
+}

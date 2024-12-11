@@ -111,8 +111,8 @@ function HistoricoConsultas() {
                 </div>
                 {/* Exibe a situação da consulta com base na data e horário */}
                 <p className={`situacao-consulta ${getSituacaoConsulta(consulta.data_agendamento, consulta.horario) === "REALIZADO" ? "realizado" : "nao-realizado"}`}>
-  {getSituacaoConsulta(consulta.data_agendamento, consulta.horario)}
-</p>
+                  {getSituacaoConsulta(consulta.data_agendamento, consulta.horario)}
+                </p>
 
                 <div className="horario-data-alinhamento">
                   <p className="horario-consulta">{consulta.horario.slice(0, 5)}</p>
@@ -121,7 +121,7 @@ function HistoricoConsultas() {
               </div>
             ))
           ) : (
-            <p className="semSolicitacoes-texto">Sem históricos...</p>
+            <p className="semSolicitacoes-texto-historico">Sem históricos...</p>
           )}
         </div>
       </div>

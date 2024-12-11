@@ -17,11 +17,11 @@
 .titulo-admin {
     display: flex;
     justify-content: space-between;
-    width: 75vw;
+    width: 83vw;
     color: var(--cor-6);
     font-family: 'Nunito', sans-serif;
     margin-top: 5vw;
-    margin-left: 10vw;
+    margin-left: 8vw;
     /* border:1px solid rgb(10, 151, 41);  */
 }
 
@@ -57,9 +57,9 @@
     
 }
 
-.titulos-artigos{
+/* .titulos-artigos{
      /* border:1px solid rgb(155, 24, 24);   */
-}
+
 .doutores-blog{
     /* border:1px solid black;  */
     width: 38vw;
@@ -81,7 +81,7 @@ NAO SEI */
 }
 
 .line-admin {
-    width: 15vw;
+    width: 10vw;
     height: 0.6vw;
     border-radius: 0.5vw;
     background-color: var(--cor-3);
@@ -91,17 +91,13 @@ NAO SEI */
 
 .line-admin:hover {
     transition: 0.4s;
-    width: 40vw;
+    width: 20vw;
 }
 
 .line-admin:not(:hover) {
-    width: 25vw;
+    width: 10vw;
     transition: 0.4s;
 }
-
-
-
-
 
 /* POP UP BLOG DE ADMIN */
 .Container-PopUpBlog {
@@ -169,4 +165,10 @@ NAO SEI */
     transition: 0.4s;
     background-color: var(--cor-2);
    
+}
+
+.p-semPostagens{
+    width: fit-content;
+    margin-left: -2vw;
+    margin-top: -3vw;
 }

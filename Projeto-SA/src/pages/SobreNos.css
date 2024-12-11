@@ -36,7 +36,7 @@ h1 {
 .imagemGrupo {
     border-radius: 3vw;
     width: 79vw;
-    height: 40vw;
+    height: auto;
 }
 
 .Paragrafo-Um {
@@ -44,7 +44,7 @@ h1 {
 }
 
 .FonteSobreNos {
-    margin-left: 64vw;
+    margin-left: 59vw;
     width: 15vw;
 }
 
@@ -53,12 +53,12 @@ h1 {
     border-radius: 10vw;
     height: 0.7vw;
     width: 6vw;
-    margin-left: 73vw;
+    margin-left: 67.6vw;
     margin-top: -1.7vw;
 }
 
 .Paragrafo-Um-Texto {
-    margin-left: 29vw;
+    margin-left: 24vw;
     width: 50vw;
     text-align: right;
     margin-top: 4vw;  
@@ -73,12 +73,12 @@ p {
 .pessoasBalao {
     position: absolute;
     margin-top: -26vw;
-    margin-left: -4vw;
+    margin-left: -10vw;
     height: auto;
 }
 
 .pessoasBalao:hover{
-    width: 35vw;
+    width: 33vw;
     transition: 0.4s;
 }
 
@@ -96,8 +96,16 @@ p {
 }
 
 .FonteCompromissos {
-    margin-left: 58vw;
+    margin-left: 59vw;
+}
 
+.Linha-compromissos{
+    background-color: #AFD06E;
+    border-radius: 10vw;
+    height: 0.7vw;
+    width: 6vw;
+    margin-left: 73.5vw;
+    margin-top: -1.7vw;
 }
 
 .Alinhamento-Containers {

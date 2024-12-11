@@ -4,8 +4,6 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import './Perfil_paciente.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import ConfirmarDeletarPopUp from '../components/ConfirmarDeletarPopUp';
-import ConfimarContaExcluidaPopUp from '../components/ConfimarContaExcluidaPopUp';
 import InputMask from 'react-input-mask';
 
 function Perfil_paciente() {
@@ -22,12 +20,12 @@ function Perfil_paciente() {
   const [mascara_do_inpt, set_mascara_do_inpt] = useState(``);
   const [paciente_ou_medico_titulo, set_paciente_ou_medico_titulo] = useState(``);
   const [editando, setEditando] = useState(false);
-  const [especializacao, setEspecializacao]=useState('')
-  const [mensagem, setMensagem]=useState('')
+  const [especializacao, setEspecializacao] = useState('')
+  const [mensagem, setMensagem] = useState('')
 
-  const [mostrarPopDeletar, setMostrarPopDeletarPerfil] = useState(false);
-  const [mostrarPopUpExcluir, setMostrarPopUpExcluirPerfil] = useState(false);
-
+  const [showEditarSucessoPopup, setShowEditarSucessoPopup] = useState(false);
+  const { showDeletarSucessoPopup, setShowDeletarSucessoPopup } = useContext(GlobalContext);
+  const [showCertezaDeletarPopup, setShowCertezaDeletarPopUp] = useState(false)
 
   const navigate = useNavigate()
 
@@ -41,7 +39,7 @@ function Perfil_paciente() {
       }
     }
 
-    if (usuario_logado.crm){
+    if (usuario_logado.crm) {
       setEspecializacao(usuario_logado.especializacao || '')
     }
   }, [usuario_logado]);
@@ -163,8 +161,6 @@ function Perfil_paciente() {
           );
 
           if (response.status === 200) {
-            setMensagem("Dados atualizados com sucesso!");
-            setEditando(false);
 
             set_usuario_logado(usuario_atualizado);
 
@@ -174,7 +170,8 @@ function Perfil_paciente() {
           }
         };
       };
-      setMostrarPopUpExcluirPerfil(true)
+
+      setShowEditarSucessoPopup(true);
     } catch (error) {
       console.error("Erro ao salvar os dados:", error);
       setMensagem("Não foi possível atualizar os dados. Tente novamente.");
@@ -191,39 +188,52 @@ function Perfil_paciente() {
   }
 
   const deletarConta = async () => {
+    setShowCertezaDeletarPopUp(true)
+  }
+
+  const certezaDeletarTrue = async () => {
     try {
-      console.log('Haciendo solicitud DELETE para deletar la cuenta');
-      const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
-      console.log('Respuesta de delete:', response);
-     setMostrarPopUpExcluirPerfil(true)
-
+      if (usuario_logado.id_paciente) {
+        const response = await axios.delete(`http://localhost:3000/pacientes/${usuario_logado.id_paciente}`);
+        if (response.status === 200) {
+          limparSessao();
+          setShowDeletarSucessoPopup(true);
+          navigate('/');
+        }
+      } else if (usuario_logado.id_medico) {
+        const response = await axios.delete(`http://localhost:3000/medicos/${usuario_logado.id_medico}`);
+        if (response.status === 200) {
+          limparSessao();
+          setShowDeletarSucessoPopup(true);
+          navigate('/');
+        }
+      }
     } catch (error) {
-      console.error('Erro ao cancelar consulta:', error);
+      console.error('Erro ao deletar conta:', error);
+      setErroDeletar('Não foi possível deletar sua conta. Tente novamente mais tarde.');
     }
-  }
+  };
+  
+  const limparSessao = () => {
+    localStorage.removeItem('usuario_logado');
+    sessionStorage.removeItem('usuario_logado');
+    set_usuario_logado({});
+  };
+  
 
-  localStorage.removeItem('usuario_logado')
-  sessionStorage.removeItem('usuario_logado')
+  // const handleConfirmarDeletar = async () => {
+  //   await deletarConta();
+  //   setMostrarPopDeletarPerfil(false);
+  // }
 
-  const handleConfirmarDeletar = async () => {
-    await deletarConta();
-    setMostrarPopDeletarPerfil(false);
-  }
-
-  const handleCancelarDeletar = () => {
-    setMostrarPopDeletarPerfil(false)
-  }
+  // const handleCancelarDeletar = () => {
+  //   setMostrarPopDeletarPerfil(false)
+  // }
 
   const toggleSenhaVisivel = () => {
     set_estado_olinho_senha(!estado_do_olhinho_senha)
   };
 
-<<<<<<< HEAD
-  // navigate('/')
-
-  // Deletar conta
-=======
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
   return (
     <div>
       <div className="conteudo-perfil">
@@ -234,7 +244,7 @@ function Perfil_paciente() {
           </div>
 
           <div className="hamburger-alinhamento">
-            <HamburgerMenu/>
+            <HamburgerMenu />
           </div>
         </div>
 
@@ -258,21 +268,25 @@ function Perfil_paciente() {
                 onClick={sairDaConta}>SAIR DA CONTA</button>
 
               <button className="button-deletar-perfil"
-                onClick={() => setMostrarPopDeletarPerfil(true)}>DELETAR CONTA</button>
+                onClick={deletarConta}
+              >DELETAR CONTA</button>
             </div>
           </div>
-          <ConfirmarDeletarPopUp
 
-          show={mostrarPopDeletar} 
-          onConfirmar={handleConfirmarDeletar}
-          onCancelar={handleCancelarDeletar}
-          titulo='Tem certeza que deseja deletar a sua conta?'/>
+          {/* <ConfirmarDeletarPopUp
+
+            show={mostrarPopDeletar}
+            onConfirmar={handleConfirmarDeletar}
+            onCancelar={handleCancelarDeletar}
+            titulo='Tem certeza que deseja deletar a sua conta?' />
 
           <ConfimarContaExcluidaPopUp
-          show={mostrarPopUpExcluir}
-          onClose={() => {setMostrarPopUpExcluirPerfil(false)
-          navigate('/')}}
-          mensagem='Conta Deletada com sucesso!'/>
+            show={mostrarPopUpExcluir}
+            onClose={() => {
+              setMostrarPopUpExcluirPerfil(false)
+              navigate('/')
+            }}
+            mensagem='Conta Deletada com sucesso!' /> */}
 
           <div className="container-dois-perfil">
             <label>Nome</label>
@@ -291,62 +305,49 @@ function Perfil_paciente() {
 
             {usuario_logado.crm && (
               <>
-               <label>Especialização</label>
-               <input type='text' placeholder='Digite sua especialização' 
-               value={especializacao} 
-               disabled={!editando} 
-               onChange={(e) => { setEspecializacao(e.target.value)
-               set_usuario_logado({
-               ...usuario_logado, especializacao:e.target.value}) }}/>
+                <label>Especialização</label>
+                <input type='text' placeholder='Digite sua especialização'
+                  value={especializacao}
+                  disabled={!editando}
+                  onChange={(e) => {
+                    setEspecializacao(e.target.value)
+                    set_usuario_logado({
+                      ...usuario_logado, especializacao: e.target.value
+                    })
+                  }} />
               </>
             )}
 
             <label>Telefone (com DDD)</label>
-<<<<<<< HEAD
-            <input type="text"
-              placeholder="+00 (00) 0000-0000"
-              value={usuario_logado.telefone}
+            <InputMask mask='+99 (99) 99999-9999'
+              placeholder='+55 (55) 55555-5555'
               disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })}
-              required minLength={0} maxLength={16} />
-=======
-            <InputMask mask='+99 (99) 99999-9999' placeholder='+55 (55) 55555-5555' disabled={!editando} value={usuario_logado.telefone} onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })}/>
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
+              value={usuario_logado.telefone}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
 
-          <div className="container-alinhamento-tres-perfil">
-             <div className="container-foto-usuario">
-             <label>Escolha sua foto de perfil</label>
-             <img src="icon_user.png" alt="foto de usuario" />
-            </div>
-
-          </div>
-
-           <label>Gênero</label>
+            <label>Gênero</label>
             <select disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, genero: e.target.value })}>
               <option disabled selected>{usuario_logado.genero}</option>
               <option>Feminino</option>
               <option>Masculino</option>
             </select>
-            </div>
+          </div>
 
           <div className="container-tres-perfil">
             <label>CPF</label>
-<<<<<<< HEAD
-            <input type="text"
-              placeholder="000.000.000-00"
-              value={usuario_logado.cpf}
+            <InputMask mask='999.999.999-99'
+              placeholder='012.345.678-91'
               disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })}
-              required minLength={0} maxLength={14} />
-=======
-
-            <InputMask mask='999.999.999-99' placeholder='012.345.678-91' disabled={!editando} value={usuario_logado.cpf} onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })}/>
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
+              value={usuario_logado.cpf}
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })} />
 
             <label>{cep_ou_crm}</label>
-
-            <InputMask mask={mascara_do_inpt} placeholder='Insira seu CEP ou CRM' disabled={!editando} value={valor_inpt_cep_ou_crm} onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)}/>
+            <InputMask mask={mascara_do_inpt}
+              placeholder='Insira seu CEP ou CRM'
+              disabled={!editando}
+              value={valor_inpt_cep_ou_crm}
+              onChange={e => set_valor_inpt_cep_ou_crm(e.target.value)} />
 
             <label>Senha atual</label>
             <input type={estado_do_olhinho_senha ? 'text' : 'password'}
@@ -356,46 +357,51 @@ function Perfil_paciente() {
               onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
             <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'}
               alt='olinho' onClick={toggleSenhaVisivel}
-<<<<<<< HEAD
-              style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'21vw', position:'absolute', top:'30vw'}}/>
+              style={{ cursor: 'pointer', width: '30px', height: '30px', marginLeft: '21vw', position: 'absolute', top: '30vw' }} />
           </div>
         </div>
       </div>
-      </div>
-=======
-            style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}/>
->>>>>>> 2e68d0b373b701a3d71a14334e6650fc0d454dfa
 
-            {usuario_logado.crm && (
-             <>
-             <label>Especialidade</label>
-             <input type="text"
-              placeholder="Informe sua especialidade"
-              value={especializacao}
-              disabled={!editando}
-              onChange={(e) => {
-              setEspecializacao(e.target.value)
-
-              set_usuario_logado({
-              ...usuario_logado, especializacao:e.target.value})
-              }}/>
-             </>
-            )}
-            
+      {showEditarSucessoPopup && (
+        <div className="popup-confirmar">
+          <div className="popup-confirmar-conteudo">
+            <div className="titulo-cancelarConsulta-popup">
+              <h3>Perfil editado com sucesso!</h3>
+              <img src="jade-feliz.png" alt="jade feliz" className='jade-feliz-popup' />
+            </div>
+            <button type="button" onClick={() => setShowEditarSucessoPopup(false)}>Fechar</button>
           </div>
-
-          {mensagem && (
-           <div className='mensagem' 
-            style={{color:'#ef2828', textAlign:'center', fontFamily: 'Poppins, sans-serif', fontWeight: 'bold', fontSize: '1vw'}}>
-            {mensagem}
-           </div>
-          )}
-
         </div>
-       </div>
-       </div>
+      )}
 
-  );
+      {showCertezaDeletarPopup && (
+        <div className="popup-cancelar">
+          <div className="popup-cancelar-conteudo">
+            <div className="titulo-marcarconsulta-popup">
+              <h3>Você tem certeza que quer cancelar a consulta?</h3>
+              <img src="jade-duvida.png" alt="o mascote em duvida" className='jade-duvida' />
+            </div>
+            <div className="buttons-popupCancelar-alinhamento">
+              <button
+                onClick={() => setShowCertezaDeletarPopUp(false)}
+                className="popup-cancelar-fechar-button"
+                type="button"
+              >
+                Não, fechar
+              </button>
+              <button
+                onClick={certezaDeletarTrue}
+                className="popup-cancelar-confirmar-button"
+                type="button"
+              >
+                Sim, deletar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div >
+  )
 }
 
 export default Perfil_paciente;
