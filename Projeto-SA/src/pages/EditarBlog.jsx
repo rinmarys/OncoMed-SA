@@ -8,36 +8,10 @@ import { GlobalContext } from '../contexts/GlobalContext';
 
 function EditarBlog() {
 
+    const {objeto_a_armazenar_informacoes_do_blog, set_objeto_a_armazenar_informacoes_do_blog} = useContext(GlobalContext);
 
-    const [informacoes_do_blog, set_informacoes_do_blog] = useState({titulo: '', autor: '', link: '', imagem_selecionada: ''});   
-    // const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
-
-    // //PEGAR INFORMACOES DA TABELA BLOG
-    // const fetchBlog = async () => {
-    //     try {
-    //         const resposta = await axios.get('http://localhost:3000/blog')
-    //         setRegistroBlog(resposta.data)
-    //     } catch (err) {
-    //         console.error('Erro ao buscar tabela do blog ;(', err)
-    //     }
-    // }
-
-    // //QUANDO CARREGAR A PAG FAZ A FUNÇÃO
-    // useEffect(() => {
-    //     fetchBlog()
-    // }, [])
-
-    // const deleteBlog = async (id) => {
-    //     try {
-    //         const response = await axios.delete(`http://localhost:3000/blog/${id}`);
-    //         if (response.status === 200) {
-    //             fetchBlog(); // Atualiza a lista do blog após a exclusão
-    //             setMostrarPopDeletar(false);
-    //         }
-    //     } catch (error) {
-    //         console.error('Erro ao deletar Blog:', error);
-    //     }
-    // };
+    const [informacoes_do_blog, set_informacoes_do_blog] = useState({titulo: objeto_a_armazenar_informacoes_do_blog.titulo, autor: objeto_a_armazenar_informacoes_do_blog.autor, link: objeto_a_armazenar_informacoes_do_blog.descricao, imagem_selecionada: objeto_a_armazenar_informacoes_do_blog.imagem});   
+ 
 
     return (
     <div>
@@ -53,6 +27,16 @@ function EditarBlog() {
 
         <div>
 
+            <select>Imagem
+
+            <option value="">Imagem 1</option>
+            <option value="">Imagem 2</option>
+            <option value="">Imagem 3</option>
+            <option value="">Imagem 4</option>
+            </select>
+        
+            <img src={informacoes_do_blog.imagem_selecionada} className="Imagem_do_blog" alt="Imagema" />
+        
         </div>
 
         <div>

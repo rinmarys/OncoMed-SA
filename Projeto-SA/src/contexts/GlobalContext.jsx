@@ -9,6 +9,8 @@ export const GlobalContextProvider = ({ children }) => {
     const [lista_de_medicos, set_lista_de_medicos] = useState([]);
     const [lista_de_consultas, set_lista_de_consultas] = useState([]);
     const [usuario_administrador, set_usuario_administrador] = useState([]);
+    
+    const [objeto_a_armazenar_informacoes_do_blog, set_objeto_a_armazenar_informacoes_do_blog] = useState('');
 
     const [tempo_do_pop_up_de_boas_vindas, set_tempo_do_pop_up_de_boas_vindas] = useState(false);
 
@@ -18,7 +20,6 @@ export const GlobalContextProvider = ({ children }) => {
     const [listaInformacoesMarcarConsulta, setListaInformacoesMarcarConsulta] = useState([])
 
     const [registroBlog, setRegistroBlog] = useState([]);
-    const [blogRecente, setblogRecente] = useState('')
 
     const [pop_aberto, set_pop_aberto] = useState(false);
     const [pop_up_de_login, set_pop_up_de_login] = useState(false);
@@ -62,8 +63,8 @@ export const GlobalContextProvider = ({ children }) => {
             setRegistroBlog,
 
             //LISTA BLOG RECENTE
-            blogRecente,
-            setblogRecente,
+            objeto_a_armazenar_informacoes_do_blog,
+            set_objeto_a_armazenar_informacoes_do_blog,
             
             // MARCAR CONSULTA INFORMAÇÔES
             listaInformacoesMarcarConsulta,
