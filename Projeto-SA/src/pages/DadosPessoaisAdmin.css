@@ -48,7 +48,8 @@
 .alinhamento-inputs-dadosPessoaisAdmin{
     display: flex;
     margin-left: 9vw;
-    margin-top: 3.5vw;
+    margin-top: 4vw;
+    width: fit-content;
 }
 
 .input-button-dadosPessoais{
@@ -63,17 +64,25 @@
     color: var(--cor-2);
     font-weight: 600;
     font-size: 1.2vw;
-    margin-bottom: 0.5vw;
+    margin-bottom: 0.3vw;
 }
 
 .alinhamento-inputs-dadosPessoaisAdmin input{
-    border: 1px solid var(--cor-6);
-    background-color: var(--cor-4);
-    height: 2vw;
-    border-radius: 0.4vw;
-    margin-bottom: 1vw;
-    color: var(--cor-6);
+    box-sizing: border-box;
+    
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
+    
     font-size: 1vw;
+    font-family: var(--tipografia_secundaria);
+    
+    background: var(--cor_tres);
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
+    
+    color: var(--cor_cinco);
+    margin-bottom: 1.5vw;
 }
 
 .alinhamento-inputs-dadosPessoaisAdmin button{
@@ -121,4 +130,20 @@
     width: 33vw;
     height: auto;
     transition: 0.4s;
+}
+
+.mensagemDadosSalvosSucesso{
+    width: fit-content;
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-2);
+    font-weight: 600;
+    font-size: 1.2vw;
+}
+
+.mensagemErro{
+    width: fit-content;
+    font-family: 'Poppins', sans-serif;
+    color: #ef2828;
+    font-weight: 600;
+    font-size: 1.2vw;
 }

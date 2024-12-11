@@ -149,25 +149,38 @@
 }
 
 .container-dois-perfil input{
-    border: 1px solid var(--azul_escuro);
-    background-color: var(--branco_gelo);
-    color: var(--azul_escuro);
-    padding: 0.3vw;
-    border-radius: 0.2vw;
-    width: 22vw;
-    height: 2vw;
-    margin-bottom: 2vw;
+    box-sizing: border-box;
+    
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
+    margin-bottom: 1.5vw;
+    
+    font-size: 1vw;
+    font-family: var(--tipografia_secundaria);
+    
+    background: var(--cor_tres);
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
+    
+    color: var(--cor_cinco);
 }
 
 .container-dois-perfil select{
-    border: 1px solid var(--azul_escuro);
-    background-color: var(--branco_gelo);
-    color: var(--azul_escuro);
-    padding: 0.3vw;
-    border-radius: 0.2vw;
-    width: 22.7vw;
-    height: 3vw;
-    margin-bottom: 2vw;
+    box-sizing: border-box;
+    
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
+    
+    font-size: 1vw;
+    font-family: var(--tipografia_secundaria);
+    
+    background: var(--cor_tres);
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
+    
+    color: var(--cor_cinco);
 }
 
 .container-tres-perfil {
@@ -185,12 +198,19 @@
 }
 
 .container-tres-perfil input{
-    border: 1px solid var(--azul_escuro);
-    background-color: var(--branco_gelo);
-    color: var(--azul_escuro);
-    padding: 0.3vw;
-    border-radius: 0.2vw;
-    width: 22vw;
-    height: 2vw;
-    margin-bottom: 2vw;
+    box-sizing: border-box;
+    
+    width: 24vw;
+    height: 6vh;
+    padding-left: 0.8vw;
+    margin-bottom: 1.5vw;
+    
+    font-size: 1vw;
+    font-family: var(--tipografia_secundaria);
+    
+    background: var(--cor_tres);
+    border: 0.1vw solid var(--cor_cinco);
+    border-radius: 0.8vw;
+    
+    color: var(--cor_cinco);
 }

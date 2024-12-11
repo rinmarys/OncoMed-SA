@@ -201,12 +201,21 @@
     padding: 3vw;
     border-radius: 1vw;
     box-shadow: rgba(44, 44, 44, 0.35) 0px 0.26vw 0.78vw;
-
+    width: 32vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
     align-items: center;
+}
+
+.titulo-cancelarConsulta-popup{
+    display: flex;
+}
+
+.jade-feliz-popup{
+    height: auto;
+    width: 15vw;
 }
 
 .popup-confirmar-conteudo h3 {
@@ -220,12 +229,13 @@
     border: none;
     background-color: var(--cor-2);
     border-radius: 0.8vh;
-    width: 6vw;
+    width: 8vw;
     color: var(--cor-4);
     padding: 0.4vw;
-
+    font-size: 1.1vw;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    margin-top: -1vw;
 }
 
 .popup-confirmar-conteudo button:hover {
@@ -239,6 +249,7 @@
 }
 
 .popup-cancelar {
+    width: 35vw;
     height: fit-content;
     position: fixed;
     background-color: var(--cor-4);
@@ -266,10 +277,11 @@
     border: none;
     background-color: var(--cor-2);
     border-radius: 0.8vh;
-    width: 9vw;
+    width: 10vw;
     color: var(--cor-4);
-    padding: 0.4vw;
+    padding: 0.7vw;
 
+    font-size: 1vw;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
@@ -288,10 +300,11 @@
     border: none;
     background-color: var(--cor-6);
     border-radius: 0.8vh;
-    width: 13vw;
+    width: 10vw;
     color: var(--cor-4);
     padding: 0.4vw;
 
+    font-size: 1vw;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
@@ -309,11 +322,17 @@
 .buttons-popupCancelar-alinhamento{
     display: flex;
     justify-content: space-between;
-    width: 23vw;
+    width: 22vw;
+    margin-top: -6vw;
 }
 
-.jade_duvida_popup{
-    border: 1px solid red;
-    width: 35vw;
+.jade-duvida{
+    width: 13vw;
+
+}
+
+.titulo-marcarconsulta-popup{
+    display: flex;
+    margin-bottom: 1.5vw;
 }
 /* POP UPS LEGAISSS */

@@ -207,14 +207,9 @@ function Perfil_paciente() {
     set_estado_olinho_senha(!estado_do_olhinho_senha)
   };
 
-<<<<<<< HEAD
-  navigate('/')
-
-}
+  // navigate('/')
 
   // Deletar conta
-=======
->>>>>>> dadb5572caaa5f9df0cc61f051c6c5336148e2d4
   return (
     <div>
       <div className="conteudo-perfil">
@@ -284,7 +279,8 @@ function Perfil_paciente() {
               placeholder="+00 (00) 0000-0000"
               value={usuario_logado.telefone}
               disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })} />
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, telefone: e.target.value })}
+              required minLength={0} maxLength={16} />
 
 {/* <<<<<<< HEAD
         <div className="container-alinhamento-tres-perfil">
@@ -340,7 +336,8 @@ function Perfil_paciente() {
               placeholder="000.000.000-00"
               value={usuario_logado.cpf}
               disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })} />
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, cpf: e.target.value })}
+              required minLength={0} maxLength={14} />
 
             <label>{cep_ou_crm}</label>
             <input type="text"
@@ -357,7 +354,7 @@ function Perfil_paciente() {
               onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
               <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'} 
               alt='olinho' onClick={toggleSenhaVisivel}
-              style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'278px', position:'absolute', top:'350px'}}/>
+              style={{cursor:'pointer', width:'30px', height:'30px', marginLeft:'21vw', position:'absolute', top:'30vw'}}/>
           </div>
         </div>
       </div>

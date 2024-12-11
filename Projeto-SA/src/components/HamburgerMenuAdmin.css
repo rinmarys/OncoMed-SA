@@ -41,12 +41,12 @@
     position: absolute;
 
     top: 19%;
-    left: 82%;
+    left: 76vw;
 
     background-color: var(--cor-4);
     right: 0;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    width: 15vw;
+    width: 20vw;
     border-radius: 10px;
     z-index: 2;
 }
@@ -75,4 +75,16 @@
 .Link-decoration:not(hover){
     color: var(--cor-6);
     transition: 0.5s;
+}
+
+.alinhamento-img-hamburger{
+    margin-left: 1.1vw;
+    width: 2vw;
+    height: 2vw;
+    margin-top: 0.5vw;
+}
+
+.alinhamento-icons-hamburger{
+    display: flex;
+    height: 4.2vw;
 }

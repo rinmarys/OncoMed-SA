@@ -328,6 +328,31 @@ app.get('/admin', async (req, res) => {
     }
 });
 
+app.put('/admin/:id', async (req, res) => {
+    const { id } = req.params;
+    const { nome, email, senha } = req.body;
+
+    console.log('ID recebido:', id);
+    console.log('Dados recebidos:', { nome, email, senha });
+
+    try {
+        const result = await pool.query(
+            'UPDATE admin SET nome = $1, email = $2, senha = $3 WHERE id_admin = $4 RETURNING *',
+            [nome, email, senha, id]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'admin não encontrado' });
+        }
+
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error('Erro ao atualizar admin:', err.message);
+        res.status(500).json({ error: 'Erro ao atualizar admin', detalhes: err.message });
+    }
+});
+
+
 
 // ROTA PARA DELETAR BLOG 
 app.delete('/blog/:id', async (req, res) => {

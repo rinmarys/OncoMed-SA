@@ -35,12 +35,31 @@ const HamburgerMenu = () => {
             {isOpen && (
                 <nav className="menu">
                     <ul>
-                        <li><Link to='/' className='Link-decoration'>Home</Link></li>
-                        <li><Link to='/marcarConsulta' className='Link-decoration'>Marcar consulta</Link></li>
-                        <li><Link to='/meusAgendamentos' className='Link-decoration'>Agendamentos</Link></li>
-                        <li><Link to='/blogInicioAdmin' className='Link-decoration'>Blog</Link></li>
-                        <li><Link to='/sobreNos' className='Link-decoration'>Sobre nós</Link></li>
-                        <li><Link to='/perfil_paciente' className='Link-decoration'>Meu perfil</Link></li>
+                        {/* CSS de alinhamento no hamburger do admin */}
+                        <div className='alinhamento-icons-hamburger'>
+                            <img src="home-icon.png" alt="home" className='alinhamento-img-hamburger' /><li><Link to='/' className='Link-decoration'>Home</Link></li>
+                        </div>
+
+                        <div className='alinhamento-icons-hamburger'>
+                            <img src="marcar-consulta-icon.png" alt="marcar cnsulta" className='alinhamento-img-hamburger' /><li><Link to='/marcarConsulta' className='Link-decoration'>Marcar consulta</Link></li>
+                        </div>
+
+                        <div className='alinhamento-icons-hamburger'>
+                            <img src="agendamentos-icon.png" alt="agendamentos" className='alinhamento-img-hamburger' /><li><Link to='/meusAgendamentos' className='Link-decoration'>Agendamentos</Link></li>
+                        </div>
+
+                        <div className='alinhamento-icons-hamburger'>
+                            <img src="blog-icon.png" alt="blog" className='alinhamento-img-hamburger' /><li><Link to='/blogInicioAdmin' className='Link-decoration'>Blog</Link></li>
+                        </div>
+
+                        <div className='alinhamento-icons-hamburger'>
+                            <img src="meu-perfil-icon.png" alt="meu perfil" className='alinhamento-img-hamburger' /><li><Link to='/perfil_paciente' className='Link-decoration'>Meu perfil</Link></li>
+                        </div>
+
+                        <div className='alinhamento-icons-hamburger'>
+                            <img src="sobre-nos-icon.png" alt="sobre nos" className='alinhamento-img-hamburger' /><li><Link to='/sobreNos' className='Link-decoration'>Sobre nós</Link></li>
+                        </div>
+                        {/* CSS de alinhamento no hamburger do admin */}
                     </ul>
                 </nav>
             )}

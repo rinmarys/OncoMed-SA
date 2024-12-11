@@ -54,24 +54,24 @@
 //   }, []);
 
 //   const fetch_consultas = async () => {
-    
+
 //     try {
-      
+
 //       const response = await axios.get('http://localhost:3000/marcarConsulta');
-      
+
 //       set_lista_de_consultas(response.data);
-  
+
 //     } catch (error) {
-  
+
 //       console.error('Erro ao buscar consultas:', error);
 //     };  
 
 //   };
 
 //   const handleSubmit = async (e) => {
-   
+
 //     e.preventDefault();
-  
+
 //     const consulta = {
 
 //       data_agendamento: selectedDate,
@@ -81,18 +81,18 @@
 //       medico_designado: "",
 //       id_paciente: usuario_logado.id_paciente
 //     };
-  
+
 //     try {
 //           // Adicionar nova consulta (POST)
 //           const response = await axios.post('http://localhost:3000/marcarConsulta', consulta);
-          
+
 //           if (response.status === 201) {
-          
+
 //             fetch_consultas(); // Atualiza a lista de consultas após a adição
 //           };
 
 //     } catch (error) {
-        
+
 //       console.error('Erro ao adicionar uma consulta:', error);
 //     };
 
@@ -363,7 +363,10 @@ function MarcarConsulta() {
           {mostrarPopUpConfirmar && (
             <div className="popup-confirmar">
               <div className="popup-confirmar-conteudo">
-                <h3>Consulta confirmada com sucesso!</h3>
+                <div className="titulo-cancelarConsulta-popup">
+                  <h3>Consulta confirmada com sucesso!</h3>
+                  <img src="jade-feliz.png" alt="jade feliz" className='jade-feliz-popup' />
+                </div>
                 <button onClick={() => navigate('/')}>Fechar</button>
               </div>
             </div>
@@ -372,24 +375,26 @@ function MarcarConsulta() {
           {mostrarPopUpCancelar && (
             <div className="popup-cancelar">
               <div className="popup-cancelar-conteudo">
-                <h3>Você tem certeza que quer cancelar a consulta?</h3>
+                <div className="titulo-marcarconsulta-popup">
+                  <h3>Você tem certeza que quer cancelar a consulta?</h3>
+                  <img src="jade-duvida.png" alt="o mascote em duvida" className='jade-duvida' />
+                </div>
                 <div className="buttons-popupCancelar-alinhamento">
                   <button
                     onClick={() => setMostrarPopUpCancelar(false)}
                     className="popup-cancelar-fechar-button"
                     type="button"
                   >
-                    Não quero! Fechar
+                    Não, fechar
                   </button>
                   <button
                     onClick={() => navigate('/')}
                     className="popup-cancelar-confirmar-button"
                     type="button"
                   >
-                    Confirmar cancelamento
+                    Sim, cancelar
                   </button>
                 </div>
-                <img src="jade_duvida.png" alt="jade em duvida" className='jade_duvida_popup' />
               </div>
             </div>
           )}
