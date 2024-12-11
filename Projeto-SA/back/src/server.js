@@ -316,6 +316,26 @@ app.post('/blog', async (req, res) => {
     }
 });
 
+app.put('/blog/:id', async (req, res) => {
+    const { id } = req.params;
+    const { titulo, descricao, autor, imagem} = req.body;
+    try {
+        const result = await pool.query(
+
+            'UPDATE blog SET titulo = $1, descricao = $2, autor = $3, imagem = $4 WHERE id = $5 RETURNING *',
+
+            [titulo, descricao, autor, imagem, id]
+        );
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Médico não encontrado' });
+        }
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao atualizar médico' });
+    }
+});
+
 //ADMIN
 
 app.get('/admin', async (req, res) => {
