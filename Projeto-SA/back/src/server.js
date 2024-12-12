@@ -254,13 +254,13 @@ app.post('/medicos', async (req, res) => {
 
 app.put('/medicos/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone } = req.body;
+    const { nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, especializacao } = req.body;
     try {
         const result = await pool.query(
 
-            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8, telefone = $9 WHERE id_medico = $10 RETURNING *',
+            'UPDATE medicos SET nome = $1, cpf = $2, crm = $3, email = $4, genero = $5, data_de_nascimento = $6, senha = $7, imagem_de_perfil = $8, telefone = $9, especializacao = $10 WHERE id_medico = $11 RETURNING *',
 
-            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, id]
+            [nome, cpf, crm, email, genero, data_de_nascimento, senha, imagem_de_perfil, telefone, especializacao, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Médico não encontrado' });

@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import './CriarPostagem.css'
 import axios from 'axios';
 import { GlobalContext } from '../contexts/GlobalContext';
+import { useNavigate } from 'react-router-dom';
 
 function CriarPostagem() {
     // Definindo os estados
@@ -10,6 +11,9 @@ function CriarPostagem() {
     const [valorAutor, setValorAutor] = useState('');
     const [valorDescricao, setValorDescricao] = useState('');
     const [imagemSelecionada, setImagemSelecionada] = useState('');  // Estado para armazenar a imagem selecionada
+    const navigate = useNavigate();
+
+    const [mostrarMensaje, setMostrarMensaje] = useState(false);
 
     // Dados do blog
     const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
@@ -40,6 +44,15 @@ function CriarPostagem() {
     // Função para enviar o blog
     const enviarBlog = async (event) => {
         event.preventDefault();
+
+        if (!valorTitulo || !valorAutor || !valorDescricao || !imagemSelecionada) {
+            setMostrarMensaje(true)
+            return;
+        } else {
+            setMostrarMensaje(false)
+        }
+
+
         const informacoesBlog = {
             titulo: valorTitulo,
             autor: valorAutor,
@@ -56,6 +69,10 @@ function CriarPostagem() {
                 setValorTitulo('');
                 setImagemSelecionada('');  // Resetando a imagem após o envio
             }
+
+            navigate('/blogInicioAdmin')
+
+
         } catch (err) {
             console.error('Erro ao adicionar o blog ;(', err);
         }
@@ -66,7 +83,9 @@ function CriarPostagem() {
         setValorDescricao('');
         setValorTitulo('');
         setImagemSelecionada('');  // Resetando a imagem
-       
+
+        navigate('/blogInicioAdmin')
+
     }
 
     return (
@@ -103,7 +122,6 @@ function CriarPostagem() {
                                 </select>
                             </div>
 
-
                             {/* MOSTRA IMG */}
                             {imagemSelecionada && (
                                 <div className="imagem-selecionada">
@@ -123,7 +141,7 @@ function CriarPostagem() {
                                     onChange={e => setValorTitulo(e.target.value)}
                                     type="text"
                                     className='input-titulo-artigo'
-                                    
+
                                 />
                             </div>
                             {/* AUTOR */}
@@ -152,10 +170,16 @@ function CriarPostagem() {
 
                         </div>
 
-                                <div className="buttons-container">
-                                    <button className='publicar-button' type='submit'>PUBLICAR</button>
-                                    <button className='cancelar-button' onClick={CancelarBlog}>CANCELAR</button>
-                                </div>
+                        <div className="alinhamento-buttons-mensaje">
+                            <div className="buttons-container">
+                                <button className='publicar-button' type='submit'>PUBLICAR</button>
+                                <button className='cancelar-button' onClick={CancelarBlog}>CANCELAR</button>
+
+                            </div>
+                            {mostrarMensaje && (
+                                <div className="mensaje-error">Por favor, preencha todos os campos!</div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </form>

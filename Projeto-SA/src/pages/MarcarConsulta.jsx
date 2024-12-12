@@ -106,9 +106,15 @@ function MarcarConsulta() {
                     <option value="" disabled>
                       Selecione um tipo de consulta
                     </option>
-                    <option value="MAMOGRAFIA">Mamografia</option>
                     <option value="EXAME DE SANGUE">Exame de sangue</option>
-                    <option value="CONSULTAS BAKANAS">Consultas bakanas</option>
+                    <option value="BIOPSIA">Biopsia</option>
+                    <option value="RESSONÂNCIA MAGNÉTICA">Ressonância magnética</option>
+                    <option value="MAMOGRAFIA">Mamografia</option>
+                    <option value="RADIOGRAFIA">Radiografia</option>
+                    <option value="QUIMIOTERAPIA">Quimioterapia</option>
+                    <option value="CIRURGIA ONCOLÓGICA">Cirurgia oncológica</option>
+                    <option value="RADIOTERAPIA">Radioterapia</option>
+                    <option value="TOMOGRAFIA">Tomografia</option>
                   </select>
                 </div>
 

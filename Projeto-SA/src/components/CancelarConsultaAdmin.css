@@ -19,7 +19,7 @@
     --tipografia_poppins: 'Poppins', sans-serif;
 }
 
-.alinhamentoTudo-cancelarConsultaAdmin{
+.alinhamentoTudo-cancelarConsultaAdmin {
     width: fit-content;
     position: fixed;
     top: 2.8vw;
@@ -75,18 +75,18 @@
 
 .inputs input {
     box-sizing: border-box;
-    
+
     width: 24vw;
     height: 6vh;
     padding-left: 0.8vw;
-    
+
     font-size: 1vw;
     font-family: var(--tipografia_secundaria);
-    
+
     background: var(--cor_tres);
     border: 0.1vw solid var(--cor_cinco);
     border-radius: 0.8vw;
-    
+
     color: var(--cor_cinco);
 }
 
@@ -146,11 +146,24 @@
     transition: 0.4s;
 }
 
-.mensagemErro-CancelarConsultaAdmin{
+.mensagemErro-CancelarConsultaAdmin {
     width: fit-content;
     font-size: 1.2vw;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: #ef2828;
     margin-top: 1vw;
+}
+
+.input-senha-container-cancelarConsulta {
+    position: relative;
+    /* Para posicionar o botão */
+}
+
+.eye-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    /* Adicione outros estilos conforme necessário */
 }

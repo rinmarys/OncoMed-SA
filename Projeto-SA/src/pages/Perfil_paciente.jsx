@@ -213,13 +213,13 @@ function Perfil_paciente() {
       setErroDeletar('Não foi possível deletar sua conta. Tente novamente mais tarde.');
     }
   };
-  
+
   const limparSessao = () => {
     localStorage.removeItem('usuario_logado');
     sessionStorage.removeItem('usuario_logado');
     set_usuario_logado({});
   };
-  
+
 
   // const handleConfirmarDeletar = async () => {
   //   await deletarConta();
@@ -303,21 +303,6 @@ function Perfil_paciente() {
               disabled={!editando}
               onChange={(e) => set_usuario_logado({ ...usuario_logado, email: e.target.value })} />
 
-            {usuario_logado.crm && (
-              <>
-                <label>Especialização</label>
-                <input type='text' placeholder='Digite sua especialização'
-                  value={especializacao}
-                  disabled={!editando}
-                  onChange={(e) => {
-                    setEspecializacao(e.target.value)
-                    set_usuario_logado({
-                      ...usuario_logado, especializacao: e.target.value
-                    })
-                  }} />
-              </>
-            )}
-
             <label>Telefone (com DDD)</label>
             <InputMask mask='+99 (99) 99999-9999'
               placeholder='+55 (55) 55555-5555'
@@ -354,10 +339,26 @@ function Perfil_paciente() {
               placeholder="digite sua senha atual"
               value={usuario_logado.senha}
               disabled={!editando}
-              onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })} />
+              onChange={(e) => set_usuario_logado({ ...usuario_logado, senha: e.target.value })}
+              minLength={7} maxLength={12} />
             <img src={estado_do_olhinho_senha ? 'input_olho_aberto.png' : 'input_olho_fechado.png'}
               alt='olinho' onClick={toggleSenhaVisivel}
               style={{ cursor: 'pointer', width: '30px', height: '30px', marginLeft: '21vw', position: 'absolute', top: '30vw' }} />
+
+            {usuario_logado.crm && (
+              <>
+                <label>Especialização</label>
+                <input type='text' placeholder='Digite sua especialização'
+                  value={especializacao}
+                  disabled={!editando}
+                  onChange={(e) => {
+                    setEspecializacao(e.target.value)
+                    set_usuario_logado({
+                      ...usuario_logado, especializacao: e.target.value
+                    })
+                  }} />
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -378,7 +379,7 @@ function Perfil_paciente() {
         <div className="popup-cancelar">
           <div className="popup-cancelar-conteudo">
             <div className="titulo-marcarconsulta-popup">
-              <h3>Você tem certeza que quer cancelar a consulta?</h3>
+              <h3>Você tem certeza que quer deletar a sua conta?</h3>
               <img src="jade-duvida.png" alt="o mascote em duvida" className='jade-duvida' />
             </div>
             <div className="buttons-popupCancelar-alinhamento">

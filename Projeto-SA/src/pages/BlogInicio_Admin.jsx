@@ -11,7 +11,7 @@ function BlogInicio_Admin() {
     const [mostrarPopDeletar, setMostrarPopDeletar] = useState(false)
     const [blogIdParaDeletar, setBlogIdParaDeletar] = useState(null) // Para armazenar o ID do blog a ser deletado
     const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
-    const {objeto_a_armazenar_informacoes_do_blog, set_objeto_a_armazenar_informacoes_do_blog} = useContext(GlobalContext);
+    const { objeto_a_armazenar_informacoes_do_blog, set_objeto_a_armazenar_informacoes_do_blog } = useContext(GlobalContext);
 
     function buttonDeletar(id) {
         setBlogIdParaDeletar(id); // Armazenando o ID do blog a ser deletado
@@ -49,8 +49,8 @@ function BlogInicio_Admin() {
         fetchBlog()
     }, [])
 
-    const navigate = useNavigate ('')
-    
+    const navigate = useNavigate('')
+
     const pegar_informacoes_do_blog = (blog) => {
 
         set_objeto_a_armazenar_informacoes_do_blog({
@@ -67,7 +67,7 @@ function BlogInicio_Admin() {
         navigate(`/editarBlog`);
 
     };
-    
+
     return (
         <div>
             <div className="blog-alinhamento">
@@ -89,26 +89,26 @@ function BlogInicio_Admin() {
                         <div className="consultas-solicitacao">
                             {registroBlog.length > 0 ? (
                                 registroBlog.map((informacoesBlog) => (
-                                    <div className="container-artigos"  key={informacoesBlog.id}>
-                                        
+                                    <div className="container-artigos" key={informacoesBlog.id}>
+
                                         <img
-                                            onClick={() => pegar_informacoes_do_blog(informacoesBlog)} 
+                                            onClick={() => pegar_informacoes_do_blog(informacoesBlog)}
                                             className="Img-ReviwBlogADM"
                                             src={informacoesBlog.imagem}
                                             alt="Evento especial Nutrição"
-                                            
-                                            
-                                        /> 
+
+
+                                        />
                                         <div className='alinhamento-texto'>
 
                                             <div className='Descricao-ReviwBlogADM'>
                                                 <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
                                                 <p className='doutores-blog'>{informacoesBlog.autor}</p>
-                                            <div className="button-container">
-                                                <button className='button-deletar' onClick={() => buttonDeletar(informacoesBlog.id)}>
-                                                    <img src="Trash.svg" alt="Deletar artigo" />
-                                                </button>
-                                            </div>
+                                                <div className="button-container">
+                                                    <button className='button-deletar' onClick={() => buttonDeletar(informacoesBlog.id)}>
+                                                        <img src="Trash.svg" alt="Deletar artigo" />
+                                                    </button>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -124,11 +124,28 @@ function BlogInicio_Admin() {
 
                     {/* Pop-up de confirmação de exclusão */}
                     {mostrarPopDeletar && blogIdParaDeletar && (
-                        <div className='Container-PopUpBlog'>
-                            <h2 className='FontePopUpBlog'>Deseja mesmo deletar este arquivo?</h2>
-                            <div className='ButtonsPopUpBlog'>
-                                <button className='buttonNaoDeletar' onClick={naoDeletarBlog}>NÃO</button>
-                                <button className='buttonDeletar' onClick={() => deleteBlog(blogIdParaDeletar)}>SIM</button>
+                        <div className="popup-cancelar">
+                            <div className="popup-cancelar-conteudo">
+                                <div className="titulo-marcarconsulta-popup">
+                                    <h3>Você tem certeza que quer deletar esse artigo?</h3>
+                                    <img src="jade-duvida.png" alt="o mascote em duvida" className='jade-duvida' />
+                                </div>
+                                <div className="buttons-popupCancelar-alinhamento">
+                                    <button
+                                        onClick={naoDeletarBlog}
+                                        className="popup-cancelar-fechar-button"
+                                        type="button"
+                                    >
+                                        Não, fechar
+                                    </button>
+                                    <button
+                                        onClick={() => deleteBlog(blogIdParaDeletar)}
+                                        className="popup-cancelar-confirmar-button"
+                                        type="button"
+                                    >
+                                        Sim, deletar
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}

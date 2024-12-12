@@ -60,7 +60,7 @@ function MedicosCadastrados() {
                   <p className='email_medico_cadastrado'>{medicos.email}</p>
                 </div>
               </div>
-              <p className='especialidade_medico_cadastrado'>{medicos.especialidade ? medicos.especialidade : 'Especialidade não informada'}</p>
+              <p className='especialidade_medico_cadastrado'>{medicos.especializacao ? medicos.especializacao : 'Especialidade não informada'}</p>
               <div className="alinhamento-numero-crm-medicocadastrado">
                 <p className='numero_medico_cadastrado'> {medicos.telefone ? medicos.telefone : '** (***) *****-****'}</p>
                 <div className="alinhamento-cmr-cpf-medicocadastrado">

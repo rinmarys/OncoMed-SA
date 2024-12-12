@@ -126,15 +126,20 @@ function Popup_MeusAgendamentos({ selectedDate }) {
                   <h2 className="tipo-consulta-meusagendamentos">{consulta.tipo_consulta}</h2>
                   <h2 className="horario-meusagendamentos">{consulta.horario.slice(0, 5)}</h2>
                 </div>
-                <h3 className="titulo-observacao-meusagendamentos">SUA OBSERVAÇÃO</h3>
+                <h3 className="titulo-observacao-meusagendamentos">{usuario_logado.id_paciente
+                  ? 'SUA OBSERVAÇÂO'
+                  : 'OBSERVAÇÃO'}</h3>
                 <h3 className="observacao-meusagendamentos">{consulta.observacoes}</h3>
-                <button
-                  className="cancelar-meusagendamentos-popup"
-                  onClick={() => handleOpenPopup(consulta.id_consulta)}
-                  type="button"
-                >
-                  CANCELAR
-                </button>
+
+                {usuario_logado.id_medico 
+                  ? null
+                  : <button
+                    className="cancelar-meusagendamentos-popup"
+                    onClick={() => handleOpenPopup(consulta.id_consulta)}
+                    type="button"
+                  >
+                    CANCELAR
+                  </button>}
               </div>
             </div>
           ))}

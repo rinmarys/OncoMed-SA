@@ -48,7 +48,7 @@ function CancelarConsultaAdmin({ onClose, consultaId }) {
             setMensagemErroCancelarConsultaAdmin('Erro ao cancelar consulta, tente novamente.');
         }
     };
-    
+
 
     return (
         <div className='alinhamentoTudo-cancelarConsultaAdmin'>

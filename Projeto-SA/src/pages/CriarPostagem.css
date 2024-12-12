@@ -404,3 +404,19 @@ height: fit-content;
     font-size: 1.3vw;
     color: var(--cor-6);
 }
+
+.alinhamento-buttons-mensaje{
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
+.mensaje-error{
+    height: fit-content;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2vw;
+    margin-left: 3vw;
+    margin-top: 10vw;
+    color: #ef2828;
+}
