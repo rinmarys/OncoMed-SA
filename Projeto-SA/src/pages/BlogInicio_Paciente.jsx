@@ -5,66 +5,99 @@ import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../contexts/GlobalContext'
 import axios from 'axios'
-import {  useNavigate } from 'react-router-dom';
+
+import './BlogInicio_Paciente.css'
 
 function BlogInicio() {
 
   const { registroBlog, setRegistroBlog } = useContext(GlobalContext)
-  const { blogRecente, setblogRecente } = useContext(GlobalContext);
+  // const { blogRecente, setblogRecente } = useContext(GlobalContext);
 
-  const mudarPag = useNavigate(blogRecente.valorDescricao)
-  
-  const handleRedirect = () => {
-    
-  }
+  // const mudarPag = useNavigate(blogRecente.valorDescricao)
+
+  // const handleRedirect = () => {
+
+  // }
 
   const fetchBlog = async () => {
     try {
-        const resposta = await axios.get('http://localhost:3000/blog')
-        setRegistroBlog(resposta.data)
+      const resposta = await axios.get('http://localhost:3000/blog')
+      setRegistroBlog(resposta.data)
     } catch (err) {
-        console.error('Erro ao buscar tabela do blog ;(', err)
+      console.error('Erro ao buscar tabela do blog ;(', err)
     }
-}
+  }
 
-useEffect(() => {
+  useEffect(() => {
+
     fetchBlog()
-}, [])
+  }, []
+  )
   return (
     <div>
       <Header />
 
-      <div className="blog-alinhamento">
+      <div className="alinhamentoPostagens">
 
-        {/* Titulo */}
-        <div className="titulo">
+        {/* TITULO DO BLOG*/}
+        <div className="titulo-blog">
           <h1>MANTENHA-SE INFORMADO</h1>
-          <div></div>
+          <div className='LinhaBlog'></div>
         </div>
-        {/* Titulo */}
+
 
         {/* Artigos do blog */}
         <div className="artigos-alinhamento">
 
-<div className="consultas-solicitacao">
-    {registroBlog.length > 0 ? (
-        registroBlog.map((informacoesBlog) => (
-          <Link to={informacoesBlog.valorDescricao} target="_blank"> <div className="container-artigos" key={informacoesBlog.id} >
-           <img src={informacoesBlog.imagem} alt="Evento especial Nutrição" />
+          <div className="artigos-blog">
+
+            <div className="container-artigos" >
+              <Link to='/ConteudoBlog'>
+                <img
+                  className="Img-ReviwBlogADM"
+                  src='Doctor.svg'
+                  alt="Evento especial Nutrição"
+                />
                 <div className='alinhamento-texto'>
-                    <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
-                    <p className='doutores-blog'>{informacoesBlog.autor}</p>
+
+                  <div className='Descricao-ReviwBlogADM'>
+                    <p className='titulos-artigos'>Medicina alternativa ou medicina convencional? Junção dos dois.</p>
+                    <p className='doutores-blog'>por Doutor Mauricio Campos</p>
+
+                  </div>
+
                 </div>
-            </div></Link>
-        ))
-    ) : (
-        <p>Infelizmente ainda não há postagens! :(</p>
-    )}
-</div>
+              </Link>
+            </div>
+
+            {registroBlog.length > 0 ? (
+              registroBlog.map((informacoesBlog) => (
+                <a href={informacoesBlog.descricao} target="_blank" rel="noopener noreferrer">
+                  <div className="container-artigos" key={informacoesBlog.id}>
+                    <img
+                      className="Img-ReviwBlogADM"
+                      src={informacoesBlog.imagem}
+                      alt="Evento especial Nutrição"
+                    />
+                    <div className='alinhamento-texto'>
+
+                      <div className='Descricao-ReviwBlogADM'>
+                        <p className='titulos-artigos'>{informacoesBlog.titulo}</p>
+                        <p className='doutores-blog'>{informacoesBlog.autor}</p>
+
+                      </div>
+
+                    </div>
+                  </div></a>
+              ))
+            ) : (
+              null
+            )}
+          </div>
 
 
-</div>
-        {/* Artigos do blog */}
+        </div>
+
 
         <Footer />
 

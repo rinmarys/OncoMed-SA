@@ -13,10 +13,10 @@ function CriarPostagem() {
 
     // Dados do blog
     const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
-    const { blogRecente, setblogRecente } = useContext(GlobalContext);
 
     // Lista de imagens disponíveis 
     const imagensDisponiveis = [
+
         { id: 1, nome: 'Nutrição', caminho: 'breakfast 1.png' },
         { id: 2, nome: 'Psicologia', caminho: 'Meditation.svg' },
         { id: 3, nome: 'Companhia', caminho: 'Alimentacao.svg' },
@@ -51,7 +51,6 @@ function CriarPostagem() {
             const enviarInformacoes = await axios.post('http://localhost:3000/blog', informacoesBlog);
             if (enviarInformacoes.status === 201) {
                 fetchBlog();
-                setblogRecente(informacoesBlog)
                 setValorAutor('');
                 setValorDescricao('');
                 setValorTitulo('');
@@ -60,6 +59,14 @@ function CriarPostagem() {
         } catch (err) {
             console.error('Erro ao adicionar o blog ;(', err);
         }
+    }
+
+    const CancelarBlog = () => {
+        setValorAutor('');
+        setValorDescricao('');
+        setValorTitulo('');
+        setImagemSelecionada('');  // Resetando a imagem
+       
     }
 
     return (
@@ -96,6 +103,7 @@ function CriarPostagem() {
                                 </select>
                             </div>
 
+
                             {/* MOSTRA IMG */}
                             {imagemSelecionada && (
                                 <div className="imagem-selecionada">
@@ -115,7 +123,7 @@ function CriarPostagem() {
                                     onChange={e => setValorTitulo(e.target.value)}
                                     type="text"
                                     className='input-titulo-artigo'
-
+                                    
                                 />
                             </div>
                             {/* AUTOR */}
@@ -144,16 +152,12 @@ function CriarPostagem() {
 
                         </div>
 
-                        {/* BOTÕES */}
-
-                        <div className="buttons-container">
-                            <button className='publicar-button' type='button'>PUBLICAR</button>
-                            <button className='cancelar-button'>CANCELAR</button>
-                        </div>
-
+                                <div className="buttons-container">
+                                    <button className='publicar-button' type='submit'>PUBLICAR</button>
+                                    <button className='cancelar-button' onClick={CancelarBlog}>CANCELAR</button>
+                                </div>
                     </div>
                 </div>
-
             </form>
         </div>
     );

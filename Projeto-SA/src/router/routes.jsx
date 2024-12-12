@@ -19,6 +19,7 @@ import TermosDeUso from '../pages/TermosDeUso'
 import Convenio from "../pages/Convenio";
 import MedicosCadastrados from "../pages/MedicosCadastrados";
 import DadosPessoaisAdmin from "../pages/DadosPessoaisAdmin.jsx";
+import EditarBlog from "../pages/EditarBlog";
 
 const router = createBrowserRouter([
     // Header
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
     { path: "/solicitacaoConsulta", element: <SolicitacaoConsulta /> },
     { path: "/medicosCadastrados", element: <MedicosCadastrados /> },
     { path: "/dadosPessoaisAdmin", element: <DadosPessoaisAdmin /> },
+    { path: "/editarBlog", element: <EditarBlog />},
     //Telas Administradores
 
     // Footer

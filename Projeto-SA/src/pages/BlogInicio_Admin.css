@@ -10,9 +10,10 @@
 .alinhamentoTudo-gerenciarPostagens {
     margin-top: -10.5vw;
     /* border:1px solid black;  */
-    
-    
+
+
 }
+
 /* GERENCIAR POSTAGENS TITULO */
 .titulo-admin {
     display: flex;
@@ -25,55 +26,76 @@
     /* border:1px solid rgb(10, 151, 41);  */
 }
 
-.artigos-alinhamento{
+.artigos-alinhamento {
     /* border:1px solid rgb(78, 80, 209);  */
-    margin-top: 7vw; 
+    margin-top: 7vw;
     width: 75vw;
-    margin-left: 10vw; 
+    margin-left: 10vw;
     display: flex;
     flex-direction: column;
 
 }
+
 /* DENTRO DO BLOG */
-.container-artigos{
-     box-shadow: -1vw -1vw 2vw rgba(255,255,255,0.45), 0.4vw 0.4vw 0.9vw rgba(94,104,121,0.3);
-    margin-bottom: 10vw;
-    border-radius: 2vw;
-    /* border:1px solid black;  */
+.container-artigos {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0.26vw 0.78125vw;
+    margin-top: -1.5vw;
+    margin-bottom: 4vw;
+    border-radius: 2vw; 
     height: 20vw;
+    padding: 2vw;
 }
-.Img-ReviwBlogADM{
+
+.container-artigos:hover {
+    transition: 0.4s;
+
+    padding: 3vw;
+
+
+    background-color: #DAE4EC;
+}
+
+.container-artigos:not(:hover){
+    padding: 2vw;
+    transition: 0.4s;
+}
+
+.Img-ReviwBlogADM {
     width: 20vw;
     margin-left: 2vw;
     margin-top: 2vw;
     margin-bottom: 2VW;
-    /* border:1px solid black;  */
 }
-.Descricao-ReviwBlogADM{
+
+.Descricao-ReviwBlogADM {
     /* border:1px solid rgb(167, 32, 32);  */
     width: 50vw;
     margin-left: 24vw;
     margin-top: -15VW;
-    
+
 }
 
 /* .titulos-artigos{
      /* border:1px solid rgb(155, 24, 24);   */
 
-.doutores-blog{
+.doutores-blog {
     /* border:1px solid black;  */
     width: 38vw;
     color: #809c44;
 }
 
 .button-deletar {
-    width: 10vw;
+    width: 7vw;
     background-color: transparent;
     border: none;
     /* border:1px solid black;  */
-    margin-left: 40VW;
-    margin-top: -10VW;
+    margin-left: 40vw;
 }
+
+.button-deletar img{
+    width: 4vw;
+}
+
 /* 
 NAO SEI */
 .titulo-admin h1 {
@@ -86,7 +108,7 @@ NAO SEI */
     border-radius: 0.5vw;
     background-color: var(--cor-3);
     margin-top: -1vw;
-    
+
 }
 
 .line-admin:hover {
@@ -133,12 +155,12 @@ NAO SEI */
     border: none;
 }
 
-.buttonNaoDeletar:hover{
+.buttonNaoDeletar:hover {
     background-color: #323D70;
     transition: 0.4s;
 }
 
-.buttonNaoDeletar:not(:hover){
+.buttonNaoDeletar:not(:hover) {
     background-color: var(--cor-6);
     transition: 0.4s;
 }
@@ -161,14 +183,15 @@ NAO SEI */
     color: #F5F5F5;
 }
 
-.buttonDeletar:not(:hover){
+.buttonDeletar:not(:hover) {
     transition: 0.4s;
     background-color: var(--cor-2);
-   
+
 }
 
-.p-semPostagens{
+.p-semPostagens {
     width: fit-content;
     margin-left: -2vw;
     margin-top: -3vw;
+
 }

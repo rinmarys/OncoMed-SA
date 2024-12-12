@@ -1,16 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react'
-import Footer from '../components/Footer'
 import HamburgerMenuAdmin from '../components/HamburgerMenuAdmin'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../contexts/GlobalContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import './BlogInicio_Admin.css'
 
 function BlogInicio_Admin() {
 
     const [mostrarPopDeletar, setMostrarPopDeletar] = useState(false)
     const [blogIdParaDeletar, setBlogIdParaDeletar] = useState(null) // Para armazenar o ID do blog a ser deletado
-    const { registroBlog, setRegistroBlog } = useContext(GlobalContext)
+    const { registroBlog, setRegistroBlog } = useContext(GlobalContext);
+    const {objeto_a_armazenar_informacoes_do_blog, set_objeto_a_armazenar_informacoes_do_blog} = useContext(GlobalContext);
 
     function buttonDeletar(id) {
         setBlogIdParaDeletar(id); // Armazenando o ID do blog a ser deletado
@@ -48,6 +49,25 @@ function BlogInicio_Admin() {
         fetchBlog()
     }, [])
 
+    const navigate = useNavigate ('')
+    
+    const pegar_informacoes_do_blog = (blog) => {
+
+        set_objeto_a_armazenar_informacoes_do_blog({
+
+            id: blog.id,
+            autor: blog.autor,
+            imagem: blog.imagem,
+            titulo: blog.titulo,
+            descricao: blog.descricao
+        });
+
+        console.log(`Blog a editar`, objeto_a_armazenar_informacoes_do_blog);
+
+        navigate(`/editarBlog`);
+
+    };
+    
     return (
         <div>
             <div className="blog-alinhamento">
@@ -69,10 +89,17 @@ function BlogInicio_Admin() {
                         <div className="consultas-solicitacao">
                             {registroBlog.length > 0 ? (
                                 registroBlog.map((informacoesBlog) => (
-                                    <div className="container-artigos" key={informacoesBlog.id}>
-                                   <Link to='/criarPostagem'> <img  className="Img-ReviwBlogADM" src={informacoesBlog.imagem} alt="Evento especial Nutrição" /> </Link> 
+                                    <div className="container-artigos"  key={informacoesBlog.id}>
+                                        
+                                        <img
+                                            onClick={() => pegar_informacoes_do_blog(informacoesBlog)} 
+                                            className="Img-ReviwBlogADM"
+                                            src={informacoesBlog.imagem}
+                                            alt="Evento especial Nutrição"
+                                            
+                                            
+                                        /> 
                                         <div className='alinhamento-texto'>
-
 
                                             <div className='Descricao-ReviwBlogADM'>
                                                 <p className='titulos-artigos'>{informacoesBlog.titulo}</p>

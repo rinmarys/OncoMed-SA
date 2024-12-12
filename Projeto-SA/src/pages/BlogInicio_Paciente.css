@@ -7,116 +7,37 @@
     --cor-6: #1D2A62;
 }
 
-body {
-    background-color: var(--cor-4);
-    margin: 0;
+.blog-alinhamento {
+    margin-top: 5vw;
+    /* border:1px solid black; */
 }
 
-.artigos-alinhamento {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75%;
-    margin: 0 auto;
+.titulo-blog {
+    /* border:1px solid black; */
+    width: 45vw;
+    margin-left: 10vw;
+    margin-top: 5vw;
 }
 
-/* Titulo - MANTENHA-SE INFORMADO */
-.titulo{
-    font-family: 'Nunito', sans-serif;
-    color: var(--cor-6);
+.LinhaBlog {
+    width: 6vw;
+    height: 0.6vw;
+    border-radius: 0.5vw;
+    background-color: #AFD06E;
+    margin-top: -1vw;
 
-    width: fit-content;
-
-    margin-top: 5%;
-    margin-left: 10%;
 }
 
-.titulo div {
-    width: 25%;
-    height: 6px;
-    border-radius: 7px;
-    background-color: var(--cor-3);
-    margin-top: -18px;
+.LinhaBlog:hover {
+    transition: 0.4s;
+    width: 15vw;
 }
 
-.titulo div:hover{
-    width: 40%;
+.LinhaBlog:not(:hover) {
+    width: 6vw;
     transition: 0.4s;
 }
 
-.titulo div:not(:hover){
-    width: 25%;
-    transition: 0.4s
-}
-
-.titulo h1{
-    font-size: 35px;
-}
-
-/* Titulo - MANTENHA-SE INFORMADO */
-
-/* Alinhamento texto do artigo */
-.alinhamento-texto {
-    width: 100%;
-    margin-left: 3%;
-
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
-/* Alinhamento texto do artigo */
-
-/* Artigos */
-.container-artigos {
-    width: fit-content;
-    display: flex;
-    background-color: var(--cor-4);
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.45), 6px 6px 10px rgba(94, 104, 121, 0.3);
-    border-radius: 30px;
-    padding: 3%;
-    margin-top: 3%;
-}
-
-.container-artigos img {
-    width: 40%;
-}
-
-.container-artigos img:hover{
-    width: 40.9%;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-.container-artigos img:not(:hover){
-    width: 40%;
-    transition: 0.5s;
-}
-
-.titulos-artigos{
-    color: var(--cor-6);
-    font-family: 'Poppins', sans-serif;
-    font-size: 165%;
-    font-weight: 510;
-}
-
-.titulos-artigos:hover{
-    color: #384B7D;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-.doutores-blog{
-    width: fit-content;
-    color: var(--cor-2);
-    font-family: 'Poppins', sans-serif;
-    font-size: 125%;
-    font-weight: 500;
-    opacity: 0.7;
-    margin-top: -3%;
-}
-/* Artigos */
-
-/* Link decoration font */
-.link-decoration{
+a {
     text-decoration: none;
 }
