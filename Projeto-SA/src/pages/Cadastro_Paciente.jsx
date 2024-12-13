@@ -105,10 +105,10 @@ function Cadastro_Paciente() {
     };
   }, []);
 
-  // useEffect(() => {
+  useEffect(() => {
     
-  //   emailjs.init('pMLofLFwNCAInJwVH');
-  // }, []);
+    emailjs.init('f7Um9X990n_XKlPyh');
+  }, []);
 
   const handleSubmit = async (e) => {
 
@@ -170,11 +170,11 @@ function Cadastro_Paciente() {
 
         form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Paciente).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Paciente).svg`;
 
-          // const enviar_email = await  emailjs.sendForm('service_0eg4zpm', 'template_bmlda01', formRef.current, 'pMLofLFwNCAInJwVH')
+          const enviar_email = await  emailjs.sendForm('service_2di0djl', 'template_us9trcl', formRef.current, 'f7Um9X990n_XKlPyh')
 
           const response = await axios.post('http://localhost:3000/pacientes', form);
 
-          // console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
+          console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
 
           if (response.status === 201) {
 
@@ -257,7 +257,7 @@ function Cadastro_Paciente() {
                 <div className="input_cpf_paciente">
                 
                   <label>CPF</label>
-                 <InputMask mask='999.999.999-99' placeholder='012.345.678-91' required value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
+                 <InputMask mask='999.999.999-99' name='cpf' placeholder='012.345.678-91' required value={form.cpf || ''} onChange={(e) => setForm({...form, cpf: e.target.value})}/>
                 
                 </div>
 
@@ -306,7 +306,7 @@ function Cadastro_Paciente() {
                 <div className="input_cep_paciente">
                 
                   <label>CEP</label>
-                  <InputMask mask='99999-999' placeholder='012345-789' required value={form.cep || ''} onChange={(e) => setForm({...form, cep: e.target.value})}/>
+                  <InputMask mask='99999-999' placeholder='012345-789' name='cep' equired value={form.cep || ''} onChange={(e) => setForm({...form, cep: e.target.value})}/>
 
                 </div>
 
@@ -320,7 +320,7 @@ function Cadastro_Paciente() {
                 <div className="input_data_de_nascimento_paciente">
                 
                   <label>Data Nascimento</label>
-                  <input type="date" name='data_de_nascimento' required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
+                  <input type="date" name='data_nascimento' required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
                 
                 </div>
 

@@ -49,6 +49,10 @@ const HamburgerMenu = () => {
                         </div>
 
                         <div className='alinhamento-icons-hamburger'>
+                            <img src="historia.png" alt="agendamentos" className='alinhamento-img-hamburger' /><li><Link to='/historicoConsultas' className='Link-decoration'>Histórico</Link></li>
+                        </div>
+
+                        <div className='alinhamento-icons-hamburger'>
                             <img src="blog-icon.png" alt="blog" className='alinhamento-img-hamburger' /><li><Link to='/blogInicioAdmin' className='Link-decoration'>Blog</Link></li>
                         </div>
 

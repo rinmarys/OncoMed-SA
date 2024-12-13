@@ -214,3 +214,10 @@
     
     color: var(--cor_cinco);
 }
+
+.mensagem-erro-perfil-paciente{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #ef2828;
+    width: fit-content;
+}

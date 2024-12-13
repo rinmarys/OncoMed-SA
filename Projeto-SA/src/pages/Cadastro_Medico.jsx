@@ -114,9 +114,9 @@ function Cadastro_Medico() {
     console.log(lista_de_medicos);
   }, [lista_de_medicos]);
 
-  // useEffect(() => {
-  //   emailjs.init('pMLofLFwNCAInJwVH');
-  // }, []);
+  useEffect(() => {
+    emailjs.init('f7Um9X990n_XKlPyh');
+  }, []);
 
   const handleSubmit = async (e) => {
 
@@ -191,10 +191,8 @@ function Cadastro_Medico() {
 
         form.genero == `Feminino` ? form.imagem_de_perfil = `Imagem de Perfil Feminino (Medico).svg` : form.imagem_de_perfil = `Imagem de Perfil Masculino (Medico).svg`;
 
-        // const enviar_email = await  emailjs.sendForm('service_kioo933', 'template_sutb3ub', formRef.current, 'pMLofLFwNCAInJwVH'
-        // console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
-
-        // const enviar_email = await  emailjs.sendForm('service_kioo933', 'template_sutb3ub', formRef.current, 'pMLofLFwNCAInJwVH')
+        const enviar_email = await  emailjs.sendForm('service_2di0djl', 'template_nt06uyy', formRef.current, 'f7Um9X990n_XKlPyh')
+        console.log('Mensagem enviada', enviar_email.status, enviar_email.text);
 
         const response = await axios.post('http://localhost:3000/medicos', form);
 
@@ -312,7 +310,7 @@ function Cadastro_Medico() {
 
                   <label>CPF</label>
 
-                  <InputMask mask='999.999.999-99' placeholder='012.345.678-91' required value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
+                  <InputMask mask='999.999.999-99' name='cpf' placeholder='012.345.678-91' required value={form.cpf || ''} onChange={(e) => setForm({ ...form, cpf: e.target.value })} />
 
                 </div>
 
@@ -362,7 +360,7 @@ function Cadastro_Medico() {
 
                   <label>CRM</label>
 
-                  <InputMask mask='aaa/aa 999999' placeholder='CRM/SP 123456' required value={form.crm || ''} onChange={(e) => setForm({ ...form, crm: e.target.value })} />
+                  <InputMask mask='CRM/aa 999999' name='crm' placeholder='CRM/SP 123456' required value={form.crm || ''} onChange={(e) => setForm({ ...form, crm: e.target.value })} />
 
                 </div>
 
@@ -378,7 +376,7 @@ function Cadastro_Medico() {
 
                   <label>Data Nascimento</label>
 
-                  <input type="date" name='data_de_nascimento' required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
+                  <input type="date" name='data_nascimento' required placeholder='Data de nascimento' value={form.data_de_nascimento || ''} onChange={(e) => setForm({ ...form, data_de_nascimento: e.target.value })} />
 
                 </div>
 

@@ -17,27 +17,27 @@ function EditarBlog() {
     const [informacoes_do_blog, set_informacoes_do_blog] = useState({ id: objeto_a_armazenar_informacoes_do_blog.id, titulo: objeto_a_armazenar_informacoes_do_blog.titulo, autor: objeto_a_armazenar_informacoes_do_blog.autor, descricao: objeto_a_armazenar_informacoes_do_blog.descricao, imagem: objeto_a_armazenar_informacoes_do_blog.imagem });
     const navigate = useNavigate();
 
-    const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    // const [error, setError] = useState(null);
+    // const [isLoading, setIsLoading] = useState(false);
 
     const evento_do_formulario = async (e) => {
 
         e.preventDefault();
 
-        if (!informacoes_do_blog.titulo || !informacoes_do_blog.autor || !informacoes_do_blog.descricao) {
-            setError("Por favor, llena todos los campos.");
-            return;
-        }
+        // if (!informacoes_do_blog.titulo || !informacoes_do_blog.autor || !informacoes_do_blog.descricao) {
+        //     setError("Por favor, llena todos los campos.");
+        //     return;
+        // }
 
-        setIsLoading(true);
-        setError(null);
+        // setIsLoading(true);
+        // setError(null);
 
-        console.log(informacoes_do_blog);
+        // console.log(informacoes_do_blog);
 
         try {
 
             const resposta = await axios.put(`http://localhost:3000/blog/${informacoes_do_blog.id}`, informacoes_do_blog);
-            setIsLoading(false);
+            // setIsLoading(false);
 
             console.log(`Enviado para o pg!`, resposta.data);
             if (resposta.status == 200) {
@@ -48,7 +48,7 @@ function EditarBlog() {
             navigate('/blogInicioAdmin')
 
         } catch (erro) {
-            setIsLoading(false);
+            // setIsLoading(false);
             console.error(`Erro ao atualizar o blog!`, erro);
         }
 
@@ -113,8 +113,8 @@ function EditarBlog() {
 
                     <button type="submit">EDITAR</button>
 
-                    {isLoading && <div>Cargando...</div>}
-                    {error && <div className="mensaje-error">{error}</div>}
+                    {/* {isLoading && <div>Cargando...</div>}
+                    {error && <div className="mensaje-error">{error}</div>} */}
 
                 </div>
 

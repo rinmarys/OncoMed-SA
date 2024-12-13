@@ -22,6 +22,10 @@ function Perfil_paciente() {
   const [editando, setEditando] = useState(false);
   const [especializacao, setEspecializacao] = useState('')
   const [mensagem, setMensagem] = useState('')
+  let email_ja_cadastrado = false;
+  let cpf_ja_cadastrado = false;
+  let crm_ja_cadastrado = false;
+  const [mensagem_de_erro, set_mensagem_de_erro] = useState(``);
 
   const [showEditarSucessoPopup, setShowEditarSucessoPopup] = useState(false);
   const { showDeletarSucessoPopup, setShowDeletarSucessoPopup } = useContext(GlobalContext);
@@ -95,7 +99,7 @@ function Perfil_paciente() {
 
   useEffect(() => {
 
-    cep_ou_crm == `CRM` ? set_mascara_do_inpt(`aaa/aa 999999`) : set_mascara_do_inpt(`99999-999`);
+    cep_ou_crm == `CRM` ? set_mascara_do_inpt(`CRM/aa 999999`) : set_mascara_do_inpt(`99999-999`);
   }, [cep_ou_crm])
 
   const fetch_pacientes = async () => {
@@ -131,12 +135,45 @@ function Perfil_paciente() {
 
       for (let i = 0; i < lista_de_pacientes.length; i++) {
 
-        if (lista_de_pacientes[i].id_paciente == usuario_atualizado.id_paciente) {
+        if (usuario_atualizado.cpf == lista_de_pacientes[i].cpf) {
 
-          const response = await axios.put(
+          cpf_ja_cadastrado = true;
+        };
+
+        if (usuario_atualizado.email == lista_de_pacientes[i].email) {
+
+          email_ja_cadastrado = true;
+        };
+      };
+
+      for (let i = 0; i < lista_de_medicos.length; i++) {
+
+        if (usuario_atualizado.cpf == lista_de_medicos[i].cpf) {
+
+          cpf_ja_cadastrado = true;
+        };
+
+        if (usuario_atualizado.email == lista_de_medicos[i].email) {
+
+          email_ja_cadastrado = true;
+        };
+
+        if (usuario_atualizado.crm == lista_de_medicos[i].crm) {
+
+          crm_ja_cadastrado = true;
+        };
+      };
+
+      for (let i = 0; i < lista_de_pacientes.length; i++) {
+
+        if (lista_de_pacientes[i].id_paciente == usuario_atualizado.id_paciente && email_ja_cadastrado == false && cpf_ja_cadastrado == false) {
+
+          const response = axios.put(
             `http://localhost:3000/pacientes/${usuario_atualizado.id_paciente}`,
             usuario_atualizado
           );
+
+          setShowEditarSucessoPopup(true);
 
           if (response.status === 200) {
             setMensagem('Dados atualizados com sucesso!')
@@ -153,12 +190,15 @@ function Perfil_paciente() {
 
       for (let i = 0; i < lista_de_medicos.length; i++) {
 
-        if (lista_de_medicos[i].id_medico == usuario_atualizado.id_medico) {
+        if (lista_de_medicos[i].id_medico == usuario_atualizado.id_medico && email_ja_cadastrado == false && cpf_ja_cadastrado == false && crm_ja_cadastrado == false) {
 
-          const response = await axios.put(
+          const response = axios.put(
             `http://localhost:3000/medicos/${usuario_atualizado.id_medico}`,
             usuario_atualizado
           );
+
+          setShowEditarSucessoPopup(true);
+          mensagem_de_erro = ``;
 
           if (response.status === 200) {
 
@@ -171,7 +211,43 @@ function Perfil_paciente() {
         };
       };
 
-      setShowEditarSucessoPopup(true);
+      switch (true) {
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == false && crm_ja_cadastrado == false:
+
+          set_mensagem_de_erro(`CPF já cadastrado!`);
+          break;
+
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == true && crm_ja_cadastrado == false:
+
+          set_mensagem_de_erro(`Email já cadastrado!`);
+          break;
+
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == false && crm_ja_cadastrado == true:
+
+          set_mensagem_de_erro(`CRM já cadastrada!`);
+          break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == true && crm_ja_cadastrado == false:
+
+          set_mensagem_de_erro(`CPF e Email já cadastrados!`);
+          break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == false && crm_ja_cadastrado == true:
+
+          set_mensagem_de_erro(`CPF e CRM já cadastrados!`);
+          break;
+
+        case cpf_ja_cadastrado == false && email_ja_cadastrado == true && crm_ja_cadastrado == true:
+
+          set_mensagem_de_erro(`Email e CRM já cadastrados!`);
+          break;
+
+        case cpf_ja_cadastrado == true && email_ja_cadastrado == true && crm_ja_cadastrado == true:
+
+          set_mensagem_de_erro(`CPF, Email e CRM já cadastrados!`);
+          break;
+      }
     } catch (error) {
       console.error("Erro ao salvar os dados:", error);
       setMensagem("Não foi possível atualizar os dados. Tente novamente.");
@@ -270,6 +346,10 @@ function Perfil_paciente() {
               <button className="button-deletar-perfil"
                 onClick={deletarConta}
               >DELETAR CONTA</button>
+            </div>
+
+            <div className="mensagem-erro-perfil-paciente">
+              {mensagem_de_erro}
             </div>
           </div>
 
