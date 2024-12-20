@@ -1,5 +1,4 @@
 # <img src="https://github.com/nicholas-sc-08/Projeto-SA-2a-Modulo-SENAI/blob/main/Projeto-SA/public/Logo_Footer.svg" width='200px' height='100px'/>
-
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![NodeJS](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Postegree](https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white)
