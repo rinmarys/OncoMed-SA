@@ -2,7 +2,7 @@
 
 <p>Seja bem vindo a este repositório!! OncoMed é uma plataforma digital que facilita o agendamento de consultas oncológicas e oferece acesso a informações educativas de qualidade, visando melhorar a experiência dos pacientes e profissionais de saúde no combate ao câncer.</p>
 
-# Características do projeto
+## Características do projeto
 
 <p>Lista de características destacadas no projeto:</p>
 
