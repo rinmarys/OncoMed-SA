@@ -55,3 +55,13 @@
 <p>E por ultimo, usamos o Trello para a gestão das tarefas e progresso do projeto.</p>
 <a href='https://trello.com/invite/b/66c38d75f0383a9b4fff14a2/ATTI08d0886c91f67d0432ab87d2253e250cE512EBA3/projeto'>Acesse nosso Trello</a>🗂️
 
+## 👑 Instalação do Projeto
+
+1. **Clonar o repositório:**
+
+   Abra o explorador de arquivos, digite `cmd` na barra de caminho e pressione Enter. Em seguida, execute o comando:
+
+   git clone https://github.com/nicholas-sc-08/Projeto-SA-2a-Modulo-SENAI.git
+
+
+
