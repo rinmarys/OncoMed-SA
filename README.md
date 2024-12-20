@@ -47,7 +47,7 @@
 <br>
 
 <p>Fizemos uma documentação técnica e guias de uso e requisitos do projeto.</p>
-<a href='[https://www.canva.com/design/DAGYQwcE80E/F1Kz9ie8plXei4bH6ZJQZg/edit?utm_content=DAGYQwcE80E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](https://docs.google.com/document/d/1JCgDHtOrIPcDpeNMzDOljcKf5PUUvkDxb4L_-Jmbklg/edit?usp=sharing)'>Acesse a documentação</a>📚
+<a href='https://docs.google.com/document/d/1JCgDHtOrIPcDpeNMzDOljcKf5PUUvkDxb4L_-Jmbklg/edit?usp=sharing'>Acesse a documentação</a>📚
 
 <br>
 <br>
