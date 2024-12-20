@@ -61,7 +61,9 @@
 
    Abra o explorador de arquivos, digite `cmd` na barra de caminho e pressione Enter. Em seguida, execute o comando:
 
+```git
    git clone https://github.com/nicholas-sc-08/Projeto-SA-2a-Modulo-SENAI.git
+```
 
 
 
