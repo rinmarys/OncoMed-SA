@@ -255,3 +255,4 @@ const pool = new Pool({
 
 <p>Se tudo estiver configurado certo já está pronto! Divirta-se!!</p>
 
+<h6>Made by Nicholas Serencovich Carvalho</h6>
